@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -61,311 +61,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-android.graphics" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/01/05/android.graphics/" class="article-date">
-  <time datetime="2017-01-05T09:49:56.000Z" itemprop="datePublished">2017-01-05</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Android/">Android</a>►<a class="article-category-link" href="/categories/Android/Graphic/">Graphic</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/05/android.graphics/">android.graphics</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="android-graphics"><a href="#android-graphics" class="headerlink" title="android.graphics"></a>android.graphics</h1><h4 id="matrix"><a href="#matrix" class="headerlink" title="matrix"></a>matrix</h4><p><a href="https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B09%5DMatrix_Basic.md?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io" target="_blank" rel="external">https://github.com/GcsSloop/AndroidNote/blob/master/CustomView/Advance/%5B09%5DMatrix_Basic.md?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/05/android.graphics/" data-id="cixk6z50n000tvuyjwo0esosn" class="article-share-link">Partager</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-问题以及解决" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/01/05/问题以及解决/" class="article-date">
-  <time datetime="2017-01-05T09:49:56.000Z" itemprop="datePublished">2017-01-05</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Android/">Android</a>►<a class="article-category-link" href="/categories/Android/problem-solving/">problem-solving</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/05/问题以及解决/">问题以及解决</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="问题以及解决"><a href="#问题以及解决" class="headerlink" title="问题以及解决"></a>问题以及解决</h2><p></p><h4>NO.1</h4><p></p>
-<ul>
-<li><strong>问题描述：</strong>home键或者其他方式程序进入后台后，一段时间回到前台界面显示信息出错</li>
-<li><strong>原因分析：</strong>由于app进入后台时间太久没有唤起，被系统回收</li>
-<li><strong>问题解决：</strong>在application类的onCreate方法里面对重新启动进行监听并重新启动进入后台时候的Activity</li>
-</ul>
-<p></p><h4>NO.2</h4><p></p>
-<ul>
-<li><strong>问题描述：</strong>postDelay+Dialog引起的窗体泄露</li>
-<li><strong>原因分析：</strong>Android中消息队列postDelay+Dialog引起的窗体泄露的主要原因是，当床窗体压入栈或者finish掉后，Activity由于需要处理postDelay而不能及时销毁，因此造成了一个问题，当dialog触发show方法时，由于window和activity已经分开了，因此便会造成窗体泄露。</li>
-<li><strong>问题解决：</strong>通过对Activity的状态进行监听确定是否显示dialog，见代码<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">boolean</span> isActive = <span class="keyword">true</span>;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">super</span>.onResume();</div><div class="line">    isActive = <span class="keyword">true</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPause</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">super</span>.onPause();</div><div class="line">    isActive = <span class="keyword">false</span>;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">activityIsActivity</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">return</span> isActive;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showAlertDialog</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>(activityIsActive())  <span class="comment">//只有窗体处于活动状态时执行此程序</span></div><div class="line">    &#123;</div><div class="line">        AlertDialog.Builder builder = <span class="keyword">new</span> AlertDialog.Builder(activity);</div><div class="line">        builder.setTitle(<span class="string">"hello world"</span>)</div><div class="line">               .setCancelable(<span class="keyword">false</span>)</div><div class="line">               .setMessage(<span class="string">"Hello"</span>);</div><div class="line">    	builder.create().show();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/05/问题以及解决/" data-id="cixk6z5230023vuyj90yzzlit" class="article-share-link">Partager</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Shell基础" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/01/05/Shell基础/" class="article-date">
-  <time datetime="2017-01-05T09:49:56.000Z" itemprop="datePublished">2017-01-05</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Linux/">Linux</a>►<a class="article-category-link" href="/categories/Linux/shell/">shell</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/05/Shell基础/">Shell基础</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Shell基础"><a href="#Shell基础" class="headerlink" title="Shell基础"></a>Shell基础</h1><h4 id="1-Unix常用目录："><a href="#1-Unix常用目录：" class="headerlink" title="1. Unix常用目录："></a>1. Unix常用目录：</h4><ul>
-<li><a href="http://www.ruanyifeng.com/blog/2012/02/a_history_of_unix_directory_structure.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2012/02/a_history_of_unix_directory_structure.html</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard" target="_blank" rel="external">https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard</a></li>
-<li><a href="http://cnbin.github.io/blog/2015/06/05/mac-os-x-de-xi-tong-mu-lu-jie-gou/" target="_blank" rel="external">http://cnbin.github.io/blog/2015/06/05/mac-os-x-de-xi-tong-mu-lu-jie-gou/</a></li>
-</ul>
-<h4 id="2-关于-amp-–-的区别"><a href="#2-关于-amp-–-的区别" class="headerlink" title="2. 关于 - &amp; – 的区别"></a>2. 关于 - &amp; – 的区别</h4><p><a href="http://serverfault.com/questions/387935/whats-the-difference-betwen-the-single-dash-and-double-dash-flags-on-shell-comm" target="_blank" rel="external">http://serverfault.com/questions/387935/whats-the-difference-betwen-the-single-dash-and-double-dash-flags-on-shell-comm</a></p>
-<h4 id="3-命令格式"><a href="#3-命令格式" class="headerlink" title="3. 命令格式"></a>3. 命令格式</h4><p><code>command [options] [arguments]</code></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/05/Shell基础/" data-id="cixk5g6ty0008ngyj92vxh1fk" class="article-share-link">Partager</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Shell常用命令" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/01/05/Shell常用命令/" class="article-date">
-  <time datetime="2017-01-05T09:49:56.000Z" itemprop="datePublished">2017-01-05</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Linux/">Linux</a>►<a class="article-category-link" href="/categories/Linux/shell/">shell</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/05/Shell常用命令/">Shell常用命令</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Shell常用命令"><a href="#Shell常用命令" class="headerlink" title="Shell常用命令"></a>Shell常用命令</h1><p><a href="http://man.linuxde.net/" target="_blank" rel="external">http://man.linuxde.net/</a></p>
-<h3 id="1-系统常用命令"><a href="#1-系统常用命令" class="headerlink" title="1. 系统常用命令"></a>1. 系统常用命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">uname -a               查看内核/操作系统/CPU信息</div><div class="line">head -n 1 /etc/issue   查看操作系统版本</div><div class="line">cat /proc/cpuinfo      查看CPU信息</div><div class="line">hostname               查看计算机名</div><div class="line">lspci -tv              列出所有PCI设备</div><div class="line">lsusb -tv              列出所有USB设备</div><div class="line">lsmod                  列出加载的内核模块</div><div class="line">env                    查看环境变量</div><div class="line">ipconfig getifaddR     获取IP地址</div><div class="line">mv FILE_A FILE_B       重命名FILE_A</div><div class="line">nohup some-command &amp;   后台运行some-command</div><div class="line">wget -O some-file some-url 下载some-url到some-file</div><div class="line">tar -xvf filename.tar.gz 解压文件</div><div class="line">ln -s FILE_PATH LINK_PATH 创建软连接</div><div class="line">df -h 磁盘占用情况</div><div class="line">du -sh * 或者 du -ah --max-depth=1 当前目录下所有文件夹和文件的大小</div><div class="line">du -sh * | sort -h 根据大小排序文件/文件夹</div></pre></td></tr></table></figure>
-<h3 id="2-查找-grep-find-locate"><a href="#2-查找-grep-find-locate" class="headerlink" title="2. 查找 grep find locate"></a>2. 查找 grep find locate</h3><p><a href="http://www.ruanyifeng.com/blog/2009/10/5_ways_to_search_for_files_using_the_terminal.html" target="_blank" rel="external">查找相关命令</a></p>
-<p><a href="http://www.cnblogs.com/xudong-bupt/archive/2013/03/23/2976793.html" target="_blank" rel="external">find和grep的区别:</a></p>
-<p>find查找的文件的属性，grep查找的是文件的内容</p>
-<p><code>find . -name &quot;*Dao*&quot; -exec rm -rf {} \; 查找当前目录所有文件名包含Dao的文件并将他们删除</code></p>
-<h3 id="3-数据处理-awk-sed"><a href="#3-数据处理-awk-sed" class="headerlink" title="3. 数据处理 awk sed"></a>3. 数据处理 awk sed</h3><h3 id="4-用户和权限管理"><a href="#4-用户和权限管理" class="headerlink" title="4. 用户和权限管理"></a>4. 用户和权限管理</h3><h4 id="4-1-用户和用户组"><a href="#4-1-用户和用户组" class="headerlink" title="4.1 用户和用户组"></a>4.1 用户和用户组</h4><ul>
-<li>用户和用户组的关系可以是1.一对一 2.一对多 3.多对多 4.多对一</li>
-<li>切换用户 <code>su(switch user) username</code></li>
-</ul>
-<h4 id="4-2-新增"><a href="#4-2-新增" class="headerlink" title="4.2 新增"></a>4.2 新增</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">useradd username 添加用户</div></pre></td></tr></table></figure>
-<h4 id="4-3-修改"><a href="#4-3-修改" class="headerlink" title="4.3 修改"></a>4.3 修改</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">passwd username 修改用户密码</div></pre></td></tr></table></figure>
-<h4 id="4-4-查询"><a href="#4-4-查询" class="headerlink" title="4.4 查询"></a>4.4 查询</h4><ul>
-<li><p><code>groups username</code>  显示someUser所在组，可能有多个</p>
-</li>
-<li><p>在/etc/group 中的每条记录分四个字段：</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"> _postgres:*:216:_devicemgr,_calendar,_teamsserver,_xserverdocs</div><div class="line">用户组名称：用户组密码：GID：用户列表</div></pre></td></tr></table></figure>
-<h4 id="4-5-删除"><a href="#4-5-删除" class="headerlink" title="4.5 删除"></a>4.5 删除</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">userdel username 删除用户</div></pre></td></tr></table></figure>
-<ol>
-<li><p>权限管理</p>
-<p> 一个文档的所有者只能有一个用户</p>
-</li>
-<li><p>chmod&amp;chown命令</p>
-<ul>
-<li>chown更改文档的属主，指定 有且只有一个用户。</li>
-<li><p>chomod更改文件的权限，包括user（属主），group（与属主同一个用户组），        other（其他用户）对文件的rwx权限，7表示全部权限开通</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">chmod a+x f01　　对文件f01的u,g,o都设置可执行属性,a代表所有用户(u,g,o)</div><div class="line"></div><div class="line">sudo chown -R athrun:admin mysql/  修改文件夹mysql和内部所有文件的所有者为用户athrun，用户组为admin（athrun不属于admin也是可以的）</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ol>
-<h3 id="5-查看进程信息"><a href="#5-查看进程信息" class="headerlink" title="5. 查看进程信息"></a>5. 查看进程信息</h3><ul>
-<li>lsof(list open files)</li>
-<li>ps</li>
-</ul>
-<p><code>ps -ef | grep nginx 查找和nginx有关系的进程列表</code></p>
-<p><code>|</code> :管道命令，将上个命令的输出作为下个命令的输入</p>
-<p>以查看1099端口占用进程为例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">lsof -i :1099</div><div class="line">ps -ef | grep 1099</div></pre></td></tr></table></figure>
-<p>终止相关进程</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo kill -9 PID</div></pre></td></tr></table></figure>
-<h3 id="6-Java监控-jstat-jmap-jstack"><a href="#6-Java监控-jstat-jmap-jstack" class="headerlink" title="6. Java监控(jstat,jmap,jstack)"></a>6. Java监控(jstat,jmap,jstack)</h3><ol>
-<li>常规监控：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">jstat  -gcutil pid  //查看gc情况</div><div class="line">jstat -gcutil 23613 2000</div></pre></td></tr></table></figure>
-<ol>
-<li>出现瓶颈时监控：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">jmap -heap  pid  // 查看堆内存使用情况</div><div class="line">jmap -histo  pid  //打印每个class的实例数目,内存占用,类全名</div><div class="line">jstack pid &gt; pid.txt  //jvm 线程分析</div><div class="line">top -Hp  pid  //查看那个线程cpu高，将线程id 转成16进制  在 jstack 导出来的文本文件中查看这个线程在干嘛</div><div class="line">printf  “%x”Tid   //打印线程号的16进制</div></pre></td></tr></table></figure>
-<h3 id="7-远程文件传输"><a href="#7-远程文件传输" class="headerlink" title="7. 远程文件传输"></a>7. 远程文件传输</h3><p>方式一：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">scp scp.test root@172.16.10.4:/tmp/scp.test 从本地上传到远程服务器</div><div class="line">scp username@servername:/path/filename /tmp/local_destination 从远程下载文件到本地</div></pre></td></tr></table></figure>
-<p>方式二：</p>
-<p>安装lrzsz，使用rz上传文件，sz下载文件<br>TIPs:文件较大时使用rz -e</p>
-<p>方式三：<br>FTP</p>
-<p>方式四：</p>
-<p>使用ssh支持的sftp传输文件到服务器</p>
-<p><code>vsftpd</code> can support FTPS if configured, but <code>sftp</code> runs over ssh.</p>
-<p>1.连接远程ftp服务器<br><code>sftp root@202.206.64.33</code></p>
-<p>2.拉取远程文件到本地<br><code>sftp&gt; get /var/www/fuyatao/index.php  /home/fuyatao/</code><br>这条语句将从远程主机的  /var/www/fuyatao/目录下将 index.php 下载到本地  /home/fuyatao/目录下。</p>
-<p>3.上传本地文件到远程<br><code>sftp&gt; put /home/fuyatao/downloads/Linuxgl.pdf /var/www/fuyatao/</code><br>这条语句将把本地 /home/fuyatao/downloads/目录下的 linuxgl.pdf文件上传至远程主机。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/05/Shell常用命令/" data-id="cixk5g6u0000bngyjeydcx8qp" class="article-share-link">Partager</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-编程语言分类" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/01/05/编程语言分类/" class="article-date">
-  <time datetime="2017-01-05T09:49:56.000Z" itemprop="datePublished">2017-01-05</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Common/">Common</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/05/编程语言分类/">编程语言分类</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="编程语言分类"><a href="#编程语言分类" class="headerlink" title="编程语言分类"></a>编程语言分类</h1><pre><code>众所周知，编程语言有很多种，以下是对编程语言的几种常见分类标准
-</code></pre><p>按照应用执行过程进行分类，对于高级语言需要转化成机器语言才能够执行<br></p>
-<ol>
-<li><strong>机器语言</strong></li>
-<li><strong>汇编语言</strong></li>
-<li><strong>高级语言</strong></li>
-</ol>
-<p>按照执行前准备进行分类</p>
-<ol>
-<li><strong>编译型语言</strong> 在执行前需要经过编译成机器语言，如C、C++<br></li>
-<li><strong>解释型语言</strong> 在运行时才转化为机器语言，所以效率相对于编译型语言比较低，如Java、C#，<strong>脚本语言</strong>可以理解为解释型语言，在运行时通过解释器执行</li>
-</ol>
-<p>按照语言结构特性</p>
-<ol>
-<li><strong>函数式编程语言</strong> <a href="http://www.ruanyifeng.com/blog/2012/04/functional_programming.html" target="_blank" rel="external">函数是第一公民</a><br> </li>
-<li><strong>面向过程变成语言</strong><br></li>
-<li><strong>面向对象编程语言</strong><br></li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/05/编程语言分类/" data-id="cixk5g6ui000wngyjzyo5h2qj" class="article-share-link">Partager</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-1.IO" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/01/05/1.IO/" class="article-date">
-  <time datetime="2017-01-05T09:49:56.000Z" itemprop="datePublished">2017-01-05</time>
+  <time datetime="2017-01-05T10:13:11.000Z" itemprop="datePublished">2017-01-05</time>
 </a>
     
   <div class="article-category">
@@ -388,7 +87,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-IO"><a href="#1-IO" class="headerlink" title="1. IO"></a>1. IO</h1><p>首先看一下类继承关系</p>
+        <p>首先看一下类继承关系</p>
 <p><img src="./img/571e11240001bce529553298.jpg" alt=""></p>
 <ul>
 <li>命名规则其实就是 <code>操作对象 + 读写方式</code></li>
@@ -448,7 +147,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/05/1.IO/" data-id="cixk6z4z30000vuyj64hqi2u9" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/01/05/1.IO/" data-id="cixk7sv6j0000xlyjt3xpw7nq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -458,14 +157,14 @@
 
 
   
-    <article id="post-1.代理的概念：" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-问题以及解决" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/01/05/1.代理的概念：/" class="article-date">
-  <time datetime="2017-01-05T09:49:56.000Z" itemprop="datePublished">2017-01-05</time>
+    <a href="/2017/01/05/问题以及解决/" class="article-date">
+  <time datetime="2017-01-05T10:13:11.000Z" itemprop="datePublished">2017-01-05</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Java/">Java</a>►<a class="article-category-link" href="/categories/Java/DynamicProxy/">DynamicProxy</a>
+    <a class="article-category-link" href="/categories/Android/">Android</a>►<a class="article-category-link" href="/categories/Android/problem-solving/">problem-solving</a>
   </div>
 
   </div>
@@ -476,7 +175,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/05/1.代理的概念：/">1.代理的概念：</a>
+      <a class="article-title" href="/2017/01/05/问题以及解决/">问题以及解决</a>
     </h1>
   
 
@@ -484,20 +183,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="1-代理的概念："><a href="#1-代理的概念：" class="headerlink" title="1. 代理的概念："></a>1. 代理的概念：</h4><p><img src="dp1.png" alt=""></p>
-<pre><code>图中A是调用者，B是代理类，C是委托类，也称作被代理类。
-代理类和被代理类一般实现相同的接口。
-</code></pre><h4 id="2-动态代理"><a href="#2-动态代理" class="headerlink" title="2. 动态代理"></a>2. 动态代理</h4><p><img src="dp2.png" alt=""></p>
-<blockquote>
-<p>InvocationHandler相对于OperateImpl是代理类，相对于Proxy是委托，是一个双重角色。<br>    MyProxy类是调用<code>public static Object java.lang.reflect.Proxy.newProxyInstance(ClassLoader loader, Class&lt;?&gt;[] interfaces,InvocationHandler invocationHandler)</code>生成的一个中间类，MyProxy类继承自java.lang.reflect.Proxy,并实现参数interfaces的所有接口,在接口的实现中调用InvocationHandler，这是第一次代理，在InvocationHandler的invoke方法中调用OperateImpl的方法，这是第二次代理。</p>
-</blockquote>
-<p>参考：</p>
-<p>1.<a href="http://www.infoq.com/cn/articles/cf-java-reflection-dynamic-proxy" target="_blank" rel="external">http://www.infoq.com/cn/articles/cf-java-reflection-dynamic-proxy</a><br>2.<a href="http://a.codekk.com/detail/Android/Caij/%E5%85%AC%E5%85%B1%E6%8A%80%E6%9C%AF%E7%82%B9%E4%B9%8B%20Java%20%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86" target="_blank" rel="external">http://a.codekk.com/detail/Android/Caij/%E5%85%AC%E5%85%B1%E6%8A%80%E6%9C%AF%E7%82%B9%E4%B9%8B%20Java%20%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86</a></p>
+        <hr>
+<p></p><h4>NO.1</h4><p></p>
+<ul>
+<li><strong>问题描述：</strong>home键或者其他方式程序进入后台后，一段时间回到前台界面显示信息出错</li>
+<li><strong>原因分析：</strong>由于app进入后台时间太久没有唤起，被系统回收</li>
+<li><strong>问题解决：</strong>在application类的onCreate方法里面对重新启动进行监听并重新启动进入后台时候的Activity</li>
+</ul>
+<p></p><h4>NO.2</h4><p></p>
+<ul>
+<li><strong>问题描述：</strong>postDelay+Dialog引起的窗体泄露</li>
+<li><strong>原因分析：</strong>Android中消息队列postDelay+Dialog引起的窗体泄露的主要原因是，当床窗体压入栈或者finish掉后，Activity由于需要处理postDelay而不能及时销毁，因此造成了一个问题，当dialog触发show方法时，由于window和activity已经分开了，因此便会造成窗体泄露。</li>
+<li><strong>问题解决：</strong>通过对Activity的状态进行监听确定是否显示dialog，见代码<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">boolean</span> isActive = <span class="keyword">true</span>;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">super</span>.onResume();</div><div class="line">    isActive = <span class="keyword">true</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPause</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">super</span>.onPause();</div><div class="line">    isActive = <span class="keyword">false</span>;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">activityIsActivity</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">return</span> isActive;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showAlertDialog</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>(activityIsActive())  <span class="comment">//只有窗体处于活动状态时执行此程序</span></div><div class="line">    &#123;</div><div class="line">        AlertDialog.Builder builder = <span class="keyword">new</span> AlertDialog.Builder(activity);</div><div class="line">        builder.setTitle(<span class="string">"hello world"</span>)</div><div class="line">               .setCancelable(<span class="keyword">false</span>)</div><div class="line">               .setMessage(<span class="string">"Hello"</span>);</div><div class="line">    	builder.create().show();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/05/1.代理的概念：/" data-id="cixk6z4z70001vuyjdzchnxno" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/01/05/问题以及解决/" data-id="cixk7svav003ixlyjlh9mmdmq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -510,7 +214,7 @@
     <article id="post-1.安装" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/01/05/1.安装/" class="article-date">
-  <time datetime="2017-01-05T09:49:56.000Z" itemprop="datePublished">2017-01-05</time>
+  <time datetime="2017-01-05T10:13:11.000Z" itemprop="datePublished">2017-01-05</time>
 </a>
     
   <div class="article-category">
@@ -533,7 +237,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h2><h3 id="1-1-环境"><a href="#1-1-环境" class="headerlink" title="1.1 环境"></a>1.1 环境</h3><p>MAC OS X EI Capitan(自带python2.7)</p>
+        <h3 id="1-1-环境"><a href="#1-1-环境" class="headerlink" title="1.1 环境"></a>1.1 环境</h3><p>MAC OS X EI Capitan(自带python2.7)</p>
 <h3 id="1-2-安装python3"><a href="#1-2-安装python3" class="headerlink" title="1.2 安装python3"></a>1.2 安装python3</h3><p><code>brew install python3</code></p>
 <h3 id="1-3-安装依赖-使用豆瓣源"><a href="#1-3-安装依赖-使用豆瓣源" class="headerlink" title="1.3 安装依赖(使用豆瓣源)"></a>1.3 安装依赖(使用豆瓣源)</h3><p><code>pip install pythonModuleName -i https://pypi.douban.com/simple</code></p>
 <h3 id="1-4-依赖包路径"><a href="#1-4-依赖包路径" class="headerlink" title="1.4 依赖包路径"></a>1.4 依赖包路径</h3><p><img src="media/14806695832283.jpg" alt=""></p>
@@ -541,7 +245,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/05/1.安装/" data-id="cixk6z4zi0003vuyjp2s6fpo3" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/01/05/1.安装/" data-id="cixk7sv720003xlyj1mx8obca" class="article-share-link">Share</a>
       
       
     </footer>
@@ -554,7 +258,7 @@
     <article id="post-AIDL" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/01/05/AIDL/" class="article-date">
-  <time datetime="2017-01-05T09:49:56.000Z" itemprop="datePublished">2017-01-05</time>
+  <time datetime="2017-01-05T10:13:11.000Z" itemprop="datePublished">2017-01-05</time>
 </a>
     
   <div class="article-category">
@@ -577,7 +281,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="AIDL"><a href="#AIDL" class="headerlink" title="AIDL"></a>AIDL</h1><blockquote>
+        <p>===</p>
+<blockquote>
 <p>全称 Android Interface Definition Language<br></p>
 <blockquote>
 <p>是一种Android内部进程间通信的机制</p>
@@ -598,7 +303,48 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/05/AIDL/" data-id="cixk6z4zj0004vuyjlwy7vdjy" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/01/05/AIDL/" data-id="cixk7sv740004xlyjqudq9zzn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-AndroidBinder" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/05/AndroidBinder/" class="article-date">
+  <time datetime="2017-01-05T10:13:11.000Z" itemprop="datePublished">2017-01-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android/">Android</a>►<a class="article-category-link" href="/categories/Android/Binder/">Binder</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/05/AndroidBinder/">AndroidBinder</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h3 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h3><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/01/05/AndroidBinder/" data-id="cixk7sv780005xlyj52unsr1s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -611,7 +357,7 @@
     <article id="post-AndroidSupportLibrary" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/01/05/AndroidSupportLibrary/" class="article-date">
-  <time datetime="2017-01-05T09:49:56.000Z" itemprop="datePublished">2017-01-05</time>
+  <time datetime="2017-01-05T10:13:11.000Z" itemprop="datePublished">2017-01-05</time>
 </a>
     
   <div class="article-category">
@@ -634,7 +380,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Android-Support-Library"><a href="#Android-Support-Library" class="headerlink" title="Android Support Library"></a>Android Support Library</h1><p>详见<a href="https://developer.android.com/topic/libraries/support-library/features.html#design" target="_blank" rel="external">官方文档</a></p>
+        <p>详见<a href="https://developer.android.com/topic/libraries/support-library/features.html#design" target="_blank" rel="external">官方文档</a></p>
 <h4 id="1-主要分类"><a href="#1-主要分类" class="headerlink" title="1. 主要分类"></a>1. 主要分类</h4><table>
 <thead>
 <tr>
@@ -710,7 +456,230 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/05/AndroidSupportLibrary/" data-id="cixk6z4zl0005vuyjil8kft8a" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/01/05/AndroidSupportLibrary/" data-id="cixk7sv7d0007xlyjki1drchm" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Android自动构建" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/05/Android自动构建/" class="article-date">
+  <time datetime="2017-01-05T10:13:11.000Z" itemprop="datePublished">2017-01-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Platforms-Tools/">Platforms&Tools</a>►<a class="article-category-link" href="/categories/Platforms-Tools/Jenkins/">Jenkins</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/05/Android自动构建/">Android自动构建</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<pre><code>主机：jenkins服务器
+节点机：windows 7 64bit
+构建工具：gradle    
+脚本：python 3.5
+</code></pre><p>###一、搭建jenkins</p>
+<p>jenkins本身是一个java服务端程序，可以直接在tomcat等服务器上运行。</p>
+<p>###二、创建主机节点</p>
+<p>安装好jenkins就可以配置节点啦。</p>
+<p>配置如下<br><img src="./20151118100923211.png" alt=""></p>
+<pre><code>说明：
+1、远程工作目录：节点机器的工作目录，用于同步版本管理的代码、生成目标文件（Android就是apk文件）
+2、标签（lable）：在创建构建任务时指定lable就能将任务绑定到指定节点
+</code></pre><p>###三、启动jenkins节点（需先下载slave.jar）</p>
+<p>创建jenkins节点后，节点显示是不可用的状态，这是在节点机器命令行上运行如下代码即可启动节点机器，完成节点机器和主机的通信：<br><code>java -jar slave.jar -jnlpUrl http://192.168.20.168:8080/jenkins/computer/Android-Movie-UAT-Node/slave-agent.jnlp -secret ef17b121a06d6
+c5f42cfd9e12b4c98b569d165e08f3d492381b90a0b2530f025</code></p>
+<pre><code>说明：密钥在通讯时验证，不同节点不同时间会不同，在节点机离线时进入节点详情可以看到这段代码。
+</code></pre><p>###四、配置节点机器的构建环境</p>
+<ol>
+<li>安装jdk，并在命令行配置java、javac等命令</li>
+<li>安装Android sdk，并配置android等命令</li>
+<li>安装gradle，并配置环境变量，这里使用的是<code>gradle 2.6</code></li>
+</ol>
+<p>###五、创建构建任务</p>
+<p>配置的android-gradle-movies如图</p>
+<p><img src="gradle-job-0.png" alt="">;<br><img src="gradle-job-1.png" alt="">;<br><img src="gradle-job-2.png" alt="">;</p>
+<pre><code>关于任务配置的说明
+1. Label指定运行的节点机器。
+2. 构建 栏目使用的是windows shell命令行，因为在安装gradle插件的时候安装失败，所以直接调用节点机器的命令行执行构建指令
+3. Archive the artifacts将生成的构建文件保存到主机服务器，从而在构建成功后可以在jenkins服务器下载。
+4. 代码放在svn，最好是主工程和子工程放在一个目录下面，并且代码中的sdk路径配置需要和执行构建任务机器的sdk路径相同，不然会找不到sdk导致构建失败。
+</code></pre><p>###六、执行构建，获得构建结果</p>
+<p>构建成功后可以在<strong>状态</strong>栏看到：<br><img src="gradle-job-result.png" alt=""></p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>在构建中有两步，因为对用windows cmd命令操作文件不熟悉，所以引入了python脚本,同时也方便以后切换到线上Linux环境复用脚本。<br>使用sublime+jedi插件作为python工具还是很赞的</p>
+<p>涉及的python文件如：</p>
+<ol>
+<li>switch_env.py</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="keyword">import</span> re</div><div class="line"><span class="keyword">import</span> codecs</div><div class="line"></div><div class="line">env = sys.argv[<span class="number">1</span>]</div><div class="line">print(<span class="string">'环境变量'</span>+env)</div><div class="line"></div><div class="line">env_file_path = <span class="string">'./projectFoundation/src/main/java/com/project/foundation/BaseBuildConfig.java'</span></div><div class="line">env_file_r = open(env_file_path,<span class="string">'r'</span>,encoding=<span class="string">'utf8'</span>)</div><div class="line">lines = env_file_r.readlines();</div><div class="line">env_file_r.close</div><div class="line">print(<span class="string">'行数'</span>+str(len(lines)))</div><div class="line"></div><div class="line">env_file_w = open(env_file_path,<span class="string">'w'</span>,encoding=<span class="string">'utf8'</span>)</div><div class="line"></div><div class="line"><span class="keyword">for</span> line <span class="keyword">in</span> lines:</div><div class="line">	<span class="keyword">if</span> <span class="string">'private final static int CURRENT_ENVIRONMENT'</span> <span class="keyword">in</span> line:</div><div class="line">		print(<span class="string">"修改环境前："</span>+line)</div><div class="line">		newline = <span class="string">"private final static int CURRENT_ENVIRONMENT = "</span>+env+<span class="string">" ;"</span></div><div class="line">		env_file_w.writelines(newline)	</div><div class="line">		print(<span class="string">"修改环境后："</span>+newline)</div><div class="line">		<span class="keyword">continue</span></div><div class="line">	env_file_w.writelines(line)</div><div class="line"></div><div class="line">env_file_w.close()</div></pre></td></tr></table></figure>
+<ol>
+<li>rename_apk.py</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> os</div><div class="line"><span class="keyword">import</span> os.path</div><div class="line"><span class="keyword">import</span> sys</div><div class="line">file_path_old = <span class="string">'./cmbShellProject/build/outputs/apk/cmbShellProject-debug.apk'</span></div><div class="line">file_path_new = <span class="string">'./cmbShellProject/build/outputs/apk/Movies-'</span>+sys.argv[<span class="number">1</span>]+<span class="string">'.apk'</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> os.path.isfile(file_path_new):</div><div class="line">	os.remove(file_path_new)</div><div class="line">	print(<span class="string">'成功移除文件 '</span>+ file_path_new)</div><div class="line"><span class="keyword">else</span>:</div><div class="line">	print(file_path_new+<span class="string">'不存在，不需移除文'</span>)</div><div class="line">os.rename(file_path_old , file_path_new)</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/01/05/Android自动构建/" data-id="cixk7sv7g0008xlyj96adx5av" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Annotation" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/05/Annotation/" class="article-date">
+  <time datetime="2017-01-05T10:13:11.000Z" itemprop="datePublished">2017-01-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>►<a class="article-category-link" href="/categories/Java/Annotation/">Annotation</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/05/Annotation/">Annotation</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>参考</p>
+<ol>
+<li><a href="http://www.infoq.com/cn/articles/cf-java-annotation" target="_blank" rel="external">http://www.infoq.com/cn/articles/cf-java-annotation</a></li>
+<li><a href="http://www.trinea.cn/android/java-annotation-android-open-source-analysis/" target="_blank" rel="external">http://www.trinea.cn/android/java-annotation-android-open-source-analysis/</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/01/05/Annotation/" data-id="cixk7sv7l000axlyj5kmh7s28" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Generic" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/05/Generic/" class="article-date">
+  <time datetime="2017-01-05T10:13:11.000Z" itemprop="datePublished">2017-01-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>►<a class="article-category-link" href="/categories/Java/Generic/">Generic</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/05/Generic/">Generic</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>类型擦除：Java中的泛型基本上都是在编译器这个层次来实现的。在生成的Java字节代码中是不包含泛型中的类型信息的。使用泛型的时候加上的类型参数，会被编译器在编译的时候去掉。这个过程就称为类型擦除。</p>
+<p><a href="http://my.oschina.net/jiemachina/blog/201507" target="_blank" rel="external">关于T,K,V…以及通配符?</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/01/05/Generic/" data-id="cixk7sv7n000bxlyj8ggkgwtd" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Gradle" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/05/Gradle/" class="article-date">
+  <time datetime="2017-01-05T10:13:11.000Z" itemprop="datePublished">2017-01-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Platforms-Tools/">Platforms&Tools</a>►<a class="article-category-link" href="/categories/Platforms-Tools/构建工具/">构建工具</a>►<a class="article-category-link" href="/categories/Platforms-Tools/构建工具/Gradle/">Gradle</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/05/Gradle/">Gradle</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>todo<br><a href="http://blog.csdn.net/innost/article/details/48228651" target="_blank" rel="external">http://blog.csdn.net/innost/article/details/48228651</a></p>
+<h4 id="1-什么是Gradle"><a href="#1-什么是Gradle" class="headerlink" title="1. 什么是Gradle"></a>1. 什么是Gradle</h4><p>Gradle is Groovy but more than Groovy</p>
+<h4 id="2-基本概念"><a href="#2-基本概念" class="headerlink" title="2. 基本概念"></a>2. 基本概念</h4><p>一个project包含多个task</p>
+<ul>
+<li>project</li>
+<li>task</li>
+</ul>
+<h4 id="3-基本语法"><a href="#3-基本语法" class="headerlink" title="3. 基本语法"></a>3. 基本语法</h4><p>创建一个task</p>
+<p>Gradle</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">task helloWorld &lt;&lt; &#123;</div><div class="line">    println &apos;helloWorld&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Groovy</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">task(&quot;helloWorld&quot;).leftShift(&#123;</div><div class="line">    println &apos;hello world&apos;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/01/05/Gradle/" data-id="cixk7sv7r000dxlyj1hxfet6r" class="article-share-link">Share</a>
       
       
     </footer>
@@ -731,7 +700,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Catégories</h3>
+    <h3 class="widget-title">Categories</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algrithm/">Algrithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/Binder/">Binder</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/Graphic/">Graphic</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/Resolution/">Resolution</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/SupportLibrary/">SupportLibrary</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/aidl-demo/">aidl-demo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/my-works/">my-works</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/my-works/Animation-BookShelf/">Animation-BookShelf</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/my-works/TouchEvent-SelectSeatView/">TouchEvent-SelectSeatView</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/problem-solving/">problem-solving</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/优化/">优化</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/优化/其他优化/">其他优化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/优化/内存优化/">内存优化</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/批量打包/">批量打包</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Common/">Common</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Common/Cryptography/">Cryptography</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Common/Quick-Response-Code/">Quick-Response-Code</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Common/git-direction/">git-direction</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Common/regular-expression/">regular-expression</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Annotation/">Annotation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/ClassLoader/">ClassLoader</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Concurrent/">Concurrent</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/DynamicProxy/">DynamicProxy</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Generic/">Generic</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/IO/">IO</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Lambda/">Lambda</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Memory/">Memory</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/RXJava/">RXJava</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/VI/">VI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/shell/">shell</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/">Platforms&Tools</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/Jenkins/">Jenkins</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/WebServer/">WebServer</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/开发协作/">开发协作</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/提升效率的工具/">提升效率的工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/构建工具/">构建工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/构建工具/Ant/">Ant</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/构建工具/Gradle/">Gradle</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web/jQuery/">jQuery</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/微信小程序/">微信小程序</a></li></ul></li></ul>
     </div>
@@ -740,23 +709,9 @@
 
   
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
-    <div class="widget">
-      <ul class="tag-list"></ul>
-    </div>
-  </div>
-
 
   
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
-    <div class="widget tagcloud">
-      
-    </div>
-  </div>
-
   
     
   <div class="widget-wrap">
@@ -770,12 +725,12 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
           <li>
-            <a href="/2017/01/05/android.graphics/">android.graphics</a>
+            <a href="/2017/01/05/1.IO/">1.IO</a>
           </li>
         
           <li>
@@ -783,15 +738,15 @@
           </li>
         
           <li>
-            <a href="/2017/01/05/Shell基础/">Shell基础</a>
+            <a href="/2017/01/05/1.安装/">1.安装</a>
           </li>
         
           <li>
-            <a href="/2017/01/05/Shell常用命令/">Shell常用命令</a>
+            <a href="/2017/01/05/AIDL/">AIDL</a>
           </li>
         
           <li>
-            <a href="/2017/01/05/编程语言分类/">编程语言分类</a>
+            <a href="/2017/01/05/AndroidBinder/">AndroidBinder</a>
           </li>
         
       </ul>
@@ -807,7 +762,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 Athrun<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

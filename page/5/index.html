@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -61,60 +61,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-环境" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/01/05/环境/" class="article-date">
-  <time datetime="2017-01-05T09:49:56.000Z" itemprop="datePublished">2017-01-05</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Platforms-Tools/">Platforms&Tools</a>►<a class="article-category-link" href="/categories/Platforms-Tools/WebServer/">WebServer</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/05/环境/">环境</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>环境 </p>
-<pre><code>Mac OS X EI Capitan 10.11.5
-</code></pre><h4 id="1-apache"><a href="#1-apache" class="headerlink" title="1. apache"></a>1. apache</h4><p>90端口<br>配置文件：/private/etc/apache2/httpd.conf</p>
-<p><code>apachectl</code>是<code>httpd</code>命令的封装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo apachectl start//将apache加入系统启动项并进行守护</div><div class="line">sudo apachectl start//将apache从系统启动项卸载，避免apache一直处于启动状态，杀都杀不死</div><div class="line">sudo apachectl -k start//启动apache</div><div class="line">sudo httpd -k start//启动apache</div></pre></td></tr></table></figure>
-<p><img src="img/14709940930630.jpg" alt=""></p>
-<h4 id="2-tomcat"><a href="#2-tomcat" class="headerlink" title="2. tomcat"></a>2. tomcat</h4><p>8080端口</p>
-<h4 id="3-nginx"><a href="#3-nginx" class="headerlink" title="3. nginx"></a>3. nginx</h4><p>80端口</p>
-<h4 id="4-elastic-search"><a href="#4-elastic-search" class="headerlink" title="4. elastic-search"></a>4. elastic-search</h4><p>9200端口</p>
-<h4 id="5-redis"><a href="#5-redis" class="headerlink" title="5. redis"></a>5. redis</h4><p> 6379端口</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/05/环境/" data-id="cixk6z51n001qvuyjat71bya7" class="article-share-link">Partager</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-生成基于ant的构建脚本" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/01/05/生成基于ant的构建脚本/" class="article-date">
-  <time datetime="2017-01-05T09:49:56.000Z" itemprop="datePublished">2017-01-05</time>
+  <time datetime="2017-01-05T10:13:11.000Z" itemprop="datePublished">2017-01-05</time>
 </a>
     
   <div class="article-category">
@@ -137,7 +87,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>生成基于ant的构建脚本<br><code>android update project -p .  生成build.xml</code></p>
+        <p><code>android update project -p .  生成build.xml</code></p>
 <h2 id="标签简介"><a href="#标签简介" class="headerlink" title="标签简介"></a>标签简介</h2><ol>
 <li>property定义一些全部字符串变量，如位置等</li>
 <li>target 内部定义一连串的操作，达成的目标，是一个基本的执行单元，类似于方法</li>
@@ -147,7 +97,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/05/生成基于ant的构建脚本/" data-id="cixk6z51o001rvuyj20cpgrd4" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/01/05/生成基于ant的构建脚本/" data-id="cixk7svak0035xlyj797jxih2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -160,7 +110,7 @@
     <article id="post-电影在线选座" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/01/05/电影在线选座/" class="article-date">
-  <time datetime="2017-01-05T09:49:56.000Z" itemprop="datePublished">2017-01-05</time>
+  <time datetime="2017-01-05T10:13:11.000Z" itemprop="datePublished">2017-01-05</time>
 </a>
     
   <div class="article-category">
@@ -183,7 +133,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="电影在线选座"><a href="#电影在线选座" class="headerlink" title="电影在线选座"></a>电影在线选座</h2><ol>
+        <hr>
+<ol>
 <li>效果图</li>
 </ol>
 <p><img src="./img-select-seat.gif" alt=""></p>
@@ -205,7 +156,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/05/电影在线选座/" data-id="cixk6z51q001uvuyjuwiynm1y" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/01/05/电影在线选座/" data-id="cixk7sval0037xlyjdlbwjam0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -218,7 +169,7 @@
     <article id="post-算法" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/01/05/算法/" class="article-date">
-  <time datetime="2017-01-05T09:49:56.000Z" itemprop="datePublished">2017-01-05</time>
+  <time datetime="2017-01-05T10:13:11.000Z" itemprop="datePublished">2017-01-05</time>
 </a>
     
   <div class="article-category">
@@ -241,7 +192,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><h4 id="0-1背包问题"><a href="#0-1背包问题" class="headerlink" title="0-1背包问题"></a>0-1背包问题</h4><ul>
+        <h4 id="0-1背包问题"><a href="#0-1背包问题" class="headerlink" title="0-1背包问题"></a>0-1背包问题</h4><ul>
 <li>每件物品或被带走，或被留下，（需要做出0-1选择）。</li>
 <li>使用动态规划</li>
 <li>动态规划算法：<br><img src="media/14790299357657.jpg" alt=""></li>
@@ -254,7 +205,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/05/算法/" data-id="cixk6z51t001wvuyj15za1x3g" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/01/05/算法/" data-id="cixk7svam003axlyj69ppzvz9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -267,7 +218,7 @@
     <article id="post-类加载器" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/01/05/类加载器/" class="article-date">
-  <time datetime="2017-01-05T09:49:56.000Z" itemprop="datePublished">2017-01-05</time>
+  <time datetime="2017-01-05T10:13:11.000Z" itemprop="datePublished">2017-01-05</time>
 </a>
     
   <div class="article-category">
@@ -290,7 +241,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h1><h3 id="1-Java的Classloader"><a href="#1-Java的Classloader" class="headerlink" title="1. Java的Classloader"></a>1. Java的Classloader</h3><ol>
+        <h3 id="1-Java的Classloader"><a href="#1-Java的Classloader" class="headerlink" title="1. Java的Classloader"></a>1. Java的Classloader</h3><ol>
 <li>BootStrapClassloader：加载 jre/lib 目录下的核心 API</li>
 <li>ExtClassloader：加载jre/lib/ext 目录下jar包</li>
 <li>AppClassloader：加载CLASSPATH中的类，我们编写的应用类默认情况下都是通过 AppClassLoader 进行加载的。</li>
@@ -309,7 +260,65 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/05/类加载器/" data-id="cixk6z51v001zvuyjw7rtua0f" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/01/05/类加载器/" data-id="cixk7svan003cxlyjfr7syqug" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-编程语言分类" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/05/编程语言分类/" class="article-date">
+  <time datetime="2017-01-05T10:13:11.000Z" itemprop="datePublished">2017-01-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Common/">Common</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/05/编程语言分类/">编程语言分类</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>===<br>    众所周知，编程语言有很多种，以下是对编程语言的几种常见分类标准</p>
+<p>按照应用执行过程进行分类，对于高级语言需要转化成机器语言才能够执行<br></p>
+<ol>
+<li><strong>机器语言</strong></li>
+<li><strong>汇编语言</strong></li>
+<li><strong>高级语言</strong></li>
+</ol>
+<p>按照执行前准备进行分类</p>
+<ol>
+<li><strong>编译型语言</strong> 在执行前需要经过编译成机器语言，如C、C++<br></li>
+<li><strong>解释型语言</strong> 在运行时才转化为机器语言，所以效率相对于编译型语言比较低，如Java、C#，<strong>脚本语言</strong>可以理解为解释型语言，在运行时通过解释器执行</li>
+</ol>
+<p>按照语言结构特性</p>
+<ol>
+<li><strong>函数式编程语言</strong> <a href="http://www.ruanyifeng.com/blog/2012/04/functional_programming.html" target="_blank" rel="external">函数是第一公民</a><br> </li>
+<li><strong>面向过程变成语言</strong><br></li>
+<li><strong>面向对象编程语言</strong><br></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/01/05/编程语言分类/" data-id="cixk7svas003fxlyjtoxu6m37" class="article-share-link">Share</a>
       
       
     </footer>
@@ -322,7 +331,7 @@
     <article id="post-网络地址分类" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/01/05/网络地址分类/" class="article-date">
-  <time datetime="2017-01-05T09:49:56.000Z" itemprop="datePublished">2017-01-05</time>
+  <time datetime="2017-01-05T10:13:11.000Z" itemprop="datePublished">2017-01-05</time>
 </a>
     
   <div class="article-category">
@@ -345,8 +354,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###网络地址分类</p>
-<ol>
+        <ol>
 <li><strong>A类地址</strong>：4个8位位组（octets）中第一个octet代表网络号，剩下的3个代表主机位。范围是0xxxxxxx，即0到127。</li>
 <li><strong>B类地址</strong>：前2个octets代表网络号，剩下的2个代表主机位。范围是10xxxxxx，即128到191。</li>
 <li><strong>C类地址</strong>：前3个octets代表网络号，剩下的1个代表主机位。范围是110xxxxx，即192到223。</li>
@@ -368,7 +376,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/05/网络地址分类/" data-id="cixk6z51y0021vuyjxn3w7725" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/01/05/网络地址分类/" data-id="cixk7svau003gxlyjcj26654s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -413,7 +421,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/07/13/hello-world/" data-id="cixk19h3i0001olyjezn8ecjs" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/07/13/hello-world/" data-id="cixk7sv9p0026xlyjvcqy9n5v" class="article-share-link">Share</a>
       
       
     </footer>
@@ -434,7 +442,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Catégories</h3>
+    <h3 class="widget-title">Categories</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algrithm/">Algrithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/Binder/">Binder</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/Graphic/">Graphic</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/Resolution/">Resolution</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/SupportLibrary/">SupportLibrary</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/aidl-demo/">aidl-demo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/my-works/">my-works</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/my-works/Animation-BookShelf/">Animation-BookShelf</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/my-works/TouchEvent-SelectSeatView/">TouchEvent-SelectSeatView</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/problem-solving/">problem-solving</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/优化/">优化</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/优化/其他优化/">其他优化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/优化/内存优化/">内存优化</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/批量打包/">批量打包</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Common/">Common</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Common/Cryptography/">Cryptography</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Common/Quick-Response-Code/">Quick-Response-Code</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Common/git-direction/">git-direction</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Common/regular-expression/">regular-expression</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Annotation/">Annotation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/ClassLoader/">ClassLoader</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Concurrent/">Concurrent</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/DynamicProxy/">DynamicProxy</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Generic/">Generic</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/IO/">IO</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Lambda/">Lambda</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Memory/">Memory</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/RXJava/">RXJava</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/VI/">VI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/shell/">shell</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/">Platforms&Tools</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/Jenkins/">Jenkins</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/WebServer/">WebServer</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/开发协作/">开发协作</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/提升效率的工具/">提升效率的工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/构建工具/">构建工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/构建工具/Ant/">Ant</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/构建工具/Gradle/">Gradle</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web/jQuery/">jQuery</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/微信小程序/">微信小程序</a></li></ul></li></ul>
     </div>
@@ -443,23 +451,9 @@
 
   
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
-    <div class="widget">
-      <ul class="tag-list"></ul>
-    </div>
-  </div>
-
 
   
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
-    <div class="widget tagcloud">
-      
-    </div>
-  </div>
-
   
     
   <div class="widget-wrap">
@@ -473,12 +467,12 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
           <li>
-            <a href="/2017/01/05/android.graphics/">android.graphics</a>
+            <a href="/2017/01/05/1.IO/">1.IO</a>
           </li>
         
           <li>
@@ -486,15 +480,15 @@
           </li>
         
           <li>
-            <a href="/2017/01/05/Shell基础/">Shell基础</a>
+            <a href="/2017/01/05/1.安装/">1.安装</a>
           </li>
         
           <li>
-            <a href="/2017/01/05/Shell常用命令/">Shell常用命令</a>
+            <a href="/2017/01/05/AIDL/">AIDL</a>
           </li>
         
           <li>
-            <a href="/2017/01/05/编程语言分类/">编程语言分类</a>
+            <a href="/2017/01/05/AndroidBinder/">AndroidBinder</a>
           </li>
         
       </ul>
@@ -510,7 +504,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 Athrun<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

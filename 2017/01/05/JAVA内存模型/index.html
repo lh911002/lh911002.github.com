@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JAVA内存模型 | Athrun</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="JAVA 内存模型1. 内存模型1.1 内存分类
+虚拟机栈：每个线程有一个虚拟机栈，栈的空间有上限，达到上限会报stackoverflow异常。
+Java Heap：java堆内存区域所有线程共享，所有对象和数组都在堆上进行分配内存，当申请不到空间时抛出OutOfMemoryError。
+Java Heap具体又可以分为以下三个部分：
+
+年轻代
+Eden(空间不注意分配新对象就出发GC)
+Surv">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA内存模型">
+<meta property="og:url" content="http://yoursite.com/2017/01/05/JAVA内存模型/index.html">
+<meta property="og:site_name" content="Athrun">
+<meta property="og:description" content="JAVA 内存模型1. 内存模型1.1 内存分类
+虚拟机栈：每个线程有一个虚拟机栈，栈的空间有上限，达到上限会报stackoverflow异常。
+Java Heap：java堆内存区域所有线程共享，所有对象和数组都在堆上进行分配内存，当申请不到空间时抛出OutOfMemoryError。
+Java Heap具体又可以分为以下三个部分：
+
+年轻代
+Eden(空间不注意分配新对象就出发GC)
+Surv">
+<meta property="og:updated_time" content="2017-01-05T09:49:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JAVA内存模型">
+<meta name="twitter:description" content="JAVA 内存模型1. 内存模型1.1 内存分类
+虚拟机栈：每个线程有一个虚拟机栈，栈的空间有上限，达到上限会报stackoverflow异常。
+Java Heap：java堆内存区域所有线程共享，所有对象和数组都在堆上进行分配内存，当申请不到空间时抛出OutOfMemoryError。
+Java Heap具体又可以分为以下三个部分：
+
+年轻代
+Eden(空间不注意分配新对象就出发GC)
+Surv">
+  
+    <link rel="alternate" href="/atom.xml" title="Athrun" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Athrun</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JAVA内存模型" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/05/JAVA内存模型/" class="article-date">
+  <time datetime="2017-01-05T09:49:56.000Z" itemprop="datePublished">2017-01-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>►<a class="article-category-link" href="/categories/Java/Memory/">Memory</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JAVA内存模型
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="JAVA-内存模型"><a href="#JAVA-内存模型" class="headerlink" title="JAVA 内存模型"></a>JAVA 内存模型</h1><h4 id="1-内存模型"><a href="#1-内存模型" class="headerlink" title="1. 内存模型"></a>1. 内存模型</h4><h4 id="1-1-内存分类"><a href="#1-1-内存分类" class="headerlink" title="1.1 内存分类"></a>1.1 内存分类</h4><ul>
+<li><strong>虚拟机栈</strong>：每个线程有一个虚拟机栈，栈的空间有上限，达到上限会报stackoverflow异常。</li>
+<li><p><strong>Java Heap</strong>：java堆内存区域所有线程共享，所有对象和数组都在堆上进行分配内存，当申请不到空间时抛出OutOfMemoryError。</p>
+<p>Java Heap具体又可以分为以下三个部分：</p>
+<ul>
+<li>年轻代<ul>
+<li>Eden(空间不注意分配新对象就出发GC)</li>
+<li>Survivor</li>
+</ul>
+</li>
+<li>年老代</li>
+<li>永久代</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>方法区</strong>：永久代是一种JVM规范，方法区是虚拟机对永久代的一种实现，一般存储类的信息，常量池，方法代码。</li>
+</ul>
+<p>参考： <a href="http://www.cnblogs.com/paddix/p/5309550.html" target="_blank" rel="external">http://www.cnblogs.com/paddix/p/5309550.html</a></p>
+<h4 id="2-GC策略"><a href="#2-GC策略" class="headerlink" title="2. GC策略"></a>2. GC策略</h4><p>TODO</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/01/05/JAVA内存模型/" data-id="cixk6z508000hvuyjn6ocw5pw" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/01/05/Generic/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          Generic
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/01/05/Lambda/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">Lambda</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Catégories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algrithm/">Algrithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/Binder/">Binder</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/Graphic/">Graphic</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/Resolution/">Resolution</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/SupportLibrary/">SupportLibrary</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/aidl-demo/">aidl-demo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/my-works/">my-works</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/my-works/Animation-BookShelf/">Animation-BookShelf</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/my-works/TouchEvent-SelectSeatView/">TouchEvent-SelectSeatView</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/problem-solving/">problem-solving</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/优化/">优化</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/优化/其他优化/">其他优化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/优化/内存优化/">内存优化</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/批量打包/">批量打包</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Common/">Common</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Common/Cryptography/">Cryptography</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Common/Quick-Response-Code/">Quick-Response-Code</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Common/git-direction/">git-direction</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Common/regular-expression/">regular-expression</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Annotation/">Annotation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/ClassLoader/">ClassLoader</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Concurrent/">Concurrent</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/DynamicProxy/">DynamicProxy</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Generic/">Generic</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/IO/">IO</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Lambda/">Lambda</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Memory/">Memory</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/RXJava/">RXJava</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/VI/">VI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/shell/">shell</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/">Platforms&Tools</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/Jenkins/">Jenkins</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/WebServer/">WebServer</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/开发协作/">开发协作</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/提升效率的工具/">提升效率的工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/构建工具/">构建工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/构建工具/Ant/">Ant</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/构建工具/Gradle/">Gradle</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web/jQuery/">jQuery</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/微信小程序/">微信小程序</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Mot-clés</h3>
+    <div class="widget">
+      <ul class="tag-list"></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <div class="widget tagcloud">
+      
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/01/05/android.graphics/">android.graphics</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/05/问题以及解决/">问题以及解决</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/05/Shell基础/">Shell基础</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/05/Shell常用命令/">Shell常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/05/编程语言分类/">编程语言分类</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Athrun<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

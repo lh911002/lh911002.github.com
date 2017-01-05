@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>vim操作 | Athrun</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="vim操作####模式简介
+1. Normal 
+2. Insert
+3. Visual
+
+用v命令进入的字符可视化模式（Characterwise visual mode)。文本选择是以字符为单位的。
+用V命令进入的行可视化模式（Linewise visual mode)。文本选择是以行为单位的。
+用ctrl-V进入的块可视化模式（Blockwise visual mode）。可以选择一个矩形内">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vim操作">
+<meta property="og:url" content="http://yoursite.com/2017/01/05/vim操作/index.html">
+<meta property="og:site_name" content="Athrun">
+<meta property="og:description" content="vim操作####模式简介
+1. Normal 
+2. Insert
+3. Visual
+
+用v命令进入的字符可视化模式（Characterwise visual mode)。文本选择是以字符为单位的。
+用V命令进入的行可视化模式（Linewise visual mode)。文本选择是以行为单位的。
+用ctrl-V进入的块可视化模式（Blockwise visual mode）。可以选择一个矩形内">
+<meta property="og:updated_time" content="2017-01-05T09:49:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vim操作">
+<meta name="twitter:description" content="vim操作####模式简介
+1. Normal 
+2. Insert
+3. Visual
+
+用v命令进入的字符可视化模式（Characterwise visual mode)。文本选择是以字符为单位的。
+用V命令进入的行可视化模式（Linewise visual mode)。文本选择是以行为单位的。
+用ctrl-V进入的块可视化模式（Blockwise visual mode）。可以选择一个矩形内">
+  
+    <link rel="alternate" href="/atom.xml" title="Athrun" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Athrun</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-vim操作" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/05/vim操作/" class="article-date">
+  <time datetime="2017-01-05T09:49:56.000Z" itemprop="datePublished">2017-01-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>►<a class="article-category-link" href="/categories/Linux/VI/">VI</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      vim操作
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="vim操作"><a href="#vim操作" class="headerlink" title="vim操作"></a>vim操作</h2><p>####模式简介</p>
+<pre><code>1. Normal 
+2. Insert
+3. Visual
+</code></pre><ol>
+<li>用v命令进入的字符可视化模式（Characterwise visual mode)。文本选择是以字符为单位的。</li>
+<li>用V命令进入的行可视化模式（Linewise visual mode)。文本选择是以行为单位的。</li>
+<li>用ctrl-V进入的块可视化模式（Blockwise visual mode）。可以选择一个矩形内的文本。（注意：在Windows中，ctrl-V可能已经被影射为粘贴操作，可以使用ctrl-Q进入块可视化模式。）</li>
+</ol>
+<p>####复制粘贴操作</p>
+<pre><code>yy复制游标所在行整行。或大写一个Y。 
+2yy或y2y复制两行。
+y^复制至行首，或y0。不含游标所在处字元。 
+y$复制至行尾。含游标所在处字元。 
+yw复制一个word。 
+y2w复制两个字（单词）。 
+yG复制至档尾。 
+y1G复制至档首。 
+p小写p代表贴至游标后（下）。 
+P大写P代表贴至游标前（上）。 
+</code></pre><h4 id="删除命令"><a href="#删除命令" class="headerlink" title="删除命令"></a>删除命令</h4><pre><code>ndw或ndW：删除光标处开始及其后的n-1个字
+
+do：删至行首
+
+d$：删至行尾
+
+ndd：删除当前行及其后n-1行
+
+x或X：删除一个字符，x删除光标后的，而X删除光标前的
+
+Ctrl+u：删除输入方式下所输入的文本
+</code></pre><p>####光标移动操作</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/01/05/vim操作/" data-id="cixk6z50s000yvuyjj6y6cn9u" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/01/05/quickresponsecode/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          quickresponsecode
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/01/05/regularexpression/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">regularexpression</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Catégories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algrithm/">Algrithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/Binder/">Binder</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/Graphic/">Graphic</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/Resolution/">Resolution</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/SupportLibrary/">SupportLibrary</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/aidl-demo/">aidl-demo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/my-works/">my-works</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/my-works/Animation-BookShelf/">Animation-BookShelf</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/my-works/TouchEvent-SelectSeatView/">TouchEvent-SelectSeatView</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/problem-solving/">problem-solving</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/优化/">优化</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/优化/其他优化/">其他优化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/优化/内存优化/">内存优化</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/批量打包/">批量打包</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Common/">Common</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Common/Cryptography/">Cryptography</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Common/Quick-Response-Code/">Quick-Response-Code</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Common/git-direction/">git-direction</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Common/regular-expression/">regular-expression</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Annotation/">Annotation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/ClassLoader/">ClassLoader</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Concurrent/">Concurrent</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/DynamicProxy/">DynamicProxy</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Generic/">Generic</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/IO/">IO</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Lambda/">Lambda</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Memory/">Memory</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/RXJava/">RXJava</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/VI/">VI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/shell/">shell</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/">Platforms&Tools</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/Jenkins/">Jenkins</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/WebServer/">WebServer</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/开发协作/">开发协作</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/提升效率的工具/">提升效率的工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/构建工具/">构建工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/构建工具/Ant/">Ant</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/构建工具/Gradle/">Gradle</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web/jQuery/">jQuery</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/微信小程序/">微信小程序</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Mot-clés</h3>
+    <div class="widget">
+      <ul class="tag-list"></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <div class="widget tagcloud">
+      
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/01/05/android.graphics/">android.graphics</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/05/问题以及解决/">问题以及解决</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/05/Shell基础/">Shell基础</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/05/Shell常用命令/">Shell常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/05/编程语言分类/">编程语言分类</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Athrun<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

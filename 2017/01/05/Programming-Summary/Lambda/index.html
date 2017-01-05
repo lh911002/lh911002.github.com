@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Lambda | Athrun</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Outline
+
+
+Lambda定义和结构
+java.util.function（java8功能性接口）
+java.util.stream（java8流式接口）
+
+
+一、Lambda定义和结构
+
+
+Lambda表达式的定义：Java8引入Lambda表达式的目的是简化内部类的使用，其实质仍然是一个函数或者接口的实现。
+虽然称作Lambda表达式，但是不同于一般的可计算的表达式，Lambda表达式是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lambda">
+<meta property="og:url" content="http://yoursite.com/2017/01/05/Programming-Summary/Lambda/index.html">
+<meta property="og:site_name" content="Athrun">
+<meta property="og:description" content="Outline
+
+
+Lambda定义和结构
+java.util.function（java8功能性接口）
+java.util.stream（java8流式接口）
+
+
+一、Lambda定义和结构
+
+
+Lambda表达式的定义：Java8引入Lambda表达式的目的是简化内部类的使用，其实质仍然是一个函数或者接口的实现。
+虽然称作Lambda表达式，但是不同于一般的可计算的表达式，Lambda表达式是">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/006y8lVagw1fbg1n5ablwj30720h8wgm.jpg">
+<meta property="og:updated_time" content="2017-01-05T13:02:49.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Lambda">
+<meta name="twitter:description" content="Outline
+
+
+Lambda定义和结构
+java.util.function（java8功能性接口）
+java.util.stream（java8流式接口）
+
+
+一、Lambda定义和结构
+
+
+Lambda表达式的定义：Java8引入Lambda表达式的目的是简化内部类的使用，其实质仍然是一个函数或者接口的实现。
+虽然称作Lambda表达式，但是不同于一般的可计算的表达式，Lambda表达式是">
+<meta name="twitter:image" content="http://ww4.sinaimg.cn/large/006y8lVagw1fbg1n5ablwj30720h8wgm.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Athrun" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Athrun</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Programming-Summary/Lambda" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/05/Programming-Summary/Lambda/" class="article-date">
+  <time datetime="2017-01-05T13:02:49.000Z" itemprop="datePublished">2017-01-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>►<a class="article-category-link" href="/categories/Java/Lambda/">Lambda</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Lambda
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3>Outline</h3>
+
+<ul>
+<li><a href="#1">Lambda定义和结构</a></li>
+<li><a href="#2">java.util.function（java8功能性接口）</a></li>
+<li><a href="#3">java.util.stream（java8流式接口）</a></li>
+</ul>
+<hr>
+<h3 id="1">一、Lambda定义和结构</h3>
+
+
+<h5 id="Lambda表达式的定义："><a href="#Lambda表达式的定义：" class="headerlink" title="Lambda表达式的定义："></a>Lambda表达式的定义：</h5><pre><code>Java8引入Lambda表达式的目的是简化内部类的使用，其实质仍然是一个函数或者接口的实现。
+虽然称作Lambda表达式，但是不同于一般的可计算的表达式，Lambda表达式是一个接口（函数）的实现，也可以理解成匿名类的缩写。
+</code></pre><p><em>注：对于一个接口如果有多个未实现的方法，则不能使用Lambda表达式，可以有default和static方法方法</em></p>
+<h5 id="基本结构："><a href="#基本结构：" class="headerlink" title="基本结构："></a>基本结构：</h5><pre><code>( 形式参数 ) -&gt; { 方法实现 }
+</code></pre><p>形式参数的参数类型可以省去，编译器可以自动判断<br>e.g.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Collections.sort(list, (x, y) -&gt; y - x)</div></pre></td></tr></table></figure></p>
+<p>上面代码中的Lambda表达式：(x, y) -&gt; y - x 实现的就是 java.util.Comparator 接口的<br><figure class="highlight plain"><figcaption><span>compare(T o1, T o2);```方法，虽然代码中没有显式指明，但是编译器会自动根据语法规则判断，并在编译成字节码时应用这些规则。</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">##### 基本概念</div><div class="line"></div><div class="line">函数式接口。</div><div class="line"></div><div class="line">	如果一个接口定义个唯一一个抽象方法，那么这个接口就成为函数式接口，只有函数式接口才能使用Lambda表达式进行简化。</div><div class="line"></div><div class="line">方法引用</div></pre></td></tr></table></figure></p>
+<ol>
+<li>ClassName:: MethodName </li>
+<li>InstanceName:MethodName</li>
+<li>ClassName::new<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">接口默认方法，在实现接口时就不需要实现Default方法</div><div class="line">```java</div><div class="line">public interface IDefaultMethod &#123;</div><div class="line">    String getString();</div><div class="line">    default int getInt()&#123;</div><div class="line">        return 1024;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>编译器自动推导类型</strong></p>
+<ol>
+<li>接口类型</li>
+<li>方法参数类型</li>
+<li>方法返回值类型</li>
+</ol>
+<p>如果不能推导出来那就需要开发者显示指出</p>
+<h3 id="2">二、java.util.function（java8功能性接口）</h3>
+
+<p>java.util.function是java8中提供便于Lambda编程的接口，包内全部为接口<br><a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html" target="_blank" rel="external">api文档</a></p>
+<p><img src="http://ww4.sinaimg.cn/large/006y8lVagw1fbg1n5ablwj30720h8wgm.jpg" alt=""></p>
+<p>主要分为</p>
+<ol>
+<li>Consumer（泛型输入，无输出）</li>
+<li>Function（泛型输入，泛型输出）</li>
+<li>Predicate（泛型输入，Boolean输出）</li>
+<li>Supplier(无输入，泛型输出)</li>
+<li>UnaryOperator(一元操作，输入一个T，返回一个T，因为继承Function)</li>
+<li>BinaryOperator(二元操作，输入两个T，返回一个T，因为继承BiFunction)</li>
+</ol>
+<h3 id="3">三、java.util.stream</h3>
+
+<pre><code>流是一种基于集合这种数据源产生的，可以在其上处理一系列操作的对象。
+</code></pre><p>扩展阅读</p>
+<p><a href="http://lucida.me/blog/java-8-lambdas-insideout-language-features/" target="_blank" rel="external">http://lucida.me/blog/java-8-lambdas-insideout-language-features/</a></p>
+<p><a href="http://www.oschina.net/translate/everything-about-java-8" target="_blank" rel="external">http://www.oschina.net/translate/everything-about-java-8</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/01/05/Programming-Summary/Lambda/" data-id="cixkdvw50000fynjg1h782qve" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/01/05/Programming-Summary/JAVA 内存模型/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JAVA 内存模型
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/01/05/Programming-Summary/MACHINE LEARNING/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">MACHINE LEARNING</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algrithm/">Algrithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/Binder/">Binder</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/Graphic/">Graphic</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/Resolution/">Resolution</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/SupportLibrary/">SupportLibrary</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/aidl-demo/">aidl-demo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/problem-solving/">problem-solving</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/优化/">优化</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/优化/其他优化/">其他优化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/优化/内存优化/">内存优化</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/批量打包/">批量打包</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/自定义UI/">自定义UI</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/自定义UI/Animation-BookShelf/">Animation-BookShelf</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/自定义UI/TouchEvent-SelectSeatView/">TouchEvent-SelectSeatView</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Common/">Common</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Common/Cryptography/">Cryptography</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Common/Quick-Response-Code/">Quick-Response-Code</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Common/git-direction/">git-direction</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Common/regular-expression/">regular-expression</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Annotation/">Annotation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/ClassLoader/">ClassLoader</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Concurrent/">Concurrent</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/DynamicProxy/">DynamicProxy</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Generic/">Generic</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/IO/">IO</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Lambda/">Lambda</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Memory/">Memory</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/RXJava/">RXJava</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/VI/">VI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/shell/">shell</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/">Platforms&Tools</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/Jenkins/">Jenkins</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/开发协作/">开发协作</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/提升效率的工具/">提升效率的工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/构建工具/">构建工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/构建工具/Ant/">Ant</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/构建工具/Gradle/">Gradle</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web/jQuery/">jQuery</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/微信小程序/">微信小程序</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/01/05/Programming-Summary/git常用命令/">git常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/05/Programming-Summary/问题以及解决/">问题以及解决</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/05/Programming-Summary/Android Binder/">Android Binder</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/05/Programming-Summary/Android分辨率兼容/">Android分辨率兼容</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/05/Programming-Summary/Android Support Library/">Android Support Library</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Athrun<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

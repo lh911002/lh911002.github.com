@@ -61,14 +61,14 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-1.IO" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Programming-Summary/git常用命令" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/01/05/1.IO/" class="article-date">
-  <time datetime="2017-01-05T10:13:11.000Z" itemprop="datePublished">2017-01-05</time>
+    <a href="/2017/01/05/Programming-Summary/git常用命令/" class="article-date">
+  <time datetime="2017-01-05T13:02:49.000Z" itemprop="datePublished">2017-01-05</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Java/">Java</a>►<a class="article-category-link" href="/categories/Java/IO/">IO</a>
+    <a class="article-category-link" href="/categories/Common/">Common</a>►<a class="article-category-link" href="/categories/Common/git-direction/">git-direction</a>
   </div>
 
   </div>
@@ -79,7 +79,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/05/1.IO/">1.IO</a>
+      <a class="article-title" href="/2017/01/05/Programming-Summary/git常用命令/">git常用命令</a>
     </h1>
   
 
@@ -87,67 +87,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>首先看一下类继承关系</p>
-<p><img src="./img/571e11240001bce529553298.jpg" alt=""></p>
-<ul>
-<li>命名规则其实就是 <code>操作对象 + 读写方式</code></li>
-<li>字节流不需要处理编码，字节流和字符流转换才需要处理编码</li>
-</ul>
-<h4 id="1-1-IO的要素"><a href="#1-1-IO的要素" class="headerlink" title="1.1 IO的要素"></a>1.1 IO的要素</h4><ul>
-<li>内存（缓冲区）</li>
-<li>流（通道）</li>
-<li>操作对象</li>
-</ul>
-<h4 id="1-2-操作对象"><a href="#1-2-操作对象" class="headerlink" title="1.2 操作对象"></a>1.2 操作对象</h4><ul>
-<li>byte[]对象</li>
-<li>String对象</li>
-<li>File对象</li>
-<li>套接字</li>
-</ul>
-<h4 id="1-3-方向"><a href="#1-3-方向" class="headerlink" title="1.3 方向"></a>1.3 方向</h4><ul>
-<li>Input/Reader:从对象到内存</li>
-<li>Output/Writer:从内存到对象</li>
-</ul>
-<h4 id="1-4-读写方式"><a href="#1-4-读写方式" class="headerlink" title="1.4 读写方式"></a>1.4 读写方式</h4><ul>
-<li>字节(InputStream/OutputStream)：一次读取一个字节</li>
-<li>字符(Reader/Writer)：其实字符流可以看做是一种包装流，它的底层还是采用字节流来读取字节</li>
-</ul>
-<h4 id="1-5-特性"><a href="#1-5-特性" class="headerlink" title="1.5 特性"></a>1.5 特性</h4><ul>
-<li>Streams</li>
-</ul>
-<p>one byte at a time. Good for binary data.<br>byte oriented stream (8 bit)<br>good for binary data such as a Java .class file<br>good for “machine-oriented” data</p>
-<ul>
-<li>Readers/Writers</li>
-</ul>
-<p>one character at a time. Good for text data.<br>char (utf-16) oriented stream (16 bit)<br>good for text such as a Java source<br>good for “human-oriented” data</p>
-<ul>
-<li>Buffered</li>
-</ul>
-<p>many bytes/characters at a time. Good almost all the time.</p>
-<h4 id="1-6-编码问题"><a href="#1-6-编码问题" class="headerlink" title="1.6 编码问题"></a>1.6 编码问题</h4><p><a href="http://wiki.jikexueyuan.com/project/java-chinese-garbled-solution/" target="_blank" rel="external">http://wiki.jikexueyuan.com/project/java-chinese-garbled-solution/</a></p>
-<p><a href="http://cenalulu.github.io/linux/character-encoding/" target="_blank" rel="external">http://cenalulu.github.io/linux/character-encoding/</a></p>
-<ul>
-<li>java运行时的默认编码可以通过<code>Charset.defaultCharset()</code>获取，其实质是获取当前系统的编码格式，如果系统没有设置，就是<code>UTF-8</code>，一般都会有设置。</li>
-<li>编码发生在字节和字符的转化过程中,见下图</li>
-<li>HTTP协议中，在Header里指定字符集，在客户端根据指定字符集将body里的内容（字节数组）解码成相应字符（如字符串）</li>
-<li>对于String本身和字符集并无关系，字符集只在编码和解码的过程中发挥作用，他会对编码和解码的结果产生影响。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">字节-&gt;字符: 解码（指定字符集）</div><div class="line">字符-&gt;字节: 编码（指定字符集）</div></pre></td></tr></table></figure>
-<h1 id="2-NIO"><a href="#2-NIO" class="headerlink" title="2. NIO"></a>2. NIO</h1><blockquote>
-<p>传统流I/O是基于字节的，所有I/O都被视为单个字节的移动；<br>而NIO是基于块的，大家可能猜到了，NIO的性能肯定优于流I/O</p>
-</blockquote>
-<h4 id="2-1-相关概念"><a href="#2-1-相关概念" class="headerlink" title="2.1 相关概念"></a>2.1 相关概念</h4><ul>
-<li>缓冲区</li>
-<li>通道</li>
-<li>内存映射文件：一次数据拷贝和两次数据拷贝的区别</li>
-<li>异步IO</li>
-</ul>
-<p>参考：<a href="http://www.ibm.com/developerworks/cn/education/java/j-nio/j-nio.html" target="_blank" rel="external">http://www.ibm.com/developerworks/cn/education/java/j-nio/j-nio.html</a></p>
+        <p>主要介绍常用的一些git命令</p>
+<p><strong>基础命令</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git add 命令（多功能命令，根据目标文件的状态不同，此命令的效果也不同：可以用它开始跟踪新文件，或者把已跟踪的文件放到暂存区，还能用于合并时把有冲突的文件标记为已解决状态等）  </div><div class="line">git status 命令，用来查看发生变动的文件。</div></pre></td></tr></table></figure>
+<p><strong>查看提交</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git log 					查看commit的历史</div><div class="line">git show &lt;commit-hash-id&gt;	查看某次commit的修改内容</div><div class="line">git log -p &lt;filename&gt;		查看某个文件的修改历史</div><div class="line">git log -p -2				查看最近2次的更新内容</div></pre></td></tr></table></figure></p>
+<p><strong>分支管理</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git branch --track experimental origin/experimental 拉取并追踪分支  </div><div class="line">git branch -d &lt;branch_name&gt;  删除本地分支  </div><div class="line">git push origin --delete branch_3.0_liaoheng  删除远程分支</div><div class="line">git branch -vv 查看本地分支和远程分支的跟踪关联关系 </div><div class="line">git checkout -b myfeature 以当前分支为基础创建新分支</div><div class="line">git branch --set-upstream-to=origin/branch_3.0_liaoheng branch_3.0_liaoheng  将本地分支与远程分支关联</div></pre></td></tr></table></figure></p>
+<p><strong>切换git源：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git remote remove origin</div><div class="line">git remote add origin  https://xxxx.git  将本地库添加到远程</div><div class="line">git push -u origin --all # pushes up the repo and its refs for the first time  上传所有文件</div><div class="line">git push -u origin --tags # pushes up any tags</div></pre></td></tr></table></figure></p>
+<p><strong>标签管理</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git tag -a v1.1.4 -m &quot;tagging version 1.1.4&quot; #打标签</div><div class="line">git tag #列出标签</div><div class="line">git push --tags  推送所有本地标签到远程仓库</div><div class="line">git push 仓库名 标签名  eg. git push origin v1.0       推送本地标签到远程仓库</div><div class="line">git push origin --delete tag &lt;tagname&gt; 删除远程tag</div><div class="line">git tag -d v1.1.4  删除本地仓库标签</div></pre></td></tr></table></figure></p>
+<p><strong>回滚（reset &amp;&amp; revert）</strong></p>
+<pre><code>git reset 是把HEAD向后移动了一下，而git revert是HEAD继续前进，只是新的commit的内容和要revert的内容正好相反，能够抵消要被revert的内容。
+</code></pre><p>参考：<a href="http://samael65535.github.io/git/2013/01/18/git/" target="_blank" rel="external">http://samael65535.github.io/git/2013/01/18/git/</a><br>     <a href="http://yijiebuyi.com/blog/8f985d539566d0bf3b804df6be4e0c90.html" target="_blank" rel="external">http://yijiebuyi.com/blog/8f985d539566d0bf3b804df6be4e0c90.html</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">HEAD 	最近一个提交</div><div class="line">HEAD^ = HEAD^1  	上一次</div></pre></td></tr></table></figure>
+<p><strong>reset</strong>: 直接回退，将repository的版本进行回退，工作区的状态会根据参数不同有不同的结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git reset HEAD^1 将分支的HEAD指针指向倒数第二个提交（默认mixed策略，即保留工作区代码，不保留仓库和暂存区内容，如果要重新提交，需要执行git add .）</div></pre></td></tr></table></figure>
+<p><strong>revert</strong>：以新提交覆盖旧的提交达到回退的目的，如果修改已经不是最新的commit，则只能使用git revert。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git revert HEAD 撤销最近的一次提交</div><div class="line">git revert HEAD^1 撤销倒数第二条提交（倒数第一条不撤销），通过产生一个commit覆盖倒数第二条commit，但是不会覆盖最新的一条（倒数第一条）</div></pre></td></tr></table></figure>
+<p><strong>其他</strong><br>git ls-files –stage 显示index文件（.git目录下） 内容，即暂存区信息</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/05/1.IO/" data-id="cixk7sv6j0000xlyjt3xpw7nq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/05/Programming-Summary/git常用命令/" data-id="cixkdvw5o000zynjgwggdk7fk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -157,10 +117,10 @@
 
 
   
-    <article id="post-问题以及解决" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Programming-Summary/问题以及解决" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/01/05/问题以及解决/" class="article-date">
-  <time datetime="2017-01-05T10:13:11.000Z" itemprop="datePublished">2017-01-05</time>
+    <a href="/2017/01/05/Programming-Summary/问题以及解决/" class="article-date">
+  <time datetime="2017-01-05T13:02:49.000Z" itemprop="datePublished">2017-01-05</time>
 </a>
     
   <div class="article-category">
@@ -175,7 +135,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/05/问题以及解决/">问题以及解决</a>
+      <a class="article-title" href="/2017/01/05/Programming-Summary/问题以及解决/">问题以及解决</a>
     </h1>
   
 
@@ -183,15 +143,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<p></p><h4>NO.1</h4><p></p>
-<ul>
+        <h4 id="NO-1"><a href="#NO-1" class="headerlink" title="NO.1"></a>NO.1</h4><ul>
 <li><strong>问题描述：</strong>home键或者其他方式程序进入后台后，一段时间回到前台界面显示信息出错</li>
 <li><strong>原因分析：</strong>由于app进入后台时间太久没有唤起，被系统回收</li>
 <li><strong>问题解决：</strong>在application类的onCreate方法里面对重新启动进行监听并重新启动进入后台时候的Activity</li>
 </ul>
-<p></p><h4>NO.2</h4><p></p>
-<ul>
+<h4 id="NO-2"><a href="#NO-2" class="headerlink" title="NO.2"></a>NO.2</h4><ul>
 <li><strong>问题描述：</strong>postDelay+Dialog引起的窗体泄露</li>
 <li><strong>原因分析：</strong>Android中消息队列postDelay+Dialog引起的窗体泄露的主要原因是，当床窗体压入栈或者finish掉后，Activity由于需要处理postDelay而不能及时销毁，因此造成了一个问题，当dialog触发show方法时，由于window和activity已经分开了，因此便会造成窗体泄露。</li>
 <li><strong>问题解决：</strong>通过对Activity的状态进行监听确定是否显示dialog，见代码<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">boolean</span> isActive = <span class="keyword">true</span>;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">super</span>.onResume();</div><div class="line">    isActive = <span class="keyword">true</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPause</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">super</span>.onPause();</div><div class="line">    isActive = <span class="keyword">false</span>;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">activityIsActivity</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">return</span> isActive;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showAlertDialog</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>(activityIsActive())  <span class="comment">//只有窗体处于活动状态时执行此程序</span></div><div class="line">    &#123;</div><div class="line">        AlertDialog.Builder builder = <span class="keyword">new</span> AlertDialog.Builder(activity);</div><div class="line">        builder.setTitle(<span class="string">"hello world"</span>)</div><div class="line">               .setCancelable(<span class="keyword">false</span>)</div><div class="line">               .setMessage(<span class="string">"Hello"</span>);</div><div class="line">    	builder.create().show();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -201,7 +158,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/05/问题以及解决/" data-id="cixk7svav003ixlyjlh9mmdmq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/05/Programming-Summary/问题以及解决/" data-id="cixkdvw6o0020ynjgv2ekdd7o" class="article-share-link">Share</a>
       
       
     </footer>
@@ -211,112 +168,10 @@
 
 
   
-    <article id="post-1.安装" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Programming-Summary/Android Binder" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/01/05/1.安装/" class="article-date">
-  <time datetime="2017-01-05T10:13:11.000Z" itemprop="datePublished">2017-01-05</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/05/1.安装/">1.安装</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-1-环境"><a href="#1-1-环境" class="headerlink" title="1.1 环境"></a>1.1 环境</h3><p>MAC OS X EI Capitan(自带python2.7)</p>
-<h3 id="1-2-安装python3"><a href="#1-2-安装python3" class="headerlink" title="1.2 安装python3"></a>1.2 安装python3</h3><p><code>brew install python3</code></p>
-<h3 id="1-3-安装依赖-使用豆瓣源"><a href="#1-3-安装依赖-使用豆瓣源" class="headerlink" title="1.3 安装依赖(使用豆瓣源)"></a>1.3 安装依赖(使用豆瓣源)</h3><p><code>pip install pythonModuleName -i https://pypi.douban.com/simple</code></p>
-<h3 id="1-4-依赖包路径"><a href="#1-4-依赖包路径" class="headerlink" title="1.4 依赖包路径"></a>1.4 依赖包路径</h3><p><img src="media/14806695832283.jpg" alt=""></p>
-<h2 id="2-Hello-Python"><a href="#2-Hello-Python" class="headerlink" title="2. Hello Python"></a>2. Hello Python</h2>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/05/1.安装/" data-id="cixk7sv720003xlyj1mx8obca" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-AIDL" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/01/05/AIDL/" class="article-date">
-  <time datetime="2017-01-05T10:13:11.000Z" itemprop="datePublished">2017-01-05</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Android/">Android</a>►<a class="article-category-link" href="/categories/Android/aidl-demo/">aidl-demo</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/05/AIDL/">AIDL</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>===</p>
-<blockquote>
-<p>全称 Android Interface Definition Language<br></p>
-<blockquote>
-<p>是一种Android内部进程间通信的机制</p>
-</blockquote>
-</blockquote>
-<pre><code>只有你允许客户端从不同的应用程序为了进程间的通信而去访问你的service，以及想在你的service处理多线程时才建议使用AIDL。
-</code></pre><p></p><h3>项目包含两个部分</h3>   <p></p>
-<ol>
-<li><code>app</code> 客服端，请求aidl服务<br></li>
-<li><code>remote-app</code> 服务端，提供客服端调用的接口服务</li>
-</ol>
-<p></p><h3>使用流程</h3>  <p></p>
-<ol>
-<li>在服务端声明一个aidl接口，build后产生java文件，里面包含有IBinder的子类和proxy类,同时创建service类用于响应客户端的AIDL请求<br></li>
-<li>客服端将服务端的AIDL接口拷贝过去，然后build也会产生一个java文件，在代码中通过<code>ServiceConnection</code>类连接远程服务并在其方法中获得AIDL接口对象就可以调用自己定义的方法了 </li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/05/AIDL/" data-id="cixk7sv740004xlyjqudq9zzn" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-AndroidBinder" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/01/05/AndroidBinder/" class="article-date">
-  <time datetime="2017-01-05T10:13:11.000Z" itemprop="datePublished">2017-01-05</time>
+    <a href="/2017/01/05/Programming-Summary/Android Binder/" class="article-date">
+  <time datetime="2017-01-05T13:02:49.000Z" itemprop="datePublished">2017-01-05</time>
 </a>
     
   <div class="article-category">
@@ -331,7 +186,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/05/AndroidBinder/">AndroidBinder</a>
+      <a class="article-title" href="/2017/01/05/Programming-Summary/Android Binder/">Android Binder</a>
     </h1>
   
 
@@ -339,12 +194,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h3 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h3><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3>
+        <h3 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h3><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/05/AndroidBinder/" data-id="cixk7sv780005xlyj52unsr1s" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/05/Programming-Summary/Android Binder/" data-id="cixkdvw4e0002ynjg9fc9xe17" class="article-share-link">Share</a>
       
       
     </footer>
@@ -354,10 +208,102 @@
 
 
   
-    <article id="post-AndroidSupportLibrary" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Programming-Summary/Android分辨率兼容" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/01/05/AndroidSupportLibrary/" class="article-date">
-  <time datetime="2017-01-05T10:13:11.000Z" itemprop="datePublished">2017-01-05</time>
+    <a href="/2017/01/05/Programming-Summary/Android分辨率兼容/" class="article-date">
+  <time datetime="2017-01-05T13:02:49.000Z" itemprop="datePublished">2017-01-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android/">Android</a>►<a class="article-category-link" href="/categories/Android/Resolution/">Resolution</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/05/Programming-Summary/Android分辨率兼容/">Android分辨率兼容</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-相关概念"><a href="#1-相关概念" class="headerlink" title="1. 相关概念"></a>1. 相关概念</h3><ol>
+<li>PX:像素点,图片的尺寸</li>
+<li>PT:1/72 inch，物理单位1inch＝2.54cm</li>
+<li>DPI(Dots per inch):每个英寸(物理单位)的px数。</li>
+<li><p>DP(DIP,Density-independent Pixels):DP是人为规定的一个单位。官方文档中解释<br>one DIP is one pixel on an approximately 160 dpi screen (for example a 240x320, 1.5”x2” screen),所以在320dpi的设备上，1DIP = 2PX,以此类推。</p>
+</li>
+<li><p>SP(Scale-independent Pixels)</p>
+</li>
+</ol>
+<p><strong>总结:</strong></p>
+<p><code>android.util.DisplayMetricsd</code>源码中的<code>density</code>是DP和PX转换的因子，公式为$$PX = density * DP$$,而$$density = 当前设备的DPI/160$$</p>
+<p>所以说，在160DPI(即每个英寸有160个像素点)的设备上，density 是1，代表每个DP包含1个像素，在320DPI设备上density是2，代表每个DP包含2个像素。</p>
+<p>最终的公式是：<br>$$PX = {DPI * DP \over 160} $$</p>
+<p>因为DPI是由设备决定的，而现在主流的设备也是相差不多，比如1080P的DPI一般就是5inch,那么DPI就是440，density为2.75，那么屏幕的宽度1080px ＝ 1080/2.75 ＝ 392dp。</p>
+<h3 id="二-适配方案"><a href="#二-适配方案" class="headerlink" title="二.适配方案"></a>二.适配方案</h3><ol>
+<li><p>首先，保证长度单位均使用DP作为单位（特殊情况，如根据屏幕分辨率动态设置除外）,同时使用灵活的自适应布局风格，还可以利用LineaLayout的weight对布局进行比例分割。</p>
+</li>
+<li><p>根据不同分辨率，取不同的drawable和dimen，而layout则使用一套。比如设计师给到一张在1080P手机上100x100的切图，那么在480x800手机上就应该进行缩小，理论上是一半，实际上还需要根据真机做调整。</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>文件夹</th>
+<th>DPI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ldpi</td>
+<td>0-120</td>
+</tr>
+<tr>
+<td>mdpi</td>
+<td>120-160</td>
+</tr>
+<tr>
+<td>hdpi</td>
+<td>160-240</td>
+</tr>
+<tr>
+<td>xhdpi</td>
+<td>240-320</td>
+</tr>
+<tr>
+<td>xxhdpi</td>
+<td>320-480</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">res/drawable        (default)</div><div class="line">res/drawable-ldpi/  (240x320 and nearer resolution)</div><div class="line">res/drawable-mdpi/  (320x480 and nearer resolution)</div><div class="line">res/drawable-hdpi/  (480x800, 540x960 and nearer resolution)</div><div class="line">res/drawable-xhdpi/  (720x1280 - Samsung S3, Micromax Canvas HD etc)</div><div class="line">res/drawable-xxhdpi/ (1080x1920 - Samsung S4, HTC one, Nexus 5, etc)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">res/values/dimens.xml(default)</div><div class="line">res/values-ldpi/dimens.xml   (240x320 and nearer resolution)</div><div class="line">res/values-mdpi/dimens.xml   (320x480 and nearer resolution)</div><div class="line">res/values-hdpi/dimens.xml   (480x800, 540x960 and nearer resolution)</div><div class="line">res/values-xhdpi/dimens.xml  (720x1280 - Samsung S3, Micromax Canvas HD, etc) </div><div class="line">res/values-xxhdpi/dimens.xml (1080x1920 - Samsung S4, HTC one, etc)</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/01/05/Programming-Summary/Android分辨率兼容/" data-id="cixkdvw4m0004ynjgndoqqqpo" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Programming-Summary/Android Support Library" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/05/Programming-Summary/Android Support Library/" class="article-date">
+  <time datetime="2017-01-05T13:02:49.000Z" itemprop="datePublished">2017-01-05</time>
 </a>
     
   <div class="article-category">
@@ -372,7 +318,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/05/AndroidSupportLibrary/">AndroidSupportLibrary</a>
+      <a class="article-title" href="/2017/01/05/Programming-Summary/Android Support Library/">Android Support Library</a>
     </h1>
   
 
@@ -456,7 +402,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/05/AndroidSupportLibrary/" data-id="cixk7sv7d0007xlyjki1drchm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/05/Programming-Summary/Android Support Library/" data-id="cixkdvw4n0005ynjgdgxbbml6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -466,10 +412,10 @@
 
 
   
-    <article id="post-Android自动构建" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Programming-Summary/Android自动构建" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/01/05/Android自动构建/" class="article-date">
-  <time datetime="2017-01-05T10:13:11.000Z" itemprop="datePublished">2017-01-05</time>
+    <a href="/2017/01/05/Programming-Summary/Android自动构建/" class="article-date">
+  <time datetime="2017-01-05T13:02:49.000Z" itemprop="datePublished">2017-01-05</time>
 </a>
     
   <div class="article-category">
@@ -484,7 +430,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/05/Android自动构建/">Android自动构建</a>
+      <a class="article-title" href="/2017/01/05/Programming-Summary/Android自动构建/">Android自动构建</a>
     </h1>
   
 
@@ -492,54 +438,53 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<pre><code>主机：jenkins服务器
-节点机：windows 7 64bit
-构建工具：gradle    
-脚本：python 3.5
-</code></pre><p>###一、搭建jenkins</p>
-<p>jenkins本身是一个java服务端程序，可以直接在tomcat等服务器上运行。</p>
-<p>###二、创建主机节点</p>
-<p>安装好jenkins就可以配置节点啦。</p>
-<p>配置如下<br><img src="./20151118100923211.png" alt=""></p>
-<pre><code>说明：
-1、远程工作目录：节点机器的工作目录，用于同步版本管理的代码、生成目标文件（Android就是apk文件）
-2、标签（lable）：在创建构建任务时指定lable就能将任务绑定到指定节点
-</code></pre><p>###三、启动jenkins节点（需先下载slave.jar）</p>
-<p>创建jenkins节点后，节点显示是不可用的状态，这是在节点机器命令行上运行如下代码即可启动节点机器，完成节点机器和主机的通信：<br><code>java -jar slave.jar -jnlpUrl http://192.168.20.168:8080/jenkins/computer/Android-Movie-UAT-Node/slave-agent.jnlp -secret ef17b121a06d6
-c5f42cfd9e12b4c98b569d165e08f3d492381b90a0b2530f025</code></p>
-<pre><code>说明：密钥在通讯时验证，不同节点不同时间会不同，在节点机离线时进入节点详情可以看到这段代码。
-</code></pre><p>###四、配置节点机器的构建环境</p>
-<ol>
-<li>安装jdk，并在命令行配置java、javac等命令</li>
-<li>安装Android sdk，并配置android等命令</li>
-<li>安装gradle，并配置环境变量，这里使用的是<code>gradle 2.6</code></li>
-</ol>
-<p>###五、创建构建任务</p>
-<p>配置的android-gradle-movies如图</p>
-<p><img src="gradle-job-0.png" alt="">;<br><img src="gradle-job-1.png" alt="">;<br><img src="gradle-job-2.png" alt="">;</p>
-<pre><code>关于任务配置的说明
-1. Label指定运行的节点机器。
-2. 构建 栏目使用的是windows shell命令行，因为在安装gradle插件的时候安装失败，所以直接调用节点机器的命令行执行构建指令
-3. Archive the artifacts将生成的构建文件保存到主机服务器，从而在构建成功后可以在jenkins服务器下载。
-4. 代码放在svn，最好是主工程和子工程放在一个目录下面，并且代码中的sdk路径配置需要和执行构建任务机器的sdk路径相同，不然会找不到sdk导致构建失败。
-</code></pre><p>###六、执行构建，获得构建结果</p>
-<p>构建成功后可以在<strong>状态</strong>栏看到：<br><img src="gradle-job-result.png" alt=""></p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>在构建中有两步，因为对用windows cmd命令操作文件不熟悉，所以引入了python脚本,同时也方便以后切换到线上Linux环境复用脚本。<br>使用sublime+jedi插件作为python工具还是很赞的</p>
-<p>涉及的python文件如：</p>
-<ol>
-<li>switch_env.py</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="keyword">import</span> re</div><div class="line"><span class="keyword">import</span> codecs</div><div class="line"></div><div class="line">env = sys.argv[<span class="number">1</span>]</div><div class="line">print(<span class="string">'环境变量'</span>+env)</div><div class="line"></div><div class="line">env_file_path = <span class="string">'./projectFoundation/src/main/java/com/project/foundation/BaseBuildConfig.java'</span></div><div class="line">env_file_r = open(env_file_path,<span class="string">'r'</span>,encoding=<span class="string">'utf8'</span>)</div><div class="line">lines = env_file_r.readlines();</div><div class="line">env_file_r.close</div><div class="line">print(<span class="string">'行数'</span>+str(len(lines)))</div><div class="line"></div><div class="line">env_file_w = open(env_file_path,<span class="string">'w'</span>,encoding=<span class="string">'utf8'</span>)</div><div class="line"></div><div class="line"><span class="keyword">for</span> line <span class="keyword">in</span> lines:</div><div class="line">	<span class="keyword">if</span> <span class="string">'private final static int CURRENT_ENVIRONMENT'</span> <span class="keyword">in</span> line:</div><div class="line">		print(<span class="string">"修改环境前："</span>+line)</div><div class="line">		newline = <span class="string">"private final static int CURRENT_ENVIRONMENT = "</span>+env+<span class="string">" ;"</span></div><div class="line">		env_file_w.writelines(newline)	</div><div class="line">		print(<span class="string">"修改环境后："</span>+newline)</div><div class="line">		<span class="keyword">continue</span></div><div class="line">	env_file_w.writelines(line)</div><div class="line"></div><div class="line">env_file_w.close()</div></pre></td></tr></table></figure>
-<ol>
-<li>rename_apk.py</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> os</div><div class="line"><span class="keyword">import</span> os.path</div><div class="line"><span class="keyword">import</span> sys</div><div class="line">file_path_old = <span class="string">'./cmbShellProject/build/outputs/apk/cmbShellProject-debug.apk'</span></div><div class="line">file_path_new = <span class="string">'./cmbShellProject/build/outputs/apk/Movies-'</span>+sys.argv[<span class="number">1</span>]+<span class="string">'.apk'</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> os.path.isfile(file_path_new):</div><div class="line">	os.remove(file_path_new)</div><div class="line">	print(<span class="string">'成功移除文件 '</span>+ file_path_new)</div><div class="line"><span class="keyword">else</span>:</div><div class="line">	print(file_path_new+<span class="string">'不存在，不需移除文'</span>)</div><div class="line">os.rename(file_path_old , file_path_new)</div></pre></td></tr></table></figure>
+        <p>[TOC]</p>
+<h3 id="1-搭建环境"><a href="#1-搭建环境" class="headerlink" title="1. 搭建环境"></a>1. 搭建环境</h3><h4 id="1-1-开发环境"><a href="#1-1-开发环境" class="headerlink" title="1.1 开发环境"></a>1.1 开发环境</h4><p>安装以下组件并配置环境变量</p>
+<ul>
+<li>CentOS release 6.5 (Final) 64bit</li>
+<li>git 2.10.0</li>
+<li>Gradle 2.4</li>
+<li>JDK 1.8</li>
+<li>Android SDK Platform 23</li>
+<li>Android Build Tools 23.0.02</li>
+<li>Android Extras（Android support Library）</li>
+</ul>
+<p>TIPS：</p>
+<ul>
+<li>centos 64 bit 上buil-tools 中的aapt工具不能很好运行，需要安装<ul>
+<li>yum install libgcc.i686</li>
+<li>yum install zlib.i686</li>
+<li>yum install glibc.i686</li>
+<li>…</li>
+</ul>
+</li>
+<li>组件也可以通过插件自动安装，为了便于以后管理，这里选择自己安装</li>
+</ul>
+<h4 id="1-2-第三方平台"><a href="#1-2-第三方平台" class="headerlink" title="1.2 第三方平台"></a>1.2 第三方平台</h4><ul>
+<li><a href="https://coding.net/" target="_blank" rel="external">coding.net</a> 代码托管</li>
+<li><a href="https://www.pgyer.com/" target="_blank" rel="external">蒲公英应用托管平台</a></li>
+</ul>
+<h3 id="2-安装和配置Jenkins插件"><a href="#2-安装和配置Jenkins插件" class="headerlink" title="2. 安装和配置Jenkins插件"></a>2. 安装和配置Jenkins插件</h3><h4 id="2-1-安装插件"><a href="#2-1-安装插件" class="headerlink" title="2.1 安装插件"></a>2.1 安装插件</h4><ul>
+<li>jenkins 1.6</li>
+<li>gradle plugin 1.25</li>
+</ul>
+<h4 id="2-2-插件配置"><a href="#2-2-插件配置" class="headerlink" title="2.2 插件配置"></a>2.2 插件配置</h4><p>进入<code>系统管理-&gt;系统设置</code>，并添加以下配置</p>
+<p><img src="http://ww1.sinaimg.cn/large/006y8lVagw1fbg1ft5o2ij31d60gydgv.jpg" alt=""><br><img src="http://ww2.sinaimg.cn/large/006y8lVagw1fbg1fuvgxej31d80dogmo.jpg" alt=""></p>
+<h3 id="3-Jenkins-Job-配置"><a href="#3-Jenkins-Job-配置" class="headerlink" title="3. Jenkins Job 配置"></a>3. Jenkins Job 配置</h3><h4 id="3-1-源代码拉取"><a href="#3-1-源代码拉取" class="headerlink" title="3.1 源代码拉取"></a>3.1 源代码拉取</h4><p><img src="http://ww2.sinaimg.cn/large/006y8lVagw1fbg1fw4sr8j31bw0cot9w.jpg" alt=""></p>
+<h4 id="3-2-构建触发器"><a href="#3-2-构建触发器" class="headerlink" title="3.2 构建触发器"></a>3.2 构建触发器</h4><p>30分钟一次</p>
+<p><img src="http://ww3.sinaimg.cn/large/006y8lVagw1fbg1fxoo2qj30r00bqgmh.jpg" alt=""></p>
+<h4 id="3-3-执行构建"><a href="#3-3-执行构建" class="headerlink" title="3.3 执行构建"></a>3.3 执行构建</h4><p><strong>3.3.1 执行构建</strong><br><img src="http://ww4.sinaimg.cn/large/006y8lVagw1fbg1fz4f6lj30vi0eo0tt.jpg" alt=""></p>
+<p><strong>3.3.2 构建后上传至蒲公英，并保存返回二维码</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function jsonval &#123;</div><div class="line">    temp=`echo $json | sed &apos;s/\\\\\//\//g&apos; | sed &apos;s/[&#123;&#125;]//g&apos; | awk -v k=&quot;text&quot; &apos;&#123;n=split($0,a,&quot;,&quot;); for (i=1; i&lt;=n; i++) print a[i]&#125;&apos; | sed &apos;s/\&quot;\:\&quot;/\|/g&apos; | sed &apos;s/[\,]/ /g&apos; | sed &apos;s/\&quot;//g&apos; | grep -w $responsekey`</div><div class="line">    echo $&#123;temp##*|&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">json=`curl -F &quot;file=@YOUR_APK_PATH&quot; -F &quot;uKey=YOUR_USER_KEY&quot; -F &quot;_api_key=YOUR_API_KEY&quot; http://www.pgyer.com/apiv1/app/upload`</div><div class="line">responsekey=&apos;appQRCodeURL&apos;</div><div class="line">responsevalue=`jsonval`</div><div class="line">rm -rf pgyer</div><div class="line">mkdir pgyer</div><div class="line">cd pgyer</div><div class="line">currentDate=`date +%Y_%m_%d_%H_%M_%S`</div><div class="line">wget -O $currentDate.jpg $responsevalue</div></pre></td></tr></table></figure>
+<h4 id="3-4-构建后存档"><a href="#3-4-构建后存档" class="headerlink" title="3.4 构建后存档"></a>3.4 构建后存档</h4><p><img src="http://ww1.sinaimg.cn/large/006y8lVagw1fbg1g29wnpj30eu05odg1.jpg" alt=""></p>
+<h3 id="4-Android-项目配置"><a href="#4-Android-项目配置" class="headerlink" title="4. Android 项目配置"></a>4. Android 项目配置</h3><p>创建local.properties放于根目录，并将sdk.dir配置为本地Android sdk目录</p>
+<h3 id="5-构建取包"><a href="#5-构建取包" class="headerlink" title="5. 构建取包"></a>5. 构建取包</h3><p>查看图片扫码进入蒲公英下载页</p>
+<p><img src="http://ww3.sinaimg.cn/large/006y8lVagw1fbg1g3jr2zj30ly070gm3.jpg" alt=""></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/05/Android自动构建/" data-id="cixk7sv7g0008xlyj96adx5av" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/05/Programming-Summary/Android自动构建/" data-id="cixkdvw4p0006ynjghdgigftk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -549,10 +494,10 @@ c5f42cfd9e12b4c98b569d165e08f3d492381b90a0b2530f025</code></p>
 
 
   
-    <article id="post-Annotation" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Programming-Summary/Annotation" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/01/05/Annotation/" class="article-date">
-  <time datetime="2017-01-05T10:13:11.000Z" itemprop="datePublished">2017-01-05</time>
+    <a href="/2017/01/05/Programming-Summary/Annotation/" class="article-date">
+  <time datetime="2017-01-05T13:02:49.000Z" itemprop="datePublished">2017-01-05</time>
 </a>
     
   <div class="article-category">
@@ -567,7 +512,7 @@ c5f42cfd9e12b4c98b569d165e08f3d492381b90a0b2530f025</code></p>
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/05/Annotation/">Annotation</a>
+      <a class="article-title" href="/2017/01/05/Programming-Summary/Annotation/">Annotation</a>
     </h1>
   
 
@@ -584,7 +529,7 @@ c5f42cfd9e12b4c98b569d165e08f3d492381b90a0b2530f025</code></p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/05/Annotation/" data-id="cixk7sv7l000axlyj5kmh7s28" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/05/Programming-Summary/Annotation/" data-id="cixkdvw4t0008ynjgicyhbui0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -594,10 +539,10 @@ c5f42cfd9e12b4c98b569d165e08f3d492381b90a0b2530f025</code></p>
 
 
   
-    <article id="post-Generic" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Programming-Summary/Generic" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/01/05/Generic/" class="article-date">
-  <time datetime="2017-01-05T10:13:11.000Z" itemprop="datePublished">2017-01-05</time>
+    <a href="/2017/01/05/Programming-Summary/Generic/" class="article-date">
+  <time datetime="2017-01-05T13:02:49.000Z" itemprop="datePublished">2017-01-05</time>
 </a>
     
   <div class="article-category">
@@ -612,7 +557,7 @@ c5f42cfd9e12b4c98b569d165e08f3d492381b90a0b2530f025</code></p>
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/05/Generic/">Generic</a>
+      <a class="article-title" href="/2017/01/05/Programming-Summary/Generic/">Generic</a>
     </h1>
   
 
@@ -627,7 +572,7 @@ c5f42cfd9e12b4c98b569d165e08f3d492381b90a0b2530f025</code></p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/05/Generic/" data-id="cixk7sv7n000bxlyj8ggkgwtd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/05/Programming-Summary/Generic/" data-id="cixkdvw4v0009ynjgke0nkike" class="article-share-link">Share</a>
       
       
     </footer>
@@ -637,10 +582,10 @@ c5f42cfd9e12b4c98b569d165e08f3d492381b90a0b2530f025</code></p>
 
 
   
-    <article id="post-Gradle" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Programming-Summary/Gradle" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/01/05/Gradle/" class="article-date">
-  <time datetime="2017-01-05T10:13:11.000Z" itemprop="datePublished">2017-01-05</time>
+    <a href="/2017/01/05/Programming-Summary/Gradle/" class="article-date">
+  <time datetime="2017-01-05T13:02:49.000Z" itemprop="datePublished">2017-01-05</time>
 </a>
     
   <div class="article-category">
@@ -655,7 +600,7 @@ c5f42cfd9e12b4c98b569d165e08f3d492381b90a0b2530f025</code></p>
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/05/Gradle/">Gradle</a>
+      <a class="article-title" href="/2017/01/05/Programming-Summary/Gradle/">Gradle</a>
     </h1>
   
 
@@ -679,7 +624,103 @@ c5f42cfd9e12b4c98b569d165e08f3d492381b90a0b2530f025</code></p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/05/Gradle/" data-id="cixk7sv7r000dxlyj1hxfet6r" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/05/Programming-Summary/Gradle/" data-id="cixkdvw4w000bynjgu7cg1qkz" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Programming-Summary/IO" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/05/Programming-Summary/IO/" class="article-date">
+  <time datetime="2017-01-05T13:02:49.000Z" itemprop="datePublished">2017-01-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>►<a class="article-category-link" href="/categories/Java/IO/">IO</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/05/Programming-Summary/IO/">IO</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-IO"><a href="#1-IO" class="headerlink" title="1. IO"></a>1. IO</h2><p>首先看一下类继承关系</p>
+<p><img src="http://ww3.sinaimg.cn/large/006y8lVagw1fbg0xeuv9qj31kw1rhagu.jpg" alt=""></p>
+<ul>
+<li>命名规则其实就是 <code>操作对象 + 读写方式</code></li>
+<li>字节流不需要处理编码，字节流和字符流转换才需要处理编码</li>
+</ul>
+<h4 id="1-1-IO的要素"><a href="#1-1-IO的要素" class="headerlink" title="1.1 IO的要素"></a>1.1 IO的要素</h4><ul>
+<li>内存（缓冲区）</li>
+<li>流（通道）</li>
+<li>操作对象</li>
+</ul>
+<h4 id="1-2-操作对象"><a href="#1-2-操作对象" class="headerlink" title="1.2 操作对象"></a>1.2 操作对象</h4><ul>
+<li>byte[]对象</li>
+<li>String对象</li>
+<li>File对象</li>
+<li>套接字</li>
+</ul>
+<h4 id="1-3-方向"><a href="#1-3-方向" class="headerlink" title="1.3 方向"></a>1.3 方向</h4><ul>
+<li>Input/Reader:从对象到内存</li>
+<li>Output/Writer:从内存到对象</li>
+</ul>
+<h4 id="1-4-读写方式"><a href="#1-4-读写方式" class="headerlink" title="1.4 读写方式"></a>1.4 读写方式</h4><ul>
+<li>字节(InputStream/OutputStream)：一次读取一个字节</li>
+<li>字符(Reader/Writer)：其实字符流可以看做是一种包装流，它的底层还是采用字节流来读取字节</li>
+</ul>
+<h4 id="1-5-特性"><a href="#1-5-特性" class="headerlink" title="1.5 特性"></a>1.5 特性</h4><ul>
+<li>Streams</li>
+</ul>
+<p>one byte at a time. Good for binary data.<br>byte oriented stream (8 bit)<br>good for binary data such as a Java .class file<br>good for “machine-oriented” data</p>
+<ul>
+<li>Readers/Writers</li>
+</ul>
+<p>one character at a time. Good for text data.<br>char (utf-16) oriented stream (16 bit)<br>good for text such as a Java source<br>good for “human-oriented” data</p>
+<ul>
+<li>Buffered</li>
+</ul>
+<p>many bytes/characters at a time. Good almost all the time.</p>
+<h4 id="1-6-编码问题"><a href="#1-6-编码问题" class="headerlink" title="1.6 编码问题"></a>1.6 编码问题</h4><p><a href="http://wiki.jikexueyuan.com/project/java-chinese-garbled-solution/" target="_blank" rel="external">http://wiki.jikexueyuan.com/project/java-chinese-garbled-solution/</a></p>
+<p><a href="http://cenalulu.github.io/linux/character-encoding/" target="_blank" rel="external">http://cenalulu.github.io/linux/character-encoding/</a></p>
+<ul>
+<li>java运行时的默认编码可以通过<code>Charset.defaultCharset()</code>获取，其实质是获取当前系统的编码格式，如果系统没有设置，就是<code>UTF-8</code>，一般都会有设置。</li>
+<li>编码发生在字节和字符的转化过程中,见下图</li>
+<li>HTTP协议中，在Header里指定字符集，在客户端根据指定字符集将body里的内容（字节数组）解码成相应字符（如字符串）</li>
+<li>对于String本身和字符集并无关系，字符集只在编码和解码的过程中发挥作用，他会对编码和解码的结果产生影响。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">字节-&gt;字符: 解码（指定字符集）</div><div class="line">字符-&gt;字节: 编码（指定字符集）</div></pre></td></tr></table></figure>
+<h2 id="2-NIO"><a href="#2-NIO" class="headerlink" title="2. NIO"></a>2. NIO</h2><blockquote>
+<p>传统流I/O是基于字节的，所有I/O都被视为单个字节的移动；<br>而NIO是基于块的，大家可能猜到了，NIO的性能肯定优于流I/O</p>
+</blockquote>
+<h4 id="2-1-相关概念"><a href="#2-1-相关概念" class="headerlink" title="2.1 相关概念"></a>2.1 相关概念</h4><ul>
+<li>缓冲区</li>
+<li>通道</li>
+<li>内存映射文件：一次数据拷贝和两次数据拷贝的区别</li>
+<li>异步IO</li>
+</ul>
+<p>参考：<a href="http://www.ibm.com/developerworks/cn/education/java/j-nio/j-nio.html" target="_blank" rel="external">http://www.ibm.com/developerworks/cn/education/java/j-nio/j-nio.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/01/05/Programming-Summary/IO/" data-id="cixkdvw4x000cynjgp4a88ogt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -702,7 +743,7 @@ c5f42cfd9e12b4c98b569d165e08f3d492381b90a0b2530f025</code></p>
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algrithm/">Algrithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/Binder/">Binder</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/Graphic/">Graphic</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/Resolution/">Resolution</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/SupportLibrary/">SupportLibrary</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/aidl-demo/">aidl-demo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/my-works/">my-works</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/my-works/Animation-BookShelf/">Animation-BookShelf</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/my-works/TouchEvent-SelectSeatView/">TouchEvent-SelectSeatView</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/problem-solving/">problem-solving</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/优化/">优化</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/优化/其他优化/">其他优化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/优化/内存优化/">内存优化</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/批量打包/">批量打包</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Common/">Common</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Common/Cryptography/">Cryptography</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Common/Quick-Response-Code/">Quick-Response-Code</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Common/git-direction/">git-direction</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Common/regular-expression/">regular-expression</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Annotation/">Annotation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/ClassLoader/">ClassLoader</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Concurrent/">Concurrent</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/DynamicProxy/">DynamicProxy</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Generic/">Generic</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/IO/">IO</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Lambda/">Lambda</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Memory/">Memory</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/RXJava/">RXJava</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/VI/">VI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/shell/">shell</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/">Platforms&Tools</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/Jenkins/">Jenkins</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/WebServer/">WebServer</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/开发协作/">开发协作</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/提升效率的工具/">提升效率的工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/构建工具/">构建工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/构建工具/Ant/">Ant</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/构建工具/Gradle/">Gradle</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web/jQuery/">jQuery</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/微信小程序/">微信小程序</a></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algrithm/">Algrithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/Binder/">Binder</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/Graphic/">Graphic</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/Resolution/">Resolution</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/SupportLibrary/">SupportLibrary</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/aidl-demo/">aidl-demo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/problem-solving/">problem-solving</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/优化/">优化</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/优化/其他优化/">其他优化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/优化/内存优化/">内存优化</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/批量打包/">批量打包</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/自定义UI/">自定义UI</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/自定义UI/Animation-BookShelf/">Animation-BookShelf</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/自定义UI/TouchEvent-SelectSeatView/">TouchEvent-SelectSeatView</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Common/">Common</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Common/Cryptography/">Cryptography</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Common/Quick-Response-Code/">Quick-Response-Code</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Common/git-direction/">git-direction</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Common/regular-expression/">regular-expression</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Annotation/">Annotation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/ClassLoader/">ClassLoader</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Concurrent/">Concurrent</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/DynamicProxy/">DynamicProxy</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Generic/">Generic</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/IO/">IO</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Lambda/">Lambda</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Memory/">Memory</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/RXJava/">RXJava</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/VI/">VI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/shell/">shell</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/">Platforms&Tools</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/Jenkins/">Jenkins</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/开发协作/">开发协作</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/提升效率的工具/">提升效率的工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/构建工具/">构建工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/构建工具/Ant/">Ant</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/构建工具/Gradle/">Gradle</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web/jQuery/">jQuery</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/微信小程序/">微信小程序</a></li></ul></li></ul>
     </div>
   </div>
 
@@ -730,23 +771,23 @@ c5f42cfd9e12b4c98b569d165e08f3d492381b90a0b2530f025</code></p>
       <ul>
         
           <li>
-            <a href="/2017/01/05/1.IO/">1.IO</a>
+            <a href="/2017/01/05/Programming-Summary/git常用命令/">git常用命令</a>
           </li>
         
           <li>
-            <a href="/2017/01/05/问题以及解决/">问题以及解决</a>
+            <a href="/2017/01/05/Programming-Summary/问题以及解决/">问题以及解决</a>
           </li>
         
           <li>
-            <a href="/2017/01/05/1.安装/">1.安装</a>
+            <a href="/2017/01/05/Programming-Summary/Android Binder/">Android Binder</a>
           </li>
         
           <li>
-            <a href="/2017/01/05/AIDL/">AIDL</a>
+            <a href="/2017/01/05/Programming-Summary/Android分辨率兼容/">Android分辨率兼容</a>
           </li>
         
           <li>
-            <a href="/2017/01/05/AndroidBinder/">AndroidBinder</a>
+            <a href="/2017/01/05/Programming-Summary/Android Support Library/">Android Support Library</a>
           </li>
         
       </ul>

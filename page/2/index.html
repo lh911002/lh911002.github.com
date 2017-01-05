@@ -61,10 +61,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-JAVA内存模型" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Programming-Summary/JAVA 内存模型" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/01/05/JAVA内存模型/" class="article-date">
-  <time datetime="2017-01-05T10:13:11.000Z" itemprop="datePublished">2017-01-05</time>
+    <a href="/2017/01/05/Programming-Summary/JAVA 内存模型/" class="article-date">
+  <time datetime="2017-01-05T13:02:49.000Z" itemprop="datePublished">2017-01-05</time>
 </a>
     
   <div class="article-category">
@@ -79,7 +79,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/05/JAVA内存模型/">JAVA内存模型</a>
+      <a class="article-title" href="/2017/01/05/Programming-Summary/JAVA 内存模型/">JAVA 内存模型</a>
     </h1>
   
 
@@ -111,7 +111,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/05/JAVA内存模型/" data-id="cixk7sv7s000exlyjoru7ajsp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/05/Programming-Summary/JAVA 内存模型/" data-id="cixkdvw4z000eynjg96x61vib" class="article-share-link">Share</a>
       
       
     </footer>
@@ -121,10 +121,10 @@
 
 
   
-    <article id="post-Lambda" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Programming-Summary/Lambda" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/01/05/Lambda/" class="article-date">
-  <time datetime="2017-01-05T10:13:11.000Z" itemprop="datePublished">2017-01-05</time>
+    <a href="/2017/01/05/Programming-Summary/Lambda/" class="article-date">
+  <time datetime="2017-01-05T13:02:49.000Z" itemprop="datePublished">2017-01-05</time>
 </a>
     
   <div class="article-category">
@@ -139,7 +139,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/05/Lambda/">Lambda</a>
+      <a class="article-title" href="/2017/01/05/Programming-Summary/Lambda/">Lambda</a>
     </h1>
   
 
@@ -147,8 +147,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h3>Outline</h3>
+        <h3>Outline</h3>
 
 <ul>
 <li><a href="#1">Lambda定义和结构</a></li>
@@ -159,12 +158,12 @@
 <h3 id="1">一、Lambda定义和结构</h3>
 
 
-<p>#####Lambda表达式的定义：</p>
-<pre><code>Java8引入Lambda表达式的目的是简化内部类的使用，其实质仍然是一个函数或者接口的实现。
+<h5 id="Lambda表达式的定义："><a href="#Lambda表达式的定义：" class="headerlink" title="Lambda表达式的定义："></a>Lambda表达式的定义：</h5><pre><code>Java8引入Lambda表达式的目的是简化内部类的使用，其实质仍然是一个函数或者接口的实现。
 虽然称作Lambda表达式，但是不同于一般的可计算的表达式，Lambda表达式是一个接口（函数）的实现，也可以理解成匿名类的缩写。
 </code></pre><p><em>注：对于一个接口如果有多个未实现的方法，则不能使用Lambda表达式，可以有default和static方法方法</em></p>
-<p>#####基本结构：<br>    ( 形式参数 ) -&gt; { 方法实现 }<br>形式参数的参数类型可以省去，编译器可以自动判断<br>e.g.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Collections.sort(list, (x, y) -&gt; y - x)</div></pre></td></tr></table></figure></p>
-<p>上面代码中的Lambda表达式：(x, y) -&gt; y - x 实现的就是 java.util.Comparator 接口的<br><figure class="highlight plain"><figcaption><span>compare(T o1, T o2);```方法，虽然代码中没有显式指明，但是编译器会自动根据语法规则判断，并在编译成字节码时应用这些规则。</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">#####基本概念</div><div class="line"></div><div class="line">函数式接口。</div><div class="line"></div><div class="line">	如果一个接口定义个唯一一个抽象方法，那么这个接口就成为函数式接口，只有函数式接口才能使用Lambda表达式进行简化。</div><div class="line"></div><div class="line">方法引用</div></pre></td></tr></table></figure></p>
+<h5 id="基本结构："><a href="#基本结构：" class="headerlink" title="基本结构："></a>基本结构：</h5><pre><code>( 形式参数 ) -&gt; { 方法实现 }
+</code></pre><p>形式参数的参数类型可以省去，编译器可以自动判断<br>e.g.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Collections.sort(list, (x, y) -&gt; y - x)</div></pre></td></tr></table></figure></p>
+<p>上面代码中的Lambda表达式：(x, y) -&gt; y - x 实现的就是 java.util.Comparator 接口的<br><figure class="highlight plain"><figcaption><span>compare(T o1, T o2);```方法，虽然代码中没有显式指明，但是编译器会自动根据语法规则判断，并在编译成字节码时应用这些规则。</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">##### 基本概念</div><div class="line"></div><div class="line">函数式接口。</div><div class="line"></div><div class="line">	如果一个接口定义个唯一一个抽象方法，那么这个接口就成为函数式接口，只有函数式接口才能使用Lambda表达式进行简化。</div><div class="line"></div><div class="line">方法引用</div></pre></td></tr></table></figure></p>
 <ol>
 <li>ClassName:: MethodName </li>
 <li>InstanceName:MethodName</li>
@@ -180,8 +179,8 @@
 <p>如果不能推导出来那就需要开发者显示指出</p>
 <h3 id="2">二、java.util.function（java8功能性接口）</h3>
 
-<p>java.util.function是java8中提供便于Lambda编程的接口，包内全部为接口<br><a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html" target="_blank" rel="external"><h3>api文档</h3></a></p>
-<p><img src="20151024082354783.png" alt=""></p>
+<p>java.util.function是java8中提供便于Lambda编程的接口，包内全部为接口<br><a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html" target="_blank" rel="external">api文档</a></p>
+<p><img src="http://ww4.sinaimg.cn/large/006y8lVagw1fbg1n5ablwj30720h8wgm.jpg" alt=""></p>
 <p>主要分为</p>
 <ol>
 <li>Consumer（泛型输入，无输出）</li>
@@ -201,7 +200,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/05/Lambda/" data-id="cixk7sv7w000hxlyjb30z2set" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/05/Programming-Summary/Lambda/" data-id="cixkdvw50000fynjg1h782qve" class="article-share-link">Share</a>
       
       
     </footer>
@@ -211,10 +210,10 @@
 
 
   
-    <article id="post-MACHINELEARNING" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Programming-Summary/MACHINE LEARNING" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/01/05/MACHINELEARNING/" class="article-date">
-  <time datetime="2017-01-05T10:13:11.000Z" itemprop="datePublished">2017-01-05</time>
+    <a href="/2017/01/05/Programming-Summary/MACHINE LEARNING/" class="article-date">
+  <time datetime="2017-01-05T13:02:49.000Z" itemprop="datePublished">2017-01-05</time>
 </a>
     
   <div class="article-category">
@@ -229,7 +228,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/05/MACHINELEARNING/">MACHINELEARNING</a>
+      <a class="article-title" href="/2017/01/05/Programming-Summary/MACHINE LEARNING/">MACHINE LEARNING</a>
     </h1>
   
 
@@ -248,7 +247,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/05/MACHINELEARNING/" data-id="cixk7sv7y000ixlyjujmguenq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/05/Programming-Summary/MACHINE LEARNING/" data-id="cixkdvw51000hynjg0v8olcrj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -258,76 +257,10 @@
 
 
   
-    <article id="post-Programming-Summary" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Programming-Summary/Phabricator" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/01/05/Programming-Summary/" class="article-date">
-  <time datetime="2017-01-05T10:13:11.000Z" itemprop="datePublished">2017-01-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/05/Programming-Summary/">Programming-Summary</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<pre><code>Aiming to improve writing skills and comprehension of git.
-</code></pre><p>[TOC]</p>
-<p>###1. Common</p>
-<ul>
-<li><a href="./Common/Quick-Response-Code/README.MD">QRcode相关（二维码）</a></li>
-<li><a href="./Common/git-direction/README.MD">GIT的理解</a></li>
-<li><a href="./Common/Cryptography/README.MD">密码学简介</a></li>
-</ul>
-<p>###2. Java</p>
-<ul>
-<li><a href="./Java/DynamicProxy/README.MD">动态代理</a></li>
-</ul>
-<p>###3. Android</p>
-<ul>
-<li><a href="./Android/Resolution/README.md">分辨率适配</a></li>
-<li><a href="./Android/problem-solving/README.MD">Android遇到的问题以及解决</a></li>
-<li><a href="./Android/my-works/readme.md">自定义控件</a></li>
-<li><a href="./Android/优化/内存优化/README.MD">内存优化</a></li>
-<li><a href="./Android/优化/其他优化/README.MD">其他优化</a></li>
-<li><a href="./Android/aidl-demo/README.MD">Android AIDL Demo</a></li>
-<li><a href="./Android/批量打包/README.MD">基于META-INF目录的批量打包</a></li>
-<li><a href="./Android/SupportLibrary/README.md">Android的兼容包</a></li>
-</ul>
-<p>###4. Platforms &amp; Tools</p>
-<ul>
-<li><a href="./Platforms&amp;Tools/构建工具/README.MD">常见构建工具简介</a></li>
-<li><a href="./Platforms&amp;Tools/Jenkins/jenkins-Android.md">jenkins自动构建（for Android）</a></li>
-<li><a href="./Platforms&amp;Tools/提升效率的工具/README.MD">效率工具</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/05/Programming-Summary/" data-id="cixk7sv80000kxlyjppo04pob" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Phabricator" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/01/05/Phabricator/" class="article-date">
-  <time datetime="2017-01-05T10:13:11.000Z" itemprop="datePublished">2017-01-05</time>
+    <a href="/2017/01/05/Programming-Summary/Phabricator/" class="article-date">
+  <time datetime="2017-01-05T13:02:49.000Z" itemprop="datePublished">2017-01-05</time>
 </a>
     
   <div class="article-category">
@@ -342,7 +275,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/05/Phabricator/">Phabricator</a>
+      <a class="article-title" href="/2017/01/05/Programming-Summary/Phabricator/">Phabricator</a>
     </h1>
   
 
@@ -369,7 +302,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/05/Phabricator/" data-id="cixk7sv87000lxlyjow6lqous" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/05/Programming-Summary/Phabricator/" data-id="cixkdvw52000iynjgv4oqzgl6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -379,14 +312,14 @@
 
 
   
-    <article id="post-RXJava" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Programming-Summary/Python" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/01/05/RXJava/" class="article-date">
-  <time datetime="2017-01-05T10:13:11.000Z" itemprop="datePublished">2017-01-05</time>
+    <a href="/2017/01/05/Programming-Summary/Python/" class="article-date">
+  <time datetime="2017-01-05T13:02:49.000Z" itemprop="datePublished">2017-01-05</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Java/">Java</a>►<a class="article-category-link" href="/categories/Java/RXJava/">RXJava</a>
+    <a class="article-category-link" href="/categories/Python/">Python</a>
   </div>
 
   </div>
@@ -397,7 +330,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/05/RXJava/">RXJava</a>
+      <a class="article-title" href="/2017/01/05/Programming-Summary/Python/">Python</a>
     </h1>
   
 
@@ -405,28 +338,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>RxJava generally consists of Observable (which emits the data which we can observe) and Observer (which observes emitted data and handles it).</p>
-<h4 id="1-观察者模式"><a href="#1-观察者模式" class="headerlink" title="1. 观察者模式"></a>1. 观察者模式</h4><ul>
-<li>Observable：整理并提供<strong>数据、事件序列</strong></li>
-<li>Observer(Subscriber)：响应数据、事件序列</li>
-<li>Subscribe：Observable subscribe (to) Observer</li>
-</ul>
-<h4 id="2-变换"><a href="#2-变换" class="headerlink" title="2. 变换"></a>2. 变换</h4><h4 id="3-线程调度"><a href="#3-线程调度" class="headerlink" title="3. 线程调度"></a>3. 线程调度</h4><pre><code>在不指定线程的情况下， RxJava 遵循的是线程不变的原则，即：在哪个线程调用 subscribe()，就在哪个线程生产事件；在哪个线程生产事件，就在哪个线程消费事件
-</code></pre><ol>
-<li>observeOn() 指定的是 Subscriber 的线程，所以指定的是它之后的操作所在的线程</li>
-<li>subscribeOn() 指定的是第一个 Observable 的线程,subscribeOn() 的位置放在操作的前后都可以，但它是只能调用一次的。</li>
-</ol>
-<h4 id="相关网站"><a href="#相关网站" class="headerlink" title="相关网站"></a>相关网站</h4><ol>
-<li><a href="http://reactivex.io/intro.html" target="_blank" rel="external">reactiveX官网</a></li>
-<li><a href="https://github.com/ReactiveX/rxjava/wiki" target="_blank" rel="external">reactiveX WIKI</a></li>
-<li><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/" target="_blank" rel="external">ReactiveX/RxJava文档中文版</a> </li>
-<li><a href="http://gank.io/post/560e15be2dca930e00da1083" target="_blank" rel="external">给Android开发者的RXJava详解</a></li>
-</ol>
-
+        <h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h2><h3 id="1-1-环境"><a href="#1-1-环境" class="headerlink" title="1.1 环境"></a>1.1 环境</h3><p>MAC OS X EI Capitan(自带python2.7)</p>
+<h3 id="1-2-安装python3"><a href="#1-2-安装python3" class="headerlink" title="1.2 安装python3"></a>1.2 安装python3</h3><p><code>brew install python3</code></p>
+<h3 id="1-3-安装依赖-使用豆瓣源"><a href="#1-3-安装依赖-使用豆瓣源" class="headerlink" title="1.3 安装依赖(使用豆瓣源)"></a>1.3 安装依赖(使用豆瓣源)</h3><p><code>pip install pythonModuleName -i https://pypi.douban.com/simple</code></p>
+<h3 id="1-4-依赖包路径"><a href="#1-4-依赖包路径" class="headerlink" title="1.4 依赖包路径"></a>1.4 依赖包路径</h3><p><img src="http://ww3.sinaimg.cn/large/006y8lVagw1fbg11glj6lj30qo03wq3z.jpg" alt=""></p>
+<h2 id="2-Hello-Python"><a href="#2-Hello-Python" class="headerlink" title="2. Hello Python"></a>2. Hello Python</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/05/RXJava/" data-id="cixk7sv96001txlyj5uqyzme7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/05/Programming-Summary/Python/" data-id="cixkdvw57000lynjgps23y1xe" class="article-share-link">Share</a>
       
       
     </footer>
@@ -436,10 +356,67 @@
 
 
   
-    <article id="post-Shell基础" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Programming-Summary/Quick Response Code" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/01/05/Shell基础/" class="article-date">
-  <time datetime="2017-01-05T10:13:11.000Z" itemprop="datePublished">2017-01-05</time>
+    <a href="/2017/01/05/Programming-Summary/Quick Response Code/" class="article-date">
+  <time datetime="2017-01-05T13:02:49.000Z" itemprop="datePublished">2017-01-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Common/">Common</a>►<a class="article-category-link" href="/categories/Common/Quick-Response-Code/">Quick-Response-Code</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/05/Programming-Summary/Quick Response Code/">Quick Response Code</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>日本DENSO WAVE公司发明，应用最广泛的二维码之一，可以快速获取信息的内容，采用深色表示1，浅色表示0</li>
+<li>参考文档：<a href="http://www.qrcode.com/en/about/standards.html" target="_blank" rel="external">http://www.qrcode.com/en/about/standards.html</a> &amp;  <a href="qr_standard.pdf">ISO标准</a>     </li>
+</ul>
+<h3 id="1-特点"><a href="#1-特点" class="headerlink" title="1. 特点"></a>1. 特点</h3><ol>
+<li>扫描时不用完全对准二维码即可完成识别</li>
+<li>支持多种内容类型，字符串，图片，视频等</li>
+<li>纠错能力强<br>纠错等级设置：<br><img src="http://ww3.sinaimg.cn/large/006y8lVagw1fbg0v2jxskj30ga0333ze.jpg" alt=""></li>
+</ol>
+<h3 id="2-版本-40种规格"><a href="#2-版本-40种规格" class="headerlink" title="2. 版本(40种规格)"></a>2. 版本(40种规格)</h3><ul>
+<li>21x21(四角计算在内)</li>
+<li>25x25</li>
+<li>29x29</li>
+<li>…</li>
+<li>177x177<br>生成二维码会根据原始信息的容量选择最优的版本</li>
+</ul>
+<h3 id="3-原理"><a href="#3-原理" class="headerlink" title="3. 原理"></a>3. 原理</h3><p>TODO</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/01/05/Programming-Summary/Quick Response Code/" data-id="cixkdvw58000nynjghwwc270s" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Programming-Summary/Shell基础" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/05/Programming-Summary/Shell基础/" class="article-date">
+  <time datetime="2017-01-05T13:02:49.000Z" itemprop="datePublished">2017-01-05</time>
 </a>
     
   <div class="article-category">
@@ -454,7 +431,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/05/Shell基础/">Shell基础</a>
+      <a class="article-title" href="/2017/01/05/Programming-Summary/Shell基础/">Shell基础</a>
     </h1>
   
 
@@ -473,7 +450,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/05/Shell基础/" data-id="cixk7sv97001uxlyjhmtfrprk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/05/Programming-Summary/Shell基础/" data-id="cixkdvw59000qynjg89h1cb87" class="article-share-link">Share</a>
       
       
     </footer>
@@ -483,10 +460,10 @@
 
 
   
-    <article id="post-Shell常用命令" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Programming-Summary/Shell常用命令" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/01/05/Shell常用命令/" class="article-date">
-  <time datetime="2017-01-05T10:13:11.000Z" itemprop="datePublished">2017-01-05</time>
+    <a href="/2017/01/05/Programming-Summary/Shell常用命令/" class="article-date">
+  <time datetime="2017-01-05T13:02:49.000Z" itemprop="datePublished">2017-01-05</time>
 </a>
     
   <div class="article-category">
@@ -501,7 +478,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/05/Shell常用命令/">Shell常用命令</a>
+      <a class="article-title" href="/2017/01/05/Programming-Summary/Shell常用命令/">Shell常用命令</a>
     </h1>
   
 
@@ -575,7 +552,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/05/Shell常用命令/" data-id="cixk7sv98001vxlyju34xl6ld" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/05/Programming-Summary/Shell常用命令/" data-id="cixkdvw5b000synjgtewjjupm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -585,10 +562,67 @@
 
 
   
-    <article id="post-WEB" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Programming-Summary/RXJava" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/01/05/WEB/" class="article-date">
-  <time datetime="2017-01-05T10:13:11.000Z" itemprop="datePublished">2017-01-05</time>
+    <a href="/2017/01/05/Programming-Summary/RXJava/" class="article-date">
+  <time datetime="2017-01-05T13:02:49.000Z" itemprop="datePublished">2017-01-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>►<a class="article-category-link" href="/categories/Java/RXJava/">RXJava</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/05/Programming-Summary/RXJava/">RXJava</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>RxJava generally consists of Observable (which emits the data which we can observe) and Observer (which observes emitted data and handles it).</p>
+<h4 id="1-观察者模式"><a href="#1-观察者模式" class="headerlink" title="1. 观察者模式"></a>1. 观察者模式</h4><ul>
+<li>Observable：整理并提供<strong>数据、事件序列</strong></li>
+<li>Observer(Subscriber)：响应数据、事件序列</li>
+<li>Subscribe：Observable subscribe (to) Observer</li>
+</ul>
+<h4 id="2-变换"><a href="#2-变换" class="headerlink" title="2. 变换"></a>2. 变换</h4><h4 id="3-线程调度"><a href="#3-线程调度" class="headerlink" title="3. 线程调度"></a>3. 线程调度</h4><pre><code>在不指定线程的情况下， RxJava 遵循的是线程不变的原则，即：在哪个线程调用 subscribe()，就在哪个线程生产事件；在哪个线程生产事件，就在哪个线程消费事件
+</code></pre><ol>
+<li>observeOn() 指定的是 Subscriber 的线程，所以指定的是它之后的操作所在的线程</li>
+<li>subscribeOn() 指定的是第一个 Observable 的线程,subscribeOn() 的位置放在操作的前后都可以，但它是只能调用一次的。</li>
+</ol>
+<h4 id="相关网站"><a href="#相关网站" class="headerlink" title="相关网站"></a>相关网站</h4><ol>
+<li><a href="http://reactivex.io/intro.html" target="_blank" rel="external">reactiveX官网</a></li>
+<li><a href="https://github.com/ReactiveX/rxjava/wiki" target="_blank" rel="external">reactiveX WIKI</a></li>
+<li><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/" target="_blank" rel="external">ReactiveX/RxJava文档中文版</a> </li>
+<li><a href="http://gank.io/post/560e15be2dca930e00da1083" target="_blank" rel="external">给Android开发者的RXJava详解</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/01/05/Programming-Summary/RXJava/" data-id="cixkdvw5d000tynjg6vg7oeg7" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Programming-Summary/WEB" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/05/Programming-Summary/WEB/" class="article-date">
+  <time datetime="2017-01-05T13:02:49.000Z" itemprop="datePublished">2017-01-05</time>
 </a>
     
   <div class="article-category">
@@ -603,7 +637,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/05/WEB/">WEB</a>
+      <a class="article-title" href="/2017/01/05/Programming-Summary/WEB/">WEB</a>
     </h1>
   
 
@@ -635,100 +669,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/05/WEB/" data-id="cixk7sv9a001xxlyjohpti8bd" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Android分辨率兼容" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/01/05/Android分辨率兼容/" class="article-date">
-  <time datetime="2017-01-05T10:13:11.000Z" itemprop="datePublished">2017-01-05</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Android/">Android</a>►<a class="article-category-link" href="/categories/Android/Resolution/">Resolution</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/05/Android分辨率兼容/">Android分辨率兼容</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>===</p>
-<h3 id="一-相关概念"><a href="#一-相关概念" class="headerlink" title="一.相关概念"></a>一.相关概念</h3><ol>
-<li>PX:像素点,图片的尺寸</li>
-<li>PT:1/72 inch，物理单位1inch＝2.54cm</li>
-<li>DPI(Dots per inch):每个英寸(物理单位)的px数。</li>
-<li><p>DP(DIP,Density-independent Pixels):DP是人为规定的一个单位。官方文档中解释<br>one DIP is one pixel on an approximately 160 dpi screen (for example a 240x320, 1.5”x2” screen),所以在320dpi的设备上，1DIP = 2PX,以此类推。</p>
-</li>
-<li><p>SP(Scale-independent Pixels)</p>
-</li>
-</ol>
-<p>####总结 </p>
-<p><code>android.util.DisplayMetricsd</code>源码中的<code>density</code>是DP和PX转换的因子，公式为$$PX = density * DP$$,而$$density = 当前设备的DPI/160$$</p>
-<p>所以说，在160DPI(即每个英寸有160个像素点)的设备上，density 是1，代表每个DP包含1个像素，在320DPI设备上density是2，代表每个DP包含2个像素。</p>
-<p>最终的公式是：<br>$$PX = {DPI * DP \over 160} $$</p>
-<p>因为DPI是由设备决定的，而现在主流的设备也是相差不多，比如1080P的DPI一般就是5inch,那么DPI就是440，density为2.75，那么屏幕的宽度1080px ＝ 1080/2.75 ＝ 392dp。</p>
-<h3 id="二-适配方案"><a href="#二-适配方案" class="headerlink" title="二.适配方案"></a>二.适配方案</h3><ol>
-<li><p>首先，保证长度单位均使用DP作为单位（特殊情况，如根据屏幕分辨率动态设置除外）,同时使用灵活的自适应布局风格，还可以利用LineaLayout的weight对布局进行比例分割。</p>
-</li>
-<li><p>根据不同分辨率，取不同的drawable和dimen，而layout则使用一套。比如设计师给到一张在1080P手机上100x100的切图，那么在480x800手机上就应该进行缩小，理论上是一半，实际上还需要根据真机做调整。</p>
-</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th>文件夹</th>
-<th>DPI</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ldpi</td>
-<td>0-120</td>
-</tr>
-<tr>
-<td>mdpi</td>
-<td>120-160</td>
-</tr>
-<tr>
-<td>hdpi</td>
-<td>160-240</td>
-</tr>
-<tr>
-<td>xhdpi</td>
-<td>240-320</td>
-</tr>
-<tr>
-<td>xxhdpi</td>
-<td>320-480</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">res/drawable        (default)</div><div class="line">res/drawable-ldpi/  (240x320 and nearer resolution)</div><div class="line">res/drawable-mdpi/  (320x480 and nearer resolution)</div><div class="line">res/drawable-hdpi/  (480x800, 540x960 and nearer resolution)</div><div class="line">res/drawable-xhdpi/  (720x1280 - Samsung S3, Micromax Canvas HD etc)</div><div class="line">res/drawable-xxhdpi/ (1080x1920 - Samsung S4, HTC one, Nexus 5, etc)</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">res/values/dimens.xml(default)</div><div class="line">res/values-ldpi/dimens.xml   (240x320 and nearer resolution)</div><div class="line">res/values-mdpi/dimens.xml   (320x480 and nearer resolution)</div><div class="line">res/values-hdpi/dimens.xml   (480x800, 540x960 and nearer resolution)</div><div class="line">res/values-xhdpi/dimens.xml  (720x1280 - Samsung S3, Micromax Canvas HD, etc) </div><div class="line">res/values-xxhdpi/dimens.xml (1080x1920 - Samsung S4, HTC one, etc)</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/05/Android分辨率兼容/" data-id="cixk7sv9d001yxlyjqhoxvqze" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/05/Programming-Summary/WEB/" data-id="cixkdvw5f000vynjgemzvokn7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -751,7 +692,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algrithm/">Algrithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/Binder/">Binder</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/Graphic/">Graphic</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/Resolution/">Resolution</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/SupportLibrary/">SupportLibrary</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/aidl-demo/">aidl-demo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/my-works/">my-works</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/my-works/Animation-BookShelf/">Animation-BookShelf</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/my-works/TouchEvent-SelectSeatView/">TouchEvent-SelectSeatView</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/problem-solving/">problem-solving</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/优化/">优化</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/优化/其他优化/">其他优化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/优化/内存优化/">内存优化</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/批量打包/">批量打包</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Common/">Common</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Common/Cryptography/">Cryptography</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Common/Quick-Response-Code/">Quick-Response-Code</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Common/git-direction/">git-direction</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Common/regular-expression/">regular-expression</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Annotation/">Annotation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/ClassLoader/">ClassLoader</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Concurrent/">Concurrent</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/DynamicProxy/">DynamicProxy</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Generic/">Generic</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/IO/">IO</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Lambda/">Lambda</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Memory/">Memory</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/RXJava/">RXJava</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/VI/">VI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/shell/">shell</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/">Platforms&Tools</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/Jenkins/">Jenkins</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/WebServer/">WebServer</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/开发协作/">开发协作</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/提升效率的工具/">提升效率的工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/构建工具/">构建工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/构建工具/Ant/">Ant</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/构建工具/Gradle/">Gradle</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web/jQuery/">jQuery</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/微信小程序/">微信小程序</a></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algrithm/">Algrithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/Binder/">Binder</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/Graphic/">Graphic</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/Resolution/">Resolution</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/SupportLibrary/">SupportLibrary</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/aidl-demo/">aidl-demo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/problem-solving/">problem-solving</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/优化/">优化</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/优化/其他优化/">其他优化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/优化/内存优化/">内存优化</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/批量打包/">批量打包</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/自定义UI/">自定义UI</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/自定义UI/Animation-BookShelf/">Animation-BookShelf</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/自定义UI/TouchEvent-SelectSeatView/">TouchEvent-SelectSeatView</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Common/">Common</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Common/Cryptography/">Cryptography</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Common/Quick-Response-Code/">Quick-Response-Code</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Common/git-direction/">git-direction</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Common/regular-expression/">regular-expression</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Annotation/">Annotation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/ClassLoader/">ClassLoader</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Concurrent/">Concurrent</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/DynamicProxy/">DynamicProxy</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Generic/">Generic</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/IO/">IO</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Lambda/">Lambda</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/Memory/">Memory</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/RXJava/">RXJava</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/VI/">VI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/shell/">shell</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/">Platforms&Tools</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/Jenkins/">Jenkins</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/开发协作/">开发协作</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/提升效率的工具/">提升效率的工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/构建工具/">构建工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/构建工具/Ant/">Ant</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Platforms-Tools/构建工具/Gradle/">Gradle</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web/jQuery/">jQuery</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/微信小程序/">微信小程序</a></li></ul></li></ul>
     </div>
   </div>
 
@@ -779,23 +720,23 @@
       <ul>
         
           <li>
-            <a href="/2017/01/05/1.IO/">1.IO</a>
+            <a href="/2017/01/05/Programming-Summary/git常用命令/">git常用命令</a>
           </li>
         
           <li>
-            <a href="/2017/01/05/问题以及解决/">问题以及解决</a>
+            <a href="/2017/01/05/Programming-Summary/问题以及解决/">问题以及解决</a>
           </li>
         
           <li>
-            <a href="/2017/01/05/1.安装/">1.安装</a>
+            <a href="/2017/01/05/Programming-Summary/Android Binder/">Android Binder</a>
           </li>
         
           <li>
-            <a href="/2017/01/05/AIDL/">AIDL</a>
+            <a href="/2017/01/05/Programming-Summary/Android分辨率兼容/">Android分辨率兼容</a>
           </li>
         
           <li>
-            <a href="/2017/01/05/AndroidBinder/">AndroidBinder</a>
+            <a href="/2017/01/05/Programming-Summary/Android Support Library/">Android Support Library</a>
           </li>
         
       </ul>

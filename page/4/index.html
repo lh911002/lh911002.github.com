@@ -248,12 +248,12 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/06/Programming-Summary/动态代理/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/09/Programming-Summary/Shell常用命令/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Athrun">
     <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://ww3.sinaimg.cn/large/006y8lVagw1fbgztiycs3j30aj0ak75t.jpg">
+    <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/3077218?v=3&s=460">
   </span>
 
   <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -273,8 +273,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/01/06/Programming-Summary/动态代理/" itemprop="url">
-                  动态代理
+                <a class="post-title-link" href="/2016/12/09/Programming-Summary/Shell常用命令/" itemprop="url">
+                  Shell常用命令
                 </a>
               
             
@@ -290,8 +290,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-06T16:53:16+08:00">
-                2017-01-06
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-09T14:26:46+08:00">
+                2016-12-09
               </time>
             
 
@@ -313,8 +313,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
                   </a>
                 </span>
 
@@ -324,8 +324,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/DynamicProxy/" itemprop="url" rel="index">
-                    <span itemprop="name">DynamicProxy</span>
+                  <a href="/categories/Linux/shell/" itemprop="url" rel="index">
+                    <span itemprop="name">shell</span>
                   </a>
                 </span>
 
@@ -361,185 +361,68 @@
       
         
           
-            <h4 id="1-代理的概念："><a href="#1-代理的概念：" class="headerlink" title="1. 代理的概念："></a>1. 代理的概念：</h4><p><img src="http://ww3.sinaimg.cn/large/006y8lVagw1fbg0whuqfgj30tq05w3yp.jpg" alt=""></p>
-<pre><code>图中A是调用者，B是代理类，C是委托类，也称作被代理类。
-代理类和被代理类一般实现相同的接口。
-</code></pre><h4 id="2-动态代理"><a href="#2-动态代理" class="headerlink" title="2. 动态代理"></a>2. 动态代理</h4><p><img src="http://ww4.sinaimg.cn/large/006y8lVagw1fbg0wjh5xuj30rw0k0wgq.jpg" alt=""></p>
-<blockquote>
-<p>InvocationHandler相对于OperateImpl是代理类，相对于Proxy是委托，是一个双重角色。<br>    MyProxy类是调用<code>public static Object java.lang.reflect.Proxy.newProxyInstance(ClassLoader loader, Class&lt;?&gt;[] interfaces,InvocationHandler invocationHandler)</code>生成的一个中间类，MyProxy类继承自java.lang.reflect.Proxy,并实现参数interfaces的所有接口,在接口的实现中调用InvocationHandler，这是第一次代理，在InvocationHandler的invoke方法中调用OperateImpl的方法，这是第二次代理。</p>
-</blockquote>
-<p>参考：</p>
-<p>1.<a href="http://www.infoq.com/cn/articles/cf-java-reflection-dynamic-proxy" target="_blank" rel="external">http://www.infoq.com/cn/articles/cf-java-reflection-dynamic-proxy</a><br>2.<a href="http://a.codekk.com/detail/Android/Caij/%E5%85%AC%E5%85%B1%E6%8A%80%E6%9C%AF%E7%82%B9%E4%B9%8B%20Java%20%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86" target="_blank" rel="external">http://a.codekk.com/detail/Android/Caij/%E5%85%AC%E5%85%B1%E6%8A%80%E6%9C%AF%E7%82%B9%E4%B9%8B%20Java%20%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/06/Programming-Summary/密码学简介/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Athrun">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://ww3.sinaimg.cn/large/006y8lVagw1fbgztiycs3j30aj0ak75t.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Athrun">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Athrun" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/01/06/Programming-Summary/密码学简介/" itemprop="url">
-                  密码学简介
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-06T16:53:16+08:00">
-                2017-01-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Common/" itemprop="url" rel="index">
-                    <span itemprop="name">Common</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Common/Cryptography/" itemprop="url" rel="index">
-                    <span itemprop="name">Cryptography</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h4><ol>
-<li><p>加密方式分类</p>
+            <p><a href="http://man.linuxde.net/" target="_blank" rel="external">http://man.linuxde.net/</a></p>
+<h3 id="1-系统常用命令"><a href="#1-系统常用命令" class="headerlink" title="1. 系统常用命令"></a>1. 系统常用命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">uname -a               查看内核/操作系统/CPU信息</div><div class="line">head -n 1 /etc/issue   查看操作系统版本</div><div class="line">cat /proc/cpuinfo      查看CPU信息</div><div class="line">hostname               查看计算机名</div><div class="line">lspci -tv              列出所有PCI设备</div><div class="line">lsusb -tv              列出所有USB设备</div><div class="line">lsmod                  列出加载的内核模块</div><div class="line">env                    查看环境变量</div><div class="line">ipconfig getifaddR     获取IP地址</div><div class="line">mv FILE_A FILE_B       重命名FILE_A</div><div class="line">nohup some-command &amp;   后台运行some-command</div><div class="line">wget -O some-file some-url 下载some-url到some-file</div><div class="line">tar -xvf filename.tar.gz 解压文件</div><div class="line">ln -s FILE_PATH LINK_PATH 创建软连接</div><div class="line">df -h 磁盘占用情况</div><div class="line">du -sh * 或者 du -ah --max-depth=1 当前目录下所有文件夹和文件的大小</div><div class="line">du -sh * | sort -h 根据大小排序文件/文件夹</div></pre></td></tr></table></figure>
+<h3 id="2-查找-grep-find-locate"><a href="#2-查找-grep-find-locate" class="headerlink" title="2. 查找 grep find locate"></a>2. 查找 grep find locate</h3><p><a href="http://www.ruanyifeng.com/blog/2009/10/5_ways_to_search_for_files_using_the_terminal.html" target="_blank" rel="external">查找相关命令</a></p>
+<p><a href="http://www.cnblogs.com/xudong-bupt/archive/2013/03/23/2976793.html" target="_blank" rel="external">find和grep的区别:</a></p>
+<p>find查找的文件的属性，grep查找的是文件的内容</p>
+<p><code>find . -name &quot;*Dao*&quot; -exec rm -rf {} \; 查找当前目录所有文件名包含Dao的文件并将他们删除</code></p>
+<h3 id="3-数据处理-awk-sed"><a href="#3-数据处理-awk-sed" class="headerlink" title="3. 数据处理 awk sed"></a>3. 数据处理 awk sed</h3><h3 id="4-用户和权限管理"><a href="#4-用户和权限管理" class="headerlink" title="4. 用户和权限管理"></a>4. 用户和权限管理</h3><h4 id="4-1-用户和用户组"><a href="#4-1-用户和用户组" class="headerlink" title="4.1 用户和用户组"></a>4.1 用户和用户组</h4><ul>
+<li>用户和用户组的关系可以是1.一对一 2.一对多 3.多对多 4.多对一</li>
+<li>切换用户 <code>su(switch user) username</code></li>
+</ul>
+<h4 id="4-2-新增"><a href="#4-2-新增" class="headerlink" title="4.2 新增"></a>4.2 新增</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">useradd username 添加用户</div></pre></td></tr></table></figure>
+<h4 id="4-3-修改"><a href="#4-3-修改" class="headerlink" title="4.3 修改"></a>4.3 修改</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">passwd username 修改用户密码</div></pre></td></tr></table></figure>
+<h4 id="4-4-查询"><a href="#4-4-查询" class="headerlink" title="4.4 查询"></a>4.4 查询</h4><ul>
+<li><p><code>groups username</code>  显示someUser所在组，可能有多个</p>
+</li>
+<li><p>在/etc/group 中的每条记录分四个字段：</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"> _postgres:*:216:_devicemgr,_calendar,_teamsserver,_xserverdocs</div><div class="line">用户组名称：用户组密码：GID：用户列表</div></pre></td></tr></table></figure>
+<h4 id="4-5-删除"><a href="#4-5-删除" class="headerlink" title="4.5 删除"></a>4.5 删除</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">userdel username 删除用户</div></pre></td></tr></table></figure>
+<ol>
+<li><p>权限管理</p>
+<p> 一个文档的所有者只能有一个用户</p>
+</li>
+<li><p>chmod&amp;chown命令</p>
 <ul>
-<li>对称加密：只有一个秘钥，既可以用于加密，也可以用于解密，所以密钥不能对外泄露。如<code>DES</code></li>
-<li>非对称加密(公开密钥加密)：有两个密钥，一个叫公钥，一个叫做私钥，任何一个都可以用于加密同时也可以用于解密，用公钥加密的只能用私钥解密，反之亦然。私钥不能泄漏，公钥提供给需要通信的客户端。如<code>RSA</code></li>
+<li>chown更改文档的属主，指定 有且只有一个用户。</li>
+<li><p>chomod更改文件的权限，包括user（属主），group（与属主同一个用户组），        other（其他用户）对文件的rwx权限，7表示全部权限开通</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">chmod a+x f01　　对文件f01的u,g,o都设置可执行属性,a代表所有用户(u,g,o)</div><div class="line"></div><div class="line">sudo chown -R athrun:admin mysql/  修改文件夹mysql和内部所有文件的所有者为用户athrun，用户组为admin（athrun不属于admin也是可以的）</div></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
 </ol>
+<h3 id="5-查看进程信息"><a href="#5-查看进程信息" class="headerlink" title="5. 查看进程信息"></a>5. 查看进程信息</h3><ul>
+<li>lsof(list open files)</li>
+<li>ps</li>
+</ul>
+<p><code>ps -ef | grep nginx 查找和nginx有关系的进程列表</code></p>
+<p><code>|</code> :管道命令，将上个命令的输出作为下个命令的输入</p>
+<p>以查看1099端口占用进程为例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">lsof -i :1099</div><div class="line">ps -ef | grep 1099</div></pre></td></tr></table></figure>
+<p>终止相关进程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo kill -9 PID</div></pre></td></tr></table></figure>
+<h3 id="6-Java监控-jstat-jmap-jstack"><a href="#6-Java监控-jstat-jmap-jstack" class="headerlink" title="6. Java监控(jstat,jmap,jstack)"></a>6. Java监控(jstat,jmap,jstack)</h3><ol>
+<li>常规监控：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">jstat  -gcutil pid  //查看gc情况</div><div class="line">jstat -gcutil 23613 2000</div></pre></td></tr></table></figure>
 <ol>
-<li>签名：一般是在加密前，对传递信息内容进行hash后生成hash值（指纹），将hash值（指纹）加密得到签名，然后将签名放入传递信息中一起发送出去。接受方受到以后对签名进行解密，并对信息正文计算hash值（指纹），并比较hash值是否相同判断信息是否被篡改过。实质利用的hash算法的不可逆。</li>
+<li>出现瓶颈时监控：</li>
 </ol>
-<ol>
-<li><p>数字证书</p>
-<pre><code>数字证书实质是为了解决公钥派发的问题。因为任何人都可以生成公钥和私钥。只有系统中受信任的证书组织的证书才是可用的。
-</code></pre></li>
-</ol>
-<h4 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h4><ol>
-<li><a href="http://www.cnblogs.com/JeffreySun/archive/2010/06/24/1627247.html" target="_blank" rel="external">http://www.cnblogs.com/JeffreySun/archive/2010/06/24/1627247.html</a></li>
-</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">jmap -heap  pid  // 查看堆内存使用情况</div><div class="line">jmap -histo  pid  //打印每个class的实例数目,内存占用,类全名</div><div class="line">jstack pid &gt; pid.txt  //jvm 线程分析</div><div class="line">top -Hp  pid  //查看那个线程cpu高，将线程id 转成16进制  在 jstack 导出来的文本文件中查看这个线程在干嘛</div><div class="line">printf  “%x”Tid   //打印线程号的16进制</div></pre></td></tr></table></figure>
+<h3 id="7-远程文件传输"><a href="#7-远程文件传输" class="headerlink" title="7. 远程文件传输"></a>7. 远程文件传输</h3><p>方式一：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">scp scp.test root@172.16.10.4:/tmp/scp.test 从本地上传到远程服务器</div><div class="line">scp username@servername:/path/filename /tmp/local_destination 从远程下载文件到本地</div></pre></td></tr></table></figure>
+<p>方式二：</p>
+<p>安装lrzsz，使用rz上传文件，sz下载文件<br>TIPs:文件较大时使用rz -e</p>
+<p>方式三：<br>FTP</p>
+<p>方式四：</p>
+<p>使用ssh支持的sftp传输文件到服务器</p>
+<p><code>vsftpd</code> can support FTPS if configured, but <code>sftp</code> runs over ssh.</p>
+<p>1.连接远程ftp服务器<br><code>sftp root@202.206.64.33</code></p>
+<p>2.拉取远程文件到本地<br><code>sftp&gt; get /var/www/fuyatao/index.php  /home/fuyatao/</code><br>这条语句将从远程主机的  /var/www/fuyatao/目录下将 index.php 下载到本地  /home/fuyatao/目录下。</p>
+<p>3.上传本地文件到远程<br><code>sftp&gt; put /home/fuyatao/downloads/Linuxgl.pdf /var/www/fuyatao/</code><br>这条语句将把本地 /home/fuyatao/downloads/目录下的 linuxgl.pdf文件上传至远程主机。</p>
 
           
         
@@ -578,12 +461,12 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/06/Programming-Summary/常用Android优化工具/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/08/Programming-Summary/vim操作/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Athrun">
     <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://ww3.sinaimg.cn/large/006y8lVagw1fbgztiycs3j30aj0ak75t.jpg">
+    <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/3077218?v=3&s=460">
   </span>
 
   <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -603,8 +486,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/01/06/Programming-Summary/常用Android优化工具/" itemprop="url">
-                  常用Android优化工具
+                <a class="post-title-link" href="/2016/12/08/Programming-Summary/vim操作/" itemprop="url">
+                  vim操作
                 </a>
               
             
@@ -620,8 +503,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-06T16:53:16+08:00">
-                2017-01-06
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-08T14:26:46+08:00">
+                2016-12-08
               </time>
             
 
@@ -643,8 +526,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
                   </a>
                 </span>
 
@@ -654,19 +537,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/优化/" itemprop="url" rel="index">
-                    <span itemprop="name">优化</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/优化/其他优化/" itemprop="url" rel="index">
-                    <span itemprop="name">其他优化</span>
+                  <a href="/categories/Linux/VI/" itemprop="url" rel="index">
+                    <span itemprop="name">VI</span>
                   </a>
                 </span>
 
@@ -702,11 +574,36 @@
       
         
           
-            <ol>
-<li>TraceView<br>参考<a href="http://www.trinea.cn/android/android-traceview/" target="_blank" rel="external">http://www.trinea.cn/android/android-traceview/</a><br>代码的性能优化，CPU占用等信息</li>
-<li>Lint<br>代码优化</li>
-<li>hierarchyviewer<br>显示布局层级以及每个view花费在各阶段的时间（onMeasure OnLayout onDraw）</li>
+            <h4 id="1-模式简介"><a href="#1-模式简介" class="headerlink" title="1. 模式简介"></a>1. 模式简介</h4><pre><code>1. Normal 
+2. Insert
+3. Visual
+</code></pre><ol>
+<li>用v命令进入的字符可视化模式（Characterwise visual mode)。文本选择是以字符为单位的。</li>
+<li>用V命令进入的行可视化模式（Linewise visual mode)。文本选择是以行为单位的。</li>
+<li>用ctrl-V进入的块可视化模式（Blockwise visual mode）。可以选择一个矩形内的文本。（注意：在Windows中，ctrl-V可能已经被影射为粘贴操作，可以使用ctrl-Q进入块可视化模式。）</li>
 </ol>
+<h4 id="2-复制粘贴操作"><a href="#2-复制粘贴操作" class="headerlink" title="2. 复制粘贴操作"></a>2. 复制粘贴操作</h4><pre><code>yy复制游标所在行整行。或大写一个Y。 
+2yy或y2y复制两行。
+y^复制至行首，或y0。不含游标所在处字元。 
+y$复制至行尾。含游标所在处字元。 
+yw复制一个word。 
+y2w复制两个字（单词）。 
+yG复制至档尾。 
+y1G复制至档首。 
+p小写p代表贴至游标后（下）。 
+P大写P代表贴至游标前（上）。 
+</code></pre><h4 id="3-删除命令"><a href="#3-删除命令" class="headerlink" title="3. 删除命令"></a>3. 删除命令</h4><pre><code>ndw或ndW：删除光标处开始及其后的n-1个字
+
+do：删至行首
+
+d$：删至行尾
+
+ndd：删除当前行及其后n-1行
+
+x或X：删除一个字符，x删除光标后的，而X删除光标前的
+
+Ctrl+u：删除输入方式下所输入的文本
+</code></pre><h4 id="4-光标移动操作"><a href="#4-光标移动操作" class="headerlink" title="4. 光标移动操作"></a>4. 光标移动操作</h4><p>TODO</p>
 
           
         
@@ -745,12 +642,12 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/06/Programming-Summary/批量打包工具/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/07/Programming-Summary/MACHINE LEARNING/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Athrun">
     <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://ww3.sinaimg.cn/large/006y8lVagw1fbgztiycs3j30aj0ak75t.jpg">
+    <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/3077218?v=3&s=460">
   </span>
 
   <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -770,8 +667,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/01/06/Programming-Summary/批量打包工具/" itemprop="url">
-                  批量打包工具
+                <a class="post-title-link" href="/2016/12/07/Programming-Summary/MACHINE LEARNING/" itemprop="url">
+                  MACHINE LEARNING
                 </a>
               
             
@@ -787,8 +684,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-06T16:53:16+08:00">
-                2017-01-06
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-07T14:26:46+08:00">
+                2016-12-07
               </time>
             
 
@@ -810,19 +707,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/批量打包/" itemprop="url" rel="index">
-                    <span itemprop="name">批量打包</span>
+                  <a href="/categories/ML/" itemprop="url" rel="index">
+                    <span itemprop="name">ML</span>
                   </a>
                 </span>
 
@@ -858,13 +744,206 @@
       
         
           
-            <h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>该打包工具参考了美团的打包方案。由于apk压缩文件的<code>META-INF</code>目录下文件不影响签名结果，所以可以在打包签名后在META-INF目录下生成相应的渠道标记，在程序运行时通过程序代码读取打包渠道号即可设置渠道。</p>
-<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><ol>
-<li>在marketlist.txt文件中配置渠道列表</li>
-<li>运行build.py（需安装python运行环境）</li>
-</ol>
-<h3 id="Python脚本代码"><a href="#Python脚本代码" class="headerlink" title="Python脚本代码"></a>Python脚本代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> os</div><div class="line"><span class="keyword">import</span> shutil</div><div class="line"><span class="keyword">import</span> zipfile</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 空文件 便于写入此空文件到apk包中作为channel文件</span></div><div class="line">src_empty_file = <span class="string">'temp.txt'</span></div><div class="line"><span class="comment"># 创建一个空文件（不存在则创建）</span></div><div class="line">f = open(src_empty_file, <span class="string">'w'</span>) </div><div class="line">f.close()</div><div class="line"></div><div class="line"><span class="comment"># 获取渠道列表</span></div><div class="line">channel_file = <span class="string">'marketlist.txt'</span></div><div class="line">f = open(channel_file)</div><div class="line">lines = f.readlines()</div><div class="line">f.close()</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 获取当前目录中所有的apk源包</span></div><div class="line">src_apks = []</div><div class="line"><span class="keyword">for</span> file <span class="keyword">in</span> os.listdir():</div><div class="line">	<span class="keyword">if</span> os.path.isfile(file):</div><div class="line">		extension = os.path.splitext(file)[<span class="number">1</span>][<span class="number">1</span>:]</div><div class="line">		<span class="keyword">if</span> extension <span class="keyword">in</span> <span class="string">'apk'</span>:</div><div class="line">			src_apks.append(file)</div><div class="line">			</div><div class="line">			</div><div class="line"><span class="comment"># file name (with extension)</span></div><div class="line">src_apk = src_apks[<span class="number">0</span>]</div><div class="line">src_apk_file_name = os.path.basename(src_apk)</div><div class="line"><span class="comment"># 分割文件名与后缀</span></div><div class="line">temp_list = os.path.splitext(src_apk_file_name)</div><div class="line"><span class="comment"># name without extension</span></div><div class="line">src_apk_name = temp_list[<span class="number">0</span>]</div><div class="line"><span class="comment"># 后缀名，包含.   例如: ".apk "</span></div><div class="line">src_apk_extension = temp_list[<span class="number">1</span>]</div><div class="line"></div><div class="line"><span class="comment"># 创建生成目录,与文件名相关</span></div><div class="line">output_dir = src_apk_name +<span class="string">"各渠道包"</span>+ <span class="string">'/'</span></div><div class="line"><span class="comment"># 目录不存在则创建</span></div><div class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(output_dir):</div><div class="line">	os.mkdir(output_dir)</div><div class="line"><span class="comment"># 遍历渠道号并创建对应渠道号的apk文件</span></div><div class="line">linesIndex = <span class="number">1</span></div><div class="line"><span class="keyword">for</span> line <span class="keyword">in</span> lines:</div><div class="line">	<span class="comment"># 获取当前渠道号，因为从渠道文件中获得带有\n,所有strip一下</span></div><div class="line">	target_channel = line.strip()</div><div class="line">	<span class="keyword">if</span> <span class="string">"#"</span> <span class="keyword">in</span> line[<span class="number">0</span>:<span class="number">1</span>] : </div><div class="line">		print(<span class="string">"渠道"</span>+target_channel[<span class="number">1</span>:]+<span class="string">"跳过"</span>)</div><div class="line">		<span class="keyword">continue</span>		</div><div class="line">	<span class="comment"># 拼接对应渠道号的apk</span></div><div class="line">	target_apk = output_dir + src_apk_name + <span class="string">"_"</span> + target_channel + src_apk_extension  </div><div class="line">	<span class="comment"># 拷贝建立新apk</span></div><div class="line">	shutil.copy(src_apk,  target_apk)</div><div class="line">	<span class="comment"># zip获取新建立的apk文件</span></div><div class="line">	zipped = zipfile.ZipFile(target_apk, <span class="string">'a'</span>, zipfile.ZIP_DEFLATED)</div><div class="line">	<span class="comment"># 初始化渠道信息</span></div><div class="line">	empty_channel_file = <span class="string">"META-INF/kdlcchannel_"</span>+target_channel</div><div class="line">	<span class="comment"># 写入渠道信息</span></div><div class="line">	zipped.write(src_empty_file, empty_channel_file)</div><div class="line">	<span class="comment"># 关闭zip流</span></div><div class="line">	zipped.close()</div><div class="line">	print(linesIndex,<span class="string">".渠道 "</span>+target_channel+<span class="string">" 打包完成"</span>)</div><div class="line">	linesIndex = linesIndex + <span class="number">1</span></div></pre></td></tr></table></figure>
-<h3 id="Android获取渠道号的代码"><a href="#Android获取渠道号的代码" class="headerlink" title="Android获取渠道号的代码"></a>Android获取渠道号的代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getAppChannel</span><span class="params">(Context context)</span></span>&#123;</div><div class="line">       ApplicationInfo appinfo = context.getApplicationInfo();</div><div class="line">       String sourceDir = appinfo.sourceDir;</div><div class="line">       String ret = <span class="string">""</span>;</div><div class="line">       ZipFile zipfile = <span class="keyword">null</span>;</div><div class="line">       <span class="keyword">try</span> &#123;</div><div class="line">           zipfile = <span class="keyword">new</span> ZipFile(sourceDir);</div><div class="line">           Enumeration&lt;?&gt; entries = zipfile.entries();</div><div class="line">           <span class="keyword">while</span> (entries.hasMoreElements()) &#123;</div><div class="line">               ZipEntry entry = ((ZipEntry) entries.nextElement());</div><div class="line">               String entryName = entry.getName();</div><div class="line">               <span class="keyword">if</span> (entryName.startsWith(<span class="string">"META-INF/kdlcchannel"</span>)) &#123;</div><div class="line">                   ret = entryName;</div><div class="line">                   <span class="keyword">break</span>;</div><div class="line">               &#125;</div><div class="line">           &#125;</div><div class="line">       &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">           e.printStackTrace();</div><div class="line">       &#125; <span class="keyword">finally</span> &#123;</div><div class="line">           <span class="keyword">if</span> (zipfile != <span class="keyword">null</span>) &#123;</div><div class="line">               <span class="keyword">try</span> &#123;</div><div class="line">                   zipfile.close();</div><div class="line">               &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">                   e.printStackTrace();</div><div class="line">               &#125;</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">       String[] split = ret.split(<span class="string">"_"</span>);</div><div class="line">       <span class="keyword">if</span> (split != <span class="keyword">null</span> &amp;&amp; split.length &gt;= <span class="number">2</span>) &#123;</div><div class="line">           <span class="keyword">return</span> ret.substring(split[<span class="number">0</span>].length() + <span class="number">1</span>);</div><div class="line">       &#125; <span class="keyword">else</span> &#123;</div><div class="line">           <span class="keyword">return</span> <span class="string">"MarketNotSet"</span>;</div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+            <h2 id="1-学习方式"><a href="#1-学习方式" class="headerlink" title="1. 学习方式"></a>1. 学习方式</h2><ul>
+<li>监督式学习</li>
+<li>非监督式学习</li>
+<li>半监督式学习</li>
+<li>强化学习</li>
+</ul>
+<h2 id="2-机器学习算法"><a href="#2-机器学习算法" class="headerlink" title="2. 机器学习算法"></a>2. 机器学习算法</h2><p><a href="http://blog.jobbole.com/77620/" target="_blank" rel="external">http://blog.jobbole.com/77620/</a></p>
+<h3 id="2-1-分类算法"><a href="#2-1-分类算法" class="headerlink" title="2.1 分类算法"></a>2.1 分类算法</h3><h4 id="2-1-1-决策树"><a href="#2-1-1-决策树" class="headerlink" title="2.1.1 决策树"></a>2.1.1 决策树</h4><h4 id="2-1-2-贝叶斯"><a href="#2-1-2-贝叶斯" class="headerlink" title="2.1.2 贝叶斯"></a>2.1.2 贝叶斯</h4><h4 id="2-1-3-人工神经网络"><a href="#2-1-3-人工神经网络" class="headerlink" title="2.1.3 人工神经网络"></a>2.1.3 人工神经网络</h4><h4 id="2-1-4-支持向量机SVM"><a href="#2-1-4-支持向量机SVM" class="headerlink" title="2.1.4 支持向量机SVM"></a>2.1.4 支持向量机SVM</h4><h4 id="2-1-5-k-临近"><a href="#2-1-5-k-临近" class="headerlink" title="2.1.5 k-临近"></a>2.1.5 k-临近</h4>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/06/Programming-Summary/Android自动构建/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Athrun">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/3077218?v=3&s=460">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Athrun">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Athrun" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/06/Programming-Summary/Android自动构建/" itemprop="url">
+                  Android自动构建
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-06T14:26:46+08:00">
+                2016-12-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Platforms-Tools/" itemprop="url" rel="index">
+                    <span itemprop="name">Platforms&Tools</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Platforms-Tools/Jenkins/" itemprop="url" rel="index">
+                    <span itemprop="name">Jenkins</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>[TOC]</p>
+<h3 id="1-搭建环境"><a href="#1-搭建环境" class="headerlink" title="1. 搭建环境"></a>1. 搭建环境</h3><h4 id="1-1-开发环境"><a href="#1-1-开发环境" class="headerlink" title="1.1 开发环境"></a>1.1 开发环境</h4><p>安装以下组件并配置环境变量</p>
+<ul>
+<li>CentOS release 6.5 (Final) 64bit</li>
+<li>git 2.10.0</li>
+<li>Gradle 2.4</li>
+<li>JDK 1.8</li>
+<li>Android SDK Platform 23</li>
+<li>Android Build Tools 23.0.02</li>
+<li>Android Extras（Android support Library）</li>
+</ul>
+<p>TIPS：</p>
+<ul>
+<li>centos 64 bit 上buil-tools 中的aapt工具不能很好运行，需要安装<ul>
+<li>yum install libgcc.i686</li>
+<li>yum install zlib.i686</li>
+<li>yum install glibc.i686</li>
+<li>…</li>
+</ul>
+</li>
+<li>组件也可以通过插件自动安装，为了便于以后管理，这里选择自己安装</li>
+</ul>
+<h4 id="1-2-第三方平台"><a href="#1-2-第三方平台" class="headerlink" title="1.2 第三方平台"></a>1.2 第三方平台</h4><ul>
+<li><a href="https://coding.net/" target="_blank" rel="external">coding.net</a> 代码托管</li>
+<li><a href="https://www.pgyer.com/" target="_blank" rel="external">蒲公英应用托管平台</a></li>
+</ul>
+<h3 id="2-安装和配置Jenkins插件"><a href="#2-安装和配置Jenkins插件" class="headerlink" title="2. 安装和配置Jenkins插件"></a>2. 安装和配置Jenkins插件</h3><h4 id="2-1-安装插件"><a href="#2-1-安装插件" class="headerlink" title="2.1 安装插件"></a>2.1 安装插件</h4><ul>
+<li>jenkins 1.6</li>
+<li>gradle plugin 1.25</li>
+</ul>
+<h4 id="2-2-插件配置"><a href="#2-2-插件配置" class="headerlink" title="2.2 插件配置"></a>2.2 插件配置</h4><p>进入<code>系统管理-&gt;系统设置</code>，并添加以下配置</p>
+<p><img src="http://ww1.sinaimg.cn/large/006y8lVagw1fbg1ft5o2ij31d60gydgv.jpg" alt=""><br><img src="http://ww2.sinaimg.cn/large/006y8lVagw1fbg1fuvgxej31d80dogmo.jpg" alt=""></p>
+<h3 id="3-Jenkins-Job-配置"><a href="#3-Jenkins-Job-配置" class="headerlink" title="3. Jenkins Job 配置"></a>3. Jenkins Job 配置</h3><h4 id="3-1-源代码拉取"><a href="#3-1-源代码拉取" class="headerlink" title="3.1 源代码拉取"></a>3.1 源代码拉取</h4><p><img src="http://ww2.sinaimg.cn/large/006y8lVagw1fbg1fw4sr8j31bw0cot9w.jpg" alt=""></p>
+<h4 id="3-2-构建触发器"><a href="#3-2-构建触发器" class="headerlink" title="3.2 构建触发器"></a>3.2 构建触发器</h4><p>30分钟一次</p>
+<p><img src="http://ww3.sinaimg.cn/large/006y8lVagw1fbg1fxoo2qj30r00bqgmh.jpg" alt=""></p>
+<h4 id="3-3-执行构建"><a href="#3-3-执行构建" class="headerlink" title="3.3 执行构建"></a>3.3 执行构建</h4><p><strong>3.3.1 执行构建</strong><br><img src="http://ww4.sinaimg.cn/large/006y8lVagw1fbg1fz4f6lj30vi0eo0tt.jpg" alt=""></p>
+<p><strong>3.3.2 构建后上传至蒲公英，并保存返回二维码</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function jsonval &#123;</div><div class="line">    temp=`echo $json | sed &apos;s/\\\\\//\//g&apos; | sed &apos;s/[&#123;&#125;]//g&apos; | awk -v k=&quot;text&quot; &apos;&#123;n=split($0,a,&quot;,&quot;); for (i=1; i&lt;=n; i++) print a[i]&#125;&apos; | sed &apos;s/\&quot;\:\&quot;/\|/g&apos; | sed &apos;s/[\,]/ /g&apos; | sed &apos;s/\&quot;//g&apos; | grep -w $responsekey`</div><div class="line">    echo $&#123;temp##*|&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">json=`curl -F &quot;file=@YOUR_APK_PATH&quot; -F &quot;uKey=YOUR_USER_KEY&quot; -F &quot;_api_key=YOUR_API_KEY&quot; http://www.pgyer.com/apiv1/app/upload`</div><div class="line">responsekey=&apos;appQRCodeURL&apos;</div><div class="line">responsevalue=`jsonval`</div><div class="line">rm -rf pgyer</div><div class="line">mkdir pgyer</div><div class="line">cd pgyer</div><div class="line">currentDate=`date +%Y_%m_%d_%H_%M_%S`</div><div class="line">wget -O $currentDate.jpg $responsevalue</div></pre></td></tr></table></figure>
+<h4 id="3-4-构建后存档"><a href="#3-4-构建后存档" class="headerlink" title="3.4 构建后存档"></a>3.4 构建后存档</h4><p><img src="http://ww1.sinaimg.cn/large/006y8lVagw1fbg1g29wnpj30eu05odg1.jpg" alt=""></p>
+<h3 id="4-Android-项目配置"><a href="#4-Android-项目配置" class="headerlink" title="4. Android 项目配置"></a>4. Android 项目配置</h3><p>创建local.properties放于根目录，并将sdk.dir配置为本地Android sdk目录</p>
+<h3 id="5-构建取包"><a href="#5-构建取包" class="headerlink" title="5. 构建取包"></a>5. 构建取包</h3><p>查看图片扫码进入蒲公英下载页</p>
+<p><img src="http://ww3.sinaimg.cn/large/006y8lVagw1fbg1g3jr2zj30ly070gm3.jpg" alt=""></p>
 
           
         
@@ -903,12 +982,12 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/06/Programming-Summary/提升开发效率的工具/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/05/Programming-Summary/Phabricator/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Athrun">
     <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://ww3.sinaimg.cn/large/006y8lVagw1fbgztiycs3j30aj0ak75t.jpg">
+    <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/3077218?v=3&s=460">
   </span>
 
   <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -928,7 +1007,173 @@
             
               
                 
-                <a class="post-title-link" href="/2017/01/06/Programming-Summary/提升开发效率的工具/" itemprop="url">
+                <a class="post-title-link" href="/2016/12/05/Programming-Summary/Phabricator/" itemprop="url">
+                  Phabricator
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-05T14:26:46+08:00">
+                2016-12-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Platforms-Tools/" itemprop="url" rel="index">
+                    <span itemprop="name">Platforms&Tools</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Platforms-Tools/开发协作/" itemprop="url" rel="index">
+                    <span itemprop="name">开发协作</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>[TOC]</p>
+<h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h3><blockquote>
+<p>A complete software development platform</p>
+<blockquote>
+<p>Phabricator is an integrated set of powerful tools to help companies build higher quality software.</p>
+</blockquote>
+<p><a href="(https://secure.phabricator.com/book/phabricator/">官网</a>)</p>
+</blockquote>
+<h3 id="2-安装-CentOS"><a href="#2-安装-CentOS" class="headerlink" title="2. 安装(CentOS)"></a>2. 安装(CentOS)</h3><p><code>nginx</code>+<code>php-fpm</code>+<code>phabricator git repo</code>+<code>MySql</code></p>
+<p><a href="https://secure.phabricator.com/diffusion/P/browse/master/scripts/install/install_rhel-derivs.sh" target="_blank" rel="external">安装脚本:</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">confirm() &#123;</div><div class="line">  echo &quot;Press RETURN to continue, or ^C to cancel.&quot;;</div><div class="line">  read -e ignored</div><div class="line">&#125;</div><div class="line"></div><div class="line">RHEL_VER_FILE=&quot;/etc/redhat-release&quot;</div><div class="line"></div><div class="line">if [[ ! -f $RHEL_VER_FILE ]]</div><div class="line">then</div><div class="line">  echo &quot;It looks like you&apos;re not running a Red Hat-derived distribution.&quot;</div><div class="line">  echo &quot;This script is intended to install Phabricator on RHEL-derived&quot;</div><div class="line">  echo &quot;distributions such as RHEL, Fedora, CentOS, and Scientific Linux.&quot;</div><div class="line">  echo &quot;Proceed with caution.&quot;</div><div class="line">  confirm</div><div class="line">fi</div><div class="line"></div><div class="line">echo &quot;PHABRICATOR RED HAT DERIVATIVE INSTALLATION SCRIPT&quot;;</div><div class="line">echo &quot;This script will install Phabricator and all of its core dependencies.&quot;;</div><div class="line">echo &quot;Run it from the directory you want to install into.&quot;;</div><div class="line">echo</div><div class="line"></div><div class="line">RHEL_REGEX=&quot;release ([0-9]+)\.&quot;</div><div class="line"></div><div class="line">if [[ $(cat $RHEL_VER_FILE) =~ $RHEL_REGEX ]]</div><div class="line">then</div><div class="line">  RHEL_MAJOR_VER=$&#123;BASH_REMATCH[1]&#125;</div><div class="line">else</div><div class="line">  echo &quot;Ut oh, we were unable to determine your distribution&apos;s major&quot;</div><div class="line">  echo &quot;version number. Please make sure you&apos;re running 6.0+ before&quot;</div><div class="line">  echo &quot;proceeding.&quot;</div><div class="line">  confirm</div><div class="line">fi</div><div class="line"></div><div class="line">if [[ $RHEL_MAJOR_VER &lt; 6 &amp;&amp; $RHEL_MAJOR_VER &gt; 0 ]]</div><div class="line">then</div><div class="line">  echo &quot;** WARNING **&quot;</div><div class="line">  echo &quot;A major version less than 6 was detected. Because of this,&quot;</div><div class="line">  echo &quot;several needed dependencies are not available via default repos.&quot;</div><div class="line">  echo &quot;Specifically, RHEL 5 does not have a PEAR package for php53-*.&quot;</div><div class="line">  echo &quot;We will attempt to install it manually, for APC. Please be careful.&quot;</div><div class="line">  confirm</div><div class="line">fi</div><div class="line"></div><div class="line">echo &quot;Phabricator will be installed to: $(pwd).&quot;;</div><div class="line">confirm</div><div class="line"></div><div class="line">echo &quot;Testing sudo/root...&quot;</div><div class="line">if [[ $EUID -ne 0 ]] # Check if we&apos;re root. If we are, continue.</div><div class="line">then</div><div class="line">  sudo true</div><div class="line">  SUDO=&quot;sudo&quot;</div><div class="line">  if [[ $? -ne 0 ]]</div><div class="line">  then</div><div class="line">    echo &quot;ERROR: You must be able to sudo to run this script, or run it as root.&quot;;</div><div class="line">    exit 1</div><div class="line">  fi</div><div class="line"></div><div class="line">fi</div><div class="line"></div><div class="line">if [[ $RHEL_MAJOR_VER == 5 ]]</div><div class="line">then</div><div class="line">  # RHEL 5&apos;s &quot;php&quot; package is actually 5.1. The &quot;php53&quot; package won&apos;t let us install php-pecl-apc.</div><div class="line">  # (it tries to pull in php 5.1 stuff) ...</div><div class="line">  yum repolist | grep -i epel</div><div class="line">  if [ $? -ne 0 ]; then</div><div class="line">    echo &quot;It doesn&apos;t look like you have the EPEL repo enabled. We are to add it&quot;</div><div class="line">    echo &quot;for you, so that we can install git.&quot;</div><div class="line">    $SUDO rpm -Uvh http://download.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm</div><div class="line">  fi</div><div class="line">  YUMCOMMAND=&quot;$SUDO yum install httpd git php53 php53-cli php53-mysql php53-process php53-devel php53-gd gcc wget make pcre-devel mysql-server&quot;</div><div class="line">else</div><div class="line">  # RHEL 6+ defaults with php 5.3</div><div class="line">  YUMCOMMAND=&quot;$SUDO yum install httpd git php php-cli php-mysql php-process php-devel php-gd php-pecl-apc php-pecl-json php-mbstring mysql-server&quot;</div><div class="line">fi</div><div class="line"></div><div class="line">echo &quot;Dropping to yum to install dependencies...&quot;</div><div class="line">echo &quot;Running: $&#123;YUMCOMMAND&#125;&quot;</div><div class="line">echo &quot;Yum will prompt you with [Y/n] to continue installing.&quot;</div><div class="line"></div><div class="line">$YUMCOMMAND</div><div class="line"></div><div class="line">if [[ $? -ne 0 ]]</div><div class="line">then</div><div class="line">  echo &quot;The yum command failed. Please fix the errors and re-run this script.&quot;</div><div class="line">  exit 1</div><div class="line">fi</div><div class="line"></div><div class="line">if [[ $RHEL_MAJOR_VER == 5 ]]</div><div class="line">then</div><div class="line">  # Now that we&apos;ve ensured all the devel packages required for pecl/apc are there, let&apos;s</div><div class="line">  # set up PEAR, and install apc.</div><div class="line">  echo &quot;Attempting to install PEAR&quot;</div><div class="line">  wget http://pear.php.net/go-pear.phar</div><div class="line">  $SUDO php go-pear.phar &amp;&amp; $SUDO pecl install apc</div><div class="line">fi</div><div class="line"></div><div class="line">if [[ $? -ne 0 ]]</div><div class="line">then</div><div class="line">  echo &quot;The apc install failed. Continuing without APC, performance may be impacted.&quot;</div><div class="line">fi</div><div class="line"></div><div class="line">pidof httpd 2&gt;&amp;1 &gt; /dev/null</div><div class="line">if [[ $? -eq 0 ]]</div><div class="line">then</div><div class="line">  echo &quot;If php was installed above, please run: /etc/init.d/httpd graceful&quot;</div><div class="line">else</div><div class="line">  echo &quot;Please remember to start the httpd with: /etc/init.d/httpd start&quot;</div><div class="line">fi</div><div class="line"></div><div class="line">pidof mysqld 2&gt;&amp;1 &gt; /dev/null</div><div class="line">if [[ $? -ne 0 ]]</div><div class="line">then</div><div class="line">  echo &quot;Please remember to start the mysql server: /etc/init.d/mysqld start&quot;</div><div class="line">fi</div><div class="line"></div><div class="line">confirm</div><div class="line"></div><div class="line">if [[ ! -e libphutil ]]</div><div class="line">then</div><div class="line">  git clone https://github.com/phacility/libphutil.git</div><div class="line">else</div><div class="line">  (cd libphutil &amp;&amp; git pull --rebase)</div><div class="line">fi</div><div class="line"></div><div class="line">if [[ ! -e arcanist ]]</div><div class="line">then</div><div class="line">  git clone https://github.com/phacility/arcanist.git</div><div class="line">else</div><div class="line">  (cd arcanist &amp;&amp; git pull --rebase)</div><div class="line">fi</div><div class="line"></div><div class="line">if [[ ! -e phabricator ]]</div><div class="line">then</div><div class="line">  git clone https://github.com/phacility/phabricator.git</div><div class="line">else</div><div class="line">  (cd phabricator &amp;&amp; git pull --rebase)</div><div class="line">fi</div><div class="line"></div><div class="line">echo</div><div class="line">echo</div><div class="line">echo &quot;Install probably worked mostly correctly. Continue with the &apos;Configuration Guide&apos;:&quot;;</div><div class="line">echo</div><div class="line">echo &quot;    https://secure.phabricator.com/book/phabricator/article/configuration_guide/&quot;;</div></pre></td></tr></table></figure>
+<h3 id="3-配置-CentOS"><a href="#3-配置-CentOS" class="headerlink" title="3 配置(CentOS)"></a>3 配置(CentOS)</h3><h4 id="3-1-nginx-配置"><a href="#3-1-nginx-配置" class="headerlink" title="3.1 nginx 配置"></a>3.1 nginx 配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">  listen 85;</div><div class="line">  server_name pha.dev;</div><div class="line">  root        /usr/share/phabricator/phabricator/webroot;</div><div class="line"></div><div class="line">  location / &#123;</div><div class="line">    index index.php;</div><div class="line">    rewrite ^/(.*)$ /index.php?__path__=/$1 last;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  location = /favicon.ico &#123;</div><div class="line">    try_files $uri =204;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  location /index.php &#123;</div><div class="line">    fastcgi_pass   localhost:9000;</div><div class="line">    fastcgi_index  index.php;</div><div class="line"></div><div class="line">    #required if PHP was built with --enable-force-cgi-redirect</div><div class="line">    fastcgi_param  REDIRECT_STATUS    200;</div><div class="line"></div><div class="line">    #variables to make the $_SERVER populate in PHP</div><div class="line">    fastcgi_param  SCRIPT_FILENAME    $document_root$fastcgi_script_name;</div><div class="line">    fastcgi_param  QUERY_STRING       $query_string;</div><div class="line">    fastcgi_param  REQUEST_METHOD     $request_method;</div><div class="line">    fastcgi_param  CONTENT_TYPE       $content_type;</div><div class="line">    fastcgi_param  CONTENT_LENGTH     $content_length;</div><div class="line"></div><div class="line">    fastcgi_param  SCRIPT_NAME        $fastcgi_script_name;</div><div class="line"></div><div class="line">    fastcgi_param  GATEWAY_INTERFACE  CGI/1.1;</div><div class="line">    fastcgi_param  SERVER_SOFTWARE    nginx/$nginx_version;</div><div class="line"></div><div class="line">    fastcgi_param  REMOTE_ADDR        $remote_addr;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="3-2-配置MySQL"><a href="#3-2-配置MySQL" class="headerlink" title="3.2 配置MySQL"></a>3.2 配置MySQL</h4><p><code>./bin/storage upgrade</code></p>
+<h4 id="3-3-启动nginx"><a href="#3-3-启动nginx" class="headerlink" title="3.3 启动nginx"></a>3.3 启动nginx</h4><p><code>/etc/init.d/nginx start</code></p>
+<h4 id="3-4-启动php-fpm"><a href="#3-4-启动php-fpm" class="headerlink" title="3.4 启动php-fpm"></a>3.4 启动php-fpm</h4><p><code>etc/init.d/php-fpm start</code></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/04/Programming-Summary/提升开发效率的工具/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Athrun">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/3077218?v=3&s=460">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Athrun">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Athrun" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/04/Programming-Summary/提升开发效率的工具/" itemprop="url">
                   提升开发效率的工具
                 </a>
               
@@ -945,8 +1190,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-06T16:53:16+08:00">
-                2017-01-06
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-04T14:26:46+08:00">
+                2016-12-04
               </time>
             
 
@@ -1060,12 +1305,12 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/06/Programming-Summary/微信小程序/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/03/Programming-Summary/生成基于ant的构建脚本/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Athrun">
     <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://ww3.sinaimg.cn/large/006y8lVagw1fbgztiycs3j30aj0ak75t.jpg">
+    <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/3077218?v=3&s=460">
   </span>
 
   <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1085,8 +1330,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/01/06/Programming-Summary/微信小程序/" itemprop="url">
-                  微信小程序
+                <a class="post-title-link" href="/2016/12/03/Programming-Summary/生成基于ant的构建脚本/" itemprop="url">
+                  生成基于ant的构建脚本
                 </a>
               
             
@@ -1102,8 +1347,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-06T16:53:16+08:00">
-                2017-01-06
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-03T14:26:46+08:00">
+                2016-12-03
               </time>
             
 
@@ -1125,8 +1370,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web/" itemprop="url" rel="index">
-                    <span itemprop="name">Web</span>
+                  <a href="/categories/Platforms-Tools/" itemprop="url" rel="index">
+                    <span itemprop="name">Platforms&Tools</span>
                   </a>
                 </span>
 
@@ -1136,154 +1381,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web/微信小程序/" itemprop="url" rel="index">
-                    <span itemprop="name">微信小程序</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>[TOC]</p>
-<h3 id="1-学习资料"><a href="#1-学习资料" class="headerlink" title="1. 学习资料"></a>1. 学习资料</h3><ul>
-<li><a href="https://mp.weixin.qq.com/debug/wxadoc/dev/?t=1475052055149" target="_blank" rel="external">官方文档</a></li>
-<li><a href="https://github.com/gavinkwoe/weapp-ide-crack" target="_blank" rel="external">Github整理</a></li>
-</ul>
-<h3 id="2-框架"><a href="#2-框架" class="headerlink" title="2. 框架"></a>2. 框架</h3><p><code>app.json</code>:配置工程</p>
-<h3 id="3-demo"><a href="#3-demo" class="headerlink" title="3. demo"></a>3. demo</h3>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/06/Programming-Summary/并发/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Athrun">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://ww3.sinaimg.cn/large/006y8lVagw1fbgztiycs3j30aj0ak75t.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Athrun">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Athrun" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/01/06/Programming-Summary/并发/" itemprop="url">
-                  并发
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-06T16:53:16+08:00">
-                2017-01-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
+                  <a href="/categories/Platforms-Tools/构建工具/" itemprop="url" rel="index">
+                    <span itemprop="name">构建工具</span>
                   </a>
                 </span>
 
@@ -1293,8 +1392,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/Concurrent/" itemprop="url" rel="index">
-                    <span itemprop="name">Concurrent</span>
+                  <a href="/categories/Platforms-Tools/构建工具/Ant/" itemprop="url" rel="index">
+                    <span itemprop="name">Ant</span>
                   </a>
                 </span>
 
@@ -1330,50 +1429,12 @@
       
         
           
-            <hr>
-<pre><code>java.util.concurrent
-</code></pre><h3 id="1-锁"><a href="#1-锁" class="headerlink" title="1. 锁"></a>1. 锁</h3><h4 id="1-1-锁的种类"><a href="#1-1-锁的种类" class="headerlink" title="1.1 锁的种类"></a>1.1 锁的种类</h4><ul>
-<li>自旋锁：是将当前线程执行循环CAS</li>
-<li>可重入锁（可中断锁）：ReentrantLock 和synchronized 都是 可重入锁（<a href="http://www.iteedu.com/plang/java/superjava/threadsafe/lockInterruptibly.php）" target="_blank" rel="external">http://www.iteedu.com/plang/java/superjava/threadsafe/lockInterruptibly.php）</a></li>
-</ul>
-<h4 id="1-2-Java中锁的实现"><a href="#1-2-Java中锁的实现" class="headerlink" title="1.2 Java中锁的实现"></a>1.2 Java中锁的实现</h4><ul>
-<li>循环CAS(compareAndSet缩写)实现自旋锁</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">    public class SpinLock &#123;</div><div class="line"></div><div class="line">  private AtomicReference&lt;Thread&gt; sign =new AtomicReference&lt;&gt;();</div><div class="line"></div><div class="line">  public void lock()&#123;</div><div class="line">       Thread current = Thread.currentThread();</div><div class="line">       while(!sign .compareAndSet(null, current))&#123;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  public void unlock ()&#123;</div><div class="line">    Thread current = Thread.currentThread();</div><div class="line">    sign .compareAndSet(current, null);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>使用synchronized和wait notify实现锁</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">public class Lock&#123;</div><div class="line">    private boolean isLocked = false;</div><div class="line">    public synchronized void lock() throws InterruptedException&#123;</div><div class="line">        while(isLocked)&#123;    //不用if，而用while，是为了防止假唤醒</div><div class="line">            wait();</div><div class="line">        &#125;</div><div class="line">        isLocked = true;</div><div class="line">    &#125;</div><div class="line">    public synchronized void unlock()&#123;</div><div class="line">        isLocked = false;</div><div class="line">        notify();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>使用方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">public class Counter&#123;</div><div class="line">    private Lock lock = new Lock();</div><div class="line">    private int count = 0;</div><div class="line">    public int inc()&#123;</div><div class="line">        lock.lock();</div><div class="line">        this.count++;</div><div class="line">        lock.unlock();</div><div class="line">        return count;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="2-synchronized"><a href="#2-synchronized" class="headerlink" title="2. synchronized"></a>2. <a href="http://www.jianshu.com/p/29854dc7bd86" target="_blank" rel="external">synchronized</a></h3><h3 id="3-wait-notify-sleep"><a href="#3-wait-notify-sleep" class="headerlink" title="3.wait,notify,sleep"></a>3.wait,notify,sleep</h3><ul>
-<li>wait和notify都是释放锁，sleep不释放</li>
-<li>synchronized()的代码块中运行完就释放锁了</li>
-<li>wait和notify必须先获得唯一控制权，一般用加锁实现</li>
-</ul>
-<h3 id="4-线程池"><a href="#4-线程池" class="headerlink" title="4. 线程池"></a>4. 线程池</h3><h4 id="4-1-线程池分类"><a href="#4-1-线程池分类" class="headerlink" title="4.1 线程池分类"></a>4.1 线程池分类</h4><p>按照线程池是否固定大小，可以将线程池分为一下两类：</p>
-<ul>
-<li><p>固定大小的线程池</p>
-<ul>
-<li>newFixedThreadPool</li>
-<li>newScheduledThreadPool（newFixedThreadPool的扩展，可以指定线程数，同时可以指定任务执行的起始时间和时间间隔）</li>
-<li>newSingleThreadExecutor（也是newFixedThreadPool的特例，固定大小为1）</li>
-</ul>
-</li>
-<li><p>不固定大小的线程池</p>
-<ul>
-<li>newCachedThreadPool</li>
-</ul>
-</li>
-</ul>
-<h4 id="4-2-创建线程池"><a href="#4-2-创建线程池" class="headerlink" title="4.2 创建线程池"></a>4.2 创建线程池</h4><p>通过Executors类创建ExecutorService.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ExecutorService realExecutor = Executors.newSingleThreadExecutor();</div><div class="line">realExecutor.execute(runnable);</div></pre></td></tr></table></figure>
-<p>ExecutorService相关类和接口关系：</p>
-<p><img src="http://ww1.sinaimg.cn/large/006y8lVagw1fbg0vwqfybj30ss0m40wp.jpg" alt=""></p>
-<h3 id="5-阻塞队列"><a href="#5-阻塞队列" class="headerlink" title="5. 阻塞队列"></a>5. 阻塞队列</h3><p>借助Lock实现</p>
-<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><ul>
-<li><a href="http://blog.csdn.net/chen77716/article/details/6618779" target="_blank" rel="external">深入JVM锁</a></li>
-</ul>
+            <p><code>android update project -p .  生成build.xml</code></p>
+<h3 id="标签简介"><a href="#标签简介" class="headerlink" title="标签简介"></a>标签简介</h3><ol>
+<li>property定义一些全部字符串变量，如位置等</li>
+<li>target 内部定义一连串的操作，达成的目标，是一个基本的执行单元，类似于方法</li>
+<li>taskdef 定义一个任务，这个任务可以在其他地方座位标签被使用</li>
+</ol>
 
           
         
@@ -1412,12 +1473,12 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/06/Programming-Summary/类加载器/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/02/Programming-Summary/Gradle/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Athrun">
     <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://ww3.sinaimg.cn/large/006y8lVagw1fbgztiycs3j30aj0ak75t.jpg">
+    <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/3077218?v=3&s=460">
   </span>
 
   <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1437,8 +1498,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/01/06/Programming-Summary/类加载器/" itemprop="url">
-                  类加载器
+                <a class="post-title-link" href="/2016/12/02/Programming-Summary/Gradle/" itemprop="url">
+                  Gradle
                 </a>
               
             
@@ -1454,8 +1515,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-06T16:53:16+08:00">
-                2017-01-06
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-02T14:26:46+08:00">
+                2016-12-02
               </time>
             
 
@@ -1477,8 +1538,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
+                  <a href="/categories/Platforms-Tools/" itemprop="url" rel="index">
+                    <span itemprop="name">Platforms&Tools</span>
                   </a>
                 </span>
 
@@ -1488,8 +1549,19 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/ClassLoader/" itemprop="url" rel="index">
-                    <span itemprop="name">ClassLoader</span>
+                  <a href="/categories/Platforms-Tools/构建工具/" itemprop="url" rel="index">
+                    <span itemprop="name">构建工具</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Platforms-Tools/构建工具/Gradle/" itemprop="url" rel="index">
+                    <span itemprop="name">Gradle</span>
                   </a>
                 </span>
 
@@ -1525,20 +1597,180 @@
       
         
           
-            <h3 id="1-Java的Classloader"><a href="#1-Java的Classloader" class="headerlink" title="1. Java的Classloader"></a>1. Java的Classloader</h3><ol>
-<li>BootStrapClassloader：加载 jre/lib 目录下的核心 API</li>
-<li>ExtClassloader：加载jre/lib/ext 目录下jar包</li>
-<li>AppClassloader：加载CLASSPATH中的类，我们编写的应用类默认情况下都是通过 AppClassLoader 进行加载的。</li>
-<li>Custom Classloader：可以自定义加载路径</li>
-</ol>
-<p>每个类加载器都缓存有自己的一份已加载类名字空间。<br>加载类并不会创建类的实例。</p>
-<p>整个加载过程如下图：</p>
-<p><img src="http://ww1.sinaimg.cn/large/006tKfTcgw1f6gva30xj9j30qw0c6q49.jpg" alt=""></p>
-<h3 id="2-Android的Classloader"><a href="#2-Android的Classloader" class="headerlink" title="2. Android的Classloader"></a>2. Android的Classloader</h3><p>Android中的ClassLoader体系<br><img src="http://ww1.sinaimg.cn/large/72f96cbagw1f6ivaobixdj20i20igdge.jpg" alt=""></p>
-<p>PathClassLoader:加载<strong>系统类</strong>和<strong>已安装的应用类</strong>的加载器<br>DexClassLoader:可以用来从.jar和.apk加载类，可以用来执行非安装的程序代码。</p>
-<p>相关代码在android源码中的路径：<br><code>./libcore/dalvik/src/main/java/dalvik</code></p>
-<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ol>
-<li><a href="https://www.ibm.com/developerworks/cn/java/j-lo-hotswapcls/" target="_blank" rel="external">https://www.ibm.com/developerworks/cn/java/j-lo-hotswapcls/</a></li>
+            <p>todo<br><a href="http://blog.csdn.net/innost/article/details/48228651" target="_blank" rel="external">http://blog.csdn.net/innost/article/details/48228651</a></p>
+<h4 id="1-什么是Gradle"><a href="#1-什么是Gradle" class="headerlink" title="1. 什么是Gradle"></a>1. 什么是Gradle</h4><p>Gradle is Groovy but more than Groovy</p>
+<h4 id="2-基本概念"><a href="#2-基本概念" class="headerlink" title="2. 基本概念"></a>2. 基本概念</h4><p>一个project包含多个task</p>
+<ul>
+<li>project</li>
+<li>task</li>
+</ul>
+<h4 id="3-基本语法"><a href="#3-基本语法" class="headerlink" title="3. 基本语法"></a>3. 基本语法</h4><p>创建一个task</p>
+<p>Gradle</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">task helloWorld &lt;&lt; &#123;</div><div class="line">    println &apos;helloWorld&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Groovy</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">task(&quot;helloWorld&quot;).leftShift(&#123;</div><div class="line">    println &apos;hello world&apos;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/01/Programming-Summary/关于构建工具/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Athrun">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/3077218?v=3&s=460">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Athrun">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Athrun" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/01/Programming-Summary/关于构建工具/" itemprop="url">
+                  关于构建工具
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-01T14:26:46+08:00">
+                2016-12-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Platforms-Tools/" itemprop="url" rel="index">
+                    <span itemprop="name">Platforms&Tools</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Platforms-Tools/构建工具/" itemprop="url" rel="index">
+                    <span itemprop="name">构建工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>一般而言.一个比较正规的项目都不会基于IDE进行构建.一般会用ant, maven, gradle.</p>
+<p>实际上各种IDE 也是基于各种构建系统,也正是不同的IDE,它们的构建方式不同,所以要让不同的IDE间能一起开发,于是需要一个统一的构建工具.</p>
+<p>一般c/c++ 项目用make,或者 premake. 而java 一般是ant,ivy,gradle,maven,还有直接的shell</p>
+</blockquote>
+<p>###常用构建工具</p>
+<ol>
+<li>Make</li>
+<li>Ant</li>
+<li>Maven</li>
+<li>Gradle</li>
 </ol>
 
           
@@ -1578,12 +1810,12 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/06/Programming-Summary/编程语言分类/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/30/Programming-Summary/Python/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Athrun">
     <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://ww3.sinaimg.cn/large/006y8lVagw1fbgztiycs3j30aj0ak75t.jpg">
+    <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/3077218?v=3&s=460">
   </span>
 
   <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1603,8 +1835,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/01/06/Programming-Summary/编程语言分类/" itemprop="url">
-                  编程语言分类
+                <a class="post-title-link" href="/2016/11/30/Programming-Summary/Python/" itemprop="url">
+                  Python
                 </a>
               
             
@@ -1620,8 +1852,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-06T16:53:16+08:00">
-                2017-01-06
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-30T14:26:46+08:00">
+                2016-11-30
               </time>
             
 
@@ -1643,8 +1875,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Common/" itemprop="url" rel="index">
-                    <span itemprop="name">Common</span>
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
                   </a>
                 </span>
 
@@ -1680,174 +1912,11 @@
       
         
           
-            <p>===<br>    众所周知，编程语言有很多种，以下是对编程语言的几种常见分类标准</p>
-<p>按照应用执行过程进行分类，对于高级语言需要转化成机器语言才能够执行<br></p>
-<ol>
-<li><strong>机器语言</strong></li>
-<li><strong>汇编语言</strong></li>
-<li><strong>高级语言</strong></li>
-</ol>
-<p>按照执行前准备进行分类</p>
-<ol>
-<li><strong>编译型语言</strong> 在执行前需要经过编译成机器语言，如C、C++<br></li>
-<li><strong>解释型语言</strong> 在运行时才转化为机器语言，所以效率相对于编译型语言比较低，如Java、C#，<strong>脚本语言</strong>可以理解为解释型语言，在运行时通过解释器执行</li>
-</ol>
-<p>按照语言结构特性</p>
-<ol>
-<li><strong>函数式编程语言</strong> <a href="http://www.ruanyifeng.com/blog/2012/04/functional_programming.html" target="_blank" rel="external">函数是第一公民</a><br> </li>
-<li><strong>面向过程变成语言</strong><br></li>
-<li><strong>面向对象编程语言</strong><br></li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/06/Programming-Summary/算法/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Athrun">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://ww3.sinaimg.cn/large/006y8lVagw1fbgztiycs3j30aj0ak75t.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Athrun">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Athrun" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/01/06/Programming-Summary/算法/" itemprop="url">
-                  算法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-06T16:53:16+08:00">
-                2017-01-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algrithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algrithm</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="0-1背包问题"><a href="#0-1背包问题" class="headerlink" title="0-1背包问题"></a>0-1背包问题</h4><ul>
-<li>每件物品或被带走，或被留下，（需要做出0-1选择）。</li>
-<li>使用动态规划</li>
-<li>动态规划算法：<br><img src="http://ww3.sinaimg.cn/large/006y8lVagw1fbg0jnngs4j3130066dgg.jpg" alt=""></li>
-</ul>
-<h4 id="部分背包问题"><a href="#部分背包问题" class="headerlink" title="部分背包问题"></a>部分背包问题</h4><ul>
-<li>可以只带走某个物品的一部分，不必做出0-1选择。</li>
-<li>不具有后效性，可使用贪心算法</li>
-</ul>
-
+            <h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h2><h3 id="1-1-环境"><a href="#1-1-环境" class="headerlink" title="1.1 环境"></a>1.1 环境</h3><p>MAC OS X EI Capitan(自带python2.7)</p>
+<h3 id="1-2-安装python3"><a href="#1-2-安装python3" class="headerlink" title="1.2 安装python3"></a>1.2 安装python3</h3><p><code>brew install python3</code></p>
+<h3 id="1-3-安装依赖-使用豆瓣源"><a href="#1-3-安装依赖-使用豆瓣源" class="headerlink" title="1.3 安装依赖(使用豆瓣源)"></a>1.3 安装依赖(使用豆瓣源)</h3><p><code>pip install pythonModuleName -i https://pypi.douban.com/simple</code></p>
+<h3 id="1-4-依赖包路径"><a href="#1-4-依赖包路径" class="headerlink" title="1.4 依赖包路径"></a>1.4 依赖包路径</h3><p><img src="http://ww3.sinaimg.cn/large/006y8lVagw1fbg11glj6lj30qo03wq3z.jpg" alt=""></p>
+<h2 id="2-Hello-Python"><a href="#2-Hello-Python" class="headerlink" title="2. Hello Python"></a>2. Hello Python</h2>
           
         
       
@@ -1913,7 +1982,7 @@
       <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="http://ww3.sinaimg.cn/large/006y8lVagw1fbgztiycs3j30aj0ak75t.jpg"
+               src="https://avatars2.githubusercontent.com/u/3077218?v=3&s=460"
                alt="Athrun" />
           <p class="site-author-name" itemprop="name">Athrun</p>
           <p class="site-description motion-element" itemprop="description"></p>
@@ -1941,7 +2010,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

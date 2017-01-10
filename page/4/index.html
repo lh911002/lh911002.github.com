@@ -393,8 +393,7 @@
 
       
         
-          
-            <h3>Outline</h3>
+          <h3>Outline</h3>
 
 <ul>
 <li><a href="#1">Lambda定义和结构</a></li>
@@ -409,42 +408,14 @@
 虽然称作Lambda表达式，但是不同于一般的可计算的表达式，Lambda表达式是一个接口（函数）的实现，也可以理解成匿名类的缩写。
 </code></pre><p><em>注：对于一个接口如果有多个未实现的方法，则不能使用Lambda表达式，可以有default和static方法方法</em></p>
 <h5 id="基本结构："><a href="#基本结构：" class="headerlink" title="基本结构："></a>基本结构：</h5><pre><code>( 形式参数 ) -&gt; { 方法实现 }
-</code></pre><p>形式参数的参数类型可以省去，编译器可以自动判断<br>e.g.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Collections.sort(list, (x, y) -&gt; y - x)</div></pre></td></tr></table></figure></p>
-<p>上面代码中的Lambda表达式：(x, y) -&gt; y - x 实现的就是 java.util.Comparator 接口的<br><figure class="highlight plain"><figcaption><span>compare(T o1, T o2);```方法，虽然代码中没有显式指明，但是编译器会自动根据语法规则判断，并在编译成字节码时应用这些规则。</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">##### 基本概念</div><div class="line"></div><div class="line">函数式接口。</div><div class="line"></div><div class="line">	如果一个接口定义个唯一一个抽象方法，那么这个接口就成为函数式接口，只有函数式接口才能使用Lambda表达式进行简化。</div><div class="line"></div><div class="line">方法引用</div></pre></td></tr></table></figure></p>
-<ol>
-<li>ClassName:: MethodName </li>
-<li>InstanceName:MethodName</li>
-<li>ClassName::new<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">接口默认方法，在实现接口时就不需要实现Default方法</div><div class="line">```java</div><div class="line">public interface IDefaultMethod &#123;</div><div class="line">    String getString();</div><div class="line">    default int getInt()&#123;</div><div class="line">        return 1024;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><strong>编译器自动推导类型</strong></p>
-<ol>
-<li>接口类型</li>
-<li>方法参数类型</li>
-<li>方法返回值类型</li>
-</ol>
-<p>如果不能推导出来那就需要开发者显示指出</p>
-<h3 id="2">二、java.util.function（java8功能性接口）</h3>
-
-<p>java.util.function是java8中提供便于Lambda编程的接口，包内全部为接口<br><a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html" target="_blank" rel="external">api文档</a></p>
-<p><img src="http://ww4.sinaimg.cn/large/006y8lVagw1fbg1n5ablwj30720h8wgm.jpg" alt=""></p>
-<p>主要分为</p>
-<ol>
-<li>Consumer（泛型输入，无输出）</li>
-<li>Function（泛型输入，泛型输出）</li>
-<li>Predicate（泛型输入，Boolean输出）</li>
-<li>Supplier(无输入，泛型输出)</li>
-<li>UnaryOperator(一元操作，输入一个T，返回一个T，因为继承Function)</li>
-<li>BinaryOperator(二元操作，输入两个T，返回一个T，因为继承BiFunction)</li>
-</ol>
-<h3 id="3">三、java.util.stream</h3>
-
-<pre><code>流是一种基于集合这种数据源产生的，可以在其上处理一系列操作的对象。
-</code></pre><p>扩展阅读</p>
-<p><a href="http://lucida.me/blog/java-8-lambdas-insideout-language-features/" target="_blank" rel="external">http://lucida.me/blog/java-8-lambdas-insideout-language-features/</a></p>
-<p><a href="http://www.oschina.net/translate/everything-about-java-8" target="_blank" rel="external">http://www.oschina.net/translate/everything-about-java-8</a></p>
-
-          
+</code></pre>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/11/20/Programming-Summary/Lambda/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -603,8 +574,7 @@
 
       
         
-          
-            <h4 id="1-内存模型"><a href="#1-内存模型" class="headerlink" title="1. 内存模型"></a>1. 内存模型</h4><h4 id="1-1-内存分类"><a href="#1-1-内存分类" class="headerlink" title="1.1 内存分类"></a>1.1 内存分类</h4><ul>
+          <h4 id="1-内存模型"><a href="#1-内存模型" class="headerlink" title="1. 内存模型"></a>1. 内存模型</h4><h4 id="1-1-内存分类"><a href="#1-1-内存分类" class="headerlink" title="1.1 内存分类"></a>1.1 内存分类</h4><ul>
 <li><strong>虚拟机栈</strong>：每个线程有一个虚拟机栈，栈的空间有上限，达到上限会报stackoverflow异常。</li>
 <li><p><strong>Java Heap</strong>：java堆内存区域所有线程共享，所有对象和数组都在堆上进行分配内存，当申请不到空间时抛出OutOfMemoryError。</p>
 <p>Java Heap具体又可以分为以下三个部分：</p>
@@ -622,10 +592,13 @@
 <ul>
 <li><strong>方法区</strong>：永久代是一种JVM规范，方法区是虚拟机对永久代的一种实现，一般存储类的信息，常量池，方法代码。</li>
 </ul>
-<p>参考： <a href="http://www.cnblogs.com/paddix/p/5309550.html" target="_blank" rel="external">http://www.cnblogs.com/paddix/p/5309550.html</a></p>
-<h4 id="2-GC策略"><a href="#2-GC策略" class="headerlink" title="2. GC策略"></a>2. GC策略</h4><p>TODO</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/11/18/Programming-Summary/JAVA 内存模型/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -784,8 +757,7 @@
 
       
         
-          
-            <p>RxJava generally consists of Observable (which emits the data which we can observe) and Observer (which observes emitted data and handles it).</p>
+          <p>RxJava generally consists of Observable (which emits the data which we can observe) and Observer (which observes emitted data and handles it).</p>
 <h4 id="1-观察者模式"><a href="#1-观察者模式" class="headerlink" title="1. 观察者模式"></a>1. 观察者模式</h4><ul>
 <li>Observable：整理并提供<strong>数据、事件序列</strong></li>
 <li>Observer(Subscriber)：响应数据、事件序列</li>
@@ -796,14 +768,14 @@
 <li>observeOn() 指定的是 Subscriber 的线程，所以指定的是它之后的操作所在的线程</li>
 <li>subscribeOn() 指定的是第一个 Observable 的线程,subscribeOn() 的位置放在操作的前后都可以，但它是只能调用一次的。</li>
 </ol>
-<h4 id="相关网站"><a href="#相关网站" class="headerlink" title="相关网站"></a>相关网站</h4><ol>
-<li><a href="http://reactivex.io/intro.html" target="_blank" rel="external">reactiveX官网</a></li>
-<li><a href="https://github.com/ReactiveX/rxjava/wiki" target="_blank" rel="external">reactiveX WIKI</a></li>
-<li><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/" target="_blank" rel="external">ReactiveX/RxJava文档中文版</a> </li>
-<li><a href="http://gank.io/post/560e15be2dca930e00da1083" target="_blank" rel="external">给Android开发者的RXJava详解</a></li>
-</ol>
-
-          
+<h4 id="相关网站"><a href="#相关网站" class="headerlink" title="相关网站"></a>相关网站</h4>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/11/16/Programming-Summary/RXJava/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1290,7 +1262,7 @@
         
           
             <p><a href="http://man.linuxde.net/" target="_blank" rel="external">http://man.linuxde.net/</a></p>
-<h3 id="1-系统常用命令"><a href="#1-系统常用命令" class="headerlink" title="1. 系统常用命令"></a>1. 系统常用命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">uname -a               查看内核/操作系统/CPU信息</div><div class="line">head -n 1 /etc/issue   查看操作系统版本</div><div class="line">cat /proc/cpuinfo      查看CPU信息</div><div class="line">hostname               查看计算机名</div><div class="line">lspci -tv              列出所有PCI设备</div><div class="line">lsusb -tv              列出所有USB设备</div><div class="line">lsmod                  列出加载的内核模块</div><div class="line">env                    查看环境变量</div><div class="line">ipconfig getifaddR     获取IP地址</div><div class="line">mv FILE_A FILE_B       重命名FILE_A</div><div class="line">nohup some-command &amp;   后台运行some-command</div><div class="line">wget -O some-file some-url 下载some-url到some-file</div><div class="line">tar -xvf filename.tar.gz 解压文件</div><div class="line">ln -s FILE_PATH LINK_PATH 创建软连接</div><div class="line">df -h 磁盘占用情况</div><div class="line">du -sh * 或者 du -ah --max-depth=1 当前目录下所有文件夹和文件的大小</div><div class="line">du -sh * | sort -h 根据大小排序文件/文件夹</div></pre></td></tr></table></figure>
+<h3 id="1-系统常用命令"><a href="#1-系统常用命令" class="headerlink" title="1. 系统常用命令"></a>1. 系统常用命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">uname -a               查看内核/操作系统/CPU信息</div><div class="line">head -n 1 /etc/issue   查看操作系统版本</div><div class="line">cat /proc/cpuinfo      查看CPU信息</div><div class="line">hostname               查看计算机名</div><div class="line">lspci -tv              列出所有PCI设备</div><div class="line">lsusb -tv              列出所有USB设备</div><div class="line">lsmod                  列出加载的内核模块</div><div class="line">env                    查看环境变量</div><div class="line">ipconfig getifaddR     获取IP地址</div><div class="line">mv FILE_A FILE_B       重命名FILE_A</div><div class="line">nohup some-command &amp;   后台运行some-command</div><div class="line">wget -O some-file some-url 下载some-url到some-file</div><div class="line">tar -xvf filename.tar.gz 解压文件</div><div class="line">ln -s FILE_PATH LINK_PATH 创建软连接</div><div class="line">df -h 磁盘占用情况</div><div class="line">du -sh * 或者 du -ah --max-depth=1 当前目录下所有文件夹和文件的大小</div><div class="line">&lt;!--more--&gt;</div><div class="line">du -sh * | sort -h 根据大小排序文件/文件夹</div></pre></td></tr></table></figure>
 <h3 id="2-查找-grep-find-locate"><a href="#2-查找-grep-find-locate" class="headerlink" title="2. 查找 grep find locate"></a>2. 查找 grep find locate</h3><p><a href="http://www.ruanyifeng.com/blog/2009/10/5_ways_to_search_for_files_using_the_terminal.html" target="_blank" rel="external">查找相关命令</a></p>
 <p><a href="http://www.cnblogs.com/xudong-bupt/archive/2013/03/23/2976793.html" target="_blank" rel="external">find和grep的区别:</a></p>
 <p>find查找的文件的属性，grep查找的是文件的内容</p>
@@ -1511,8 +1483,7 @@
 
       
         
-          
-            <h4 id="1-模式简介"><a href="#1-模式简介" class="headerlink" title="1. 模式简介"></a>1. 模式简介</h4><pre><code>1. Normal 
+          <h4 id="1-模式简介"><a href="#1-模式简介" class="headerlink" title="1. 模式简介"></a>1. 模式简介</h4><pre><code>1. Normal 
 2. Insert
 3. Visual
 </code></pre><ol>
@@ -1528,22 +1499,14 @@ yw复制一个word。
 y2w复制两个字（单词）。 
 yG复制至档尾。 
 y1G复制至档首。 
-p小写p代表贴至游标后（下）。 
-P大写P代表贴至游标前（上）。 
-</code></pre><h4 id="3-删除命令"><a href="#3-删除命令" class="headerlink" title="3. 删除命令"></a>3. 删除命令</h4><pre><code>ndw或ndW：删除光标处开始及其后的n-1个字
-
-do：删至行首
-
-d$：删至行尾
-
-ndd：删除当前行及其后n-1行
-
-x或X：删除一个字符，x删除光标后的，而X删除光标前的
-
-Ctrl+u：删除输入方式下所输入的文本
-</code></pre><h4 id="4-光标移动操作"><a href="#4-光标移动操作" class="headerlink" title="4. 光标移动操作"></a>4. 光标移动操作</h4><p>TODO</p>
-
-          
+</code></pre>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/11/08/Programming-Summary/vim操作/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1691,16 +1654,21 @@ Ctrl+u：删除输入方式下所输入的文本
 
       
         
-          
-            <h2 id="1-学习方式"><a href="#1-学习方式" class="headerlink" title="1. 学习方式"></a>1. 学习方式</h2><ul>
+          <h2 id="1-学习方式"><a href="#1-学习方式" class="headerlink" title="1. 学习方式"></a>1. 学习方式</h2><ul>
 <li>监督式学习</li>
 <li>非监督式学习</li>
 <li>半监督式学习</li>
 <li>强化学习</li>
 </ul>
-<h2 id="2-机器学习算法"><a href="#2-机器学习算法" class="headerlink" title="2. 机器学习算法"></a>2. 机器学习算法</h2><p><a href="http://blog.jobbole.com/77620/" target="_blank" rel="external">http://blog.jobbole.com/77620/</a></p>
+<h2 id="2-机器学习算法"><a href="#2-机器学习算法" class="headerlink" title="2. 机器学习算法"></a>2. 机器学习算法</h2><p><a href="http://blog.jobbole.com/77620/">http://blog.jobbole.com/77620/</a></p>
 <h3 id="2-1-分类算法"><a href="#2-1-分类算法" class="headerlink" title="2.1 分类算法"></a>2.1 分类算法</h3><h4 id="2-1-1-决策树"><a href="#2-1-1-决策树" class="headerlink" title="2.1.1 决策树"></a>2.1.1 决策树</h4><h4 id="2-1-2-贝叶斯"><a href="#2-1-2-贝叶斯" class="headerlink" title="2.1.2 贝叶斯"></a>2.1.2 贝叶斯</h4><h4 id="2-1-3-人工神经网络"><a href="#2-1-3-人工神经网络" class="headerlink" title="2.1.3 人工神经网络"></a>2.1.3 人工神经网络</h4><h4 id="2-1-4-支持向量机SVM"><a href="#2-1-4-支持向量机SVM" class="headerlink" title="2.1.4 支持向量机SVM"></a>2.1.4 支持向量机SVM</h4><h4 id="2-1-5-k-临近"><a href="#2-1-5-k-临近" class="headerlink" title="2.1.5 k-临近"></a>2.1.5 k-临近</h4>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/11/06/Programming-Summary/MACHINE LEARNING/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1859,7 +1827,7 @@ Ctrl+u：删除输入方式下所输入的文本
 </blockquote>
 <h3 id="2-安装-CentOS"><a href="#2-安装-CentOS" class="headerlink" title="2. 安装(CentOS)"></a>2. 安装(CentOS)</h3><p><code>nginx</code>+<code>php-fpm</code>+<code>phabricator git repo</code>+<code>MySql</code></p>
 <p><a href="https://secure.phabricator.com/diffusion/P/browse/master/scripts/install/install_rhel-derivs.sh" target="_blank" rel="external">安装脚本:</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">confirm() &#123;</div><div class="line">  echo &quot;Press RETURN to continue, or ^C to cancel.&quot;;</div><div class="line">  read -e ignored</div><div class="line">&#125;</div><div class="line"></div><div class="line">RHEL_VER_FILE=&quot;/etc/redhat-release&quot;</div><div class="line"></div><div class="line">if [[ ! -f $RHEL_VER_FILE ]]</div><div class="line">then</div><div class="line">  echo &quot;It looks like you&apos;re not running a Red Hat-derived distribution.&quot;</div><div class="line">  echo &quot;This script is intended to install Phabricator on RHEL-derived&quot;</div><div class="line">  echo &quot;distributions such as RHEL, Fedora, CentOS, and Scientific Linux.&quot;</div><div class="line">  echo &quot;Proceed with caution.&quot;</div><div class="line">  confirm</div><div class="line">fi</div><div class="line"></div><div class="line">echo &quot;PHABRICATOR RED HAT DERIVATIVE INSTALLATION SCRIPT&quot;;</div><div class="line">echo &quot;This script will install Phabricator and all of its core dependencies.&quot;;</div><div class="line">echo &quot;Run it from the directory you want to install into.&quot;;</div><div class="line">echo</div><div class="line"></div><div class="line">RHEL_REGEX=&quot;release ([0-9]+)\.&quot;</div><div class="line"></div><div class="line">if [[ $(cat $RHEL_VER_FILE) =~ $RHEL_REGEX ]]</div><div class="line">then</div><div class="line">  RHEL_MAJOR_VER=$&#123;BASH_REMATCH[1]&#125;</div><div class="line">else</div><div class="line">  echo &quot;Ut oh, we were unable to determine your distribution&apos;s major&quot;</div><div class="line">  echo &quot;version number. Please make sure you&apos;re running 6.0+ before&quot;</div><div class="line">  echo &quot;proceeding.&quot;</div><div class="line">  confirm</div><div class="line">fi</div><div class="line"></div><div class="line">if [[ $RHEL_MAJOR_VER &lt; 6 &amp;&amp; $RHEL_MAJOR_VER &gt; 0 ]]</div><div class="line">then</div><div class="line">  echo &quot;** WARNING **&quot;</div><div class="line">  echo &quot;A major version less than 6 was detected. Because of this,&quot;</div><div class="line">  echo &quot;several needed dependencies are not available via default repos.&quot;</div><div class="line">  echo &quot;Specifically, RHEL 5 does not have a PEAR package for php53-*.&quot;</div><div class="line">  echo &quot;We will attempt to install it manually, for APC. Please be careful.&quot;</div><div class="line">  confirm</div><div class="line">fi</div><div class="line"></div><div class="line">echo &quot;Phabricator will be installed to: $(pwd).&quot;;</div><div class="line">confirm</div><div class="line"></div><div class="line">echo &quot;Testing sudo/root...&quot;</div><div class="line">if [[ $EUID -ne 0 ]] # Check if we&apos;re root. If we are, continue.</div><div class="line">then</div><div class="line">  sudo true</div><div class="line">  SUDO=&quot;sudo&quot;</div><div class="line">  if [[ $? -ne 0 ]]</div><div class="line">  then</div><div class="line">    echo &quot;ERROR: You must be able to sudo to run this script, or run it as root.&quot;;</div><div class="line">    exit 1</div><div class="line">  fi</div><div class="line"></div><div class="line">fi</div><div class="line"></div><div class="line">if [[ $RHEL_MAJOR_VER == 5 ]]</div><div class="line">then</div><div class="line">  # RHEL 5&apos;s &quot;php&quot; package is actually 5.1. The &quot;php53&quot; package won&apos;t let us install php-pecl-apc.</div><div class="line">  # (it tries to pull in php 5.1 stuff) ...</div><div class="line">  yum repolist | grep -i epel</div><div class="line">  if [ $? -ne 0 ]; then</div><div class="line">    echo &quot;It doesn&apos;t look like you have the EPEL repo enabled. We are to add it&quot;</div><div class="line">    echo &quot;for you, so that we can install git.&quot;</div><div class="line">    $SUDO rpm -Uvh http://download.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm</div><div class="line">  fi</div><div class="line">  YUMCOMMAND=&quot;$SUDO yum install httpd git php53 php53-cli php53-mysql php53-process php53-devel php53-gd gcc wget make pcre-devel mysql-server&quot;</div><div class="line">else</div><div class="line">  # RHEL 6+ defaults with php 5.3</div><div class="line">  YUMCOMMAND=&quot;$SUDO yum install httpd git php php-cli php-mysql php-process php-devel php-gd php-pecl-apc php-pecl-json php-mbstring mysql-server&quot;</div><div class="line">fi</div><div class="line"></div><div class="line">echo &quot;Dropping to yum to install dependencies...&quot;</div><div class="line">echo &quot;Running: $&#123;YUMCOMMAND&#125;&quot;</div><div class="line">echo &quot;Yum will prompt you with [Y/n] to continue installing.&quot;</div><div class="line"></div><div class="line">$YUMCOMMAND</div><div class="line"></div><div class="line">if [[ $? -ne 0 ]]</div><div class="line">then</div><div class="line">  echo &quot;The yum command failed. Please fix the errors and re-run this script.&quot;</div><div class="line">  exit 1</div><div class="line">fi</div><div class="line"></div><div class="line">if [[ $RHEL_MAJOR_VER == 5 ]]</div><div class="line">then</div><div class="line">  # Now that we&apos;ve ensured all the devel packages required for pecl/apc are there, let&apos;s</div><div class="line">  # set up PEAR, and install apc.</div><div class="line">  echo &quot;Attempting to install PEAR&quot;</div><div class="line">  wget http://pear.php.net/go-pear.phar</div><div class="line">  $SUDO php go-pear.phar &amp;&amp; $SUDO pecl install apc</div><div class="line">fi</div><div class="line"></div><div class="line">if [[ $? -ne 0 ]]</div><div class="line">then</div><div class="line">  echo &quot;The apc install failed. Continuing without APC, performance may be impacted.&quot;</div><div class="line">fi</div><div class="line"></div><div class="line">pidof httpd 2&gt;&amp;1 &gt; /dev/null</div><div class="line">if [[ $? -eq 0 ]]</div><div class="line">then</div><div class="line">  echo &quot;If php was installed above, please run: /etc/init.d/httpd graceful&quot;</div><div class="line">else</div><div class="line">  echo &quot;Please remember to start the httpd with: /etc/init.d/httpd start&quot;</div><div class="line">fi</div><div class="line"></div><div class="line">pidof mysqld 2&gt;&amp;1 &gt; /dev/null</div><div class="line">if [[ $? -ne 0 ]]</div><div class="line">then</div><div class="line">  echo &quot;Please remember to start the mysql server: /etc/init.d/mysqld start&quot;</div><div class="line">fi</div><div class="line"></div><div class="line">confirm</div><div class="line"></div><div class="line">if [[ ! -e libphutil ]]</div><div class="line">then</div><div class="line">  git clone https://github.com/phacility/libphutil.git</div><div class="line">else</div><div class="line">  (cd libphutil &amp;&amp; git pull --rebase)</div><div class="line">fi</div><div class="line"></div><div class="line">if [[ ! -e arcanist ]]</div><div class="line">then</div><div class="line">  git clone https://github.com/phacility/arcanist.git</div><div class="line">else</div><div class="line">  (cd arcanist &amp;&amp; git pull --rebase)</div><div class="line">fi</div><div class="line"></div><div class="line">if [[ ! -e phabricator ]]</div><div class="line">then</div><div class="line">  git clone https://github.com/phacility/phabricator.git</div><div class="line">else</div><div class="line">  (cd phabricator &amp;&amp; git pull --rebase)</div><div class="line">fi</div><div class="line"></div><div class="line">echo</div><div class="line">echo</div><div class="line">echo &quot;Install probably worked mostly correctly. Continue with the &apos;Configuration Guide&apos;:&quot;;</div><div class="line">echo</div><div class="line">echo &quot;    https://secure.phabricator.com/book/phabricator/article/configuration_guide/&quot;;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">confirm() &#123;</div><div class="line">  echo &quot;Press RETURN to continue, or ^C to cancel.&quot;;</div><div class="line">  read -e ignored</div><div class="line">&#125;</div><div class="line">&lt;!--more--&gt;</div><div class="line"></div><div class="line">RHEL_VER_FILE=&quot;/etc/redhat-release&quot;</div><div class="line"></div><div class="line">if [[ ! -f $RHEL_VER_FILE ]]</div><div class="line">then</div><div class="line">  echo &quot;It looks like you&apos;re not running a Red Hat-derived distribution.&quot;</div><div class="line">  echo &quot;This script is intended to install Phabricator on RHEL-derived&quot;</div><div class="line">  echo &quot;distributions such as RHEL, Fedora, CentOS, and Scientific Linux.&quot;</div><div class="line">  echo &quot;Proceed with caution.&quot;</div><div class="line">  confirm</div><div class="line">fi</div><div class="line"></div><div class="line">echo &quot;PHABRICATOR RED HAT DERIVATIVE INSTALLATION SCRIPT&quot;;</div><div class="line">echo &quot;This script will install Phabricator and all of its core dependencies.&quot;;</div><div class="line">echo &quot;Run it from the directory you want to install into.&quot;;</div><div class="line">echo</div><div class="line"></div><div class="line">RHEL_REGEX=&quot;release ([0-9]+)\.&quot;</div><div class="line"></div><div class="line">if [[ $(cat $RHEL_VER_FILE) =~ $RHEL_REGEX ]]</div><div class="line">then</div><div class="line">  RHEL_MAJOR_VER=$&#123;BASH_REMATCH[1]&#125;</div><div class="line">else</div><div class="line">  echo &quot;Ut oh, we were unable to determine your distribution&apos;s major&quot;</div><div class="line">  echo &quot;version number. Please make sure you&apos;re running 6.0+ before&quot;</div><div class="line">  echo &quot;proceeding.&quot;</div><div class="line">  confirm</div><div class="line">fi</div><div class="line"></div><div class="line">if [[ $RHEL_MAJOR_VER &lt; 6 &amp;&amp; $RHEL_MAJOR_VER &gt; 0 ]]</div><div class="line">then</div><div class="line">  echo &quot;** WARNING **&quot;</div><div class="line">  echo &quot;A major version less than 6 was detected. Because of this,&quot;</div><div class="line">  echo &quot;several needed dependencies are not available via default repos.&quot;</div><div class="line">  echo &quot;Specifically, RHEL 5 does not have a PEAR package for php53-*.&quot;</div><div class="line">  echo &quot;We will attempt to install it manually, for APC. Please be careful.&quot;</div><div class="line">  confirm</div><div class="line">fi</div><div class="line"></div><div class="line">echo &quot;Phabricator will be installed to: $(pwd).&quot;;</div><div class="line">confirm</div><div class="line"></div><div class="line">echo &quot;Testing sudo/root...&quot;</div><div class="line">if [[ $EUID -ne 0 ]] # Check if we&apos;re root. If we are, continue.</div><div class="line">then</div><div class="line">  sudo true</div><div class="line">  SUDO=&quot;sudo&quot;</div><div class="line">  if [[ $? -ne 0 ]]</div><div class="line">  then</div><div class="line">    echo &quot;ERROR: You must be able to sudo to run this script, or run it as root.&quot;;</div><div class="line">    exit 1</div><div class="line">  fi</div><div class="line"></div><div class="line">fi</div><div class="line"></div><div class="line">if [[ $RHEL_MAJOR_VER == 5 ]]</div><div class="line">then</div><div class="line">  # RHEL 5&apos;s &quot;php&quot; package is actually 5.1. The &quot;php53&quot; package won&apos;t let us install php-pecl-apc.</div><div class="line">  # (it tries to pull in php 5.1 stuff) ...</div><div class="line">  yum repolist | grep -i epel</div><div class="line">  if [ $? -ne 0 ]; then</div><div class="line">    echo &quot;It doesn&apos;t look like you have the EPEL repo enabled. We are to add it&quot;</div><div class="line">    echo &quot;for you, so that we can install git.&quot;</div><div class="line">    $SUDO rpm -Uvh http://download.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm</div><div class="line">  fi</div><div class="line">  YUMCOMMAND=&quot;$SUDO yum install httpd git php53 php53-cli php53-mysql php53-process php53-devel php53-gd gcc wget make pcre-devel mysql-server&quot;</div><div class="line">else</div><div class="line">  # RHEL 6+ defaults with php 5.3</div><div class="line">  YUMCOMMAND=&quot;$SUDO yum install httpd git php php-cli php-mysql php-process php-devel php-gd php-pecl-apc php-pecl-json php-mbstring mysql-server&quot;</div><div class="line">fi</div><div class="line"></div><div class="line">echo &quot;Dropping to yum to install dependencies...&quot;</div><div class="line">echo &quot;Running: $&#123;YUMCOMMAND&#125;&quot;</div><div class="line">echo &quot;Yum will prompt you with [Y/n] to continue installing.&quot;</div><div class="line"></div><div class="line">$YUMCOMMAND</div><div class="line"></div><div class="line">if [[ $? -ne 0 ]]</div><div class="line">then</div><div class="line">  echo &quot;The yum command failed. Please fix the errors and re-run this script.&quot;</div><div class="line">  exit 1</div><div class="line">fi</div><div class="line"></div><div class="line">if [[ $RHEL_MAJOR_VER == 5 ]]</div><div class="line">then</div><div class="line">  # Now that we&apos;ve ensured all the devel packages required for pecl/apc are there, let&apos;s</div><div class="line">  # set up PEAR, and install apc.</div><div class="line">  echo &quot;Attempting to install PEAR&quot;</div><div class="line">  wget http://pear.php.net/go-pear.phar</div><div class="line">  $SUDO php go-pear.phar &amp;&amp; $SUDO pecl install apc</div><div class="line">fi</div><div class="line"></div><div class="line">if [[ $? -ne 0 ]]</div><div class="line">then</div><div class="line">  echo &quot;The apc install failed. Continuing without APC, performance may be impacted.&quot;</div><div class="line">fi</div><div class="line"></div><div class="line">pidof httpd 2&gt;&amp;1 &gt; /dev/null</div><div class="line">if [[ $? -eq 0 ]]</div><div class="line">then</div><div class="line">  echo &quot;If php was installed above, please run: /etc/init.d/httpd graceful&quot;</div><div class="line">else</div><div class="line">  echo &quot;Please remember to start the httpd with: /etc/init.d/httpd start&quot;</div><div class="line">fi</div><div class="line"></div><div class="line">pidof mysqld 2&gt;&amp;1 &gt; /dev/null</div><div class="line">if [[ $? -ne 0 ]]</div><div class="line">then</div><div class="line">  echo &quot;Please remember to start the mysql server: /etc/init.d/mysqld start&quot;</div><div class="line">fi</div><div class="line"></div><div class="line">confirm</div><div class="line"></div><div class="line">if [[ ! -e libphutil ]]</div><div class="line">then</div><div class="line">  git clone https://github.com/phacility/libphutil.git</div><div class="line">else</div><div class="line">  (cd libphutil &amp;&amp; git pull --rebase)</div><div class="line">fi</div><div class="line"></div><div class="line">if [[ ! -e arcanist ]]</div><div class="line">then</div><div class="line">  git clone https://github.com/phacility/arcanist.git</div><div class="line">else</div><div class="line">  (cd arcanist &amp;&amp; git pull --rebase)</div><div class="line">fi</div><div class="line"></div><div class="line">if [[ ! -e phabricator ]]</div><div class="line">then</div><div class="line">  git clone https://github.com/phacility/phabricator.git</div><div class="line">else</div><div class="line">  (cd phabricator &amp;&amp; git pull --rebase)</div><div class="line">fi</div><div class="line"></div><div class="line">echo</div><div class="line">echo</div><div class="line">echo &quot;Install probably worked mostly correctly. Continue with the &apos;Configuration Guide&apos;:&quot;;</div><div class="line">echo</div><div class="line">echo &quot;    https://secure.phabricator.com/book/phabricator/article/configuration_guide/&quot;;</div></pre></td></tr></table></figure>
 <h3 id="3-配置-CentOS"><a href="#3-配置-CentOS" class="headerlink" title="3 配置(CentOS)"></a>3 配置(CentOS)</h3><h4 id="3-1-nginx-配置"><a href="#3-1-nginx-配置" class="headerlink" title="3.1 nginx 配置"></a>3.1 nginx 配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">  listen 85;</div><div class="line">  server_name pha.dev;</div><div class="line">  root        /usr/share/phabricator/phabricator/webroot;</div><div class="line"></div><div class="line">  location / &#123;</div><div class="line">    index index.php;</div><div class="line">    rewrite ^/(.*)$ /index.php?__path__=/$1 last;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  location = /favicon.ico &#123;</div><div class="line">    try_files $uri =204;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  location /index.php &#123;</div><div class="line">    fastcgi_pass   localhost:9000;</div><div class="line">    fastcgi_index  index.php;</div><div class="line"></div><div class="line">    #required if PHP was built with --enable-force-cgi-redirect</div><div class="line">    fastcgi_param  REDIRECT_STATUS    200;</div><div class="line"></div><div class="line">    #variables to make the $_SERVER populate in PHP</div><div class="line">    fastcgi_param  SCRIPT_FILENAME    $document_root$fastcgi_script_name;</div><div class="line">    fastcgi_param  QUERY_STRING       $query_string;</div><div class="line">    fastcgi_param  REQUEST_METHOD     $request_method;</div><div class="line">    fastcgi_param  CONTENT_TYPE       $content_type;</div><div class="line">    fastcgi_param  CONTENT_LENGTH     $content_length;</div><div class="line"></div><div class="line">    fastcgi_param  SCRIPT_NAME        $fastcgi_script_name;</div><div class="line"></div><div class="line">    fastcgi_param  GATEWAY_INTERFACE  CGI/1.1;</div><div class="line">    fastcgi_param  SERVER_SOFTWARE    nginx/$nginx_version;</div><div class="line"></div><div class="line">    fastcgi_param  REMOTE_ADDR        $remote_addr;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="3-2-配置MySQL"><a href="#3-2-配置MySQL" class="headerlink" title="3.2 配置MySQL"></a>3.2 配置MySQL</h4><p><code>./bin/storage upgrade</code></p>
 <h4 id="3-3-启动nginx"><a href="#3-3-启动nginx" class="headerlink" title="3.3 启动nginx"></a>3.3 启动nginx</h4><p><code>/etc/init.d/nginx start</code></p>

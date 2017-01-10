@@ -94,16 +94,16 @@
 
     
     <entry>
-      <title><![CDATA[自定义UI-电影在线选座]]></title>
-      <url>%2F2016%2F12%2F18%2FProgramming-Summary%2F%E8%87%AA%E5%AE%9A%E4%B9%89UI-%E7%94%B5%E5%BD%B1%E5%9C%A8%E7%BA%BF%E9%80%89%E5%BA%A7%2F</url>
-      <content type="text"><![CDATA[1. 效果图 2. 技术细节 触摸事件处理 绘制坐标更新 放大缩小中心坐标计算 … 3. 掌上生活下载地址]]></content>
+      <title><![CDATA[微信小程序]]></title>
+      <url>%2F2016%2F12%2F18%2FProgramming-Summary%2F%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%2F</url>
+      <content type="text"><![CDATA[[TOC] 1. 学习资料 官方文档 Github整理 2. 框架app.json:配置工程 3. demo]]></content>
     </entry>
 
     
     <entry>
-      <title><![CDATA[微信小程序]]></title>
-      <url>%2F2016%2F12%2F18%2FProgramming-Summary%2F%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%2F</url>
-      <content type="text"><![CDATA[[TOC] 1. 学习资料 官方文档 Github整理 2. 框架app.json:配置工程 3. demo]]></content>
+      <title><![CDATA[自定义UI-电影在线选座]]></title>
+      <url>%2F2016%2F12%2F18%2FProgramming-Summary%2F%E8%87%AA%E5%AE%9A%E4%B9%89UI-%E7%94%B5%E5%BD%B1%E5%9C%A8%E7%BA%BF%E9%80%89%E5%BA%A7%2F</url>
+      <content type="text"><![CDATA[1. 效果图 2. 技术细节 触摸事件处理 绘制坐标更新 放大缩小中心坐标计算 … 3. 掌上生活下载地址]]></content>
     </entry>
 
     

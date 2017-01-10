@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[LeetCode题解]]></title>
+      <url>%2F2017%2F01%2F09%2FProgramming-Summary%2FLeetCode%E9%A2%98%E8%A7%A3%2F</url>
+      <content type="text"></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[常见算法问题]]></title>
       <url>%2F2017%2F01%2F08%2FProgramming-Summary%2F%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E9%97%AE%E9%A2%98%2F</url>
       <content type="text"><![CDATA[0-1背包问题 每件物品或被带走，或被留下，（需要做出0-1选择）。 使用动态规划 动态规划算法： 部分背包问题 可以只带走某个物品的一部分，不必做出0-1选择。 不具有后效性，可使用贪心算法]]></content>
@@ -122,8 +129,8 @@
 
     
     <entry>
-      <title><![CDATA[关于git版本控制协议一些粗浅的理解]]></title>
-      <url>%2F2016%2F12%2F12%2FProgramming-Summary%2F%E5%85%B3%E4%BA%8Egit%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE%E4%B8%80%E4%BA%9B%E7%B2%97%E6%B5%85%E7%9A%84%E7%90%86%E8%A7%A3%2F</url>
+      <title><![CDATA[关于git版本控制协议一些理解]]></title>
+      <url>%2F2016%2F12%2F12%2FProgramming-Summary%2F%E5%85%B3%E4%BA%8Egit%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE%E4%B8%80%E4%BA%9B%E7%90%86%E8%A7%A3%2F</url>
       <content type="text"><![CDATA[引用（即指针）对于理解git非常重要，git的分支、tag只是指向了不同commit的指针，不是实际文件. 常用git命令 git版本控制协议结构图 关于暂存区的理解 1.图中index就是stage状态(暂存区)，index保存的是当前所有文件最新的git对象对应的hash值，使用commit命令后会将这些最新的状态提交到head中，head保存的就是该分支所有文件最新的状态，属于git仓库信息 2.Git index 可以看作是工作目录和Git库目录之间的暂存区，暂存区（stage或者叫index） 存储的是整个文件，如果文件修改add到暂存区，那么就会覆盖文件的上个版本，所以一定不会发生冲突 3.切换分支前要把修改的未提交的内容提交，不然切换分支后修改内容在另一个分支上任然可见，这样提交的时候就会有不需要的内容被提交（stash可以解决这个问题）]]></content>
     </entry>
 

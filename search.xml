@@ -3,8 +3,8 @@
   
     
     <entry>
-      <title><![CDATA[算法]]></title>
-      <url>%2F2017%2F01%2F09%2FProgramming-Summary%2F%E7%AE%97%E6%B3%95%2F</url>
+      <title><![CDATA[常见算法问题]]></title>
+      <url>%2F2017%2F01%2F09%2FProgramming-Summary%2F%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E9%97%AE%E9%A2%98%2F</url>
       <content type="text"><![CDATA[0-1背包问题 每件物品或被带走，或被留下，（需要做出0-1选择）。 使用动态规划 动态规划算法： 部分背包问题 可以只带走某个物品的一部分，不必做出0-1选择。 不具有后效性，可使用贪心算法]]></content>
     </entry>
 

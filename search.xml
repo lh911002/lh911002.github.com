@@ -80,9 +80,30 @@
 
     
     <entry>
+      <title><![CDATA[jQuery入门教程]]></title>
+      <url>%2F2016%2F12%2F19%2FProgramming-Summary%2FjQuery%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B%2F</url>
+      <content type="text"><![CDATA[官方API jQuery()/$()的几种用法]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[自定义UI-电影在线选座]]></title>
       <url>%2F2016%2F12%2F18%2FProgramming-Summary%2F%E8%87%AA%E5%AE%9A%E4%B9%89UI-%E7%94%B5%E5%BD%B1%E5%9C%A8%E7%BA%BF%E9%80%89%E5%BA%A7%2F</url>
       <content type="text"><![CDATA[1. 效果图 2. 技术细节 触摸事件处理 绘制坐标更新 放大缩小中心坐标计算 … 3. 掌上生活下载地址]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[微信小程序]]></title>
+      <url>%2F2016%2F12%2F18%2FProgramming-Summary%2F%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%2F</url>
+      <content type="text"><![CDATA[[TOC] 1. 学习资料 官方文档 Github整理 2. 框架app.json:配置工程 3. demo]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[开启前端之路]]></title>
+      <url>%2F2016%2F12%2F17%2FProgramming-Summary%2F%E5%BC%80%E5%90%AF%E5%89%8D%E7%AB%AF%E4%B9%8B%E8%B7%AF%2F</url>
+      <content type="text"><![CDATA[html css javascript 1. HTML1.1 标签 input select form div 2. CSS为控件添加样式 2.1 为控件添加样式的方式2.1.1 指定style1&lt;div style="border:1px solid #F4BF20;padding:5px 0px 5px 0px ;margin-bottom:12px;"&gt;&lt;/div&gt; 2.1.2 指定id+样式表2.1.3 指定class+样式表3. JavaScript bootstrap jquery $ lodash _ mustache parsleyjs]]></content>
     </entry>
 
     
@@ -201,7 +222,7 @@
     <entry>
       <title><![CDATA[关于Linux]]></title>
       <url>%2F2016%2F11%2F14%2FProgramming-Summary%2F%E5%85%B3%E4%BA%8ELinux%2F</url>
-      <content type="text"><![CDATA[Linux 本身只是一个内核，它为程序员定义了操作系统的基本元素，但最终用户无法直接操作它也无法使用它。所以，除了开发者以外的用户，无法知道 Linux 是什么。 Linux 是一个相对自由的世界，所以围绕 Linux 内核你可以搭建出各种各样的上层系统。这样搭建起来的系统，称为「发行版」。普通用户只能接触到发行版，无法接触到 Linux 本身，而发行版中所带的命令行，shell，X Window 系统，都不属于 Linux 的一部分。 王垠曾经说过：Linux 可以是这样，Linux 可以是那样，Linux 可以是任何样子。 包管理工具 yum apt-get（Advanced Package Tool） rpm（Redhat Package Manager）]]></content>
+      <content type="text"><![CDATA[Linux简介Linux 本身只是一个内核，它为程序员定义了操作系统的基本元素，但最终用户无法直接操作它也无法使用它。所以，除了开发者以外的用户，无法知道 Linux 是什么。 Linux 是一个相对自由的世界，所以围绕 Linux 内核你可以搭建出各种各样的上层系统。这样搭建起来的系统，称为「发行版」。普通用户只能接触到发行版，无法接触到 Linux 本身，而发行版中所带的命令行，shell，X Window 系统，都不属于 Linux 的一部分。 王垠曾经说过：Linux 可以是这样，Linux 可以是那样，Linux 可以是任何样子。 包管理工具 yum apt-get（Advanced Package Tool） rpm（Redhat Package Manager）]]></content>
     </entry>
 
     
@@ -286,27 +307,6 @@
       <title><![CDATA[Programming-Summary]]></title>
       <url>%2F2016%2F10%2F21%2FProgramming-Summary%2FProgramming-Summary%2F</url>
       <content type="text"><![CDATA[Aiming to improve writing skills and comprehension of git. [TOC] ###1. Common QRcode相关（二维码） GIT的理解 密码学简介 ###2. Java 动态代理 ###3. Android 分辨率适配 Android遇到的问题以及解决 自定义控件 内存优化 其他优化 Android AIDL Demo 基于META-INF目录的批量打包 Android的兼容包 ###4. Platforms &amp; Tools 常见构建工具简介 jenkins自动构建（for Android） 效率工具]]></content>
-    </entry>
-
-    
-    <entry>
-      <title><![CDATA[jQuery]]></title>
-      <url>%2F2016%2F10%2F19%2FProgramming-Summary%2FjQuery%2F</url>
-      <content type="text"><![CDATA[官方API jQuery()/$()的几种用法]]></content>
-    </entry>
-
-    
-    <entry>
-      <title><![CDATA[WEB]]></title>
-      <url>%2F2016%2F10%2F17%2FProgramming-Summary%2FWEB%2F</url>
-      <content type="text"><![CDATA[html css javascript 1. HTML1.1 标签 input select form div 2. CSS为控件添加样式 2.1 为控件添加样式的方式2.1.1 指定style1&lt;div style="border:1px solid #F4BF20;padding:5px 0px 5px 0px ;margin-bottom:12px;"&gt;&lt;/div&gt; 2.1.2 指定id+样式表2.1.3 指定class+样式表3. JavaScript bootstrap jquery $ lodash _ mustache parsleyjs]]></content>
-    </entry>
-
-    
-    <entry>
-      <title><![CDATA[微信小程序]]></title>
-      <url>%2F2016%2F10%2F15%2FProgramming-Summary%2F%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%2F</url>
-      <content type="text"><![CDATA[[TOC] 1. 学习资料 官方文档 Github整理 2. 框架app.json:配置工程 3. demo]]></content>
     </entry>
 
     

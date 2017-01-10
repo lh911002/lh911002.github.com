@@ -1,0 +1,786 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="[TOC]
+1. 搭建环境1.1 开发环境安装以下组件并配置环境变量
+
+CentOS release 6.5 (Final) 64bit
+git 2.10.0
+Gradle 2.4
+JDK 1.8
+Android SDK Platform 23
+Android Build Tools 23.0.02
+Android Extras（Android support Library）
+
+TIPS：
+
+c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android自动构建">
+<meta property="og:url" content="http://yoursite.com/2016/11/03/Programming-Summary/Android自动构建/index.html">
+<meta property="og:site_name" content="Athrun">
+<meta property="og:description" content="[TOC]
+1. 搭建环境1.1 开发环境安装以下组件并配置环境变量
+
+CentOS release 6.5 (Final) 64bit
+git 2.10.0
+Gradle 2.4
+JDK 1.8
+Android SDK Platform 23
+Android Build Tools 23.0.02
+Android Extras（Android support Library）
+
+TIPS：
+
+c">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006y8lVagw1fbg1ft5o2ij31d60gydgv.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/006y8lVagw1fbg1fuvgxej31d80dogmo.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/006y8lVagw1fbg1fw4sr8j31bw0cot9w.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/006y8lVagw1fbg1fxoo2qj30r00bqgmh.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/006y8lVagw1fbg1fz4f6lj30vi0eo0tt.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006y8lVagw1fbg1g29wnpj30eu05odg1.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/006y8lVagw1fbg1g3jr2zj30ly070gm3.jpg">
+<meta property="og:updated_time" content="2017-01-09T06:58:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android自动构建">
+<meta name="twitter:description" content="[TOC]
+1. 搭建环境1.1 开发环境安装以下组件并配置环境变量
+
+CentOS release 6.5 (Final) 64bit
+git 2.10.0
+Gradle 2.4
+JDK 1.8
+Android SDK Platform 23
+Android Build Tools 23.0.02
+Android Extras（Android support Library）
+
+TIPS：
+
+c">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006y8lVagw1fbg1ft5o2ij31d60gydgv.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/03/Programming-Summary/Android自动构建/"/>
+
+
+
+
+
+  <title> Android自动构建 | Athrun </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?bef1f6276436439b579a031004cb7132";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Athrun</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/03/Programming-Summary/Android自动构建/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Athrun">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/3077218?v=3&s=460">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Athrun">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Athrun" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android自动构建
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-03T14:41:53+08:00">
+                2016-11-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Platforms-Tools/" itemprop="url" rel="index">
+                    <span itemprop="name">Platforms&Tools</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Platforms-Tools/Jenkins/" itemprop="url" rel="index">
+                    <span itemprop="name">Jenkins</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>[TOC]</p>
+<h3 id="1-搭建环境"><a href="#1-搭建环境" class="headerlink" title="1. 搭建环境"></a>1. 搭建环境</h3><h4 id="1-1-开发环境"><a href="#1-1-开发环境" class="headerlink" title="1.1 开发环境"></a>1.1 开发环境</h4><p>安装以下组件并配置环境变量</p>
+<ul>
+<li>CentOS release 6.5 (Final) 64bit</li>
+<li>git 2.10.0</li>
+<li>Gradle 2.4</li>
+<li>JDK 1.8</li>
+<li>Android SDK Platform 23</li>
+<li>Android Build Tools 23.0.02</li>
+<li>Android Extras（Android support Library）</li>
+</ul>
+<p>TIPS：</p>
+<ul>
+<li>centos 64 bit 上buil-tools 中的aapt工具不能很好运行，需要安装<ul>
+<li>yum install libgcc.i686</li>
+<li>yum install zlib.i686</li>
+<li>yum install glibc.i686</li>
+<li>…</li>
+</ul>
+</li>
+<li>组件也可以通过插件自动安装，为了便于以后管理，这里选择自己安装</li>
+</ul>
+<h4 id="1-2-第三方平台"><a href="#1-2-第三方平台" class="headerlink" title="1.2 第三方平台"></a>1.2 第三方平台</h4><ul>
+<li><a href="https://coding.net/" target="_blank" rel="external">coding.net</a> 代码托管</li>
+<li><a href="https://www.pgyer.com/" target="_blank" rel="external">蒲公英应用托管平台</a></li>
+</ul>
+<h3 id="2-安装和配置Jenkins插件"><a href="#2-安装和配置Jenkins插件" class="headerlink" title="2. 安装和配置Jenkins插件"></a>2. 安装和配置Jenkins插件</h3><h4 id="2-1-安装插件"><a href="#2-1-安装插件" class="headerlink" title="2.1 安装插件"></a>2.1 安装插件</h4><ul>
+<li>jenkins 1.6</li>
+<li>gradle plugin 1.25</li>
+</ul>
+<h4 id="2-2-插件配置"><a href="#2-2-插件配置" class="headerlink" title="2.2 插件配置"></a>2.2 插件配置</h4><p>进入<code>系统管理-&gt;系统设置</code>，并添加以下配置</p>
+<p><img src="http://ww1.sinaimg.cn/large/006y8lVagw1fbg1ft5o2ij31d60gydgv.jpg" alt=""><br><img src="http://ww2.sinaimg.cn/large/006y8lVagw1fbg1fuvgxej31d80dogmo.jpg" alt=""></p>
+<h3 id="3-Jenkins-Job-配置"><a href="#3-Jenkins-Job-配置" class="headerlink" title="3. Jenkins Job 配置"></a>3. Jenkins Job 配置</h3><h4 id="3-1-源代码拉取"><a href="#3-1-源代码拉取" class="headerlink" title="3.1 源代码拉取"></a>3.1 源代码拉取</h4><p><img src="http://ww2.sinaimg.cn/large/006y8lVagw1fbg1fw4sr8j31bw0cot9w.jpg" alt=""></p>
+<h4 id="3-2-构建触发器"><a href="#3-2-构建触发器" class="headerlink" title="3.2 构建触发器"></a>3.2 构建触发器</h4><p>30分钟一次</p>
+<p><img src="http://ww3.sinaimg.cn/large/006y8lVagw1fbg1fxoo2qj30r00bqgmh.jpg" alt=""></p>
+<h4 id="3-3-执行构建"><a href="#3-3-执行构建" class="headerlink" title="3.3 执行构建"></a>3.3 执行构建</h4><p><strong>3.3.1 执行构建</strong><br><img src="http://ww4.sinaimg.cn/large/006y8lVagw1fbg1fz4f6lj30vi0eo0tt.jpg" alt=""></p>
+<p><strong>3.3.2 构建后上传至蒲公英，并保存返回二维码</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function jsonval &#123;</div><div class="line">    temp=`echo $json | sed &apos;s/\\\\\//\//g&apos; | sed &apos;s/[&#123;&#125;]//g&apos; | awk -v k=&quot;text&quot; &apos;&#123;n=split($0,a,&quot;,&quot;); for (i=1; i&lt;=n; i++) print a[i]&#125;&apos; | sed &apos;s/\&quot;\:\&quot;/\|/g&apos; | sed &apos;s/[\,]/ /g&apos; | sed &apos;s/\&quot;//g&apos; | grep -w $responsekey`</div><div class="line">    echo $&#123;temp##*|&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">json=`curl -F &quot;file=@YOUR_APK_PATH&quot; -F &quot;uKey=YOUR_USER_KEY&quot; -F &quot;_api_key=YOUR_API_KEY&quot; http://www.pgyer.com/apiv1/app/upload`</div><div class="line">responsekey=&apos;appQRCodeURL&apos;</div><div class="line">responsevalue=`jsonval`</div><div class="line">rm -rf pgyer</div><div class="line">mkdir pgyer</div><div class="line">cd pgyer</div><div class="line">currentDate=`date +%Y_%m_%d_%H_%M_%S`</div><div class="line">wget -O $currentDate.jpg $responsevalue</div></pre></td></tr></table></figure>
+<h4 id="3-4-构建后存档"><a href="#3-4-构建后存档" class="headerlink" title="3.4 构建后存档"></a>3.4 构建后存档</h4><p><img src="http://ww1.sinaimg.cn/large/006y8lVagw1fbg1g29wnpj30eu05odg1.jpg" alt=""></p>
+<h3 id="4-Android-项目配置"><a href="#4-Android-项目配置" class="headerlink" title="4. Android 项目配置"></a>4. Android 项目配置</h3><p>创建local.properties放于根目录，并将sdk.dir配置为本地Android sdk目录</p>
+<h3 id="5-构建取包"><a href="#5-构建取包" class="headerlink" title="5. 构建取包"></a>5. 构建取包</h3><p>查看图片扫码进入蒲公英下载页</p>
+<p><img src="http://ww3.sinaimg.cn/large/006y8lVagw1fbg1g3jr2zj30ly070gm3.jpg" alt=""></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/01/Programming-Summary/Phabricator/" rel="next" title="Phabricator">
+                <i class="fa fa-chevron-left"></i> Phabricator
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/05/Programming-Summary/MACHINE LEARNING/" rel="prev" title="MACHINE LEARNING">
+                MACHINE LEARNING <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars2.githubusercontent.com/u/3077218?v=3&s=460"
+               alt="Athrun" />
+          <p class="site-author-name" itemprop="name">Athrun</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-搭建环境"><span class="nav-number">1.</span> <span class="nav-text">1. 搭建环境</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-开发环境"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 开发环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-第三方平台"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 第三方平台</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-安装和配置Jenkins插件"><span class="nav-number">2.</span> <span class="nav-text">2. 安装和配置Jenkins插件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-安装插件"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 安装插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-插件配置"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 插件配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Jenkins-Job-配置"><span class="nav-number">3.</span> <span class="nav-text">3. Jenkins Job 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-源代码拉取"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 源代码拉取</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-构建触发器"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 构建触发器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-执行构建"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 执行构建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-构建后存档"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 构建后存档</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Android-项目配置"><span class="nav-number">4.</span> <span class="nav-text">4. Android 项目配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-构建取包"><span class="nav-number">5.</span> <span class="nav-text">5. 构建取包</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Athrun</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid="></script>
+      <!-- UY END -->
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

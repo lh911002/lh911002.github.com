@@ -564,13 +564,6 @@
 <li>支持多种内容类型，字符串，图片，视频等</li>
 <li>纠错能力强<br>纠错等级设置：<br><img src="http://ww3.sinaimg.cn/large/006y8lVagw1fbg0v2jxskj30ga0333ze.jpg" alt=""></li>
 </ol>
-<h3 id="2-版本-40种规格"><a href="#2-版本-40种规格" class="headerlink" title="2. 版本(40种规格)"></a>2. 版本(40种规格)</h3><ul>
-<li>21x21(四角计算在内)</li>
-<li>25x25</li>
-<li>29x29</li>
-<li>…</li>
-<li>177x177<br>生成二维码会根据原始信息的容量选择最优的版本</li>
-</ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/12/08/Programming-Summary/Quick Response Code/#more" rel="contents">
@@ -736,8 +729,7 @@
 
       
         
-          
-            <pre><code>简写为regex、regexp或RE，即字符匹配
+          <pre><code>简写为regex、regexp或RE，即字符匹配
 </code></pre><p>###元字符(可以匹配某一类字符)</p>
 <table>
 <thead>
@@ -761,10 +753,13 @@
 </tr>
 </tbody>
 </table>
-<p>###数量</p>
-<p><code>*</code>表示任意数量<br><code>{n,m}</code>至少n个，至多m个</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/12/06/Programming-Summary/regular expression/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -912,9 +907,8 @@
 
       
         
-          
-            <p>===<br>    众所周知，编程语言有很多种，以下是对编程语言的几种常见分类标准</p>
-<p>按照应用执行过程进行分类，对于高级语言需要转化成机器语言才能够执行<br></p>
+          <p>===<br>    众所周知，编程语言有很多种，以下是对编程语言的几种常见分类标准</p>
+<p>按照应用执行过程进行分类，对于高级语言需要转化成机器语言才能够执行<br/></p>
 <ol>
 <li><strong>机器语言</strong></li>
 <li><strong>汇编语言</strong></li>
@@ -922,17 +916,19 @@
 </ol>
 <p>按照执行前准备进行分类</p>
 <ol>
-<li><strong>编译型语言</strong> 在执行前需要经过编译成机器语言，如C、C++<br></li>
+<li><strong>编译型语言</strong> 在执行前需要经过编译成机器语言，如C、C++<br/></li>
 <li><strong>解释型语言</strong> 在运行时才转化为机器语言，所以效率相对于编译型语言比较低，如Java、C#，<strong>脚本语言</strong>可以理解为解释型语言，在运行时通过解释器执行</li>
 </ol>
 <p>按照语言结构特性</p>
 <ol>
-<li><strong>函数式编程语言</strong> <a href="http://www.ruanyifeng.com/blog/2012/04/functional_programming.html" target="_blank" rel="external">函数是第一公民</a><br> </li>
-<li><strong>面向过程变成语言</strong><br></li>
-<li><strong>面向对象编程语言</strong><br></li>
-</ol>
-
-          
+<li><strong>函数式编程语言</strong> <a href="http://www.ruanyifeng.com/blog/2012/04/functional_programming.html">函数是第一公民</a><br/>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/12/04/Programming-Summary/编程语言分类/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1264,10 +1260,6 @@
 <li>Custom Classloader：可以自定义加载路径</li>
 </ol>
 <p>每个类加载器都缓存有自己的一份已加载类名字空间。<br>加载类并不会创建类的实例。</p>
-<p>整个加载过程如下图：</p>
-<p><img src="http://ww1.sinaimg.cn/large/006tKfTcgw1f6gva30xj9j30qw0c6q49.jpg" alt=""></p>
-<h3 id="2-Android的Classloader"><a href="#2-Android的Classloader" class="headerlink" title="2. Android的Classloader"></a>2. Android的Classloader</h3><p>Android中的ClassLoader体系<br><img src="http://ww1.sinaimg.cn/large/72f96cbagw1f6ivaobixdj20i20igdge.jpg" alt=""></p>
-<p>PathClassLoader:加载<strong>系统类</strong>和<strong>已安装的应用类</strong>的加载器<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/11/30/Programming-Summary/类加载器/#more" rel="contents">
@@ -1433,53 +1425,20 @@
 
       
         
-          
-            <hr>
+          <hr>
 <pre><code>java.util.concurrent
 </code></pre><h3 id="1-锁"><a href="#1-锁" class="headerlink" title="1. 锁"></a>1. 锁</h3><h4 id="1-1-锁的种类"><a href="#1-1-锁的种类" class="headerlink" title="1.1 锁的种类"></a>1.1 锁的种类</h4><ul>
 <li>自旋锁：是将当前线程执行循环CAS</li>
-<li>可重入锁（可中断锁）：ReentrantLock 和synchronized 都是 可重入锁（<a href="http://www.iteedu.com/plang/java/superjava/threadsafe/lockInterruptibly.php）" target="_blank" rel="external">http://www.iteedu.com/plang/java/superjava/threadsafe/lockInterruptibly.php）</a></li>
+<li>可重入锁（可中断锁）：ReentrantLock 和synchronized 都是 可重入锁（<a href="http://www.iteedu.com/plang/java/superjava/threadsafe/lockInterruptibly.php）">http://www.iteedu.com/plang/java/superjava/threadsafe/lockInterruptibly.php）</a></li>
 </ul>
-<h4 id="1-2-Java中锁的实现"><a href="#1-2-Java中锁的实现" class="headerlink" title="1.2 Java中锁的实现"></a>1.2 Java中锁的实现</h4><ul>
-<li>循环CAS(compareAndSet缩写)实现自旋锁</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">    public class SpinLock &#123;</div><div class="line"></div><div class="line">  private AtomicReference&lt;Thread&gt; sign =new AtomicReference&lt;&gt;();</div><div class="line"></div><div class="line">  public void lock()&#123;</div><div class="line">       Thread current = Thread.currentThread();</div><div class="line">&lt;!--more--&gt;</div><div class="line">       while(!sign .compareAndSet(null, current))&#123;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  public void unlock ()&#123;</div><div class="line">    Thread current = Thread.currentThread();</div><div class="line">    sign .compareAndSet(current, null);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>使用synchronized和wait notify实现锁</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">public class Lock&#123;</div><div class="line">    private boolean isLocked = false;</div><div class="line">    public synchronized void lock() throws InterruptedException&#123;</div><div class="line">        while(isLocked)&#123;    //不用if，而用while，是为了防止假唤醒</div><div class="line">            wait();</div><div class="line">        &#125;</div><div class="line">        isLocked = true;</div><div class="line">    &#125;</div><div class="line">    public synchronized void unlock()&#123;</div><div class="line">        isLocked = false;</div><div class="line">        notify();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>使用方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">public class Counter&#123;</div><div class="line">    private Lock lock = new Lock();</div><div class="line">    private int count = 0;</div><div class="line">    public int inc()&#123;</div><div class="line">        lock.lock();</div><div class="line">        this.count++;</div><div class="line">        lock.unlock();</div><div class="line">        return count;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="2-synchronized"><a href="#2-synchronized" class="headerlink" title="2. synchronized"></a>2. <a href="http://www.jianshu.com/p/29854dc7bd86" target="_blank" rel="external">synchronized</a></h3><h3 id="3-wait-notify-sleep"><a href="#3-wait-notify-sleep" class="headerlink" title="3.wait,notify,sleep"></a>3.wait,notify,sleep</h3><ul>
-<li>wait和notify都是释放锁，sleep不释放</li>
-<li>synchronized()的代码块中运行完就释放锁了</li>
-<li>wait和notify必须先获得唯一控制权，一般用加锁实现</li>
-</ul>
-<h3 id="4-线程池"><a href="#4-线程池" class="headerlink" title="4. 线程池"></a>4. 线程池</h3><h4 id="4-1-线程池分类"><a href="#4-1-线程池分类" class="headerlink" title="4.1 线程池分类"></a>4.1 线程池分类</h4><p>按照线程池是否固定大小，可以将线程池分为一下两类：</p>
-<ul>
-<li><p>固定大小的线程池</p>
-<ul>
-<li>newFixedThreadPool</li>
-<li>newScheduledThreadPool（newFixedThreadPool的扩展，可以指定线程数，同时可以指定任务执行的起始时间和时间间隔）</li>
-<li>newSingleThreadExecutor（也是newFixedThreadPool的特例，固定大小为1）</li>
-</ul>
-</li>
-<li><p>不固定大小的线程池</p>
-<ul>
-<li>newCachedThreadPool</li>
-</ul>
-</li>
-</ul>
-<h4 id="4-2-创建线程池"><a href="#4-2-创建线程池" class="headerlink" title="4.2 创建线程池"></a>4.2 创建线程池</h4><p>通过Executors类创建ExecutorService.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ExecutorService realExecutor = Executors.newSingleThreadExecutor();</div><div class="line">realExecutor.execute(runnable);</div></pre></td></tr></table></figure>
-<p>ExecutorService相关类和接口关系：</p>
-<p><img src="http://ww1.sinaimg.cn/large/006y8lVagw1fbg0vwqfybj30ss0m40wp.jpg" alt=""></p>
-<h3 id="5-阻塞队列"><a href="#5-阻塞队列" class="headerlink" title="5. 阻塞队列"></a>5. 阻塞队列</h3><p>借助Lock实现</p>
-<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><ul>
-<li><a href="http://blog.csdn.net/chen77716/article/details/6618779" target="_blank" rel="external">深入JVM锁</a></li>
-</ul>
-
-          
+<h4 id="1-2-Java中锁的实现"><a href="#1-2-Java中锁的实现" class="headerlink" title="1.2 Java中锁的实现"></a>1.2 Java中锁的实现</h4>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/11/28/Programming-Summary/并发/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1642,11 +1601,6 @@
 <pre><code>图中A是调用者，B是代理类，C是委托类，也称作被代理类。
 代理类和被代理类一般实现相同的接口。
 </code></pre><h4 id="2-动态代理"><a href="#2-动态代理" class="headerlink" title="2. 动态代理"></a>2. 动态代理</h4><p><img src="http://ww4.sinaimg.cn/large/006y8lVagw1fbg0wjh5xuj30rw0k0wgq.jpg" alt=""></p>
-<blockquote>
-<p>InvocationHandler相对于OperateImpl是代理类，相对于Proxy是委托，是一个双重角色。<br>    MyProxy类是调用<code>public static Object java.lang.reflect.Proxy.newProxyInstance(ClassLoader loader, Class&lt;?&gt;[] interfaces,InvocationHandler invocationHandler)</code>生成的一个中间类，MyProxy类继承自java.lang.reflect.Proxy,并实现参数interfaces的所有接口,在接口的实现中调用InvocationHandler，这是第一次代理，在InvocationHandler的invoke方法中调用OperateImpl的方法，这是第二次代理。</p>
-</blockquote>
-<p>参考：</p>
-<p>1.<a href="http://www.infoq.com/cn/articles/cf-java-reflection-dynamic-proxy">http://www.infoq.com/cn/articles/cf-java-reflection-dynamic-proxy</a><br>2.<a href="http://a.codekk.com/detail/Android/Caij/%E5%85%AC%E5%85%B1%E6%8A%80%E6%9C%AF%E7%82%B9%E4%B9%8B%20Java%20%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86">http://a.codekk.com/detail/Android/Caij/%E5%85%AC%E5%85%B1%E6%8A%80%E6%9C%AF%E7%82%B9%E4%B9%8B%20Java%20%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86</a></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/11/26/Programming-Summary/动态代理/#more" rel="contents">
@@ -1982,14 +1936,7 @@
 <li>命名规则其实就是 <code>操作对象 + 读写方式</code></li>
 <li>字节流不需要处理编码，字节流和字符流转换才需要处理编码</li>
 </ul>
-<h4 id="1-1-IO的要素"><a href="#1-1-IO的要素" class="headerlink" title="1.1 IO的要素"></a>1.1 IO的要素</h4><ul>
-<li>内存（缓冲区）</li>
-<li>流（通道）</li>
-<li>操作对象</li>
-</ul>
-<h4 id="1-2-操作对象"><a href="#1-2-操作对象" class="headerlink" title="1.2 操作对象"></a>1.2 操作对象</h4><ul>
-<li>byte[]对象</li>
-<li>String对象
+<h4 id="1-1-IO的要素"><a href="#1-1-IO的要素" class="headerlink" title="1.1 IO的要素"></a>1.1 IO的要素</h4>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/11/22/Programming-Summary/IO/#more" rel="contents">

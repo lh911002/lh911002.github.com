@@ -89,8 +89,7 @@
 自旋锁：是将当前线程执行循环CAS
 可重入锁（可中断锁）：ReentrantLock 和synchronized 都是 可重入锁（http://www.iteedu.com/plang/java/superjava/threadsafe/lockInterruptibly.php）
 
-1.2 Java中锁的实现
-循环CAS(co">
+1.2 Java中锁的实现">
 <meta property="og:type" content="article">
 <meta property="og:title" content="并发">
 <meta property="og:url" content="http://yoursite.com/2016/11/28/Programming-Summary/并发/index.html">
@@ -100,10 +99,9 @@
 自旋锁：是将当前线程执行循环CAS
 可重入锁（可中断锁）：ReentrantLock 和synchronized 都是 可重入锁（http://www.iteedu.com/plang/java/superjava/threadsafe/lockInterruptibly.php）
 
-1.2 Java中锁的实现
-循环CAS(co">
+1.2 Java中锁的实现">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006y8lVagw1fbg0vwqfybj30ss0m40wp.jpg">
-<meta property="og:updated_time" content="2017-01-10T13:00:28.000Z">
+<meta property="og:updated_time" content="2017-01-10T13:45:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="并发">
 <meta name="twitter:description" content="java.util.concurrent
@@ -111,8 +109,7 @@
 自旋锁：是将当前线程执行循环CAS
 可重入锁（可中断锁）：ReentrantLock 和synchronized 都是 可重入锁（http://www.iteedu.com/plang/java/superjava/threadsafe/lockInterruptibly.php）
 
-1.2 Java中锁的实现
-循环CAS(co">
+1.2 Java中锁的实现">
 <meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006y8lVagw1fbg0vwqfybj30ss0m40wp.jpg">
 
 
@@ -417,10 +414,11 @@
 <li>自旋锁：是将当前线程执行循环CAS</li>
 <li>可重入锁（可中断锁）：ReentrantLock 和synchronized 都是 可重入锁（<a href="http://www.iteedu.com/plang/java/superjava/threadsafe/lockInterruptibly.php）" target="_blank" rel="external">http://www.iteedu.com/plang/java/superjava/threadsafe/lockInterruptibly.php）</a></li>
 </ul>
-<h4 id="1-2-Java中锁的实现"><a href="#1-2-Java中锁的实现" class="headerlink" title="1.2 Java中锁的实现"></a>1.2 Java中锁的实现</h4><ul>
+<h4 id="1-2-Java中锁的实现"><a href="#1-2-Java中锁的实现" class="headerlink" title="1.2 Java中锁的实现"></a>1.2 Java中锁的实现</h4><a id="more"></a>
+<ul>
 <li>循环CAS(compareAndSet缩写)实现自旋锁</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">    public class SpinLock &#123;</div><div class="line"></div><div class="line">  private AtomicReference&lt;Thread&gt; sign =new AtomicReference&lt;&gt;();</div><div class="line"></div><div class="line">  public void lock()&#123;</div><div class="line">       Thread current = Thread.currentThread();</div><div class="line">&lt;!--more--&gt;</div><div class="line">       while(!sign .compareAndSet(null, current))&#123;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  public void unlock ()&#123;</div><div class="line">    Thread current = Thread.currentThread();</div><div class="line">    sign .compareAndSet(current, null);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">    public class SpinLock &#123;</div><div class="line"></div><div class="line">  private AtomicReference&lt;Thread&gt; sign =new AtomicReference&lt;&gt;();</div><div class="line"></div><div class="line">  public void lock()&#123;</div><div class="line">       Thread current = Thread.currentThread();</div><div class="line">       while(!sign .compareAndSet(null, current))&#123;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  public void unlock ()&#123;</div><div class="line">    Thread current = Thread.currentThread();</div><div class="line">    sign .compareAndSet(current, null);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
 <li>使用synchronized和wait notify实现锁</li>
 </ul>
@@ -645,7 +643,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-锁"><span class="nav-number">1.</span> <span class="nav-text">1. 锁</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-锁的种类"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 锁的种类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-Java中锁的实现"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 Java中锁的实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-synchronized"><span class="nav-number">2.</span> <span class="nav-text">2. synchronized</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-wait-notify-sleep"><span class="nav-number">3.</span> <span class="nav-text">3.wait,notify,sleep</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-线程池"><span class="nav-number">4.</span> <span class="nav-text">4. 线程池</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-线程池分类"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 线程池分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-创建线程池"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 创建线程池</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-阻塞队列"><span class="nav-number">5.</span> <span class="nav-text">5. 阻塞队列</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#参考"><span class="nav-number">5.0.1.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-锁"><span class="nav-text">1. 锁</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-锁的种类"><span class="nav-text">1.1 锁的种类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-Java中锁的实现"><span class="nav-text">1.2 Java中锁的实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-synchronized"><span class="nav-text">2. synchronized</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-wait-notify-sleep"><span class="nav-text">3.wait,notify,sleep</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-线程池"><span class="nav-text">4. 线程池</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-线程池分类"><span class="nav-text">4.1 线程池分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-创建线程池"><span class="nav-text">4.2 创建线程池</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-阻塞队列"><span class="nav-text">5. 阻塞队列</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

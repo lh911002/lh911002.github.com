@@ -92,11 +92,7 @@ java.util.function（java8功能性接口）
 java.util.stream（java8流式接口）
 
 
-一、Lambda定义和结构
-
-
-Lambda表达式的定义：Java8引入Lambda表达式的目的是简化内部类的使用，其实质仍然是一个函数或者接口的实现。
-虽然称作Lambda表达式，但是不同于一般的可计算的表达式，Lambda表达式是">
+一、Lambda定义和结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Lambda">
 <meta property="og:url" content="http://yoursite.com/2016/11/20/Programming-Summary/Lambda/index.html">
@@ -109,13 +105,9 @@ java.util.function（java8功能性接口）
 java.util.stream（java8流式接口）
 
 
-一、Lambda定义和结构
-
-
-Lambda表达式的定义：Java8引入Lambda表达式的目的是简化内部类的使用，其实质仍然是一个函数或者接口的实现。
-虽然称作Lambda表达式，但是不同于一般的可计算的表达式，Lambda表达式是">
+一、Lambda定义和结构">
 <meta property="og:image" content="http://ww4.sinaimg.cn/large/006y8lVagw1fbg1n5ablwj30720h8wgm.jpg">
-<meta property="og:updated_time" content="2017-01-10T13:00:28.000Z">
+<meta property="og:updated_time" content="2017-01-10T13:45:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lambda">
 <meta name="twitter:description" content="Outline
@@ -126,11 +118,7 @@ java.util.function（java8功能性接口）
 java.util.stream（java8流式接口）
 
 
-一、Lambda定义和结构
-
-
-Lambda表达式的定义：Java8引入Lambda表达式的目的是简化内部类的使用，其实质仍然是一个函数或者接口的实现。
-虽然称作Lambda表达式，但是不同于一般的可计算的表达式，Lambda表达式是">
+一、Lambda定义和结构">
 <meta name="twitter:image" content="http://ww4.sinaimg.cn/large/006y8lVagw1fbg1n5ablwj30720h8wgm.jpg">
 
 
@@ -439,13 +427,12 @@ Lambda表达式的定义：Java8引入Lambda表达式的目的是简化内部类
 <hr>
 <h3 id="1">一、Lambda定义和结构</h3>
 
-
+<a id="more"></a>
 <h5 id="Lambda表达式的定义："><a href="#Lambda表达式的定义：" class="headerlink" title="Lambda表达式的定义："></a>Lambda表达式的定义：</h5><pre><code>Java8引入Lambda表达式的目的是简化内部类的使用，其实质仍然是一个函数或者接口的实现。
 虽然称作Lambda表达式，但是不同于一般的可计算的表达式，Lambda表达式是一个接口（函数）的实现，也可以理解成匿名类的缩写。
 </code></pre><p><em>注：对于一个接口如果有多个未实现的方法，则不能使用Lambda表达式，可以有default和static方法方法</em></p>
 <h5 id="基本结构："><a href="#基本结构：" class="headerlink" title="基本结构："></a>基本结构：</h5><pre><code>( 形式参数 ) -&gt; { 方法实现 }
-</code></pre><a id="more"></a>
-<p>形式参数的参数类型可以省去，编译器可以自动判断<br>e.g.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Collections.sort(list, (x, y) -&gt; y - x)</div></pre></td></tr></table></figure></p>
+</code></pre><p>形式参数的参数类型可以省去，编译器可以自动判断<br>e.g.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Collections.sort(list, (x, y) -&gt; y - x)</div></pre></td></tr></table></figure></p>
 <p>上面代码中的Lambda表达式：(x, y) -&gt; y - x 实现的就是 java.util.Comparator 接口的<br><figure class="highlight plain"><figcaption><span>compare(T o1, T o2);```方法，虽然代码中没有显式指明，但是编译器会自动根据语法规则判断，并在编译成字节码时应用这些规则。</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">##### 基本概念</div><div class="line"></div><div class="line">函数式接口。</div><div class="line"></div><div class="line">	如果一个接口定义个唯一一个抽象方法，那么这个接口就成为函数式接口，只有函数式接口才能使用Lambda表达式进行简化。</div><div class="line"></div><div class="line">方法引用</div></pre></td></tr></table></figure></p>
 <ol>
 <li>ClassName:: MethodName </li>
@@ -669,7 +656,7 @@ Lambda表达式的定义：Java8引入Lambda表达式的目的是简化内部类
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Outline</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1"><span class="nav-number">2.</span> <span class="nav-text">一、Lambda定义和结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Lambda表达式的定义："><span class="nav-number">2.0.1.</span> <span class="nav-text">Lambda表达式的定义：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#基本结构："><span class="nav-number">2.0.2.</span> <span class="nav-text">基本结构：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2"><span class="nav-number">3.</span> <span class="nav-text">二、java.util.function（java8功能性接口）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3"><span class="nav-number">4.</span> <span class="nav-text">三、java.util.stream</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-text">Outline</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1"><span class="nav-text">一、Lambda定义和结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Lambda表达式的定义："><span class="nav-text">Lambda表达式的定义：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#基本结构："><span class="nav-text">基本结构：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2"><span class="nav-text">二、java.util.function（java8功能性接口）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3"><span class="nav-text">三、java.util.stream</span></a></li></ol></div>
             
 
           </div>

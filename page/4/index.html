@@ -402,13 +402,6 @@
 </ul>
 <hr>
 <h3 id="1">一、Lambda定义和结构</h3>
-
-
-<h5 id="Lambda表达式的定义："><a href="#Lambda表达式的定义：" class="headerlink" title="Lambda表达式的定义："></a>Lambda表达式的定义：</h5><pre><code>Java8引入Lambda表达式的目的是简化内部类的使用，其实质仍然是一个函数或者接口的实现。
-虽然称作Lambda表达式，但是不同于一般的可计算的表达式，Lambda表达式是一个接口（函数）的实现，也可以理解成匿名类的缩写。
-</code></pre><p><em>注：对于一个接口如果有多个未实现的方法，则不能使用Lambda表达式，可以有default和static方法方法</em></p>
-<h5 id="基本结构："><a href="#基本结构：" class="headerlink" title="基本结构："></a>基本结构：</h5><pre><code>( 形式参数 ) -&gt; { 方法实现 }
-</code></pre>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/11/20/Programming-Summary/Lambda/#more" rel="contents">
@@ -580,18 +573,7 @@
 <p>Java Heap具体又可以分为以下三个部分：</p>
 <ul>
 <li>年轻代<ul>
-<li>Eden(空间不注意分配新对象就出发GC)</li>
-<li>Survivor</li>
-</ul>
-</li>
-<li>年老代</li>
-<li>永久代</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><strong>方法区</strong>：永久代是一种JVM规范，方法区是虚拟机对永久代的一种实现，一般存储类的信息，常量池，方法代码。</li>
-</ul>
+<li>Eden(空间不注意分配新对象就出发GC)
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/11/18/Programming-Summary/JAVA 内存模型/#more" rel="contents">
@@ -763,12 +745,7 @@
 <li>Observer(Subscriber)：响应数据、事件序列</li>
 <li>Subscribe：Observable subscribe (to) Observer</li>
 </ul>
-<h4 id="2-变换"><a href="#2-变换" class="headerlink" title="2. 变换"></a>2. 变换</h4><h4 id="3-线程调度"><a href="#3-线程调度" class="headerlink" title="3. 线程调度"></a>3. 线程调度</h4><pre><code>在不指定线程的情况下， RxJava 遵循的是线程不变的原则，即：在哪个线程调用 subscribe()，就在哪个线程生产事件；在哪个线程生产事件，就在哪个线程消费事件
-</code></pre><ol>
-<li>observeOn() 指定的是 Subscriber 的线程，所以指定的是它之后的操作所在的线程</li>
-<li>subscribeOn() 指定的是第一个 Observable 的线程,subscribeOn() 的位置放在操作的前后都可以，但它是只能调用一次的。</li>
-</ol>
-<h4 id="相关网站"><a href="#相关网站" class="headerlink" title="相关网站"></a>相关网站</h4>
+<h4 id="2-变换"><a href="#2-变换" class="headerlink" title="2. 变换"></a>2. 变换</h4>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/11/16/Programming-Summary/RXJava/#more" rel="contents">
@@ -923,17 +900,17 @@
 
       
         
-          
-            <h4 id="Linux简介"><a href="#Linux简介" class="headerlink" title="Linux简介"></a>Linux简介</h4><p>Linux 本身只是一个内核，它为程序员定义了操作系统的基本元素，但最终用户无法直接操作它也无法使用它。所以，除了开发者以外的用户，无法知道 Linux 是什么。</p>
+          <h4 id="Linux简介"><a href="#Linux简介" class="headerlink" title="Linux简介"></a>Linux简介</h4><p>Linux 本身只是一个内核，它为程序员定义了操作系统的基本元素，但最终用户无法直接操作它也无法使用它。所以，除了开发者以外的用户，无法知道 Linux 是什么。</p>
 <p>Linux 是一个相对自由的世界，所以围绕 Linux 内核你可以搭建出各种各样的上层系统。这样搭建起来的系统，称为「发行版」。普通用户只能接触到发行版，无法接触到 Linux 本身，而发行版中所带的命令行，shell，X Window 系统，都不属于 Linux 的一部分。</p>
 <p>王垠曾经说过：Linux 可以是这样，Linux 可以是那样，Linux 可以是任何样子。</p>
-<h4 id="包管理工具"><a href="#包管理工具" class="headerlink" title="包管理工具"></a>包管理工具</h4><ol>
-<li>yum</li>
-<li>apt-get（Advanced Package Tool）</li>
-<li>rpm（Redhat Package Manager）</li>
-</ol>
-
-          
+<h4 id="包管理工具"><a href="#包管理工具" class="headerlink" title="包管理工具"></a>包管理工具</h4>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/11/14/Programming-Summary/关于Linux/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1092,16 +1069,19 @@
 
       
         
-          
-            <h4 id="1-Unix常用目录："><a href="#1-Unix常用目录：" class="headerlink" title="1. Unix常用目录："></a>1. Unix常用目录：</h4><ul>
-<li><a href="http://www.ruanyifeng.com/blog/2012/02/a_history_of_unix_directory_structure.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2012/02/a_history_of_unix_directory_structure.html</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard" target="_blank" rel="external">https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard</a></li>
-<li><a href="http://cnbin.github.io/blog/2015/06/05/mac-os-x-de-xi-tong-mu-lu-jie-gou/" target="_blank" rel="external">http://cnbin.github.io/blog/2015/06/05/mac-os-x-de-xi-tong-mu-lu-jie-gou/</a></li>
+          <h4 id="1-Unix常用目录："><a href="#1-Unix常用目录：" class="headerlink" title="1. Unix常用目录："></a>1. Unix常用目录：</h4><ul>
+<li><a href="http://www.ruanyifeng.com/blog/2012/02/a_history_of_unix_directory_structure.html">http://www.ruanyifeng.com/blog/2012/02/a_history_of_unix_directory_structure.html</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard">https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard</a></li>
+<li><a href="http://cnbin.github.io/blog/2015/06/05/mac-os-x-de-xi-tong-mu-lu-jie-gou/">http://cnbin.github.io/blog/2015/06/05/mac-os-x-de-xi-tong-mu-lu-jie-gou/</a></li>
 </ul>
-<h4 id="2-关于-amp-–-的区别"><a href="#2-关于-amp-–-的区别" class="headerlink" title="2. 关于 - &amp; – 的区别"></a>2. 关于 - &amp; – 的区别</h4><p><a href="http://serverfault.com/questions/387935/whats-the-difference-betwen-the-single-dash-and-double-dash-flags-on-shell-comm" target="_blank" rel="external">http://serverfault.com/questions/387935/whats-the-difference-betwen-the-single-dash-and-double-dash-flags-on-shell-comm</a></p>
-<h4 id="3-命令格式"><a href="#3-命令格式" class="headerlink" title="3. 命令格式"></a>3. 命令格式</h4><p><code>command [options] [arguments]</code></p>
-
-          
+<h4 id="2-关于-amp-–-的区别"><a href="#2-关于-amp-–-的区别" class="headerlink" title="2. 关于 - &amp; – 的区别"></a>2. 关于 - &amp; – 的区别</h4><p><a href="http://serverfault.com/questions/387935/whats-the-difference-betwen-the-single-dash-and-double-dash-flags-on-shell-comm">http://serverfault.com/questions/387935/whats-the-difference-betwen-the-single-dash-and-double-dash-flags-on-shell-comm</a></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/11/12/Programming-Summary/Shell基础/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1262,7 +1242,7 @@
         
           
             <p><a href="http://man.linuxde.net/" target="_blank" rel="external">http://man.linuxde.net/</a></p>
-<h3 id="1-系统常用命令"><a href="#1-系统常用命令" class="headerlink" title="1. 系统常用命令"></a>1. 系统常用命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">uname -a               查看内核/操作系统/CPU信息</div><div class="line">head -n 1 /etc/issue   查看操作系统版本</div><div class="line">cat /proc/cpuinfo      查看CPU信息</div><div class="line">hostname               查看计算机名</div><div class="line">lspci -tv              列出所有PCI设备</div><div class="line">lsusb -tv              列出所有USB设备</div><div class="line">lsmod                  列出加载的内核模块</div><div class="line">env                    查看环境变量</div><div class="line">ipconfig getifaddR     获取IP地址</div><div class="line">mv FILE_A FILE_B       重命名FILE_A</div><div class="line">nohup some-command &amp;   后台运行some-command</div><div class="line">wget -O some-file some-url 下载some-url到some-file</div><div class="line">tar -xvf filename.tar.gz 解压文件</div><div class="line">ln -s FILE_PATH LINK_PATH 创建软连接</div><div class="line">df -h 磁盘占用情况</div><div class="line">du -sh * 或者 du -ah --max-depth=1 当前目录下所有文件夹和文件的大小</div><div class="line">&lt;!--more--&gt;</div><div class="line">du -sh * | sort -h 根据大小排序文件/文件夹</div></pre></td></tr></table></figure>
+<h3 id="1-系统常用命令"><a href="#1-系统常用命令" class="headerlink" title="1. 系统常用命令"></a>1. 系统常用命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">uname -a               查看内核/操作系统/CPU信息</div><div class="line">head -n 1 /etc/issue   查看操作系统版本</div><div class="line">cat /proc/cpuinfo      查看CPU信息</div><div class="line">hostname               查看计算机名</div><div class="line">lspci -tv              列出所有PCI设备</div><div class="line">lsusb -tv              列出所有USB设备</div><div class="line">&lt;!--more--&gt;</div><div class="line">lsmod                  列出加载的内核模块</div><div class="line">env                    查看环境变量</div><div class="line">ipconfig getifaddR     获取IP地址</div><div class="line">mv FILE_A FILE_B       重命名FILE_A</div><div class="line">nohup some-command &amp;   后台运行some-command</div><div class="line">wget -O some-file some-url 下载some-url到some-file</div><div class="line">tar -xvf filename.tar.gz 解压文件</div><div class="line">ln -s FILE_PATH LINK_PATH 创建软连接</div><div class="line">df -h 磁盘占用情况</div><div class="line">du -sh * 或者 du -ah --max-depth=1 当前目录下所有文件夹和文件的大小</div><div class="line">du -sh * | sort -h 根据大小排序文件/文件夹</div></pre></td></tr></table></figure>
 <h3 id="2-查找-grep-find-locate"><a href="#2-查找-grep-find-locate" class="headerlink" title="2. 查找 grep find locate"></a>2. 查找 grep find locate</h3><p><a href="http://www.ruanyifeng.com/blog/2009/10/5_ways_to_search_for_files_using_the_terminal.html" target="_blank" rel="external">查找相关命令</a></p>
 <p><a href="http://www.cnblogs.com/xudong-bupt/archive/2013/03/23/2976793.html" target="_blank" rel="external">find和grep的区别:</a></p>
 <p>find查找的文件的属性，grep查找的是文件的内容</p>
@@ -1491,15 +1471,6 @@
 <li>用V命令进入的行可视化模式（Linewise visual mode)。文本选择是以行为单位的。</li>
 <li>用ctrl-V进入的块可视化模式（Blockwise visual mode）。可以选择一个矩形内的文本。（注意：在Windows中，ctrl-V可能已经被影射为粘贴操作，可以使用ctrl-Q进入块可视化模式。）</li>
 </ol>
-<h4 id="2-复制粘贴操作"><a href="#2-复制粘贴操作" class="headerlink" title="2. 复制粘贴操作"></a>2. 复制粘贴操作</h4><pre><code>yy复制游标所在行整行。或大写一个Y。 
-2yy或y2y复制两行。
-y^复制至行首，或y0。不含游标所在处字元。 
-y$复制至行尾。含游标所在处字元。 
-yw复制一个word。 
-y2w复制两个字（单词）。 
-yG复制至档尾。 
-y1G复制至档首。 
-</code></pre>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/11/08/Programming-Summary/vim操作/#more" rel="contents">
@@ -1661,7 +1632,7 @@ y1G复制至档首。
 <li>强化学习</li>
 </ul>
 <h2 id="2-机器学习算法"><a href="#2-机器学习算法" class="headerlink" title="2. 机器学习算法"></a>2. 机器学习算法</h2><p><a href="http://blog.jobbole.com/77620/">http://blog.jobbole.com/77620/</a></p>
-<h3 id="2-1-分类算法"><a href="#2-1-分类算法" class="headerlink" title="2.1 分类算法"></a>2.1 分类算法</h3><h4 id="2-1-1-决策树"><a href="#2-1-1-决策树" class="headerlink" title="2.1.1 决策树"></a>2.1.1 决策树</h4><h4 id="2-1-2-贝叶斯"><a href="#2-1-2-贝叶斯" class="headerlink" title="2.1.2 贝叶斯"></a>2.1.2 贝叶斯</h4><h4 id="2-1-3-人工神经网络"><a href="#2-1-3-人工神经网络" class="headerlink" title="2.1.3 人工神经网络"></a>2.1.3 人工神经网络</h4><h4 id="2-1-4-支持向量机SVM"><a href="#2-1-4-支持向量机SVM" class="headerlink" title="2.1.4 支持向量机SVM"></a>2.1.4 支持向量机SVM</h4><h4 id="2-1-5-k-临近"><a href="#2-1-5-k-临近" class="headerlink" title="2.1.5 k-临近"></a>2.1.5 k-临近</h4>
+<h3 id="2-1-分类算法"><a href="#2-1-分类算法" class="headerlink" title="2.1 分类算法"></a>2.1 分类算法</h3>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/11/06/Programming-Summary/MACHINE LEARNING/#more" rel="contents">
@@ -1816,8 +1787,7 @@ y1G复制至档首。
 
       
         
-          
-            <p>[TOC]</p>
+          <p>[TOC]</p>
 <h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h3><blockquote>
 <p>A complete software development platform</p>
 <blockquote>
@@ -1825,15 +1795,14 @@ y1G复制至档首。
 </blockquote>
 <p><a href="(https://secure.phabricator.com/book/phabricator/">官网</a>)</p>
 </blockquote>
-<h3 id="2-安装-CentOS"><a href="#2-安装-CentOS" class="headerlink" title="2. 安装(CentOS)"></a>2. 安装(CentOS)</h3><p><code>nginx</code>+<code>php-fpm</code>+<code>phabricator git repo</code>+<code>MySql</code></p>
-<p><a href="https://secure.phabricator.com/diffusion/P/browse/master/scripts/install/install_rhel-derivs.sh" target="_blank" rel="external">安装脚本:</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">confirm() &#123;</div><div class="line">  echo &quot;Press RETURN to continue, or ^C to cancel.&quot;;</div><div class="line">  read -e ignored</div><div class="line">&#125;</div><div class="line">&lt;!--more--&gt;</div><div class="line"></div><div class="line">RHEL_VER_FILE=&quot;/etc/redhat-release&quot;</div><div class="line"></div><div class="line">if [[ ! -f $RHEL_VER_FILE ]]</div><div class="line">then</div><div class="line">  echo &quot;It looks like you&apos;re not running a Red Hat-derived distribution.&quot;</div><div class="line">  echo &quot;This script is intended to install Phabricator on RHEL-derived&quot;</div><div class="line">  echo &quot;distributions such as RHEL, Fedora, CentOS, and Scientific Linux.&quot;</div><div class="line">  echo &quot;Proceed with caution.&quot;</div><div class="line">  confirm</div><div class="line">fi</div><div class="line"></div><div class="line">echo &quot;PHABRICATOR RED HAT DERIVATIVE INSTALLATION SCRIPT&quot;;</div><div class="line">echo &quot;This script will install Phabricator and all of its core dependencies.&quot;;</div><div class="line">echo &quot;Run it from the directory you want to install into.&quot;;</div><div class="line">echo</div><div class="line"></div><div class="line">RHEL_REGEX=&quot;release ([0-9]+)\.&quot;</div><div class="line"></div><div class="line">if [[ $(cat $RHEL_VER_FILE) =~ $RHEL_REGEX ]]</div><div class="line">then</div><div class="line">  RHEL_MAJOR_VER=$&#123;BASH_REMATCH[1]&#125;</div><div class="line">else</div><div class="line">  echo &quot;Ut oh, we were unable to determine your distribution&apos;s major&quot;</div><div class="line">  echo &quot;version number. Please make sure you&apos;re running 6.0+ before&quot;</div><div class="line">  echo &quot;proceeding.&quot;</div><div class="line">  confirm</div><div class="line">fi</div><div class="line"></div><div class="line">if [[ $RHEL_MAJOR_VER &lt; 6 &amp;&amp; $RHEL_MAJOR_VER &gt; 0 ]]</div><div class="line">then</div><div class="line">  echo &quot;** WARNING **&quot;</div><div class="line">  echo &quot;A major version less than 6 was detected. Because of this,&quot;</div><div class="line">  echo &quot;several needed dependencies are not available via default repos.&quot;</div><div class="line">  echo &quot;Specifically, RHEL 5 does not have a PEAR package for php53-*.&quot;</div><div class="line">  echo &quot;We will attempt to install it manually, for APC. Please be careful.&quot;</div><div class="line">  confirm</div><div class="line">fi</div><div class="line"></div><div class="line">echo &quot;Phabricator will be installed to: $(pwd).&quot;;</div><div class="line">confirm</div><div class="line"></div><div class="line">echo &quot;Testing sudo/root...&quot;</div><div class="line">if [[ $EUID -ne 0 ]] # Check if we&apos;re root. If we are, continue.</div><div class="line">then</div><div class="line">  sudo true</div><div class="line">  SUDO=&quot;sudo&quot;</div><div class="line">  if [[ $? -ne 0 ]]</div><div class="line">  then</div><div class="line">    echo &quot;ERROR: You must be able to sudo to run this script, or run it as root.&quot;;</div><div class="line">    exit 1</div><div class="line">  fi</div><div class="line"></div><div class="line">fi</div><div class="line"></div><div class="line">if [[ $RHEL_MAJOR_VER == 5 ]]</div><div class="line">then</div><div class="line">  # RHEL 5&apos;s &quot;php&quot; package is actually 5.1. The &quot;php53&quot; package won&apos;t let us install php-pecl-apc.</div><div class="line">  # (it tries to pull in php 5.1 stuff) ...</div><div class="line">  yum repolist | grep -i epel</div><div class="line">  if [ $? -ne 0 ]; then</div><div class="line">    echo &quot;It doesn&apos;t look like you have the EPEL repo enabled. We are to add it&quot;</div><div class="line">    echo &quot;for you, so that we can install git.&quot;</div><div class="line">    $SUDO rpm -Uvh http://download.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm</div><div class="line">  fi</div><div class="line">  YUMCOMMAND=&quot;$SUDO yum install httpd git php53 php53-cli php53-mysql php53-process php53-devel php53-gd gcc wget make pcre-devel mysql-server&quot;</div><div class="line">else</div><div class="line">  # RHEL 6+ defaults with php 5.3</div><div class="line">  YUMCOMMAND=&quot;$SUDO yum install httpd git php php-cli php-mysql php-process php-devel php-gd php-pecl-apc php-pecl-json php-mbstring mysql-server&quot;</div><div class="line">fi</div><div class="line"></div><div class="line">echo &quot;Dropping to yum to install dependencies...&quot;</div><div class="line">echo &quot;Running: $&#123;YUMCOMMAND&#125;&quot;</div><div class="line">echo &quot;Yum will prompt you with [Y/n] to continue installing.&quot;</div><div class="line"></div><div class="line">$YUMCOMMAND</div><div class="line"></div><div class="line">if [[ $? -ne 0 ]]</div><div class="line">then</div><div class="line">  echo &quot;The yum command failed. Please fix the errors and re-run this script.&quot;</div><div class="line">  exit 1</div><div class="line">fi</div><div class="line"></div><div class="line">if [[ $RHEL_MAJOR_VER == 5 ]]</div><div class="line">then</div><div class="line">  # Now that we&apos;ve ensured all the devel packages required for pecl/apc are there, let&apos;s</div><div class="line">  # set up PEAR, and install apc.</div><div class="line">  echo &quot;Attempting to install PEAR&quot;</div><div class="line">  wget http://pear.php.net/go-pear.phar</div><div class="line">  $SUDO php go-pear.phar &amp;&amp; $SUDO pecl install apc</div><div class="line">fi</div><div class="line"></div><div class="line">if [[ $? -ne 0 ]]</div><div class="line">then</div><div class="line">  echo &quot;The apc install failed. Continuing without APC, performance may be impacted.&quot;</div><div class="line">fi</div><div class="line"></div><div class="line">pidof httpd 2&gt;&amp;1 &gt; /dev/null</div><div class="line">if [[ $? -eq 0 ]]</div><div class="line">then</div><div class="line">  echo &quot;If php was installed above, please run: /etc/init.d/httpd graceful&quot;</div><div class="line">else</div><div class="line">  echo &quot;Please remember to start the httpd with: /etc/init.d/httpd start&quot;</div><div class="line">fi</div><div class="line"></div><div class="line">pidof mysqld 2&gt;&amp;1 &gt; /dev/null</div><div class="line">if [[ $? -ne 0 ]]</div><div class="line">then</div><div class="line">  echo &quot;Please remember to start the mysql server: /etc/init.d/mysqld start&quot;</div><div class="line">fi</div><div class="line"></div><div class="line">confirm</div><div class="line"></div><div class="line">if [[ ! -e libphutil ]]</div><div class="line">then</div><div class="line">  git clone https://github.com/phacility/libphutil.git</div><div class="line">else</div><div class="line">  (cd libphutil &amp;&amp; git pull --rebase)</div><div class="line">fi</div><div class="line"></div><div class="line">if [[ ! -e arcanist ]]</div><div class="line">then</div><div class="line">  git clone https://github.com/phacility/arcanist.git</div><div class="line">else</div><div class="line">  (cd arcanist &amp;&amp; git pull --rebase)</div><div class="line">fi</div><div class="line"></div><div class="line">if [[ ! -e phabricator ]]</div><div class="line">then</div><div class="line">  git clone https://github.com/phacility/phabricator.git</div><div class="line">else</div><div class="line">  (cd phabricator &amp;&amp; git pull --rebase)</div><div class="line">fi</div><div class="line"></div><div class="line">echo</div><div class="line">echo</div><div class="line">echo &quot;Install probably worked mostly correctly. Continue with the &apos;Configuration Guide&apos;:&quot;;</div><div class="line">echo</div><div class="line">echo &quot;    https://secure.phabricator.com/book/phabricator/article/configuration_guide/&quot;;</div></pre></td></tr></table></figure>
-<h3 id="3-配置-CentOS"><a href="#3-配置-CentOS" class="headerlink" title="3 配置(CentOS)"></a>3 配置(CentOS)</h3><h4 id="3-1-nginx-配置"><a href="#3-1-nginx-配置" class="headerlink" title="3.1 nginx 配置"></a>3.1 nginx 配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">  listen 85;</div><div class="line">  server_name pha.dev;</div><div class="line">  root        /usr/share/phabricator/phabricator/webroot;</div><div class="line"></div><div class="line">  location / &#123;</div><div class="line">    index index.php;</div><div class="line">    rewrite ^/(.*)$ /index.php?__path__=/$1 last;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  location = /favicon.ico &#123;</div><div class="line">    try_files $uri =204;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  location /index.php &#123;</div><div class="line">    fastcgi_pass   localhost:9000;</div><div class="line">    fastcgi_index  index.php;</div><div class="line"></div><div class="line">    #required if PHP was built with --enable-force-cgi-redirect</div><div class="line">    fastcgi_param  REDIRECT_STATUS    200;</div><div class="line"></div><div class="line">    #variables to make the $_SERVER populate in PHP</div><div class="line">    fastcgi_param  SCRIPT_FILENAME    $document_root$fastcgi_script_name;</div><div class="line">    fastcgi_param  QUERY_STRING       $query_string;</div><div class="line">    fastcgi_param  REQUEST_METHOD     $request_method;</div><div class="line">    fastcgi_param  CONTENT_TYPE       $content_type;</div><div class="line">    fastcgi_param  CONTENT_LENGTH     $content_length;</div><div class="line"></div><div class="line">    fastcgi_param  SCRIPT_NAME        $fastcgi_script_name;</div><div class="line"></div><div class="line">    fastcgi_param  GATEWAY_INTERFACE  CGI/1.1;</div><div class="line">    fastcgi_param  SERVER_SOFTWARE    nginx/$nginx_version;</div><div class="line"></div><div class="line">    fastcgi_param  REMOTE_ADDR        $remote_addr;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="3-2-配置MySQL"><a href="#3-2-配置MySQL" class="headerlink" title="3.2 配置MySQL"></a>3.2 配置MySQL</h4><p><code>./bin/storage upgrade</code></p>
-<h4 id="3-3-启动nginx"><a href="#3-3-启动nginx" class="headerlink" title="3.3 启动nginx"></a>3.3 启动nginx</h4><p><code>/etc/init.d/nginx start</code></p>
-<h4 id="3-4-启动php-fpm"><a href="#3-4-启动php-fpm" class="headerlink" title="3.4 启动php-fpm"></a>3.4 启动php-fpm</h4><p><code>etc/init.d/php-fpm start</code></p>
-
-          
+<h3 id="2-安装-CentOS"><a href="#2-安装-CentOS" class="headerlink" title="2. 安装(CentOS)"></a>2. 安装(CentOS)</h3><p><code>nginx</code>+<code>php-fpm</code>+<code>phabricator git repo</code>+<code>MySql</code><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/11/02/Programming-Summary/Phabricator/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1981,8 +1950,7 @@ y1G复制至档首。
 
       
         
-          
-            <h3 id="Chrome-插件"><a href="#Chrome-插件" class="headerlink" title="Chrome 插件"></a>Chrome 插件</h3><ul>
+          <h3 id="Chrome-插件"><a href="#Chrome-插件" class="headerlink" title="Chrome 插件"></a>Chrome 插件</h3><ul>
 <li>postman </li>
 <li>新浪微博图床</li>
 <li>Adblock plus</li>
@@ -1991,13 +1959,14 @@ y1G复制至档首。
 <li>ColorZilla</li>
 <li>CapturePage</li>
 </ul>
-<h3 id="网页工具"><a href="#网页工具" class="headerlink" title="网页工具"></a>网页工具</h3><h3 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h3><h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ol>
-<li><a href="https://www.zenhub.io/" target="_blank" rel="external">管理github工程</a></li>
-<li><a href="https://app.astralapp.com/dashboard" target="_blank" rel="external">github star管理工具</a></li>
-<li><a href="http://mp.weixin.qq.com/s?__biz=MjM5MzA0ODkyMA==&amp;mid=205841356&amp;idx=1&amp;sn=91c8c99949ce1c823d9bc2d67fad37de#rd" target="_blank" rel="external">github增强工具</a></li>
-</ol>
-
-          
+<h3 id="网页工具"><a href="#网页工具" class="headerlink" title="网页工具"></a>网页工具</h3><h3 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h3>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/10/31/Programming-Summary/提升开发效率的工具/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

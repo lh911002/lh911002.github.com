@@ -98,7 +98,7 @@ PX:像素点,图片的尺寸
 PT:1/72 inch，物理单位1inch＝2.54cm
 DPI(Dots per inch):每个英寸(物理单位)的px数。
 DP(DIP,Density-independent Pixels):DP是人为规定的一个单位。官方文档中解释one DIP is one pixel on an approximately 160 dpi screen (fo">
-<meta property="og:updated_time" content="2017-01-10T13:00:28.000Z">
+<meta property="og:updated_time" content="2017-01-10T13:45:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android分辨率兼容">
 <meta name="twitter:description" content="1. 相关概念
@@ -412,10 +412,11 @@ DP(DIP,Density-independent Pixels):DP是人为规定的一个单位。官方文�
 <li><p>SP(Scale-independent Pixels)</p>
 </li>
 </ol>
+<a id="more"></a>
 <p><strong>总结:</strong></p>
 <p><code>android.util.DisplayMetricsd</code>源码中的<code>density</code>是DP和PX转换的因子，公式为$$PX = density * DP$$,而$$density = 当前设备的DPI/160$$</p>
 <p>所以说，在160DPI(即每个英寸有160个像素点)的设备上，density 是1，代表每个DP包含1个像素，在320DPI设备上density是2，代表每个DP包含2个像素。</p>
-<p>最终的公式是：<br>$$PX = {DPI * DP \over 160} $$<br><a id="more"></a></p>
+<p>最终的公式是：<br>$$PX = {DPI * DP \over 160} $$</p>
 <p>因为DPI是由设备决定的，而现在主流的设备也是相差不多，比如1080P的DPI一般就是5inch,那么DPI就是440，density为2.75，那么屏幕的宽度1080px ＝ 1080/2.75 ＝ 392dp。</p>
 <h3 id="二-适配方案"><a href="#二-适配方案" class="headerlink" title="二.适配方案"></a>二.适配方案</h3><ol>
 <li><p>首先，保证长度单位均使用DP作为单位（特殊情况，如根据屏幕分辨率动态设置除外）,同时使用灵活的自适应布局风格，还可以利用LineaLayout的weight对布局进行比例分割。</p>
@@ -645,7 +646,7 @@ DP(DIP,Density-independent Pixels):DP是人为规定的一个单位。官方文�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-相关概念"><span class="nav-number">1.</span> <span class="nav-text">1. 相关概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-适配方案"><span class="nav-number">2.</span> <span class="nav-text">二.适配方案</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-相关概念"><span class="nav-text">1. 相关概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-适配方案"><span class="nav-text">二.适配方案</span></a></li></ol></div>
             
 
           </div>

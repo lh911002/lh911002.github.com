@@ -100,7 +100,7 @@ AppClassloader：加载CLASSPATH中的类，我们编写的应用类默认情况
 Custom Classloader：可以自定义加载路径">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006tKfTcgw1f6gva30xj9j30qw0c6q49.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/72f96cbagw1f6ivaobixdj20i20igdge.jpg">
-<meta property="og:updated_time" content="2017-01-10T13:00:28.000Z">
+<meta property="og:updated_time" content="2017-01-10T13:45:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="类加载器">
 <meta name="twitter:description" content="1. Java的Classloader
@@ -413,10 +413,11 @@ Custom Classloader：可以自定义加载路径">
 <li>Custom Classloader：可以自定义加载路径</li>
 </ol>
 <p>每个类加载器都缓存有自己的一份已加载类名字空间。<br>加载类并不会创建类的实例。</p>
+<a id="more"></a>
 <p>整个加载过程如下图：</p>
 <p><img src="http://ww1.sinaimg.cn/large/006tKfTcgw1f6gva30xj9j30qw0c6q49.jpg" alt=""></p>
 <h3 id="2-Android的Classloader"><a href="#2-Android的Classloader" class="headerlink" title="2. Android的Classloader"></a>2. Android的Classloader</h3><p>Android中的ClassLoader体系<br><img src="http://ww1.sinaimg.cn/large/72f96cbagw1f6ivaobixdj20i20igdge.jpg" alt=""></p>
-<p>PathClassLoader:加载<strong>系统类</strong>和<strong>已安装的应用类</strong>的加载器<br><a id="more"></a><br>DexClassLoader:可以用来从.jar和.apk加载类，可以用来执行非安装的程序代码。</p>
+<p>PathClassLoader:加载<strong>系统类</strong>和<strong>已安装的应用类</strong>的加载器<br>DexClassLoader:可以用来从.jar和.apk加载类，可以用来执行非安装的程序代码。</p>
 <p>相关代码在android源码中的路径：<br><code>./libcore/dalvik/src/main/java/dalvik</code></p>
 <h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ol>
 <li><a href="https://www.ibm.com/developerworks/cn/java/j-lo-hotswapcls/" target="_blank" rel="external">https://www.ibm.com/developerworks/cn/java/j-lo-hotswapcls/</a></li>
@@ -611,7 +612,7 @@ Custom Classloader：可以自定义加载路径">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Java的Classloader"><span class="nav-number">1.</span> <span class="nav-text">1. Java的Classloader</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Android的Classloader"><span class="nav-number">2.</span> <span class="nav-text">2. Android的Classloader</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#参考"><span class="nav-number">2.1.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Java的Classloader"><span class="nav-text">1. Java的Classloader</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Android的Classloader"><span class="nav-text">2. Android的Classloader</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></li></ol></div>
             
 
           </div>

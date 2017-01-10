@@ -394,14 +394,14 @@
       
         
           
-            <p>###原理<br>该打包工具参考了美团的打包方案。由于apk压缩文件的<code>META-INF</code>目录下文件不影响签名结果，所以可以在打包签名后在META-INF目录下生成相应的渠道标记，在程序运行时通过程序代码读取打包渠道号即可设置渠道。</p>
-<p>###使用方法</p>
-<ol>
+            <p>先上<a href="https://github.com/lh911002/Programming-Summary/tree/master/Android/%E6%89%B9%E9%87%8F%E6%89%93%E5%8C%85/multipleBuild" target="_blank" rel="external">工具地址</a></p>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>该打包工具参考了美团的打包方案。由于apk压缩文件的<code>META-INF</code>目录下文件不影响签名结果，所以可以在打包签名后在META-INF目录下生成相应的渠道标记，在程序运行时通过程序代码读取打包渠道号即可设置渠道。</p>
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><ol>
 <li>在marketlist.txt文件中配置渠道列表</li>
 <li>运行build.py（需安装python运行环境）</li>
 </ol>
-<p>###Python脚本代码<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> os</div><div class="line"><span class="keyword">import</span> shutil</div><div class="line"><span class="keyword">import</span> zipfile</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 空文件 便于写入此空文件到apk包中作为channel文件</span></div><div class="line">src_empty_file = <span class="string">'temp.txt'</span></div><div class="line"><span class="comment"># 创建一个空文件（不存在则创建）</span></div><div class="line">f = open(src_empty_file, <span class="string">'w'</span>) </div><div class="line">f.close()</div><div class="line"></div><div class="line"><span class="comment"># 获取渠道列表</span></div><div class="line">channel_file = <span class="string">'marketlist.txt'</span></div><div class="line">f = open(channel_file)</div><div class="line">lines = f.readlines()</div><div class="line">f.close()</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 获取当前目录中所有的apk源包</span></div><div class="line">src_apks = []</div><div class="line"><span class="keyword">for</span> file <span class="keyword">in</span> os.listdir():</div><div class="line">	<span class="keyword">if</span> os.path.isfile(file):</div><div class="line">		extension = os.path.splitext(file)[<span class="number">1</span>][<span class="number">1</span>:]</div><div class="line">		<span class="keyword">if</span> extension <span class="keyword">in</span> <span class="string">'apk'</span>:</div><div class="line">			src_apks.append(file)</div><div class="line">			</div><div class="line">			</div><div class="line"><span class="comment"># file name (with extension)</span></div><div class="line">src_apk = src_apks[<span class="number">0</span>]</div><div class="line">src_apk_file_name = os.path.basename(src_apk)</div><div class="line"><span class="comment"># 分割文件名与后缀</span></div><div class="line">temp_list = os.path.splitext(src_apk_file_name)</div><div class="line"><span class="comment"># name without extension</span></div><div class="line">src_apk_name = temp_list[<span class="number">0</span>]</div><div class="line"><span class="comment"># 后缀名，包含.   例如: ".apk "</span></div><div class="line">src_apk_extension = temp_list[<span class="number">1</span>]</div><div class="line"></div><div class="line"><span class="comment"># 创建生成目录,与文件名相关</span></div><div class="line">output_dir = src_apk_name +<span class="string">"各渠道包"</span>+ <span class="string">'/'</span></div><div class="line"><span class="comment"># 目录不存在则创建</span></div><div class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(output_dir):</div><div class="line">	os.mkdir(output_dir)</div><div class="line"><span class="comment"># 遍历渠道号并创建对应渠道号的apk文件</span></div><div class="line">linesIndex = <span class="number">1</span></div><div class="line"><span class="keyword">for</span> line <span class="keyword">in</span> lines:</div><div class="line">	<span class="comment"># 获取当前渠道号，因为从渠道文件中获得带有\n,所有strip一下</span></div><div class="line">	target_channel = line.strip()</div><div class="line">	<span class="keyword">if</span> <span class="string">"#"</span> <span class="keyword">in</span> line[<span class="number">0</span>:<span class="number">1</span>] : </div><div class="line">		print(<span class="string">"渠道"</span>+target_channel[<span class="number">1</span>:]+<span class="string">"跳过"</span>)</div><div class="line">		<span class="keyword">continue</span>		</div><div class="line">	<span class="comment"># 拼接对应渠道号的apk</span></div><div class="line">	target_apk = output_dir + src_apk_name + <span class="string">"_"</span> + target_channel + src_apk_extension  </div><div class="line">	<span class="comment"># 拷贝建立新apk</span></div><div class="line">	shutil.copy(src_apk,  target_apk)</div><div class="line">	<span class="comment"># zip获取新建立的apk文件</span></div><div class="line">	zipped = zipfile.ZipFile(target_apk, <span class="string">'a'</span>, zipfile.ZIP_DEFLATED)</div><div class="line">	<span class="comment"># 初始化渠道信息</span></div><div class="line">	empty_channel_file = <span class="string">"META-INF/kdlcchannel_"</span>+target_channel</div><div class="line">	<span class="comment"># 写入渠道信息</span></div><div class="line">	zipped.write(src_empty_file, empty_channel_file)</div><div class="line">	<span class="comment"># 关闭zip流</span></div><div class="line">	zipped.close()</div><div class="line">	print(linesIndex,<span class="string">".渠道 "</span>+target_channel+<span class="string">" 打包完成"</span>)</div><div class="line">	linesIndex = linesIndex + <span class="number">1</span></div></pre></td></tr></table></figure></p>
-<p>###Android获取渠道号的代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getAppChannel</span><span class="params">(Context context)</span></span>&#123;</div><div class="line">       ApplicationInfo appinfo = context.getApplicationInfo();</div><div class="line">       String sourceDir = appinfo.sourceDir;</div><div class="line">       String ret = <span class="string">""</span>;</div><div class="line">       ZipFile zipfile = <span class="keyword">null</span>;</div><div class="line">       <span class="keyword">try</span> &#123;</div><div class="line">           zipfile = <span class="keyword">new</span> ZipFile(sourceDir);</div><div class="line">           Enumeration&lt;?&gt; entries = zipfile.entries();</div><div class="line">           <span class="keyword">while</span> (entries.hasMoreElements()) &#123;</div><div class="line">               ZipEntry entry = ((ZipEntry) entries.nextElement());</div><div class="line">               String entryName = entry.getName();</div><div class="line">               <span class="keyword">if</span> (entryName.startsWith(<span class="string">"META-INF/kdlcchannel"</span>)) &#123;</div><div class="line">                   ret = entryName;</div><div class="line">                   <span class="keyword">break</span>;</div><div class="line">               &#125;</div><div class="line">           &#125;</div><div class="line">       &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">           e.printStackTrace();</div><div class="line">       &#125; <span class="keyword">finally</span> &#123;</div><div class="line">           <span class="keyword">if</span> (zipfile != <span class="keyword">null</span>) &#123;</div><div class="line">               <span class="keyword">try</span> &#123;</div><div class="line">                   zipfile.close();</div><div class="line">               &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">                   e.printStackTrace();</div><div class="line">               &#125;</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">       String[] split = ret.split(<span class="string">"_"</span>);</div><div class="line">       <span class="keyword">if</span> (split != <span class="keyword">null</span> &amp;&amp; split.length &gt;= <span class="number">2</span>) &#123;</div><div class="line">           <span class="keyword">return</span> ret.substring(split[<span class="number">0</span>].length() + <span class="number">1</span>);</div><div class="line">       &#125; <span class="keyword">else</span> &#123;</div><div class="line">           <span class="keyword">return</span> <span class="string">"MarketNotSet"</span>;</div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
+<h3 id="Python脚本代码"><a href="#Python脚本代码" class="headerlink" title="Python脚本代码"></a>Python脚本代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> os</div><div class="line"><span class="keyword">import</span> shutil</div><div class="line"><span class="keyword">import</span> zipfile</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 空文件 便于写入此空文件到apk包中作为channel文件</span></div><div class="line">src_empty_file = <span class="string">'temp.txt'</span></div><div class="line"><span class="comment"># 创建一个空文件（不存在则创建）</span></div><div class="line">f = open(src_empty_file, <span class="string">'w'</span>) </div><div class="line">f.close()</div><div class="line"></div><div class="line"><span class="comment"># 获取渠道列表</span></div><div class="line">channel_file = <span class="string">'marketlist.txt'</span></div><div class="line">f = open(channel_file)</div><div class="line">lines = f.readlines()</div><div class="line">f.close()</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 获取当前目录中所有的apk源包</span></div><div class="line">src_apks = []</div><div class="line"><span class="keyword">for</span> file <span class="keyword">in</span> os.listdir():</div><div class="line">	<span class="keyword">if</span> os.path.isfile(file):</div><div class="line">		extension = os.path.splitext(file)[<span class="number">1</span>][<span class="number">1</span>:]</div><div class="line">		<span class="keyword">if</span> extension <span class="keyword">in</span> <span class="string">'apk'</span>:</div><div class="line">			src_apks.append(file)</div><div class="line">			</div><div class="line">			</div><div class="line"><span class="comment"># file name (with extension)</span></div><div class="line">src_apk = src_apks[<span class="number">0</span>]</div><div class="line">src_apk_file_name = os.path.basename(src_apk)</div><div class="line"><span class="comment"># 分割文件名与后缀</span></div><div class="line">temp_list = os.path.splitext(src_apk_file_name)</div><div class="line"><span class="comment"># name without extension</span></div><div class="line">src_apk_name = temp_list[<span class="number">0</span>]</div><div class="line"><span class="comment"># 后缀名，包含.   例如: ".apk "</span></div><div class="line">src_apk_extension = temp_list[<span class="number">1</span>]</div><div class="line"></div><div class="line"><span class="comment"># 创建生成目录,与文件名相关</span></div><div class="line">output_dir = src_apk_name +<span class="string">"各渠道包"</span>+ <span class="string">'/'</span></div><div class="line"><span class="comment"># 目录不存在则创建</span></div><div class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(output_dir):</div><div class="line">	os.mkdir(output_dir)</div><div class="line"><span class="comment"># 遍历渠道号并创建对应渠道号的apk文件</span></div><div class="line">linesIndex = <span class="number">1</span></div><div class="line"><span class="keyword">for</span> line <span class="keyword">in</span> lines:</div><div class="line">	<span class="comment"># 获取当前渠道号，因为从渠道文件中获得带有\n,所有strip一下</span></div><div class="line">	target_channel = line.strip()</div><div class="line">	<span class="keyword">if</span> <span class="string">"#"</span> <span class="keyword">in</span> line[<span class="number">0</span>:<span class="number">1</span>] : </div><div class="line">		print(<span class="string">"渠道"</span>+target_channel[<span class="number">1</span>:]+<span class="string">"跳过"</span>)</div><div class="line">		<span class="keyword">continue</span>		</div><div class="line">	<span class="comment"># 拼接对应渠道号的apk</span></div><div class="line">	target_apk = output_dir + src_apk_name + <span class="string">"_"</span> + target_channel + src_apk_extension  </div><div class="line">	<span class="comment"># 拷贝建立新apk</span></div><div class="line">	shutil.copy(src_apk,  target_apk)</div><div class="line">	<span class="comment"># zip获取新建立的apk文件</span></div><div class="line">	zipped = zipfile.ZipFile(target_apk, <span class="string">'a'</span>, zipfile.ZIP_DEFLATED)</div><div class="line">	<span class="comment"># 初始化渠道信息</span></div><div class="line">	empty_channel_file = <span class="string">"META-INF/kdlcchannel_"</span>+target_channel</div><div class="line">	<span class="comment"># 写入渠道信息</span></div><div class="line">	zipped.write(src_empty_file, empty_channel_file)</div><div class="line">	<span class="comment"># 关闭zip流</span></div><div class="line">	zipped.close()</div><div class="line">	print(linesIndex,<span class="string">".渠道 "</span>+target_channel+<span class="string">" 打包完成"</span>)</div><div class="line">	linesIndex = linesIndex + <span class="number">1</span></div></pre></td></tr></table></figure>
+<h3 id="Android获取渠道号的代码"><a href="#Android获取渠道号的代码" class="headerlink" title="Android获取渠道号的代码"></a>Android获取渠道号的代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getAppChannel</span><span class="params">(Context context)</span></span>&#123;</div><div class="line">       ApplicationInfo appinfo = context.getApplicationInfo();</div><div class="line">       String sourceDir = appinfo.sourceDir;</div><div class="line">       String ret = <span class="string">""</span>;</div><div class="line">       ZipFile zipfile = <span class="keyword">null</span>;</div><div class="line">       <span class="keyword">try</span> &#123;</div><div class="line">           zipfile = <span class="keyword">new</span> ZipFile(sourceDir);</div><div class="line">           Enumeration&lt;?&gt; entries = zipfile.entries();</div><div class="line">           <span class="keyword">while</span> (entries.hasMoreElements()) &#123;</div><div class="line">               ZipEntry entry = ((ZipEntry) entries.nextElement());</div><div class="line">               String entryName = entry.getName();</div><div class="line">               <span class="keyword">if</span> (entryName.startsWith(<span class="string">"META-INF/kdlcchannel"</span>)) &#123;</div><div class="line">                   ret = entryName;</div><div class="line">                   <span class="keyword">break</span>;</div><div class="line">               &#125;</div><div class="line">           &#125;</div><div class="line">       &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">           e.printStackTrace();</div><div class="line">       &#125; <span class="keyword">finally</span> &#123;</div><div class="line">           <span class="keyword">if</span> (zipfile != <span class="keyword">null</span>) &#123;</div><div class="line">               <span class="keyword">try</span> &#123;</div><div class="line">                   zipfile.close();</div><div class="line">               &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">                   e.printStackTrace();</div><div class="line">               &#125;</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">       String[] split = ret.split(<span class="string">"_"</span>);</div><div class="line">       <span class="keyword">if</span> (split != <span class="keyword">null</span> &amp;&amp; split.length &gt;= <span class="number">2</span>) &#123;</div><div class="line">           <span class="keyword">return</span> ret.substring(split[<span class="number">0</span>].length() + <span class="number">1</span>);</div><div class="line">       &#125; <span class="keyword">else</span> &#123;</div><div class="line">           <span class="keyword">return</span> <span class="string">"MarketNotSet"</span>;</div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
 
           
         
@@ -783,173 +783,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/18/Programming-Summary/微信小程序/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Athrun">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/3077218?v=3&s=460">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Athrun">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Athrun" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/18/Programming-Summary/微信小程序/" itemprop="url">
-                  微信小程序
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-18T12:29:31+08:00">
-                2016-12-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web/" itemprop="url" rel="index">
-                    <span itemprop="name">Web</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web/微信小程序/" itemprop="url" rel="index">
-                    <span itemprop="name">微信小程序</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/12/18/Programming-Summary/微信小程序/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/18/Programming-Summary/微信小程序/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>[TOC]</p>
-<h3 id="1-学习资料"><a href="#1-学习资料" class="headerlink" title="1. 学习资料"></a>1. 学习资料</h3><ul>
-<li><a href="https://mp.weixin.qq.com/debug/wxadoc/dev/?t=1475052055149" target="_blank" rel="external">官方文档</a></li>
-<li><a href="https://github.com/gavinkwoe/weapp-ide-crack" target="_blank" rel="external">Github整理</a></li>
-</ul>
-<h3 id="2-框架"><a href="#2-框架" class="headerlink" title="2. 框架"></a>2. 框架</h3><p><code>app.json</code>:配置工程</p>
-<h3 id="3-demo"><a href="#3-demo" class="headerlink" title="3. demo"></a>3. demo</h3>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/18/Programming-Summary/自定义UI-电影在线选座/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1092,6 +925,173 @@
 <li>…</li>
 </ul>
 <h4 id="3-掌上生活下载地址"><a href="#3-掌上生活下载地址" class="headerlink" title="3. 掌上生活下载地址"></a>3. <a href="http://android.myapp.com/myapp/detail.htm?apkName=com.cmbchina.ccd.pluto.cmbActivity" target="_blank" rel="external">掌上生活下载地址</a></h4>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/18/Programming-Summary/微信小程序/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Athrun">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/3077218?v=3&s=460">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Athrun">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Athrun" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/18/Programming-Summary/微信小程序/" itemprop="url">
+                  微信小程序
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-18T12:29:31+08:00">
+                2016-12-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web/微信小程序/" itemprop="url" rel="index">
+                    <span itemprop="name">微信小程序</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/12/18/Programming-Summary/微信小程序/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/18/Programming-Summary/微信小程序/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>[TOC]</p>
+<h3 id="1-学习资料"><a href="#1-学习资料" class="headerlink" title="1. 学习资料"></a>1. 学习资料</h3><ul>
+<li><a href="https://mp.weixin.qq.com/debug/wxadoc/dev/?t=1475052055149" target="_blank" rel="external">官方文档</a></li>
+<li><a href="https://github.com/gavinkwoe/weapp-ide-crack" target="_blank" rel="external">Github整理</a></li>
+</ul>
+<h3 id="2-框架"><a href="#2-框架" class="headerlink" title="2. 框架"></a>2. 框架</h3><p><code>app.json</code>:配置工程</p>
+<h3 id="3-demo"><a href="#3-demo" class="headerlink" title="3. demo"></a>3. demo</h3>
           
         
       
@@ -2033,7 +2033,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-count">45</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2042,7 +2042,7 @@
           
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-count">41</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>

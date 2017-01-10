@@ -3,15 +3,15 @@
   
     
     <entry>
-      <title><![CDATA[LeetCode题解]]></title>
-      <url>%2F2017%2F01%2F09%2FProgramming-Summary%2FLeetCode%E9%A2%98%E8%A7%A3%2F</url>
-      <content type="text"></content>
+      <title><![CDATA[Android自动构建]]></title>
+      <url>%2F2017%2F01%2F09%2FProgramming-Summary%2FAndroid%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA%2F</url>
+      <content type="text"><![CDATA[[TOC] 1. 搭建环境1.1 开发环境安装以下组件并配置环境变量 CentOS release 6.5 (Final) 64bit git 2.10.0 Gradle 2.4 JDK 1.8 Android SDK Platform 23 Android Build Tools 23.0.02 Android Extras（Android support Library） TIPS： centos 64 bit 上buil-tools 中的aapt工具不能很好运行，需要安装 yum install libgcc.i686 yum install zlib.i686 yum install glibc.i686 … 组件也可以通过插件自动安装，为了便于以后管理，这里选择自己安装 1.2 第三方平台 coding.net 代码托管 蒲公英应用托管平台 2. 安装和配置Jenkins插件2.1 安装插件 jenkins 1.6 gradle plugin 1.25 2.2 插件配置进入系统管理-&gt;系统设置，并添加以下配置 3. Jenkins Job 配置3.1 源代码拉取 3.2 构建触发器30分钟一次 3.3 执行构建3.3.1 执行构建 3.3.2 构建后上传至蒲公英，并保存返回二维码 12345678910111213function jsonval &#123; temp=`echo $json | sed &apos;s/\\\\\//\//g&apos; | sed &apos;s/[&#123;&#125;]//g&apos; | awk -v k=&quot;text&quot; &apos;&#123;n=split($0,a,&quot;,&quot;); for (i=1; i&lt;=n; i++) print a[i]&#125;&apos; | sed &apos;s/\&quot;\:\&quot;/\|/g&apos; | sed &apos;s/[\,]/ /g&apos; | sed &apos;s/\&quot;//g&apos; | grep -w $responsekey` echo $&#123;temp##*|&#125;&#125;json=`curl -F &quot;file=@YOUR_APK_PATH&quot; -F &quot;uKey=YOUR_USER_KEY&quot; -F &quot;_api_key=YOUR_API_KEY&quot; http://www.pgyer.com/apiv1/app/upload`responsekey=&apos;appQRCodeURL&apos;responsevalue=`jsonval`rm -rf pgyermkdir pgyercd pgyercurrentDate=`date +%Y_%m_%d_%H_%M_%S`wget -O $currentDate.jpg $responsevalue 3.4 构建后存档 4. Android 项目配置创建local.properties放于根目录，并将sdk.dir配置为本地Android sdk目录 5. 构建取包查看图片扫码进入蒲公英下载页]]></content>
     </entry>
 
     
     <entry>
-      <title><![CDATA[常见算法问题]]></title>
-      <url>%2F2017%2F01%2F08%2FProgramming-Summary%2F%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E9%97%AE%E9%A2%98%2F</url>
+      <title><![CDATA[背包问题]]></title>
+      <url>%2F2017%2F01%2F08%2FProgramming-Summary%2F%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%2F</url>
       <content type="text"><![CDATA[0-1背包问题 每件物品或被带走，或被留下，（需要做出0-1选择）。 使用动态规划 动态规划算法： 部分背包问题 可以只带走某个物品的一部分，不必做出0-1选择。 不具有后效性，可使用贪心算法]]></content>
     </entry>
 
@@ -75,7 +75,7 @@
     <entry>
       <title><![CDATA[批量打包工具]]></title>
       <url>%2F2016%2F12%2F22%2FProgramming-Summary%2F%E6%89%B9%E9%87%8F%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7%2F</url>
-      <content type="text"><![CDATA[###原理该打包工具参考了美团的打包方案。由于apk压缩文件的META-INF目录下文件不影响签名结果，所以可以在打包签名后在META-INF目录下生成相应的渠道标记，在程序运行时通过程序代码读取打包渠道号即可设置渠道。 ###使用方法 在marketlist.txt文件中配置渠道列表 运行build.py（需安装python运行环境） ###Python脚本代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364import osimport shutilimport zipfile# 空文件 便于写入此空文件到apk包中作为channel文件src_empty_file = 'temp.txt'# 创建一个空文件（不存在则创建）f = open(src_empty_file, 'w') f.close()# 获取渠道列表channel_file = 'marketlist.txt'f = open(channel_file)lines = f.readlines()f.close()# 获取当前目录中所有的apk源包src_apks = []for file in os.listdir(): if os.path.isfile(file): extension = os.path.splitext(file)[1][1:] if extension in 'apk': src_apks.append(file) # file name (with extension)src_apk = src_apks[0]src_apk_file_name = os.path.basename(src_apk)# 分割文件名与后缀temp_list = os.path.splitext(src_apk_file_name)# name without extensionsrc_apk_name = temp_list[0]# 后缀名，包含. 例如: ".apk "src_apk_extension = temp_list[1]# 创建生成目录,与文件名相关output_dir = src_apk_name +"各渠道包"+ '/'# 目录不存在则创建if not os.path.exists(output_dir): os.mkdir(output_dir)# 遍历渠道号并创建对应渠道号的apk文件linesIndex = 1for line in lines: # 获取当前渠道号，因为从渠道文件中获得带有\n,所有strip一下 target_channel = line.strip() if "#" in line[0:1] : print("渠道"+target_channel[1:]+"跳过") continue # 拼接对应渠道号的apk target_apk = output_dir + src_apk_name + "_" + target_channel + src_apk_extension # 拷贝建立新apk shutil.copy(src_apk, target_apk) # zip获取新建立的apk文件 zipped = zipfile.ZipFile(target_apk, 'a', zipfile.ZIP_DEFLATED) # 初始化渠道信息 empty_channel_file = "META-INF/kdlcchannel_"+target_channel # 写入渠道信息 zipped.write(src_empty_file, empty_channel_file) # 关闭zip流 zipped.close() print(linesIndex,".渠道 "+target_channel+" 打包完成") linesIndex = linesIndex + 1 ###Android获取渠道号的代码12345678910111213141516171819202122232425262728293031323334public static String getAppChannel(Context context)&#123; ApplicationInfo appinfo = context.getApplicationInfo(); String sourceDir = appinfo.sourceDir; String ret = ""; ZipFile zipfile = null; try &#123; zipfile = new ZipFile(sourceDir); Enumeration&lt;?&gt; entries = zipfile.entries(); while (entries.hasMoreElements()) &#123; ZipEntry entry = ((ZipEntry) entries.nextElement()); String entryName = entry.getName(); if (entryName.startsWith("META-INF/kdlcchannel")) &#123; ret = entryName; break; &#125; &#125; &#125; catch (IOException e) &#123; e.printStackTrace(); &#125; finally &#123; if (zipfile != null) &#123; try &#123; zipfile.close(); &#125; catch (IOException e) &#123; e.printStackTrace(); &#125; &#125; &#125; String[] split = ret.split("_"); if (split != null &amp;&amp; split.length &gt;= 2) &#123; return ret.substring(split[0].length() + 1); &#125; else &#123; return "MarketNotSet"; &#125; &#125;]]></content>
+      <content type="text"><![CDATA[先上工具地址 原理该打包工具参考了美团的打包方案。由于apk压缩文件的META-INF目录下文件不影响签名结果，所以可以在打包签名后在META-INF目录下生成相应的渠道标记，在程序运行时通过程序代码读取打包渠道号即可设置渠道。 使用方法 在marketlist.txt文件中配置渠道列表 运行build.py（需安装python运行环境） Python脚本代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364import osimport shutilimport zipfile# 空文件 便于写入此空文件到apk包中作为channel文件src_empty_file = 'temp.txt'# 创建一个空文件（不存在则创建）f = open(src_empty_file, 'w') f.close()# 获取渠道列表channel_file = 'marketlist.txt'f = open(channel_file)lines = f.readlines()f.close()# 获取当前目录中所有的apk源包src_apks = []for file in os.listdir(): if os.path.isfile(file): extension = os.path.splitext(file)[1][1:] if extension in 'apk': src_apks.append(file) # file name (with extension)src_apk = src_apks[0]src_apk_file_name = os.path.basename(src_apk)# 分割文件名与后缀temp_list = os.path.splitext(src_apk_file_name)# name without extensionsrc_apk_name = temp_list[0]# 后缀名，包含. 例如: ".apk "src_apk_extension = temp_list[1]# 创建生成目录,与文件名相关output_dir = src_apk_name +"各渠道包"+ '/'# 目录不存在则创建if not os.path.exists(output_dir): os.mkdir(output_dir)# 遍历渠道号并创建对应渠道号的apk文件linesIndex = 1for line in lines: # 获取当前渠道号，因为从渠道文件中获得带有\n,所有strip一下 target_channel = line.strip() if "#" in line[0:1] : print("渠道"+target_channel[1:]+"跳过") continue # 拼接对应渠道号的apk target_apk = output_dir + src_apk_name + "_" + target_channel + src_apk_extension # 拷贝建立新apk shutil.copy(src_apk, target_apk) # zip获取新建立的apk文件 zipped = zipfile.ZipFile(target_apk, 'a', zipfile.ZIP_DEFLATED) # 初始化渠道信息 empty_channel_file = "META-INF/kdlcchannel_"+target_channel # 写入渠道信息 zipped.write(src_empty_file, empty_channel_file) # 关闭zip流 zipped.close() print(linesIndex,".渠道 "+target_channel+" 打包完成") linesIndex = linesIndex + 1 Android获取渠道号的代码12345678910111213141516171819202122232425262728293031323334public static String getAppChannel(Context context)&#123; ApplicationInfo appinfo = context.getApplicationInfo(); String sourceDir = appinfo.sourceDir; String ret = ""; ZipFile zipfile = null; try &#123; zipfile = new ZipFile(sourceDir); Enumeration&lt;?&gt; entries = zipfile.entries(); while (entries.hasMoreElements()) &#123; ZipEntry entry = ((ZipEntry) entries.nextElement()); String entryName = entry.getName(); if (entryName.startsWith("META-INF/kdlcchannel")) &#123; ret = entryName; break; &#125; &#125; &#125; catch (IOException e) &#123; e.printStackTrace(); &#125; finally &#123; if (zipfile != null) &#123; try &#123; zipfile.close(); &#125; catch (IOException e) &#123; e.printStackTrace(); &#125; &#125; &#125; String[] split = ret.split("_"); if (split != null &amp;&amp; split.length &gt;= 2) &#123; return ret.substring(split[0].length() + 1); &#125; else &#123; return "MarketNotSet"; &#125; &#125;]]></content>
     </entry>
 
     
@@ -94,16 +94,16 @@
 
     
     <entry>
-      <title><![CDATA[微信小程序]]></title>
-      <url>%2F2016%2F12%2F18%2FProgramming-Summary%2F%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%2F</url>
-      <content type="text"><![CDATA[[TOC] 1. 学习资料 官方文档 Github整理 2. 框架app.json:配置工程 3. demo]]></content>
+      <title><![CDATA[自定义UI-电影在线选座]]></title>
+      <url>%2F2016%2F12%2F18%2FProgramming-Summary%2F%E8%87%AA%E5%AE%9A%E4%B9%89UI-%E7%94%B5%E5%BD%B1%E5%9C%A8%E7%BA%BF%E9%80%89%E5%BA%A7%2F</url>
+      <content type="text"><![CDATA[1. 效果图 2. 技术细节 触摸事件处理 绘制坐标更新 放大缩小中心坐标计算 … 3. 掌上生活下载地址]]></content>
     </entry>
 
     
     <entry>
-      <title><![CDATA[自定义UI-电影在线选座]]></title>
-      <url>%2F2016%2F12%2F18%2FProgramming-Summary%2F%E8%87%AA%E5%AE%9A%E4%B9%89UI-%E7%94%B5%E5%BD%B1%E5%9C%A8%E7%BA%BF%E9%80%89%E5%BA%A7%2F</url>
-      <content type="text"><![CDATA[1. 效果图 2. 技术细节 触摸事件处理 绘制坐标更新 放大缩小中心坐标计算 … 3. 掌上生活下载地址]]></content>
+      <title><![CDATA[微信小程序]]></title>
+      <url>%2F2016%2F12%2F18%2FProgramming-Summary%2F%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%2F</url>
+      <content type="text"><![CDATA[[TOC] 1. 学习资料 官方文档 Github整理 2. 框架app.json:配置工程 3. demo]]></content>
     </entry>
 
     
@@ -139,6 +139,13 @@
       <title><![CDATA[网络地址分类]]></title>
       <url>%2F2016%2F12%2F10%2FProgramming-Summary%2F%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E5%88%86%E7%B1%BB%2F</url>
       <content type="text"><![CDATA[A类地址：4个8位位组（octets）中第一个octet代表网络号，剩下的3个代表主机位。范围是0xxxxxxx，即0到127。 B类地址：前2个octets代表网络号，剩下的2个代表主机位。范围是10xxxxxx，即128到191。 C类地址：前3个octets代表网络号，剩下的1个代表主机位。范围是110xxxxx，即192到223。 D类地址：多播地址，范围是224到239。 E类地址：保留地址，实验用，范围是240到255。 ###一些特殊的IP地址： IP地址127.0.0.1：本地回环（loopback）测试地址 广播地址：255.255.255.255 IP地址0.0.0.0：代表任何网络 网络号全为0：代表本网络或本网段 网络号全为1：代表所有的网络 主机位全为0：代表某个网段的任何主机地址 主机位全为1：代表该网段的所有主机 专用IP地址： 就是我们在3类地址中常见到内网的IP段。10.0.0.0–10.255.255.255172.16.0.0–172.31.255.255192.168.0.0–192.168.255.255]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[LeetCode题解]]></title>
+      <url>%2F2016%2F12%2F09%2FProgramming-Summary%2FLeetCode%E9%A2%98%E8%A7%A3%2F</url>
+      <content type="text"><![CDATA[[TOC] 1. 题目名称解题思路代码]]></content>
     </entry>
 
     
@@ -262,13 +269,6 @@
 
     
     <entry>
-      <title><![CDATA[Android自动构建]]></title>
-      <url>%2F2016%2F11%2F04%2FProgramming-Summary%2FAndroid%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA%2F</url>
-      <content type="text"><![CDATA[[TOC] 1. 搭建环境1.1 开发环境安装以下组件并配置环境变量 CentOS release 6.5 (Final) 64bit git 2.10.0 Gradle 2.4 JDK 1.8 Android SDK Platform 23 Android Build Tools 23.0.02 Android Extras（Android support Library） TIPS： centos 64 bit 上buil-tools 中的aapt工具不能很好运行，需要安装 yum install libgcc.i686 yum install zlib.i686 yum install glibc.i686 … 组件也可以通过插件自动安装，为了便于以后管理，这里选择自己安装 1.2 第三方平台 coding.net 代码托管 蒲公英应用托管平台 2. 安装和配置Jenkins插件2.1 安装插件 jenkins 1.6 gradle plugin 1.25 2.2 插件配置进入系统管理-&gt;系统设置，并添加以下配置 3. Jenkins Job 配置3.1 源代码拉取 3.2 构建触发器30分钟一次 3.3 执行构建3.3.1 执行构建 3.3.2 构建后上传至蒲公英，并保存返回二维码 12345678910111213function jsonval &#123; temp=`echo $json | sed &apos;s/\\\\\//\//g&apos; | sed &apos;s/[&#123;&#125;]//g&apos; | awk -v k=&quot;text&quot; &apos;&#123;n=split($0,a,&quot;,&quot;); for (i=1; i&lt;=n; i++) print a[i]&#125;&apos; | sed &apos;s/\&quot;\:\&quot;/\|/g&apos; | sed &apos;s/[\,]/ /g&apos; | sed &apos;s/\&quot;//g&apos; | grep -w $responsekey` echo $&#123;temp##*|&#125;&#125;json=`curl -F &quot;file=@YOUR_APK_PATH&quot; -F &quot;uKey=YOUR_USER_KEY&quot; -F &quot;_api_key=YOUR_API_KEY&quot; http://www.pgyer.com/apiv1/app/upload`responsekey=&apos;appQRCodeURL&apos;responsevalue=`jsonval`rm -rf pgyermkdir pgyercd pgyercurrentDate=`date +%Y_%m_%d_%H_%M_%S`wget -O $currentDate.jpg $responsevalue 3.4 构建后存档 4. Android 项目配置创建local.properties放于根目录，并将sdk.dir配置为本地Android sdk目录 5. 构建取包查看图片扫码进入蒲公英下载页]]></content>
-    </entry>
-
-    
-    <entry>
       <title><![CDATA[Phabricator]]></title>
       <url>%2F2016%2F11%2F02%2FProgramming-Summary%2FPhabricator%2F</url>
       <content type="text"><![CDATA[[TOC] 1. 简介 A complete software development platform Phabricator is an integrated set of powerful tools to help companies build higher quality software. 官网) 2. 安装(CentOS)nginx+php-fpm+phabricator git repo+MySql 安装脚本: 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134135136137138139140141142143144145#!/bin/bashconfirm() &#123; echo &quot;Press RETURN to continue, or ^C to cancel.&quot;; read -e ignored&#125;RHEL_VER_FILE=&quot;/etc/redhat-release&quot;if [[ ! -f $RHEL_VER_FILE ]]then echo &quot;It looks like you&apos;re not running a Red Hat-derived distribution.&quot; echo &quot;This script is intended to install Phabricator on RHEL-derived&quot; echo &quot;distributions such as RHEL, Fedora, CentOS, and Scientific Linux.&quot; echo &quot;Proceed with caution.&quot; confirmfiecho &quot;PHABRICATOR RED HAT DERIVATIVE INSTALLATION SCRIPT&quot;;echo &quot;This script will install Phabricator and all of its core dependencies.&quot;;echo &quot;Run it from the directory you want to install into.&quot;;echoRHEL_REGEX=&quot;release ([0-9]+)\.&quot;if [[ $(cat $RHEL_VER_FILE) =~ $RHEL_REGEX ]]then RHEL_MAJOR_VER=$&#123;BASH_REMATCH[1]&#125;else echo &quot;Ut oh, we were unable to determine your distribution&apos;s major&quot; echo &quot;version number. Please make sure you&apos;re running 6.0+ before&quot; echo &quot;proceeding.&quot; confirmfiif [[ $RHEL_MAJOR_VER &lt; 6 &amp;&amp; $RHEL_MAJOR_VER &gt; 0 ]]then echo &quot;** WARNING **&quot; echo &quot;A major version less than 6 was detected. Because of this,&quot; echo &quot;several needed dependencies are not available via default repos.&quot; echo &quot;Specifically, RHEL 5 does not have a PEAR package for php53-*.&quot; echo &quot;We will attempt to install it manually, for APC. Please be careful.&quot; confirmfiecho &quot;Phabricator will be installed to: $(pwd).&quot;;confirmecho &quot;Testing sudo/root...&quot;if [[ $EUID -ne 0 ]] # Check if we&apos;re root. If we are, continue.then sudo true SUDO=&quot;sudo&quot; if [[ $? -ne 0 ]] then echo &quot;ERROR: You must be able to sudo to run this script, or run it as root.&quot;; exit 1 fifiif [[ $RHEL_MAJOR_VER == 5 ]]then # RHEL 5&apos;s &quot;php&quot; package is actually 5.1. The &quot;php53&quot; package won&apos;t let us install php-pecl-apc. # (it tries to pull in php 5.1 stuff) ... yum repolist | grep -i epel if [ $? -ne 0 ]; then echo &quot;It doesn&apos;t look like you have the EPEL repo enabled. We are to add it&quot; echo &quot;for you, so that we can install git.&quot; $SUDO rpm -Uvh http://download.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm fi YUMCOMMAND=&quot;$SUDO yum install httpd git php53 php53-cli php53-mysql php53-process php53-devel php53-gd gcc wget make pcre-devel mysql-server&quot;else # RHEL 6+ defaults with php 5.3 YUMCOMMAND=&quot;$SUDO yum install httpd git php php-cli php-mysql php-process php-devel php-gd php-pecl-apc php-pecl-json php-mbstring mysql-server&quot;fiecho &quot;Dropping to yum to install dependencies...&quot;echo &quot;Running: $&#123;YUMCOMMAND&#125;&quot;echo &quot;Yum will prompt you with [Y/n] to continue installing.&quot;$YUMCOMMANDif [[ $? -ne 0 ]]then echo &quot;The yum command failed. Please fix the errors and re-run this script.&quot; exit 1fiif [[ $RHEL_MAJOR_VER == 5 ]]then # Now that we&apos;ve ensured all the devel packages required for pecl/apc are there, let&apos;s # set up PEAR, and install apc. echo &quot;Attempting to install PEAR&quot; wget http://pear.php.net/go-pear.phar $SUDO php go-pear.phar &amp;&amp; $SUDO pecl install apcfiif [[ $? -ne 0 ]]then echo &quot;The apc install failed. Continuing without APC, performance may be impacted.&quot;fipidof httpd 2&gt;&amp;1 &gt; /dev/nullif [[ $? -eq 0 ]]then echo &quot;If php was installed above, please run: /etc/init.d/httpd graceful&quot;else echo &quot;Please remember to start the httpd with: /etc/init.d/httpd start&quot;fipidof mysqld 2&gt;&amp;1 &gt; /dev/nullif [[ $? -ne 0 ]]then echo &quot;Please remember to start the mysql server: /etc/init.d/mysqld start&quot;ficonfirmif [[ ! -e libphutil ]]then git clone https://github.com/phacility/libphutil.gitelse (cd libphutil &amp;&amp; git pull --rebase)fiif [[ ! -e arcanist ]]then git clone https://github.com/phacility/arcanist.gitelse (cd arcanist &amp;&amp; git pull --rebase)fiif [[ ! -e phabricator ]]then git clone https://github.com/phacility/phabricator.gitelse (cd phabricator &amp;&amp; git pull --rebase)fiechoechoecho &quot;Install probably worked mostly correctly. Continue with the &apos;Configuration Guide&apos;:&quot;;echoecho &quot; https://secure.phabricator.com/book/phabricator/article/configuration_guide/&quot;; 3 配置(CentOS)3.1 nginx 配置123456789101112131415161718192021222324252627282930313233343536server &#123; listen 85; server_name pha.dev; root /usr/share/phabricator/phabricator/webroot; location / &#123; index index.php; rewrite ^/(.*)$ /index.php?__path__=/$1 last; &#125; location = /favicon.ico &#123; try_files $uri =204; &#125; location /index.php &#123; fastcgi_pass localhost:9000; fastcgi_index index.php; #required if PHP was built with --enable-force-cgi-redirect fastcgi_param REDIRECT_STATUS 200; #variables to make the $_SERVER populate in PHP fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name; fastcgi_param QUERY_STRING $query_string; fastcgi_param REQUEST_METHOD $request_method; fastcgi_param CONTENT_TYPE $content_type; fastcgi_param CONTENT_LENGTH $content_length; fastcgi_param SCRIPT_NAME $fastcgi_script_name; fastcgi_param GATEWAY_INTERFACE CGI/1.1; fastcgi_param SERVER_SOFTWARE nginx/$nginx_version; fastcgi_param REMOTE_ADDR $remote_addr; &#125;&#125; 3.2 配置MySQL./bin/storage upgrade 3.3 启动nginx/etc/init.d/nginx start 3.4 启动php-fpmetc/init.d/php-fpm start]]></content>
@@ -278,7 +278,7 @@
     <entry>
       <title><![CDATA[提升开发效率的工具]]></title>
       <url>%2F2016%2F10%2F31%2FProgramming-Summary%2F%E6%8F%90%E5%8D%87%E5%BC%80%E5%8F%91%E6%95%88%E7%8E%87%E7%9A%84%E5%B7%A5%E5%85%B7%2F</url>
-      <content type="text"><![CDATA[管理github工程 github star管理工具 github增强工具]]></content>
+      <content type="text"><![CDATA[Chrome 插件 postman 新浪微博图床 Adblock plus Scroll to top OneTab ColorZilla CapturePage 网页工具Mac其他 管理github工程 github star管理工具 github增强工具]]></content>
     </entry>
 
     
@@ -307,13 +307,6 @@
       <title><![CDATA[Python]]></title>
       <url>%2F2016%2F10%2F23%2FProgramming-Summary%2FPython%2F</url>
       <content type="text"><![CDATA[1. 安装1.1 环境MAC OS X EI Capitan(自带python2.7) 1.2 安装python3brew install python3 1.3 安装依赖(使用豆瓣源)pip install pythonModuleName -i https://pypi.douban.com/simple 1.4 依赖包路径 2. Hello Python]]></content>
-    </entry>
-
-    
-    <entry>
-      <title><![CDATA[Programming-Summary]]></title>
-      <url>%2F2016%2F10%2F21%2FProgramming-Summary%2FProgramming-Summary%2F</url>
-      <content type="text"><![CDATA[Aiming to improve writing skills and comprehension of git. [TOC] ###1. Common QRcode相关（二维码） GIT的理解 密码学简介 ###2. Java 动态代理 ###3. Android 分辨率适配 Android遇到的问题以及解决 自定义控件 内存优化 其他优化 Android AIDL Demo 基于META-INF目录的批量打包 Android的兼容包 ###4. Platforms &amp; Tools 常见构建工具简介 jenkins自动构建（for Android） 效率工具]]></content>
     </entry>
 
     

@@ -87,9 +87,7 @@
 <meta name="description" content="java.util.concurrent
 1. 锁1.1 锁的种类
 自旋锁：是将当前线程执行循环CAS
-可重入锁（可中断锁）：ReentrantLock 和synchronized 都是 可重入锁（http://www.iteedu.com/plang/java/superjava/threadsafe/lockInterruptibly.php）
-
-1.2 Java中锁的实现">
+可重入锁（可中断锁）：ReentrantLock 和synchronized 都是 可重入锁（http://www.iteedu.com/plang/java/superjava/threadsafe/lockInterruptibly.php）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="并发">
 <meta property="og:url" content="http://yoursite.com/2016/11/28/Programming-Summary/并发/index.html">
@@ -97,19 +95,15 @@
 <meta property="og:description" content="java.util.concurrent
 1. 锁1.1 锁的种类
 自旋锁：是将当前线程执行循环CAS
-可重入锁（可中断锁）：ReentrantLock 和synchronized 都是 可重入锁（http://www.iteedu.com/plang/java/superjava/threadsafe/lockInterruptibly.php）
-
-1.2 Java中锁的实现">
+可重入锁（可中断锁）：ReentrantLock 和synchronized 都是 可重入锁（http://www.iteedu.com/plang/java/superjava/threadsafe/lockInterruptibly.php）">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006y8lVagw1fbg0vwqfybj30ss0m40wp.jpg">
-<meta property="og:updated_time" content="2017-01-10T13:45:27.000Z">
+<meta property="og:updated_time" content="2017-01-14T09:08:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="并发">
 <meta name="twitter:description" content="java.util.concurrent
 1. 锁1.1 锁的种类
 自旋锁：是将当前线程执行循环CAS
-可重入锁（可中断锁）：ReentrantLock 和synchronized 都是 可重入锁（http://www.iteedu.com/plang/java/superjava/threadsafe/lockInterruptibly.php）
-
-1.2 Java中锁的实现">
+可重入锁（可中断锁）：ReentrantLock 和synchronized 都是 可重入锁（http://www.iteedu.com/plang/java/superjava/threadsafe/lockInterruptibly.php）">
 <meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006y8lVagw1fbg0vwqfybj30ss0m40wp.jpg">
 
 
@@ -190,7 +184,7 @@
     </a>
   </div>
     
-      <p class="site-subtitle"></p>
+      <p class="site-subtitle">解决问题，创造价值</p>
     
 </div>
 
@@ -414,8 +408,8 @@
 <li>自旋锁：是将当前线程执行循环CAS</li>
 <li>可重入锁（可中断锁）：ReentrantLock 和synchronized 都是 可重入锁（<a href="http://www.iteedu.com/plang/java/superjava/threadsafe/lockInterruptibly.php）" target="_blank" rel="external">http://www.iteedu.com/plang/java/superjava/threadsafe/lockInterruptibly.php）</a></li>
 </ul>
-<h4 id="1-2-Java中锁的实现"><a href="#1-2-Java中锁的实现" class="headerlink" title="1.2 Java中锁的实现"></a>1.2 Java中锁的实现</h4><a id="more"></a>
-<ul>
+<a id="more"></a>
+<h4 id="1-2-Java中锁的实现"><a href="#1-2-Java中锁的实现" class="headerlink" title="1.2 Java中锁的实现"></a>1.2 Java中锁的实现</h4><ul>
 <li>循环CAS(compareAndSet缩写)实现自旋锁</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">    public class SpinLock &#123;</div><div class="line"></div><div class="line">  private AtomicReference&lt;Thread&gt; sign =new AtomicReference&lt;&gt;();</div><div class="line"></div><div class="line">  public void lock()&#123;</div><div class="line">       Thread current = Thread.currentThread();</div><div class="line">       while(!sign .compareAndSet(null, current))&#123;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  public void unlock ()&#123;</div><div class="line">    Thread current = Thread.currentThread();</div><div class="line">    sign .compareAndSet(current, null);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -590,7 +584,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-count">46</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -599,7 +593,7 @@
           
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
@@ -608,7 +602,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

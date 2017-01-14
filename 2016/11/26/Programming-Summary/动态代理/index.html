@@ -98,7 +98,7 @@
 2. 动态代理">
 <meta property="og:image" content="http://ww3.sinaimg.cn/large/006y8lVagw1fbg0whuqfgj30tq05w3yp.jpg">
 <meta property="og:image" content="http://ww4.sinaimg.cn/large/006y8lVagw1fbg0wjh5xuj30rw0k0wgq.jpg">
-<meta property="og:updated_time" content="2017-01-10T13:45:27.000Z">
+<meta property="og:updated_time" content="2017-01-14T09:08:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="动态代理">
 <meta name="twitter:description" content="1. 代理的概念：
@@ -185,7 +185,7 @@
     </a>
   </div>
     
-      <p class="site-subtitle"></p>
+      <p class="site-subtitle">解决问题，创造价值</p>
     
 </div>
 
@@ -406,8 +406,8 @@
         <h4 id="1-代理的概念："><a href="#1-代理的概念：" class="headerlink" title="1. 代理的概念："></a>1. 代理的概念：</h4><p><img src="http://ww3.sinaimg.cn/large/006y8lVagw1fbg0whuqfgj30tq05w3yp.jpg" alt=""></p>
 <pre><code>图中A是调用者，B是代理类，C是委托类，也称作被代理类。
 代理类和被代理类一般实现相同的接口。
-</code></pre><h4 id="2-动态代理"><a href="#2-动态代理" class="headerlink" title="2. 动态代理"></a>2. 动态代理</h4><p><img src="http://ww4.sinaimg.cn/large/006y8lVagw1fbg0wjh5xuj30rw0k0wgq.jpg" alt=""></p>
-<a id="more"></a>
+</code></pre><h4 id="2-动态代理"><a href="#2-动态代理" class="headerlink" title="2. 动态代理"></a>2. 动态代理</h4><a id="more"></a>
+<p><img src="http://ww4.sinaimg.cn/large/006y8lVagw1fbg0wjh5xuj30rw0k0wgq.jpg" alt=""></p>
 <blockquote>
 <p>InvocationHandler相对于OperateImpl是代理类，相对于Proxy是委托，是一个双重角色。<br>    MyProxy类是调用<code>public static Object java.lang.reflect.Proxy.newProxyInstance(ClassLoader loader, Class&lt;?&gt;[] interfaces,InvocationHandler invocationHandler)</code>生成的一个中间类，MyProxy类继承自java.lang.reflect.Proxy,并实现参数interfaces的所有接口,在接口的实现中调用InvocationHandler，这是第一次代理，在InvocationHandler的invoke方法中调用OperateImpl的方法，这是第二次代理。</p>
 </blockquote>
@@ -550,7 +550,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-count">46</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -559,7 +559,7 @@
           
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
@@ -568,7 +568,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

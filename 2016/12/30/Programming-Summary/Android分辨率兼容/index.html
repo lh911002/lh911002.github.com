@@ -98,7 +98,7 @@ PX:像素点,图片的尺寸
 PT:1/72 inch，物理单位1inch＝2.54cm
 DPI(Dots per inch):每个英寸(物理单位)的px数。
 DP(DIP,Density-independent Pixels):DP是人为规定的一个单位。官方文档中解释one DIP is one pixel on an approximately 160 dpi screen (fo">
-<meta property="og:updated_time" content="2017-01-10T13:45:27.000Z">
+<meta property="og:updated_time" content="2017-01-14T09:08:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android分辨率兼容">
 <meta name="twitter:description" content="1. 相关概念
@@ -185,7 +185,7 @@ DP(DIP,Density-independent Pixels):DP是人为规定的一个单位。官方文�
     </a>
   </div>
     
-      <p class="site-subtitle"></p>
+      <p class="site-subtitle">解决问题，创造价值</p>
     
 </div>
 
@@ -407,12 +407,12 @@ DP(DIP,Density-independent Pixels):DP是人为规定的一个单位。官方文�
 <li>PX:像素点,图片的尺寸</li>
 <li>PT:1/72 inch，物理单位1inch＝2.54cm</li>
 <li>DPI(Dots per inch):每个英寸(物理单位)的px数。</li>
-<li><p>DP(DIP,Density-independent Pixels):DP是人为规定的一个单位。官方文档中解释<br>one DIP is one pixel on an approximately 160 dpi screen (for example a 240x320, 1.5”x2” screen),所以在320dpi的设备上，1DIP = 2PX,以此类推。</p>
-</li>
-<li><p>SP(Scale-independent Pixels)</p>
-</li>
+<li>DP(DIP,Density-independent Pixels):DP是人为规定的一个单位。官方文档中解释<br>one DIP is one pixel on an approximately 160 dpi screen (for example a 240x320, 1.5”x2” screen),所以在320dpi的设备上，1DIP = 2PX,以此类推。</li>
 </ol>
 <a id="more"></a>
+<ol>
+<li>SP(Scale-independent Pixels)</li>
+</ol>
 <p><strong>总结:</strong></p>
 <p><code>android.util.DisplayMetricsd</code>源码中的<code>density</code>是DP和PX转换的因子，公式为$$PX = density * DP$$,而$$density = 当前设备的DPI/160$$</p>
 <p>所以说，在160DPI(即每个英寸有160个像素点)的设备上，density 是1，代表每个DP包含1个像素，在320DPI设备上density是2，代表每个DP包含2个像素。</p>
@@ -593,7 +593,7 @@ DP(DIP,Density-independent Pixels):DP是人为规定的一个单位。官方文�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-count">46</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -602,7 +602,7 @@ DP(DIP,Density-independent Pixels):DP是人为规定的一个单位。官方文�
           
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
@@ -611,7 +611,7 @@ DP(DIP,Density-independent Pixels):DP是人为规定的一个单位。官方文�
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

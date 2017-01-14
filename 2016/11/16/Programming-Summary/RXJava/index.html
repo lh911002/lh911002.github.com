@@ -96,7 +96,7 @@ Observer(Subscriber)：响应数">
 1. 观察者模式
 Observable：整理并提供数据、事件序列
 Observer(Subscriber)：响应数">
-<meta property="og:updated_time" content="2017-01-10T13:45:27.000Z">
+<meta property="og:updated_time" content="2017-01-14T09:08:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RXJava">
 <meta name="twitter:description" content="RxJava generally consists of Observable (which emits the data which we can observe) and Observer (which observes emitted data and handles it).
@@ -182,7 +182,7 @@ Observer(Subscriber)：响应数">
     </a>
   </div>
     
-      <p class="site-subtitle"></p>
+      <p class="site-subtitle">解决问题，创造价值</p>
     
 </div>
 
@@ -404,10 +404,10 @@ Observer(Subscriber)：响应数">
 <h4 id="1-观察者模式"><a href="#1-观察者模式" class="headerlink" title="1. 观察者模式"></a>1. 观察者模式</h4><ul>
 <li>Observable：整理并提供<strong>数据、事件序列</strong></li>
 <li>Observer(Subscriber)：响应数据、事件序列</li>
-<li>Subscribe：Observable subscribe (to) Observer</li>
+<li>Subscribe：Observable subscribe (to) Observer<a id="more"></a>
+</li>
 </ul>
-<h4 id="2-变换"><a href="#2-变换" class="headerlink" title="2. 变换"></a>2. 变换</h4><a id="more"></a>
-<h4 id="3-线程调度"><a href="#3-线程调度" class="headerlink" title="3. 线程调度"></a>3. 线程调度</h4><pre><code>在不指定线程的情况下， RxJava 遵循的是线程不变的原则，即：在哪个线程调用 subscribe()，就在哪个线程生产事件；在哪个线程生产事件，就在哪个线程消费事件
+<h4 id="2-变换"><a href="#2-变换" class="headerlink" title="2. 变换"></a>2. 变换</h4><h4 id="3-线程调度"><a href="#3-线程调度" class="headerlink" title="3. 线程调度"></a>3. 线程调度</h4><pre><code>在不指定线程的情况下， RxJava 遵循的是线程不变的原则，即：在哪个线程调用 subscribe()，就在哪个线程生产事件；在哪个线程生产事件，就在哪个线程消费事件
 </code></pre><ol>
 <li>observeOn() 指定的是 Subscriber 的线程，所以指定的是它之后的操作所在的线程</li>
 <li>subscribeOn() 指定的是第一个 Observable 的线程,subscribeOn() 的位置放在操作的前后都可以，但它是只能调用一次的。</li>
@@ -555,7 +555,7 @@ Observer(Subscriber)：响应数">
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-count">46</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -564,7 +564,7 @@ Observer(Subscriber)：响应数">
           
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
@@ -573,7 +573,7 @@ Observer(Subscriber)：响应数">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

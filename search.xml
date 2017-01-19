@@ -3,6 +3,20 @@
   
     
     <entry>
+      <title><![CDATA[Vue]]></title>
+      <url>%2F2017%2F01%2F18%2FProgramming-Summary%2FVue%2F</url>
+      <content type="text"><![CDATA[1. 关于Vue响应的数据绑定和组合的视图组件是Vue两个重要的特性 2. 安装npm instal vue --save 安装Vue工程依赖npm install vue-cli -g 安装命令行工具，方便快速生成应用 推荐阅读Vue官网]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[JavaScript正则表达式]]></title>
+      <url>%2F2017%2F01%2F15%2FProgramming-Summary%2FJavaScript%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%2F</url>
+      <content type="text"><![CDATA[1. 创建正则 方式一： 12var re = new RegExp(&quot;\\d&quot;,&quot;gi&quot;); g，i，m，分别使用与全局匹配，不区分大小写匹配，多行匹配；var re = new RegExp(&quot;\d&quot;,&quot;gi&quot;); this is wrong &quot;\\d&quot;进行过两次转义，第一次是字符串的转义，\\转为\，第二次是正则的转义表示,\d表达匹配数字而不是匹配字符d，使用方式二可以避免字符串的转义，因为没有使用字符串。比如下面的匹配特殊字符的语句,也是同样道理： 12var re = new RegExp(&apos;[~`\!@#\$%\^&amp;\*\(\)_\\-\+=\&#123;\&#125;\[\]|\\\:;&quot;\&apos;\?\/\&gt;\.\&lt;,]&apos;);this is wrongvar re = new RegExp(&apos;[~`\\!@#\\$%\\^&amp;\\*\\(\\)_\\-\\+=\\&#123;\\&#125;\\[\\]|\\:;\&quot;\&apos;\\?\\/\\&gt;\\.\\&lt;,]&apos;);this is right 方式二： 推荐使用这种方式，去除了字符串的转义。 1var re = /\d/gi; 2. 常用方法 test 是否有匹配 exec 返回正则匹配结果 match 返回匹配结果 replace 根据正则替换 3. 捕获组 捕获组：捕获起来供后面使用，编号从1开始 普通捕获组 ，引用方式\number 命名捕获组，引用方式\k&lt;name&gt; 4. 反向引用对前面捕获的内容进行引用，捕获分组匹配到是什么，那么反向引用必须与捕获分组到是相同的字符 推荐阅读JavaScript正则浅析捕获组]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[微信小程序]]></title>
       <url>%2F2017%2F01%2F13%2FProgramming-Summary%2F%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%2F</url>
       <content type="text"><![CDATA[[TOC] 1. 学习资料 官方文档 Github整理 2. 框架 app.json:配置工程 3. demo]]></content>
@@ -10,16 +24,16 @@
 
     
     <entry>
-      <title><![CDATA[JavaScript正则表达式]]></title>
-      <url>%2F2017%2F01%2F12%2FProgramming-Summary%2FJavaScript%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%2F</url>
-      <content type="text"><![CDATA[1. 创建正则 方式一： 12var re = new RegExp(&quot;\\d&quot;,&quot;gi&quot;); g，i，m，分别使用与全局匹配，不区分大小写匹配，多行匹配；var re = new RegExp(&quot;\d&quot;,&quot;gi&quot;); this is wrong &quot;\\d&quot;进行过两次转义，第一次是字符串的转义，\\转为\，第二次是正则的转义表示,\d表达匹配数字而不是匹配字符d，使用方式二可以避免字符串的转义，因为没有使用字符串。比如下面的匹配特殊字符的语句,也是同样道理： 12var re = new RegExp(&apos;[~`\!@#\$%\^&amp;\*\(\)_\\-\+=\&#123;\&#125;\[\]|\\\:;&quot;\&apos;\?\/\&gt;\.\&lt;,]&apos;);this is wrongvar re = new RegExp(&apos;[~`\\!@#\\$%\\^&amp;\\*\\(\\)_\\-\\+=\\&#123;\\&#125;\\[\\]|\\:;\&quot;\&apos;\\?\\/\\&gt;\\.\\&lt;,]&apos;);this is right 方式二： 推荐使用这种方式，去除了字符串的转义。 1var re = /\d/gi; 2. 常用方法 test 是否有匹配 exec 返回正则匹配结果 match 返回匹配结果 replace 根据正则替换 3. 捕获组 捕获组：捕获起来供后面使用，编号从1开始 普通捕获组 ，引用方式\number 命名捕获组，引用方式\k&lt;name&gt; 4. 反向引用对前面捕获的内容进行引用，捕获分组匹配到是什么，那么反向引用必须与捕获分组到是相同的字符 推荐阅读JavaScript正则浅析捕获组]]></content>
+      <title><![CDATA[jQuery选择器]]></title>
+      <url>%2F2017%2F01%2F13%2FProgramming-Summary%2FjQuery%E9%80%89%E6%8B%A9%E5%99%A8%2F</url>
+      <content type="text"><![CDATA[本文主要介绍了jquery一些常用的选择器语法，可以说是比较粗略，对于一些使用较少的并没有列出，旨在梳理一个脉络出来。 1.1 普通选择器单个条件，无分隔符 1234$('div') 选择所有div$('#abc') 根据ID选择$('.abc') 根据class选择$('[type=checkbox]') 根据元素属性选择 1.2 组合选择器不使用分割，直接拼接 12$('inpupt[type=checkbox]') 选择input并且属性为type='checkbox'$('div.red') 选择div并且class='red' 1.3 多项选择器逗号,分隔，选择结果是并集 1$('p.red,p.green'); // 把&lt;p class="red"&gt;和&lt;p class="green"&gt;都选出来,&lt;p class="red green"&gt;不会被选择两次。 1.4 层级选择器空格分割层级，表示后代元素；使用&gt;分割表示直接子元素 12345678&lt;!-- HTML结构 --&gt;&lt;div class="testing"&gt; &lt;ul class="lang"&gt; &lt;li class="lang-javascript"&gt;JavaScript&lt;/li&gt; &lt;li class="lang-python"&gt;Python&lt;/li&gt; &lt;li class="lang-lua"&gt;Lua&lt;/li&gt; &lt;/ul&gt;&lt;/div&gt; 要选出JavaScript，可以用层级选择器：12$('ul.lang li.lang-javascript'); // [&lt;li class="lang-javascript"&gt;JavaScript&lt;/li&gt;]$('div.testing li.lang-javascript'); // [&lt;li class="lang-javascript"&gt;JavaScript&lt;/li&gt;] 1.5 过滤选择器:分割多个条件，在前面筛选的基础上进行过滤 1234567&lt;ul id=&quot;test-css&quot;&gt; &lt;li class=&quot;lang dy&quot;&gt;&lt;span&gt;JavaScript&lt;/span&gt;&lt;/li&gt; &lt;li class=&quot;lang&quot;&gt;&lt;span&gt;Java&lt;/span&gt;&lt;/li&gt; &lt;li class=&quot;lang dy&quot;&gt;&lt;span&gt;Python&lt;/span&gt;&lt;/li&gt; &lt;li class=&quot;lang&quot;&gt;&lt;span&gt;Swift&lt;/span&gt;&lt;/li&gt; &lt;li class=&quot;lang dy&quot;&gt;&lt;span&gt;Scheme&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt; 1$('#test-css li:eq(1)')选择索引是1的li元素，还有gt大于，lt小于]]></content>
     </entry>
 
     
     <entry>
-      <title><![CDATA[jQuery选择器]]></title>
-      <url>%2F2017%2F01%2F11%2FProgramming-Summary%2FjQuery%E9%80%89%E6%8B%A9%E5%99%A8%2F</url>
-      <content type="text"><![CDATA[本文主要介绍了jquery一些常用的选择器语法，可以说是比较粗略，对于一些使用较少的并没有列出，旨在梳理一个脉络出来。 1.1 普通选择器单个条件，无分隔符 1234$('div') 选择所有div$('#abc') 根据ID选择$('.abc') 根据class选择$('[type=checkbox]') 根据元素属性选择 1.2 组合选择器不使用分割，直接拼接 12$('inpupt[type=checkbox]') 选择input并且属性为type='checkbox'$('div.red') 选择div并且class='red' 1.3 多项选择器逗号,分隔，选择结果是并集 1$('p.red,p.green'); // 把&lt;p class="red"&gt;和&lt;p class="green"&gt;都选出来,&lt;p class="red green"&gt;不会被选择两次。 1.4 层级选择器空格分割层级，表示后代元素；使用&gt;分割表示直接子元素 12345678&lt;!-- HTML结构 --&gt;&lt;div class="testing"&gt; &lt;ul class="lang"&gt; &lt;li class="lang-javascript"&gt;JavaScript&lt;/li&gt; &lt;li class="lang-python"&gt;Python&lt;/li&gt; &lt;li class="lang-lua"&gt;Lua&lt;/li&gt; &lt;/ul&gt;&lt;/div&gt; 要选出JavaScript，可以用层级选择器：12$('ul.lang li.lang-javascript'); // [&lt;li class="lang-javascript"&gt;JavaScript&lt;/li&gt;]$('div.testing li.lang-javascript'); // [&lt;li class="lang-javascript"&gt;JavaScript&lt;/li&gt;] 1.5 过滤选择器:分割多个条件，在前面筛选的基础上进行过滤 1234567&lt;ul id=&quot;test-css&quot;&gt; &lt;li class=&quot;lang dy&quot;&gt;&lt;span&gt;JavaScript&lt;/span&gt;&lt;/li&gt; &lt;li class=&quot;lang&quot;&gt;&lt;span&gt;Java&lt;/span&gt;&lt;/li&gt; &lt;li class=&quot;lang dy&quot;&gt;&lt;span&gt;Python&lt;/span&gt;&lt;/li&gt; &lt;li class=&quot;lang&quot;&gt;&lt;span&gt;Swift&lt;/span&gt;&lt;/li&gt; &lt;li class=&quot;lang dy&quot;&gt;&lt;span&gt;Scheme&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt; 1$('#test-css li:eq(1)')选择索引是1的li元素，还有gt大于，lt小于]]></content>
+      <title><![CDATA[前端开发环境和工具]]></title>
+      <url>%2F2017%2F01%2F11%2FProgramming-Summary%2F%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%92%8C%E5%B7%A5%E5%85%B7%2F</url>
+      <content type="text"><![CDATA[刚接触前端被各种开发环境和工具弄得眼花缭乱，有必要进行系统的学习。 1. NodeJSNodeJS &amp; npm 是其他工具的基础，提供依赖安装和运行环境。 2. npm &amp; bower 3. webpack模块化管理和打包工具，可以替代gulp webpack官网 4. grunt &amp; gulpTODO]]></content>
     </entry>
 
     
@@ -48,6 +62,13 @@
       <title><![CDATA[AIDL]]></title>
       <url>%2F2017%2F01%2F07%2FProgramming-Summary%2FAIDL%2F</url>
       <content type="text"><![CDATA[全称 Android Interface Definition Language，是一种Android内部进程间通信的机制 只有你允许客户端从不同的应用程序为了进程间的通信而去访问你的service，以及想在你的service处理多线程时才建议使用AIDL。 Demo地址 1. 项目说明 项目包含两个部分: app 客服端，请求aidl服务 remote-app 服务端，提供客服端调用的接口服务 2. 基本流程 在服务端声明一个aidl接口，build后产生java文件，里面包含有IBinder的子类和proxy类,同时创建service类用于响应客户端的AIDL请求 客服端将服务端的AIDL接口拷贝过去，然后build也会产生一个java文件，在代码中通过ServiceConnection类连接远程服务并在其方法中获得AIDL接口对象就可以调用自己定义的方法了]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[NodeJS]]></title>
+      <url>%2F2017%2F01%2F04%2FProgramming-Summary%2FNodeJS%2F</url>
+      <content type="text"><![CDATA[在创建这篇博客的时候就已经在本地搭建了NodeJS运行时环境，但是一直没有做一些记录，现在在做公司前端项目的时候需要用到NodeJS,在这里记录一下。 1. NodeJS定义Node.js® is a JavaScript runtime built on Chrome&apos;s V8 JavaScript engine. 上面截取自NodeJS的官网，Node是一个运行时环境。 2. NodeJS搭建有两种方式 home-brew 官网安装包 3. Node常用命令node jsName在Node引擎运行jsName 4. npm常用命令1234567891011121314151617npm init 初始化，创建package.json文件npm install &lt;packagename&gt; --save 安装模块并把依赖配置加入package.jsonnpm install &lt;packagename&gt; -g 将包安装到全局环境中,配置命令行npm remove &lt;name&gt;移除npm update &lt;name&gt;更新npm ls 列出当前安装的了所有包npm root 查看当前包的安装路径npm root -g 查看全局的包的安装路径npm help 帮助，如果要单独查看install命令的帮助，可以使用的npm help install 推荐阅读官方网站]]></content>
     </entry>
 
     
@@ -318,9 +339,16 @@
 
     
     <entry>
+      <title><![CDATA[关于博客的规范]]></title>
+      <url>%2F2016%2F07%2F14%2FProgramming-Summary%2F%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%9A%84%E8%A7%84%E8%8C%83%2F</url>
+      <content type="text"><![CDATA[在你不去改变的时候，事情总是向着坏的方向发展。 为了使博客更方便阅读和理解，制定一份规范很有必要。 1. 排版规范1.1 标题 标题要加序号 标题的字号要匹配 标题的顺序要符合文章主题的逻辑顺序 2. 内容规范2.1 文章长度 简单文章、记录600字符以上 内容含量丰富的1000字符以上]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[关于博客]]></title>
       <url>%2F2016%2F07%2F13%2FProgramming-Summary%2F%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%2F</url>
-      <content type="text"><![CDATA[1. 目的转眼间工作已经一年多，工作中自己成长了很多，但是一直没有做记录，很多有价值的东西没有被记下，感觉甚是遗憾。这个博客就留作记录和查阅之用，解决问题，创造价值。 2. Hexo网上参考了一些博客，觉得Hexo适合自己，自己本来就有用MarkDown记录的习惯，以前也有一些Markdown的文本，整理一下就可以放上来，也是够方便的了。使用GitHub Pages发布服务，服务器和域名的钱也省了。 3. 先对Hexo使用做简单记录 3.1 一些基本点 hexo通过配置git地址可以直接使用`hexo d(eploy)’发布到远程git repos。 hexo熟悉修改_config.yml就可以进行常用的一些配置。 默认主题比价鸡肋，经过对比，最后选择了Next，通过官方配置文档，可以开启评论等第三方功能 3.2 常用命令 hexo clean 清除public目录等生成的资源文件 hexo g(enerate)生成public目录等资源文件 hexo server 本地调试服务localhost:4000]]></content>
+      <content type="text"><![CDATA[1. 目的转眼间工作已经一年多，工作中自己成长了很多，但是一直没有做记录，很多有价值的东西没有被记下，感觉甚是遗憾。这个博客就留作记录和查阅之用，解决问题，创造价值。 2. 为什么选择Hexo网上参考了一些博客，发现Hexo使用的比较多，修相关主题丰富，支持MarkDown，自己本来就有用MarkDown记录的习惯，以前也有一些Markdown的文本，整理一下就可以放上来，也是够方便的了。使用GitHub Pages发布服务，服务器和域名的钱也省了。 3. Hexo搭建和使用 3.1 环境和准备工作 nodejs环境 npm module hexo-cli git 熟悉MarkDown语法 3.2 hexo简介 hexo通过配置git地址可以直接使用`hexo d(eploy)’发布到远程git repos。 hexo熟悉修改_config.yml就可以进行常用的一些配置。 默认主题比价鸡肋，经过对比，最后选择了Next，通过官方配置文档，可以开启评论等第三方功能 3.3 常用命令 hexo init blogname初始化博客目录 hexo clean 清除public目录等生成的资源文件 hexo g(enerate)生成public目录等资源文件 hexo server 本地调试服务localhost:4000 参考链接：手把手教你使用Hexo + Github Pages搭建个人独立博客]]></content>
     </entry>
 
     

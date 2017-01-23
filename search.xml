@@ -5,14 +5,7 @@
     <entry>
       <title><![CDATA[Android插件化]]></title>
       <url>%2F2017%2F01%2F22%2FProgramming-Summary%2FAndroid%E6%8F%92%E4%BB%B6%E5%8C%96%2F</url>
-      <content type="text"><![CDATA[插件化是Android兴起已久的一个话题，最早是由大众点评开源出来的AndroidDynamicLoader，后期又出现了很多优秀的插件化方案，比如360的DroidPlugin 本文的通过分析DroidPlugin的源码学习插件化和Android方面的一些细节。 插件化要解决的问题主要是 资源加载 代码加载 在研究插件化之前，需要一些知识准备： 1. 动态代理2. ActivityThread ActivityThread大概有5500行代码，功能设计各个组件模块。 ActivityThread负责主线程的任务调度。 ActivityThread的main方法是整个应用进程的入口。 TODO ActivityThreadApplicationThread ThreadLocalLooper Context]]></content>
-    </entry>
-
-    
-    <entry>
-      <title><![CDATA[Vue]]></title>
-      <url>%2F2017%2F01%2F18%2FProgramming-Summary%2FVue%2F</url>
-      <content type="text"><![CDATA[1. 关于Vue响应的数据绑定和组合的视图组件是Vue两个重要的特性 2. 安装npm instal vue --save 安装Vue工程依赖npm install vue-cli -g 安装命令行工具，方便快速生成应用 推荐阅读Vue官网]]></content>
+      <content type="text"><![CDATA[插件化是Android兴起已久的一个话题，最早是由大众点评开源出来的AndroidDynamicLoader，后期又出现了很多优秀的插件化方案，比如360的DroidPlugin 本文的通过分析DroidPlugin的源码学习插件化和Android方面的一些细节。 插件化要解决的问题主要是 资源加载 代码加载 在研究插件化之前，需要一些知识准备： 1. 动态代理2. ActivityThread ActivityThread大概有5500行代码，功能设计各个组件模块。 ActivityThread负责主线程的任务调度。 ActivityThread的main方法是整个应用进程的入口。 3. binder4. ActivityManagerService5 PackageManagerServiceTODO ActivityThreadApplicationThread ThreadLocalLooper Context]]></content>
     </entry>
 
     
@@ -24,13 +17,6 @@
 
     
     <entry>
-      <title><![CDATA[微信小程序]]></title>
-      <url>%2F2017%2F01%2F13%2FProgramming-Summary%2F%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%2F</url>
-      <content type="text"><![CDATA[[TOC] 1. 学习资料 官方文档 Github整理 2. 框架 app.json:配置工程 3. demo]]></content>
-    </entry>
-
-    
-    <entry>
       <title><![CDATA[jQuery选择器]]></title>
       <url>%2F2017%2F01%2F13%2FProgramming-Summary%2FjQuery%E9%80%89%E6%8B%A9%E5%99%A8%2F</url>
       <content type="text"><![CDATA[本文主要介绍了jquery一些常用的选择器语法，可以说是比较粗略，对于一些使用较少的并没有列出，旨在梳理一个脉络出来。 1.1 普通选择器单个条件，无分隔符 1234$('div') 选择所有div$('#abc') 根据ID选择$('.abc') 根据class选择$('[type=checkbox]') 根据元素属性选择 1.2 组合选择器不使用分割，直接拼接 12$('inpupt[type=checkbox]') 选择input并且属性为type='checkbox'$('div.red') 选择div并且class='red' 1.3 多项选择器逗号,分隔，选择结果是并集 1$('p.red,p.green'); // 把&lt;p class="red"&gt;和&lt;p class="green"&gt;都选出来,&lt;p class="red green"&gt;不会被选择两次。 1.4 层级选择器空格分割层级，表示后代元素；使用&gt;分割表示直接子元素 12345678&lt;!-- HTML结构 --&gt;&lt;div class="testing"&gt; &lt;ul class="lang"&gt; &lt;li class="lang-javascript"&gt;JavaScript&lt;/li&gt; &lt;li class="lang-python"&gt;Python&lt;/li&gt; &lt;li class="lang-lua"&gt;Lua&lt;/li&gt; &lt;/ul&gt;&lt;/div&gt; 要选出JavaScript，可以用层级选择器：12$('ul.lang li.lang-javascript'); // [&lt;li class="lang-javascript"&gt;JavaScript&lt;/li&gt;]$('div.testing li.lang-javascript'); // [&lt;li class="lang-javascript"&gt;JavaScript&lt;/li&gt;] 1.5 过滤选择器:分割多个条件，在前面筛选的基础上进行过滤 1234567&lt;ul id=&quot;test-css&quot;&gt; &lt;li class=&quot;lang dy&quot;&gt;&lt;span&gt;JavaScript&lt;/span&gt;&lt;/li&gt; &lt;li class=&quot;lang&quot;&gt;&lt;span&gt;Java&lt;/span&gt;&lt;/li&gt; &lt;li class=&quot;lang dy&quot;&gt;&lt;span&gt;Python&lt;/span&gt;&lt;/li&gt; &lt;li class=&quot;lang&quot;&gt;&lt;span&gt;Swift&lt;/span&gt;&lt;/li&gt; &lt;li class=&quot;lang dy&quot;&gt;&lt;span&gt;Scheme&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt; 1$('#test-css li:eq(1)')选择索引是1的li元素，还有gt大于，lt小于]]></content>
@@ -38,16 +24,16 @@
 
     
     <entry>
-      <title><![CDATA[前端开发环境和工具]]></title>
-      <url>%2F2017%2F01%2F11%2FProgramming-Summary%2F%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%92%8C%E5%B7%A5%E5%85%B7%2F</url>
-      <content type="text"><![CDATA[刚接触前端被各种开发环境和工具弄得眼花缭乱，有必要进行系统的学习。 1. NodeJSNodeJS &amp; npm 是其他工具的基础，提供依赖安装和运行环境。 2. npm &amp; bower 3. webpack模块化管理和打包工具，可以替代gulp webpack官网 4. grunt &amp; gulpTODO]]></content>
+      <title><![CDATA[微信小程序]]></title>
+      <url>%2F2017%2F01%2F13%2FProgramming-Summary%2F%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%2F</url>
+      <content type="text"><![CDATA[[TOC] 1. 学习资料 官方文档 Github整理 2. 框架 app.json:配置工程 3. demo]]></content>
     </entry>
 
     
     <entry>
-      <title><![CDATA[jQuery TIPS]]></title>
-      <url>%2F2017%2F01%2F10%2FProgramming-Summary%2FjQuery%20TIPS%2F</url>
-      <content type="text"><![CDATA[官方API jQuery()/$()的几种用法 jQuery中attr()和prop()的区别]]></content>
+      <title><![CDATA[前端开发环境]]></title>
+      <url>%2F2017%2F01%2F11%2FProgramming-Summary%2F%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%2F</url>
+      <content type="text"><![CDATA[刚接触前端被各种开发环境和工具弄得眼花缭乱，有必要进行系统的学习。 1. NodeJSNodeJS &amp; npm 是其他工具的基础，提供依赖安装和运行环境。 2. npm &amp; bower 3. webpack模块化管理和打包工具，可以替代gulp webpack官网 4. grunt &amp; gulpTODO]]></content>
     </entry>
 
     
@@ -66,9 +52,9 @@
 
     
     <entry>
-      <title><![CDATA[AIDL]]></title>
-      <url>%2F2017%2F01%2F07%2FProgramming-Summary%2FAIDL%2F</url>
-      <content type="text"><![CDATA[关于AIDL 全称 Android Interface Definition Language，是一种Android内部进程间通信的机制 只有你允许客户端从不同的应用程序为了进程间的通信而去访问你的service，以及想在你的service处理多线程时才建议使用AIDL。 通信结构通信包含两个角色: app 客服端，请求aidl服务 remote-app 服务端，提供客服端调用的接口服务 基本使用流程 在服务端声明一个aidl接口，build后产生java文件，里面包含有IBinder的子类和proxy类,同时创建service类用于响应客户端的AIDL请求 客服端将服务端的AIDL接口拷贝过去，然后build也会产生一个java文件，在代码中通过ServiceConnection类连接远程服务并在其方法中获得AIDL接口对象就可以调用自己定义的方法了]]></content>
+      <title><![CDATA[AIDL简介]]></title>
+      <url>%2F2017%2F01%2F07%2FProgramming-Summary%2FAIDL%E7%AE%80%E4%BB%8B%2F</url>
+      <content type="text"><![CDATA[AIDL（全称Android Interface Definition Language）是一种Android内部进程间通信的手段，其依赖Binder驱动实现进程间通信。 换句话说，AIDL是在Binder基础上进行的一轮封装，实际可以不使用AIDL，可以自定义相关组件进行进程间通信。 下面通过一个简单的例子对AIDL进行学习，例子包含一个客户端进程，一个服务端进程。 1. AIDL接口定义在客服端和服务端需要定义相同的AIDL接口，生成相同的文件 1234567891011121314// IMyAidlInterface.aidlpackage heng.liao.athrun.remote_app;// Declare any non-default types here with import statementsinterface IMyAidlInterface &#123; /** * Demonstrates some basic types that you can use as parameters * and return values in AIDL. */ void basicTypes(int anInt, long aLong, boolean aBoolean, float aFloat, double aDouble, String aString); String getRuntimeString();&#125; 上面代码是定义了一个接口getRuntimeString的aidl文件，编译后会自动生成一个文件，代码如下： 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134135136137138139140141142143144145146147148149150151152153/* * This file is auto-generated. DO NOT MODIFY. * Original file: /Users/athrun/code/github/Programming-Summary/Android/AIDL/app/src/main/aidl * /heng/liao/athrun/remote_app/IMyAidlInterface.aidl */package heng.liao.athrun.remote_app;// Declare any non-default types here with import statementspublic interface IMyAidlInterface extends android.os.IInterface &#123; /** * Local-side IPC implementation stub class. */ public static abstract class Stub extends android.os.Binder implements heng.liao.athrun .remote_app.IMyAidlInterface &#123; private static final java.lang.String DESCRIPTOR = &quot;heng.liao.athrun.remote_app&quot; + &quot;.IMyAidlInterface&quot;; /** * Construct the stub at attach it to the interface. */ public Stub() &#123; this.attachInterface(this, DESCRIPTOR); &#125; /** * Cast an IBinder object into an heng.liao.athrun.remote_app.IMyAidlInterface interface, * generating a proxy if needed. */ public static heng.liao.athrun.remote_app.IMyAidlInterface asInterface(android.os.IBinder obj) &#123; if ((obj == null)) &#123; return null; &#125; android.os.IInterface iin = obj.queryLocalInterface(DESCRIPTOR); if (((iin != null) &amp;&amp; (iin instanceof heng.liao.athrun.remote_app.IMyAidlInterface))) &#123; return ((heng.liao.athrun.remote_app.IMyAidlInterface) iin); &#125; return new heng.liao.athrun.remote_app.IMyAidlInterface.Stub.Proxy(obj); &#125; @Override public android.os.IBinder asBinder() &#123; return this; &#125; @Override public boolean onTransact(int code, android.os.Parcel data, android.os.Parcel reply, int flags) throws android.os.RemoteException &#123; switch (code) &#123; case INTERFACE_TRANSACTION: &#123; reply.writeString(DESCRIPTOR); return true; &#125; case TRANSACTION_basicTypes: &#123; data.enforceInterface(DESCRIPTOR); int _arg0; _arg0 = data.readInt(); long _arg1; _arg1 = data.readLong(); boolean _arg2; _arg2 = (0 != data.readInt()); float _arg3; _arg3 = data.readFloat(); double _arg4; _arg4 = data.readDouble(); java.lang.String _arg5; _arg5 = data.readString(); this.basicTypes(_arg0, _arg1, _arg2, _arg3, _arg4, _arg5); reply.writeNoException(); return true; &#125; case TRANSACTION_getRuntimeString: &#123; data.enforceInterface(DESCRIPTOR); java.lang.String _result = this.getRuntimeString(); reply.writeNoException(); reply.writeString(_result); return true; &#125; &#125; return super.onTransact(code, data, reply, flags); &#125; private static class Proxy implements heng.liao.athrun.remote_app.IMyAidlInterface &#123; private android.os.IBinder mRemote; Proxy(android.os.IBinder remote) &#123; mRemote = remote; &#125; @Override public android.os.IBinder asBinder() &#123; return mRemote; &#125; public java.lang.String getInterfaceDescriptor() &#123; return DESCRIPTOR; &#125; /** * Demonstrates some basic types that you can use as parameters * and return values in AIDL. */ @Override public void basicTypes(int anInt, long aLong, boolean aBoolean, float aFloat, double aDouble, java.lang.String aString) throws android.os.RemoteException &#123; android.os.Parcel _data = android.os.Parcel.obtain(); android.os.Parcel _reply = android.os.Parcel.obtain(); try &#123; _data.writeInterfaceToken(DESCRIPTOR); _data.writeInt(anInt); _data.writeLong(aLong); _data.writeInt(((aBoolean) ? (1) : (0))); _data.writeFloat(aFloat); _data.writeDouble(aDouble); _data.writeString(aString); mRemote.transact(Stub.TRANSACTION_basicTypes, _data, _reply, 0); _reply.readException(); &#125; finally &#123; _reply.recycle(); _data.recycle(); &#125; &#125; @Override public java.lang.String getRuntimeString() throws android.os.RemoteException &#123; android.os.Parcel _data = android.os.Parcel.obtain(); android.os.Parcel _reply = android.os.Parcel.obtain(); java.lang.String _result; try &#123; _data.writeInterfaceToken(DESCRIPTOR); mRemote.transact(Stub.TRANSACTION_getRuntimeString, _data, _reply, 0); _reply.readException(); _result = _reply.readString(); &#125; finally &#123; _reply.recycle(); _data.recycle(); &#125; return _result; &#125; &#125; static final int TRANSACTION_basicTypes = (android.os.IBinder.FIRST_CALL_TRANSACTION + 0); static final int TRANSACTION_getRuntimeString = (android.os.IBinder.FIRST_CALL_TRANSACTION + 1); &#125; /** * Demonstrates some basic types that you can use as parameters * and return values in AIDL. */ public void basicTypes(int anInt, long aLong, boolean aBoolean, float aFloat, double aDouble, java.lang.String aString) throws android.os.RemoteException; public java.lang.String getRuntimeString() throws android.os.RemoteException;&#125; 包括IMyAidlInterface，IMyAidlInterface.Stub，IMyAidlInterface.Stub.Proxy三个接口（类） 2. 客户端客户端负责请求服务端数据，获取远程对象，并调用相关接口 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283package heng.liao.athrun.aidldemo;import android.app.Activity;import android.content.ComponentName;import android.content.Context;import android.content.Intent;import android.content.ServiceConnection;import android.os.Bundle;import android.os.IBinder;import android.os.RemoteException;import android.view.Menu;import android.view.MenuItem;import android.view.View;import android.widget.TextView;import heng.liao.athrun.remote_app.IMyAidlInterface;public class MainActivity extends Activity &#123; private TextView aidl_test; @Override protected void onCreate(Bundle savedInstanceState) &#123; super.onCreate(savedInstanceState); setContentView(R.layout.activity_main); aidl_test = (TextView) findViewById(R.id.aidl_test); aidl_test.setOnClickListener(new View.OnClickListener() &#123; @Override public void onClick(View v) &#123; testAIDL(); &#125; &#125;); &#125; private void testAIDL() &#123; /*创建 ServiceConnection*/ ServiceConnection mServiceConnection = new ServiceConnection() &#123; @Override public void onServiceConnected(ComponentName name, IBinder service) &#123; IMyAidlInterface iMyAidlInterface = IMyAidlInterface.Stub.asInterface(service); String result = &quot;result&quot;; try &#123; result = iMyAidlInterface.getRuntimeString(); &#125; catch (RemoteException e) &#123; e.printStackTrace(); result = &quot;failed&quot;; &#125; aidl_test.setText(result); &#125; @Override public void onServiceDisconnected(ComponentName name) &#123; &#125; &#125;; Intent intent = new Intent(&quot;heng.liao.athrun.remote_app.AIDLService&quot;); /*android 5.0以上必须显式指定*/ intent.setPackage(&quot;heng.liao.athrun.remote_app&quot;); bindService(intent,mServiceConnection, Context.BIND_AUTO_CREATE); &#125; @Override public boolean onCreateOptionsMenu(Menu menu) &#123; // Inflate the menu; this adds items to the action bar if it is present. getMenuInflater().inflate(R.menu.menu_main, menu); return true; &#125; @Override public boolean onOptionsItemSelected(MenuItem item) &#123; // Handle action bar item clicks here. The action bar will // automatically handle clicks on the Home/Up button, so long // as you specify a parent activity in AndroidManifest.xml. int id = item.getItemId(); //noinspection SimplifiableIfStatement if (id == R.id.action_settings) &#123; return true; &#125; return super.onOptionsItemSelected(item); &#125;&#125; 3. 服务端提供客服端调用的接口服务，实现了AIDL接口，并重写onBind()方法，返回自定义实现(binder本地对象)。 123456789101112131415161718192021222324252627282930313233343536package heng.liao.athrun.remote_app;import android.app.Service;import android.content.Intent;import android.os.IBinder;import android.os.RemoteException;import java.util.Random;public class AIDLService extends Service &#123; private IBinder mBinder = new AIDLStubImpl(); private Random randomPro = new Random(); public AIDLService() &#123; &#125; @Override public IBinder onBind(Intent intent) &#123; return mBinder; &#125; /*相当于自定义的IBinder类*/ class AIDLStubImpl extends IMyAidlInterface.Stub&#123; @Override public void basicTypes(int anInt, long aLong, boolean aBoolean, float aFloat, double aDouble, String aString) throws RemoteException &#123; &#125; @Override public String getRuntimeString() throws RemoteException &#123; /*返回需要的运行时东西*/ return &quot;返回需要的运行时东西&quot;+randomPro.nextInt(100); &#125; &#125;&#125;]]></content>
     </entry>
 
     
@@ -76,6 +62,13 @@
       <title><![CDATA[NodeJS]]></title>
       <url>%2F2017%2F01%2F04%2FProgramming-Summary%2FNodeJS%2F</url>
       <content type="text"><![CDATA[在创建这篇博客的时候就已经在本地搭建了NodeJS运行时环境，但是一直没有做一些记录，现在在做公司前端项目的时候需要用到NodeJS,在这里记录一下。 1. NodeJS定义Node.js® is a JavaScript runtime built on Chrome&apos;s V8 JavaScript engine. 上面截取自NodeJS的官网，Node是一个运行时环境。 2. NodeJS搭建有两种方式 home-brew 官网安装包 3. Node常用命令node jsName在Node引擎运行jsName 4. npm常用命令1234567891011121314151617npm init 初始化，创建package.json文件npm install &lt;packagename&gt; --save 安装模块并把依赖配置加入package.jsonnpm install &lt;packagename&gt; -g 将包安装到全局环境中,配置命令行npm remove &lt;name&gt;移除npm update &lt;name&gt;更新npm ls 列出当前安装的了所有包npm root 查看当前包的安装路径npm root -g 查看全局的包的安装路径npm help 帮助，如果要单独查看install命令的帮助，可以使用的npm help install 推荐阅读官方网站]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[2016年回顾和2017年展望]]></title>
+      <url>%2F2017%2F01%2F02%2FProgramming-Summary%2F2016%E5%B9%B4%E5%9B%9E%E9%A1%BE%E5%92%8C2017%E5%B9%B4%E5%B1%95%E6%9C%9B%2F</url>
+      <content type="text"><![CDATA[毕业的时候是2014年7月份，今年已经2017，当把两个年份一比，天哪，工作至今已经差不多两年半的时间。蓦然回首，岁月如梭。纪念一下逝去的一年。 2016年回顾毕业后到2015年底都一直在做Android开发，可能是自己对编程的喜好和公司情况导致，2016年在公司内部转岗多次，先做了五个月后台，然后做了五个月Android开发，再然后就是Web前端开发，目前还在处理公司一些前端开发的工作，差不多两三个月了吧。 每次转岗都意味着需要学习大量的知识，经验的积累也需要一定时间，遇到复杂问题无法解决，这是转岗的痛点。好处也很明显，考虑问题时候往往可以跳出自己所处的位置去思考，也意味着找到更周全的解决方案的可能性更大。 这一年还用python写了一些脚本，为什么选择python，因为人生苦短，我用python。 对于这一年，自己稍显浮躁。势必需要静下心，仔细思考以后的路，重视自己的每个选择，慎重。一门技术学会不难，学透很难，2017年希望自己可以更专注。 2017年展望目标的达成离不开每一天的努力，一切都是身外之物，好的品性才能让自己受益终生。 2017年，做个五讲四美好青年，虽然我快奔三了。。。 更努力，每天都不要浪费。 更严格，当我可以做的更好，我为什么不做的更好？ 更深刻，思考的广度、深度、角度。 更无畏，做个勇敢的人。 更健康，每天都要锻炼。]]></content>
     </entry>
 
     
@@ -194,7 +187,7 @@
     <entry>
       <title><![CDATA[编程语言分类]]></title>
       <url>%2F2016%2F12%2F04%2FProgramming-Summary%2F%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%88%86%E7%B1%BB%2F</url>
-      <content type="text"><![CDATA[=== 众所周知，编程语言有很多种，以下是对编程语言的几种常见分类标准 按照应用执行过程进行分类，对于高级语言需要转化成机器语言才能够执行 机器语言 汇编语言 高级语言 按照执行前准备进行分类 编译型语言 在执行前需要经过编译成机器语言，如C、C++ 解释型语言 在运行时才转化为机器语言，所以效率相对于编译型语言比较低，如Java、C#，脚本语言可以理解为解释型语言，在运行时通过解释器执行 按照语言结构特性 函数式编程语言 函数是第一公民 面向过程变成语言 面向对象编程语言]]></content>
+      <content type="text"><![CDATA[众所周知，编程语言有很多种，以下是对编程语言的几种常见分类标准 按照应用执行过程进行分类，对于高级语言需要转化成机器语言才能够执行 机器语言 汇编语言 高级语言 按照执行前准备进行分类 编译型语言 在执行前需要经过编译成机器语言，如C、C++ 解释型语言 在运行时才转化为机器语言，所以效率相对于编译型语言比较低，如Java、C#，脚本语言可以理解为解释型语言，在运行时通过解释器执行 按照语言结构特性 函数式编程语言 函数是第一公民 面向过程变成语言 面向对象编程语言]]></content>
     </entry>
 
     
@@ -213,8 +206,8 @@
 
     
     <entry>
-      <title><![CDATA[并发]]></title>
-      <url>%2F2016%2F11%2F28%2FProgramming-Summary%2F%E5%B9%B6%E5%8F%91%2F</url>
+      <title><![CDATA[Java并发]]></title>
+      <url>%2F2016%2F11%2F28%2FProgramming-Summary%2FJava%E5%B9%B6%E5%8F%91%2F</url>
       <content type="text"><![CDATA[java.util.concurrent 1. 锁1.1 锁的种类 自旋锁：是将当前线程执行循环CAS 可重入锁（可中断锁）：ReentrantLock 和synchronized 都是 可重入锁（http://www.iteedu.com/plang/java/superjava/threadsafe/lockInterruptibly.php） 1.2 Java中锁的实现 循环CAS(compareAndSet缩写)实现自旋锁 123456789101112131415 public class SpinLock &#123; private AtomicReference&lt;Thread&gt; sign =new AtomicReference&lt;&gt;(); public void lock()&#123; Thread current = Thread.currentThread(); while(!sign .compareAndSet(null, current))&#123; &#125; &#125; public void unlock ()&#123; Thread current = Thread.currentThread(); sign .compareAndSet(current, null); &#125;&#125; 使用synchronized和wait notify实现锁 12345678910111213public class Lock&#123; private boolean isLocked = false; public synchronized void lock() throws InterruptedException&#123; while(isLocked)&#123; //不用if，而用while，是为了防止假唤醒 wait(); &#125; isLocked = true; &#125; public synchronized void unlock()&#123; isLocked = false; notify(); &#125;&#125; 使用方法 12345678910public class Counter&#123; private Lock lock = new Lock(); private int count = 0; public int inc()&#123; lock.lock(); this.count++; lock.unlock(); return count; &#125;&#125; 2. synchronized3.wait,notify,sleep wait和notify都是释放锁，sleep不释放 synchronized()的代码块中运行完就释放锁了 wait和notify必须先获得唯一控制权，一般用加锁实现 4. 线程池4.1 线程池分类按照线程池是否固定大小，可以将线程池分为一下两类： 固定大小的线程池 newFixedThreadPool newScheduledThreadPool（newFixedThreadPool的扩展，可以指定线程数，同时可以指定任务执行的起始时间和时间间隔） newSingleThreadExecutor（也是newFixedThreadPool的特例，固定大小为1） 不固定大小的线程池 newCachedThreadPool 4.2 创建线程池通过Executors类创建ExecutorService. 12ExecutorService realExecutor = Executors.newSingleThreadExecutor();realExecutor.execute(runnable); ExecutorService相关类和接口关系： 5. 阻塞队列借助Lock实现 参考 深入JVM锁]]></content>
     </entry>
 
@@ -257,7 +250,7 @@
     <entry>
       <title><![CDATA[JAVA 内存模型]]></title>
       <url>%2F2016%2F11%2F18%2FProgramming-Summary%2FJAVA%20%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%2F</url>
-      <content type="text"><![CDATA[1. 内存模型1.1 内存分类 虚拟机栈：每个线程有一个虚拟机栈，栈的空间有上限，达到上限会报stackoverflow异常。 Java Heap：java堆内存区域所有线程共享，所有对象和数组都在堆上进行分配内存，当申请不到空间时抛出OutOfMemoryError。 Java Heap具体又可以分为以下三个部分： * 年轻代 * Eden(空间不注意分配新对象就出发GC) * Survivor * 年老代 * 永久代 方法区：永久代是一种JVM规范，方法区是虚拟机对永久代的一种实现，一般存储类的信息，常量池，方法代码。 参考： http://www.cnblogs.com/paddix/p/5309550.html 2. GC策略TODO]]></content>
+      <content type="text"><![CDATA[1. 内存模型1.1 内存分类 虚拟机栈：每个线程有一个虚拟机栈，栈的空间有上限，达到上限会报stackoverflow异常。 Java Heap：java堆内存区域所有线程共享，所有对象和数组都在堆上进行分配内存，当申请不到空间时抛出OutOfMemoryError。 Java Heap具体又可以分为以下三个部分： 年轻代 Eden(空间不注意分配新对象就出发GC) Survivor 年老代 永久代 方法区：永久代是一种JVM规范，方法区是虚拟机对永久代的一种实现，一般存储类的信息，常量池，方法代码。 参考： http://www.cnblogs.com/paddix/p/5309550.html 2. GC策略TODO]]></content>
     </entry>
 
     
@@ -297,16 +290,16 @@
 
     
     <entry>
-      <title><![CDATA[机器学习算法]]></title>
-      <url>%2F2016%2F11%2F06%2FProgramming-Summary%2F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%2F</url>
-      <content type="text"><![CDATA[1. 学习方式 监督式学习 非监督式学习 半监督式学习 强化学习 2. 机器学习算法http://blog.jobbole.com/77620/ 2.1 分类算法2.1.1 决策树2.1.2 贝叶斯2.1.3 支持向量机SVM2.1.4 k-临近2.2 聚类算法2.3 降维算法2.4 回归算法2.5 人工神经网络]]></content>
+      <title><![CDATA[机器学习路线]]></title>
+      <url>%2F2016%2F11%2F06%2FProgramming-Summary%2F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF%2F</url>
+      <content type="text"><![CDATA[1. 数学基础1.1 线性代数 大多数机器学习的算法要应用起来，依赖于高效的计算，这种场景下，多层for循环通常就行不通了，而大多数的循环操作可转化成矩阵之间的乘法运算，这就和线性代数有莫大的关系了 向量的内积运算更是随处可见。 矩阵乘法与分解在机器学习的主成分分析（PCA）和奇异值分解（SVD） 等部分呈现刷屏状地出现。 1.2 微积分 极值问题 与 （条件）最优化问题 偏导数，梯度这两个概念必须深入人心 凸优化和条件最优化问题，这个是理解SVM，或者线性回归等等模型正则化的基础 1.3 概率论 极大似然思想 贝叶斯模型 隐变量混合概率模型，EM思想 基础的典型分布是逃不过的，尤其高斯分布。 推荐阅读机器学习路线图]]></content>
     </entry>
 
     
     <entry>
-      <title><![CDATA[机器学习路线]]></title>
-      <url>%2F2016%2F11%2F06%2FProgramming-Summary%2F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF%2F</url>
-      <content type="text"><![CDATA[1. 数学基础1.1 线性代数 大多数机器学习的算法要应用起来，依赖于高效的计算，这种场景下，多层for循环通常就行不通了，而大多数的循环操作可转化成矩阵之间的乘法运算，这就和线性代数有莫大的关系了 向量的内积运算更是随处可见。 矩阵乘法与分解在机器学习的主成分分析（PCA）和奇异值分解（SVD） 等部分呈现刷屏状地出现。 1.2 微积分 极值问题 与 （条件）最优化问题 偏导数，梯度这两个概念必须深入人心 凸优化和条件最优化问题，这个是理解SVM，或者线性回归等等模型正则化的基础 1.3 概率论 极大似然思想 贝叶斯模型 隐变量混合概率模型，EM思想 基础的典型分布是逃不过的，尤其高斯分布。 推荐阅读机器学习路线图]]></content>
+      <title><![CDATA[机器学习算法]]></title>
+      <url>%2F2016%2F11%2F06%2FProgramming-Summary%2F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%2F</url>
+      <content type="text"><![CDATA[1. 学习方式 监督式学习 非监督式学习 半监督式学习 强化学习 2. 机器学习算法http://blog.jobbole.com/77620/ 2.1 分类算法2.1.1 决策树2.1.2 贝叶斯2.1.3 支持向量机SVM2.1.4 k-临近2.2 聚类算法2.3 降维算法2.4 回归算法2.5 人工神经网络]]></content>
     </entry>
 
     
@@ -362,7 +355,7 @@
     <entry>
       <title><![CDATA[关于博客的规范]]></title>
       <url>%2F2016%2F07%2F14%2FProgramming-Summary%2F%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%9A%84%E8%A7%84%E8%8C%83%2F</url>
-      <content type="text"><![CDATA[在你不去改变的时候，事情总是向着坏的方向发展。 为了使博客更方便阅读和理解，制定一份规范很有必要。 1. 排版规范1.1 标题 标题要加序号 标题的字号要匹配 标题的顺序要符合文章主题的逻辑顺序 2. 内容规范2.1 文章长度 简单文章、记录600字符以上 内容含量丰富的1000字符以上]]></content>
+      <content type="text"><![CDATA[在你不去改变的时候，事情总是向着坏的方向发展。 为了使博客更方便阅读和理解，制定一份规范很有必要。 1. 组织架构 减少categories数量和深度 2. 排版规范2.1 标题 标题要加序号 标题的字号要匹配 标题的顺序要符合文章主题的逻辑顺序 3. 内容规范3.1 文章长度 简单文章、记录600字符以上 内容含量丰富的1000字符以上]]></content>
     </entry>
 
     

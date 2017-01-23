@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[Android插件化]]></title>
+      <url>%2F2017%2F01%2F22%2FProgramming-Summary%2FAndroid%E6%8F%92%E4%BB%B6%E5%8C%96%2F</url>
+      <content type="text"><![CDATA[插件化是Android兴起已久的一个话题，最早是由大众点评开源出来的AndroidDynamicLoader，后期又出现了很多优秀的插件化方案，比如360的DroidPlugin 本文的通过分析DroidPlugin的源码学习插件化和Android方面的一些细节。 插件化要解决的问题主要是 资源加载 代码加载 在研究插件化之前，需要一些知识准备： 1. 动态代理2. ActivityThread ActivityThread大概有5500行代码，功能设计各个组件模块。 ActivityThread负责主线程的任务调度。 ActivityThread的main方法是整个应用进程的入口。 TODO ActivityThreadApplicationThread ThreadLocalLooper Context]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[Vue]]></title>
       <url>%2F2017%2F01%2F18%2FProgramming-Summary%2FVue%2F</url>
       <content type="text"><![CDATA[1. 关于Vue响应的数据绑定和组合的视图组件是Vue两个重要的特性 2. 安装npm instal vue --save 安装Vue工程依赖npm install vue-cli -g 安装命令行工具，方便快速生成应用 推荐阅读Vue官网]]></content>
@@ -17,16 +24,16 @@
 
     
     <entry>
-      <title><![CDATA[微信小程序]]></title>
-      <url>%2F2017%2F01%2F13%2FProgramming-Summary%2F%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%2F</url>
-      <content type="text"><![CDATA[[TOC] 1. 学习资料 官方文档 Github整理 2. 框架 app.json:配置工程 3. demo]]></content>
+      <title><![CDATA[jQuery选择器]]></title>
+      <url>%2F2017%2F01%2F13%2FProgramming-Summary%2FjQuery%E9%80%89%E6%8B%A9%E5%99%A8%2F</url>
+      <content type="text"><![CDATA[本文主要介绍了jquery一些常用的选择器语法，可以说是比较粗略，对于一些使用较少的并没有列出，旨在梳理一个脉络出来。 1.1 普通选择器单个条件，无分隔符 1234$('div') 选择所有div$('#abc') 根据ID选择$('.abc') 根据class选择$('[type=checkbox]') 根据元素属性选择 1.2 组合选择器不使用分割，直接拼接 12$('inpupt[type=checkbox]') 选择input并且属性为type='checkbox'$('div.red') 选择div并且class='red' 1.3 多项选择器逗号,分隔，选择结果是并集 1$('p.red,p.green'); // 把&lt;p class="red"&gt;和&lt;p class="green"&gt;都选出来,&lt;p class="red green"&gt;不会被选择两次。 1.4 层级选择器空格分割层级，表示后代元素；使用&gt;分割表示直接子元素 12345678&lt;!-- HTML结构 --&gt;&lt;div class="testing"&gt; &lt;ul class="lang"&gt; &lt;li class="lang-javascript"&gt;JavaScript&lt;/li&gt; &lt;li class="lang-python"&gt;Python&lt;/li&gt; &lt;li class="lang-lua"&gt;Lua&lt;/li&gt; &lt;/ul&gt;&lt;/div&gt; 要选出JavaScript，可以用层级选择器：12$('ul.lang li.lang-javascript'); // [&lt;li class="lang-javascript"&gt;JavaScript&lt;/li&gt;]$('div.testing li.lang-javascript'); // [&lt;li class="lang-javascript"&gt;JavaScript&lt;/li&gt;] 1.5 过滤选择器:分割多个条件，在前面筛选的基础上进行过滤 1234567&lt;ul id=&quot;test-css&quot;&gt; &lt;li class=&quot;lang dy&quot;&gt;&lt;span&gt;JavaScript&lt;/span&gt;&lt;/li&gt; &lt;li class=&quot;lang&quot;&gt;&lt;span&gt;Java&lt;/span&gt;&lt;/li&gt; &lt;li class=&quot;lang dy&quot;&gt;&lt;span&gt;Python&lt;/span&gt;&lt;/li&gt; &lt;li class=&quot;lang&quot;&gt;&lt;span&gt;Swift&lt;/span&gt;&lt;/li&gt; &lt;li class=&quot;lang dy&quot;&gt;&lt;span&gt;Scheme&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt; 1$('#test-css li:eq(1)')选择索引是1的li元素，还有gt大于，lt小于]]></content>
     </entry>
 
     
     <entry>
-      <title><![CDATA[jQuery选择器]]></title>
-      <url>%2F2017%2F01%2F13%2FProgramming-Summary%2FjQuery%E9%80%89%E6%8B%A9%E5%99%A8%2F</url>
-      <content type="text"><![CDATA[本文主要介绍了jquery一些常用的选择器语法，可以说是比较粗略，对于一些使用较少的并没有列出，旨在梳理一个脉络出来。 1.1 普通选择器单个条件，无分隔符 1234$('div') 选择所有div$('#abc') 根据ID选择$('.abc') 根据class选择$('[type=checkbox]') 根据元素属性选择 1.2 组合选择器不使用分割，直接拼接 12$('inpupt[type=checkbox]') 选择input并且属性为type='checkbox'$('div.red') 选择div并且class='red' 1.3 多项选择器逗号,分隔，选择结果是并集 1$('p.red,p.green'); // 把&lt;p class="red"&gt;和&lt;p class="green"&gt;都选出来,&lt;p class="red green"&gt;不会被选择两次。 1.4 层级选择器空格分割层级，表示后代元素；使用&gt;分割表示直接子元素 12345678&lt;!-- HTML结构 --&gt;&lt;div class="testing"&gt; &lt;ul class="lang"&gt; &lt;li class="lang-javascript"&gt;JavaScript&lt;/li&gt; &lt;li class="lang-python"&gt;Python&lt;/li&gt; &lt;li class="lang-lua"&gt;Lua&lt;/li&gt; &lt;/ul&gt;&lt;/div&gt; 要选出JavaScript，可以用层级选择器：12$('ul.lang li.lang-javascript'); // [&lt;li class="lang-javascript"&gt;JavaScript&lt;/li&gt;]$('div.testing li.lang-javascript'); // [&lt;li class="lang-javascript"&gt;JavaScript&lt;/li&gt;] 1.5 过滤选择器:分割多个条件，在前面筛选的基础上进行过滤 1234567&lt;ul id=&quot;test-css&quot;&gt; &lt;li class=&quot;lang dy&quot;&gt;&lt;span&gt;JavaScript&lt;/span&gt;&lt;/li&gt; &lt;li class=&quot;lang&quot;&gt;&lt;span&gt;Java&lt;/span&gt;&lt;/li&gt; &lt;li class=&quot;lang dy&quot;&gt;&lt;span&gt;Python&lt;/span&gt;&lt;/li&gt; &lt;li class=&quot;lang&quot;&gt;&lt;span&gt;Swift&lt;/span&gt;&lt;/li&gt; &lt;li class=&quot;lang dy&quot;&gt;&lt;span&gt;Scheme&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt; 1$('#test-css li:eq(1)')选择索引是1的li元素，还有gt大于，lt小于]]></content>
+      <title><![CDATA[微信小程序]]></title>
+      <url>%2F2017%2F01%2F13%2FProgramming-Summary%2F%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%2F</url>
+      <content type="text"><![CDATA[[TOC] 1. 学习资料 官方文档 Github整理 2. 框架 app.json:配置工程 3. demo]]></content>
     </entry>
 
     
@@ -61,7 +68,7 @@
     <entry>
       <title><![CDATA[AIDL]]></title>
       <url>%2F2017%2F01%2F07%2FProgramming-Summary%2FAIDL%2F</url>
-      <content type="text"><![CDATA[全称 Android Interface Definition Language，是一种Android内部进程间通信的机制 只有你允许客户端从不同的应用程序为了进程间的通信而去访问你的service，以及想在你的service处理多线程时才建议使用AIDL。 Demo地址 1. 项目说明 项目包含两个部分: app 客服端，请求aidl服务 remote-app 服务端，提供客服端调用的接口服务 2. 基本流程 在服务端声明一个aidl接口，build后产生java文件，里面包含有IBinder的子类和proxy类,同时创建service类用于响应客户端的AIDL请求 客服端将服务端的AIDL接口拷贝过去，然后build也会产生一个java文件，在代码中通过ServiceConnection类连接远程服务并在其方法中获得AIDL接口对象就可以调用自己定义的方法了]]></content>
+      <content type="text"><![CDATA[关于AIDL 全称 Android Interface Definition Language，是一种Android内部进程间通信的机制 只有你允许客户端从不同的应用程序为了进程间的通信而去访问你的service，以及想在你的service处理多线程时才建议使用AIDL。 通信结构通信包含两个角色: app 客服端，请求aidl服务 remote-app 服务端，提供客服端调用的接口服务 基本使用流程 在服务端声明一个aidl接口，build后产生java文件，里面包含有IBinder的子类和proxy类,同时创建service类用于响应客户端的AIDL请求 客服端将服务端的AIDL接口拷贝过去，然后build也会产生一个java文件，在代码中通过ServiceConnection类连接远程服务并在其方法中获得AIDL接口对象就可以调用自己定义的方法了]]></content>
     </entry>
 
     
@@ -73,8 +80,8 @@
 
     
     <entry>
-      <title><![CDATA[问题以及解决]]></title>
-      <url>%2F2017%2F01%2F01%2FProgramming-Summary%2F%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%2F</url>
+      <title><![CDATA[常见问题以及解决]]></title>
+      <url>%2F2017%2F01%2F01%2FProgramming-Summary%2F%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%2F</url>
       <content type="text"><![CDATA[NO.1 问题描述：home键或者其他方式程序进入后台后，一段时间回到前台界面显示信息出错 原因分析：由于app进入后台时间太久没有唤起，被系统回收 问题解决：在application类的onCreate方法里面对重新启动进行监听并重新启动进入后台时候的Activity NO.2 问题描述：postDelay+Dialog引起的窗体泄露 原因分析：Android中消息队列postDelay+Dialog引起的窗体泄露的主要原因是，当床窗体压入栈或者finish掉后，Activity由于需要处理postDelay而不能及时销毁，因此造成了一个问题，当dialog触发show方法时，由于window和activity已经分开了，因此便会造成窗体泄露。 问题解决：通过对Activity的状态进行监听确定是否显示dialog，见代码12345678910111213141516171819202122232425262728private boolean isActive = true;public void onResume()&#123; super.onResume(); isActive = true;&#125;public void onPause()&#123; super.onPause(); isActive = false;&#125; public boolean activityIsActivity()&#123; return isActive;&#125; public void showAlertDialog()&#123; if(activityIsActive()) //只有窗体处于活动状态时执行此程序 &#123; AlertDialog.Builder builder = new AlertDialog.Builder(activity); builder.setTitle("hello world") .setCancelable(false) .setMessage("Hello"); builder.create().show(); &#125;&#125;]]></content>
     </entry>
 
@@ -166,7 +173,7 @@
     <entry>
       <title><![CDATA[LeetCode题解]]></title>
       <url>%2F2016%2F12%2F09%2FProgramming-Summary%2FLeetCode%E9%A2%98%E8%A7%A3%2F</url>
-      <content type="text"><![CDATA[[TOC] 1. Intersection of Two Arrays1.1 解题思路使用hash比较是否存在，实现时间复杂度O(n),坏处是空间复杂度也达到O(n). 1.2 代码 1234567891011121314151617181920212223public int[] intersection(int[] nums1, int[] nums2) &#123; HashSet&lt;Integer&gt; resultSet = new HashSet&lt;Integer&gt;(); if(nums1 == null || nums2 == null || nums1.length * nums2.length == 0)&#123; return new int[0]; &#125; HashSet&lt;Integer&gt; temp = new HashSet&lt;Integer&gt;(); for (int i = 0; i &lt; nums1.length; i++) &#123; temp.add(nums1[i]); &#125; for (int i = 0; i &lt; nums2.length; i++) &#123; if(temp.contains(nums2[i]))&#123; resultSet.add(nums2[i]); &#125; &#125; int[] result = new int[resultSet.size()]; Iterator&lt;Integer&gt; iterator = resultSet.iterator(); for (int i = 0; i &lt; result.length; i++) &#123; result[i] = iterator.next(); &#125; return result; &#125;]]></content>
+      <content type="text"><![CDATA[[TOC] 1. Intersection of Two Arrays1.1 解题思路使用hash比较是否存在，实现时间复杂度O(n),坏处是空间复杂度也达到O(n). 1.2 代码 1234567891011121314151617181920212223public int[] intersection(int[] nums1, int[] nums2) &#123; HashSet&lt;Integer&gt; resultSet = new HashSet&lt;Integer&gt;(); if(nums1 == null || nums2 == null || nums1.length * nums2.length == 0)&#123; return new int[0]; &#125; HashSet&lt;Integer&gt; temp = new HashSet&lt;Integer&gt;(); for (int i = 0; i &lt; nums1.length; i++) &#123; temp.add(nums1[i]); &#125; for (int i = 0; i &lt; nums2.length; i++) &#123; if(temp.contains(nums2[i]))&#123; resultSet.add(nums2[i]); &#125; &#125; int[] result = new int[resultSet.size()]; Iterator&lt;Integer&gt; iterator = resultSet.iterator(); for (int i = 0; i &lt; result.length; i++) &#123; result[i] = iterator.next(); &#125; return result; &#125; 2. Intersection of Two Arrays II2.1 解题思路本题在题1的基础上要求重复多少次就要在结果中出现多少次，采用了比较直接的解法，使用hashmap记录值和出现的次数 2.2 代码1234567891011121314151617181920212223242526272829303132333435363738394041if(nums1 == null || nums2 == null || nums1.length * nums2.length == 0)&#123; return new int[0]; &#125; HashMap&lt;Integer,Integer&gt; resultMap = new HashMap&lt;Integer, Integer&gt;(); HashMap&lt;Integer,Integer&gt; nums1Map = new HashMap&lt;Integer, Integer&gt;(); for (int i = 0; i &lt; nums1.length; i++) &#123; nums1Map.put(nums1[i],nums1Map.get(nums1[i]) == null ? 1: nums1Map.get(nums1[i]) + 1); &#125; for (int i = 0; i &lt; nums2.length; i++) &#123; if(nums1Map.containsKey(nums2[i]))&#123; if(nums1Map.get(nums2[i]) == 1)&#123; nums1Map.remove(nums2[i]); &#125;else&#123; nums1Map.put(nums2[i],nums1Map.get(nums2[i]) - 1); &#125; resultMap.put(nums2[i],resultMap.get(nums2[i]) == null ? 1: resultMap.get(nums2[i]) + 1); &#125; &#125; ArrayList&lt;Integer&gt; result = new ArrayList&lt;Integer&gt;(); Iterator iter = resultMap.entrySet().iterator(); while (iter.hasNext()) &#123; Map.Entry entry = (Map.Entry) iter.next(); Integer key = (Integer) entry.getKey(); Integer val = (Integer) entry.getValue(); for (int i = 0; i &lt; val; i++) &#123; result.add(key); &#125; &#125; if(result.size() == 0)&#123; return new int[0]; &#125;else&#123; int[] resultArray = new int[result.size()]; for (int i = 0; i &lt; result.size(); i++) &#123; resultArray[i] = result.get(i); &#125; return resultArray; &#125;]]></content>
     </entry>
 
     
@@ -220,8 +227,15 @@
 
     
     <entry>
-      <title><![CDATA[Generic]]></title>
-      <url>%2F2016%2F11%2F24%2FProgramming-Summary%2FGeneric%2F</url>
+      <title><![CDATA[Java引用的分类]]></title>
+      <url>%2F2016%2F11%2F25%2FProgramming-Summary%2FJava%E5%BC%95%E7%94%A8%E7%9A%84%E5%88%86%E7%B1%BB%2F</url>
+      <content type="text"><![CDATA[分类java中的引用分为4类，具体区别：(以上讨论的回收时机都是在引用还存在的前提下) 级别 回收时机 创建方式 强引用 只要强引用还存在，就不回收 new 软引用 内存不足才会被回收 SoftReference 弱引用 被GC发现就回收，即使内存还充足 WeakReference 虚引用|任何时候回收|PhantomReference 用途 在Android中使用WeakReference保存Fragment对象实例，内存不足时回收页面，在需要时再创建。]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[泛型]]></title>
+      <url>%2F2016%2F11%2F24%2FProgramming-Summary%2F%E6%B3%9B%E5%9E%8B%2F</url>
       <content type="text"><![CDATA[类型擦除：Java中的泛型基本上都是在编译器这个层次来实现的。在生成的Java字节代码中是不包含泛型中的类型信息的。使用泛型的时候加上的类型参数，会被编译器在编译的时候去掉。这个过程就称为类型擦除。 关于T,K,V…以及通配符?]]></content>
     </entry>
 
@@ -283,9 +297,16 @@
 
     
     <entry>
-      <title><![CDATA[MACHINE LEARNING]]></title>
-      <url>%2F2016%2F11%2F06%2FProgramming-Summary%2FMACHINE%20LEARNING%2F</url>
-      <content type="text"><![CDATA[1. 学习方式 监督式学习 非监督式学习 半监督式学习 强化学习 2. 机器学习算法http://blog.jobbole.com/77620/ 2.1 分类算法2.1.1 决策树2.1.2 贝叶斯2.1.3 人工神经网络2.1.4 支持向量机SVM2.1.5 k-临近]]></content>
+      <title><![CDATA[机器学习算法]]></title>
+      <url>%2F2016%2F11%2F06%2FProgramming-Summary%2F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%2F</url>
+      <content type="text"><![CDATA[1. 学习方式 监督式学习 非监督式学习 半监督式学习 强化学习 2. 机器学习算法http://blog.jobbole.com/77620/ 2.1 分类算法2.1.1 决策树2.1.2 贝叶斯2.1.3 支持向量机SVM2.1.4 k-临近2.2 聚类算法2.3 降维算法2.4 回归算法2.5 人工神经网络]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[机器学习路线]]></title>
+      <url>%2F2016%2F11%2F06%2FProgramming-Summary%2F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF%2F</url>
+      <content type="text"><![CDATA[1. 数学基础1.1 线性代数 大多数机器学习的算法要应用起来，依赖于高效的计算，这种场景下，多层for循环通常就行不通了，而大多数的循环操作可转化成矩阵之间的乘法运算，这就和线性代数有莫大的关系了 向量的内积运算更是随处可见。 矩阵乘法与分解在机器学习的主成分分析（PCA）和奇异值分解（SVD） 等部分呈现刷屏状地出现。 1.2 微积分 极值问题 与 （条件）最优化问题 偏导数，梯度这两个概念必须深入人心 凸优化和条件最优化问题，这个是理解SVM，或者线性回归等等模型正则化的基础 1.3 概率论 极大似然思想 贝叶斯模型 隐变量混合概率模型，EM思想 基础的典型分布是逃不过的，尤其高斯分布。 推荐阅读机器学习路线图]]></content>
     </entry>
 
     

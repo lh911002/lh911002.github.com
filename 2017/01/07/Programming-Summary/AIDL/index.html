@@ -84,37 +84,34 @@
 
 
 
-<meta name="description" content="全称 Android Interface Definition Language，是一种Android内部进程间通信的机制
+<meta name="description" content="关于AIDL
+全称 Android Interface Definition Language，是一种Android内部进程间通信的机制
 
 只有你允许客户端从不同的应用程序为了进程间的通信而去访问你的service，以及想在你的service处理多线程时才建议使用AIDL。
 
-Demo地址
 
-
-1. 项目说明">
+通信结构通信包含两个角色:">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AIDL">
 <meta property="og:url" content="http://yoursite.com/2017/01/07/Programming-Summary/AIDL/index.html">
 <meta property="og:site_name" content="Athrun">
-<meta property="og:description" content="全称 Android Interface Definition Language，是一种Android内部进程间通信的机制
+<meta property="og:description" content="关于AIDL
+全称 Android Interface Definition Language，是一种Android内部进程间通信的机制
 
 只有你允许客户端从不同的应用程序为了进程间的通信而去访问你的service，以及想在你的service处理多线程时才建议使用AIDL。
 
-Demo地址
 
-
-1. 项目说明">
-<meta property="og:updated_time" content="2017-01-19T06:19:54.000Z">
+通信结构通信包含两个角色:">
+<meta property="og:updated_time" content="2017-01-23T01:51:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AIDL">
-<meta name="twitter:description" content="全称 Android Interface Definition Language，是一种Android内部进程间通信的机制
+<meta name="twitter:description" content="关于AIDL
+全称 Android Interface Definition Language，是一种Android内部进程间通信的机制
 
 只有你允许客户端从不同的应用程序为了进程间的通信而去访问你的service，以及想在你的service处理多线程时才建议使用AIDL。
 
-Demo地址
 
-
-1. 项目说明">
+通信结构通信包含两个角色:">
 
 
 
@@ -219,6 +216,16 @@ Demo地址
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
           </a>
         </li>
       
@@ -412,23 +419,22 @@ Demo地址
       
 
       
-        <ul>
-<li><p>全称 Android Interface Definition Language，<br>是一种Android内部进程间通信的机制</p>
+        <h3 id="关于AIDL"><a href="#关于AIDL" class="headerlink" title="关于AIDL"></a>关于AIDL</h3><ul>
+<li><p>全称 Android Interface Definition Language，是一种Android内部进程间通信的机制</p>
 </li>
 <li><p>只有你允许客户端从不同的应用程序为了进程间的通信而去访问你的service，以及想在你的service处理多线程时才建议使用AIDL。</p>
 </li>
-<li><p><a href="https://github.com/lh911002/Programming-Summary/tree/master/Android/aidl-demo" target="_blank" rel="external">Demo地址</a></p>
-</li>
 </ul>
-<h3 id="1-项目说明"><a href="#1-项目说明" class="headerlink" title="1. 项目说明"></a>1. 项目说明</h3><a id="more"></a>
-<p>项目包含两个部分: </p>
+<h3 id="通信结构"><a href="#通信结构" class="headerlink" title="通信结构"></a>通信结构</h3><p>通信包含两个角色:<br><a id="more"></a></p>
 <ul>
 <li><code>app</code> 客服端，请求aidl服务<br></li>
 <li><code>remote-app</code> 服务端，提供客服端调用的接口服务</li>
 </ul>
-<h3 id="2-基本流程"><a href="#2-基本流程" class="headerlink" title="2. 基本流程"></a>2. 基本流程</h3><ol>
-<li>在服务端声明一个aidl接口，build后产生java文件，里面包含有IBinder的子类和proxy类,同时创建service类用于响应客户端的AIDL请求<br></li>
-<li>客服端将服务端的AIDL接口拷贝过去，然后build也会产生一个java文件，在代码中通过<code>ServiceConnection</code>类连接远程服务并在其方法中获得AIDL接口对象就可以调用自己定义的方法了 </li>
+<h3 id="基本使用流程"><a href="#基本使用流程" class="headerlink" title="基本使用流程"></a>基本使用流程</h3><ol>
+<li><p>在服务端声明一个aidl接口，build后产生java文件，里面包含有IBinder的子类和proxy类,同时创建service类用于响应客户端的AIDL请求</p>
+</li>
+<li><p>客服端将服务端的AIDL接口拷贝过去，然后build也会产生一个java文件，在代码中通过<code>ServiceConnection</code>类连接远程服务并在其方法中获得AIDL接口对象就可以调用自己定义的方法了 </p>
+</li>
 </ol>
 
       
@@ -567,7 +573,7 @@ Demo地址
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-count">53</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -575,10 +581,10 @@ Demo地址
 
           
             <div class="site-state-item site-state-categories">
-              
-                <span class="site-state-item-count">40</span>
+              <a href="/categories">
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">分类</span>
-              
+              </a>
             </div>
           
 
@@ -620,7 +626,7 @@ Demo地址
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-项目说明"><span class="nav-text">1. 项目说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-基本流程"><span class="nav-text">2. 基本流程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于AIDL"><span class="nav-text">关于AIDL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通信结构"><span class="nav-text">通信结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本使用流程"><span class="nav-text">基本使用流程</span></a></li></ol></div>
             
 
           </div>

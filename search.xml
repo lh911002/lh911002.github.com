@@ -24,16 +24,16 @@
 
     
     <entry>
-      <title><![CDATA[jQuery选择器]]></title>
-      <url>%2F2017%2F01%2F13%2FProgramming-Summary%2FjQuery%E9%80%89%E6%8B%A9%E5%99%A8%2F</url>
-      <content type="text"><![CDATA[本文主要介绍了jquery一些常用的选择器语法，可以说是比较粗略，对于一些使用较少的并没有列出，旨在梳理一个脉络出来。 1.1 普通选择器单个条件，无分隔符 1234$('div') 选择所有div$('#abc') 根据ID选择$('.abc') 根据class选择$('[type=checkbox]') 根据元素属性选择 1.2 组合选择器不使用分割，直接拼接 12$('inpupt[type=checkbox]') 选择input并且属性为type='checkbox'$('div.red') 选择div并且class='red' 1.3 多项选择器逗号,分隔，选择结果是并集 1$('p.red,p.green'); // 把&lt;p class="red"&gt;和&lt;p class="green"&gt;都选出来,&lt;p class="red green"&gt;不会被选择两次。 1.4 层级选择器空格分割层级，表示后代元素；使用&gt;分割表示直接子元素 12345678&lt;!-- HTML结构 --&gt;&lt;div class="testing"&gt; &lt;ul class="lang"&gt; &lt;li class="lang-javascript"&gt;JavaScript&lt;/li&gt; &lt;li class="lang-python"&gt;Python&lt;/li&gt; &lt;li class="lang-lua"&gt;Lua&lt;/li&gt; &lt;/ul&gt;&lt;/div&gt; 要选出JavaScript，可以用层级选择器：12$('ul.lang li.lang-javascript'); // [&lt;li class="lang-javascript"&gt;JavaScript&lt;/li&gt;]$('div.testing li.lang-javascript'); // [&lt;li class="lang-javascript"&gt;JavaScript&lt;/li&gt;] 1.5 过滤选择器:分割多个条件，在前面筛选的基础上进行过滤 1234567&lt;ul id=&quot;test-css&quot;&gt; &lt;li class=&quot;lang dy&quot;&gt;&lt;span&gt;JavaScript&lt;/span&gt;&lt;/li&gt; &lt;li class=&quot;lang&quot;&gt;&lt;span&gt;Java&lt;/span&gt;&lt;/li&gt; &lt;li class=&quot;lang dy&quot;&gt;&lt;span&gt;Python&lt;/span&gt;&lt;/li&gt; &lt;li class=&quot;lang&quot;&gt;&lt;span&gt;Swift&lt;/span&gt;&lt;/li&gt; &lt;li class=&quot;lang dy&quot;&gt;&lt;span&gt;Scheme&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt; 1$('#test-css li:eq(1)')选择索引是1的li元素，还有gt大于，lt小于]]></content>
+      <title><![CDATA[微信小程序]]></title>
+      <url>%2F2017%2F01%2F13%2FProgramming-Summary%2F%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%2F</url>
+      <content type="text"><![CDATA[[TOC] 1. 学习资料 官方文档 Github整理 2. 框架 app.json:配置工程 3. demo]]></content>
     </entry>
 
     
     <entry>
-      <title><![CDATA[微信小程序]]></title>
-      <url>%2F2017%2F01%2F13%2FProgramming-Summary%2F%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%2F</url>
-      <content type="text"><![CDATA[[TOC] 1. 学习资料 官方文档 Github整理 2. 框架 app.json:配置工程 3. demo]]></content>
+      <title><![CDATA[jQuery选择器]]></title>
+      <url>%2F2017%2F01%2F13%2FProgramming-Summary%2FjQuery%E9%80%89%E6%8B%A9%E5%99%A8%2F</url>
+      <content type="text"><![CDATA[本文主要介绍了jquery一些常用的选择器语法，可以说是比较粗略，对于一些使用较少的并没有列出，旨在梳理一个脉络出来。 1.1 普通选择器单个条件，无分隔符 1234$('div') 选择所有div$('#abc') 根据ID选择$('.abc') 根据class选择$('[type=checkbox]') 根据元素属性选择 1.2 组合选择器不使用分割，直接拼接 12$('inpupt[type=checkbox]') 选择input并且属性为type='checkbox'$('div.red') 选择div并且class='red' 1.3 多项选择器逗号,分隔，选择结果是并集 1$('p.red,p.green'); // 把&lt;p class="red"&gt;和&lt;p class="green"&gt;都选出来,&lt;p class="red green"&gt;不会被选择两次。 1.4 层级选择器空格分割层级，表示后代元素；使用&gt;分割表示直接子元素 12345678&lt;!-- HTML结构 --&gt;&lt;div class="testing"&gt; &lt;ul class="lang"&gt; &lt;li class="lang-javascript"&gt;JavaScript&lt;/li&gt; &lt;li class="lang-python"&gt;Python&lt;/li&gt; &lt;li class="lang-lua"&gt;Lua&lt;/li&gt; &lt;/ul&gt;&lt;/div&gt; 要选出JavaScript，可以用层级选择器：12$('ul.lang li.lang-javascript'); // [&lt;li class="lang-javascript"&gt;JavaScript&lt;/li&gt;]$('div.testing li.lang-javascript'); // [&lt;li class="lang-javascript"&gt;JavaScript&lt;/li&gt;] 1.5 过滤选择器:分割多个条件，在前面筛选的基础上进行过滤 1234567&lt;ul id=&quot;test-css&quot;&gt; &lt;li class=&quot;lang dy&quot;&gt;&lt;span&gt;JavaScript&lt;/span&gt;&lt;/li&gt; &lt;li class=&quot;lang&quot;&gt;&lt;span&gt;Java&lt;/span&gt;&lt;/li&gt; &lt;li class=&quot;lang dy&quot;&gt;&lt;span&gt;Python&lt;/span&gt;&lt;/li&gt; &lt;li class=&quot;lang&quot;&gt;&lt;span&gt;Swift&lt;/span&gt;&lt;/li&gt; &lt;li class=&quot;lang dy&quot;&gt;&lt;span&gt;Scheme&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt; 1$('#test-css li:eq(1)')选择索引是1的li元素，还有gt大于，lt小于]]></content>
     </entry>
 
     

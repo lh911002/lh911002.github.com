@@ -100,7 +100,7 @@
 
 资源加载
 代码加载">
-<meta property="og:updated_time" content="2017-01-23T13:11:07.000Z">
+<meta property="og:updated_time" content="2017-01-25T04:53:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android插件化">
 <meta name="twitter:description" content="插件化是Android兴起已久的一个话题，最早是由大众点评开源出来的AndroidDynamicLoader，后期又出现了很多优秀的插件化方案，比如360的DroidPlugin
@@ -425,15 +425,20 @@
 </ul>
 <a id="more"></a>
 <p>在研究插件化之前，需要一些知识准备：</p>
-<h3 id="1-动态代理"><a href="#1-动态代理" class="headerlink" title="1. 动态代理"></a>1. <a href="https://lh911002.github.io/2016/11/26/Programming-Summary/%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/" target="_blank" rel="external">动态代理</a></h3><h3 id="2-ActivityThread"><a href="#2-ActivityThread" class="headerlink" title="2. ActivityThread"></a>2. ActivityThread</h3><ul>
-<li>ActivityThread大概有5500行代码，功能设计各个组件模块。</li>
+<h3 id="1-动态代理"><a href="#1-动态代理" class="headerlink" title="1. 动态代理"></a>1. <a href="https://lh911002.github.io/2016/11/26/Programming-Summary/%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/" target="_blank" rel="external">动态代理</a></h3><h3 id="2-Context-ContextImpl"><a href="#2-Context-ContextImpl" class="headerlink" title="2. Context ContextImpl"></a>2. Context ContextImpl</h3><p>ContextImpl是Context的实现类，包含PackageManager，ResourceManager等功能</p>
+<p>总Context实例个数 = Service个数 + Activity个数 + 1（Application对应的Context实例）</p>
+<h3 id="3-ActivityThread"><a href="#3-ActivityThread" class="headerlink" title="3. ActivityThread"></a>3. ActivityThread</h3><ul>
+<li>ActivityThread大概有5500行代码，功能涉及各个组件模块。</li>
 <li>ActivityThread负责主线程的任务调度。</li>
 <li>ActivityThread的main方法是整个应用进程的入口。</li>
 </ul>
-<h3 id="3-binder"><a href="#3-binder" class="headerlink" title="3. binder"></a>3. <a href="http://weishu.me/2016/01/12/binder-index-for-newer/" target="_blank" rel="external">binder</a></h3><h3 id="4-ActivityManagerService"><a href="#4-ActivityManagerService" class="headerlink" title="4. ActivityManagerService"></a>4. ActivityManagerService</h3><h3 id="5-PackageManagerService"><a href="#5-PackageManagerService" class="headerlink" title="5 PackageManagerService"></a>5 PackageManagerService</h3><p>TODO</p>
-<p>ActivityThread<br>ApplicationThread</p>
+<h3 id="4-AIDL-binder"><a href="#4-AIDL-binder" class="headerlink" title="4. AIDL binder"></a>4. <a href="https://lh911002.github.io/2017/01/07/Programming-Summary/AIDL%E7%AE%80%E4%BB%8B/" target="_blank" rel="external">AIDL</a> <a href="http://weishu.me/2016/01/12/binder-index-for-newer/" target="_blank" rel="external">binder</a></h3><h3 id="5-Service相关"><a href="#5-Service相关" class="headerlink" title="5. Service相关"></a>5. Service相关</h3><h4 id="5-1-ServiceManager"><a href="#5-1-ServiceManager" class="headerlink" title="5.1 ServiceManager"></a>5.1 ServiceManager</h4><p>负责查找和发布服务，给予Binder机制</p>
+<h4 id="5-2-ActivityManagerService"><a href="#5-2-ActivityManagerService" class="headerlink" title="5.2 ActivityManagerService"></a>5.2 ActivityManagerService</h4><p>和四大组件都有密切联系，比如startActivity最终就是调用ActivityManagerService实现Activity跳转<br>以Binder形式提供服务给其他进程（本身也是一个进程）</p>
+<h4 id="5-3-PackageManagerService"><a href="#5-3-PackageManagerService" class="headerlink" title="5.3 PackageManagerService"></a>5.3 PackageManagerService</h4><blockquote>
+<p>Keep track of all those .apks everywhere.</p>
+</blockquote>
+<p>PackageManagerService主要用于获取包和组件的信息。</p>
 <p>ThreadLocal<br>Looper</p>
-<p>Context</p>
 
       
     </div>
@@ -620,7 +625,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-动态代理"><span class="nav-text">1. 动态代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-ActivityThread"><span class="nav-text">2. ActivityThread</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-binder"><span class="nav-text">3. binder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-ActivityManagerService"><span class="nav-text">4. ActivityManagerService</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-PackageManagerService"><span class="nav-text">5 PackageManagerService</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-动态代理"><span class="nav-text">1. 动态代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Context-ContextImpl"><span class="nav-text">2. Context ContextImpl</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-ActivityThread"><span class="nav-text">3. ActivityThread</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-AIDL-binder"><span class="nav-text">4. AIDL binder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Service相关"><span class="nav-text">5. Service相关</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-ServiceManager"><span class="nav-text">5.1 ServiceManager</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-ActivityManagerService"><span class="nav-text">5.2 ActivityManagerService</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-PackageManagerService"><span class="nav-text">5.3 PackageManagerService</span></a></li></ol></li></ol></div>
             
 
           </div>

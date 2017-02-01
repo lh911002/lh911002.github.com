@@ -3,13 +3,6 @@
   
     
     <entry>
-      <title><![CDATA[Android插件化]]></title>
-      <url>%2F2017%2F01%2F22%2FProgramming-Summary%2FAndroid%E6%8F%92%E4%BB%B6%E5%8C%96%2F</url>
-      <content type="text"><![CDATA[插件化是Android兴起已久的一个话题，最早是由大众点评开源出来的AndroidDynamicLoader，后期又出现了很多优秀的插件化方案，比如360的DroidPlugin 本文的通过分析DroidPlugin的源码学习插件化和Android方面的一些细节。 插件化要解决的问题主要是 资源加载 代码加载 在研究插件化之前，需要一些知识准备： 1. 动态代理2. Context ContextImplContextImpl是Context的实现类，包含PackageManager，ResourceManager等功能 总Context实例个数 = Service个数 + Activity个数 + 1（Application对应的Context实例） 3. ActivityThread ActivityThread大概有5500行代码，功能涉及各个组件模块。 ActivityThread负责主线程的任务调度。 ActivityThread的main方法是整个应用进程的入口。 4. AIDL binder5. Service相关5.1 ServiceManager负责查找和发布服务，给予Binder机制 5.2 ActivityManagerService和四大组件都有密切联系，比如startActivity最终就是调用ActivityManagerService实现Activity跳转以Binder形式提供服务给其他进程（本身也是一个进程） 5.3 PackageManagerService Keep track of all those .apks everywhere. PackageManagerService主要用于获取包和组件的信息。 ThreadLocalLooper]]></content>
-    </entry>
-
-    
-    <entry>
       <title><![CDATA[JavaScript正则表达式]]></title>
       <url>%2F2017%2F01%2F15%2FProgramming-Summary%2FJavaScript%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%2F</url>
       <content type="text"><![CDATA[1. 创建正则 方式一： 12var re = new RegExp(&quot;\\d&quot;,&quot;gi&quot;); g，i，m，分别使用与全局匹配，不区分大小写匹配，多行匹配；var re = new RegExp(&quot;\d&quot;,&quot;gi&quot;); this is wrong &quot;\\d&quot;进行过两次转义，第一次是字符串的转义，\\转为\，第二次是正则的转义表示,\d表达匹配数字而不是匹配字符d，使用方式二可以避免字符串的转义，因为没有使用字符串。比如下面的匹配特殊字符的语句,也是同样道理： 12var re = new RegExp(&apos;[~`\!@#\$%\^&amp;\*\(\)_\\-\+=\&#123;\&#125;\[\]|\\\:;&quot;\&apos;\?\/\&gt;\.\&lt;,]&apos;);this is wrongvar re = new RegExp(&apos;[~`\\!@#\\$%\\^&amp;\\*\\(\\)_\\-\\+=\\&#123;\\&#125;\\[\\]|\\:;\&quot;\&apos;\\?\\/\\&gt;\\.\\&lt;,]&apos;);this is right 方式二： 推荐使用这种方式，去除了字符串的转义。 1var re = /\d/gi; 2. 常用方法 test 是否有匹配 exec 返回正则匹配结果 match 返回匹配结果 replace 根据正则替换 3. 捕获组 捕获组：捕获起来供后面使用，编号从1开始 普通捕获组 ，引用方式\number 命名捕获组，引用方式\k&lt;name&gt; 4. 反向引用对前面捕获的内容进行引用，捕获分组匹配到是什么，那么反向引用必须与捕获分组到是相同的字符 推荐阅读JavaScript正则浅析捕获组]]></content>
@@ -24,30 +17,9 @@
 
     
     <entry>
-      <title><![CDATA[微信小程序]]></title>
-      <url>%2F2017%2F01%2F13%2FProgramming-Summary%2F%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%2F</url>
-      <content type="text"><![CDATA[1. 学习资料 官方文档 Github整理 2. 框架app.json:配置工程 3. demo]]></content>
-    </entry>
-
-    
-    <entry>
-      <title><![CDATA[前端开发环境]]></title>
-      <url>%2F2017%2F01%2F11%2FProgramming-Summary%2F%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%2F</url>
-      <content type="text"><![CDATA[刚接触前端被各种开发环境和工具弄得眼花缭乱，有必要进行系统的学习。 1. NodeJSNodeJS &amp; npm 是其他工具的基础，提供依赖安装和运行环境。 2. npm &amp; bower 3. webpack模块化管理和打包工具，可以替代gulp webpack官网 4. grunt &amp; gulpTODO]]></content>
-    </entry>
-
-    
-    <entry>
       <title><![CDATA[Android自动构建]]></title>
       <url>%2F2017%2F01%2F09%2FProgramming-Summary%2FAndroid%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA%2F</url>
       <content type="text"><![CDATA[1. 搭建环境1.1 开发环境安装以下组件并配置环境变量 CentOS release 6.5 (Final) 64bit git 2.10.0 Gradle 2.4 JDK 1.8 Android SDK Platform 23 Android Build Tools 23.0.02 Android Extras（Android support Library） TIPS： centos 64 bit 上buil-tools 中的aapt工具不能很好运行，需要安装 yum install libgcc.i686 yum install zlib.i686 yum install glibc.i686 … 组件也可以通过插件自动安装，为了便于以后管理，这里选择自己安装 1.2 第三方平台 coding.net 代码托管 蒲公英应用托管平台 2. 安装和配置Jenkins插件2.1 安装插件 jenkins 1.6 gradle plugin 1.25 2.2 插件配置进入系统管理-&gt;系统设置，并添加以下配置 3. Jenkins Job 配置3.1 源代码拉取 3.2 构建触发器30分钟一次 3.3 执行构建3.3.1 执行构建 3.3.2 构建后上传至蒲公英，并保存返回二维码 12345678910111213function jsonval &#123; temp=`echo $json | sed &apos;s/\\\\\//\//g&apos; | sed &apos;s/[&#123;&#125;]//g&apos; | awk -v k=&quot;text&quot; &apos;&#123;n=split($0,a,&quot;,&quot;); for (i=1; i&lt;=n; i++) print a[i]&#125;&apos; | sed &apos;s/\&quot;\:\&quot;/\|/g&apos; | sed &apos;s/[\,]/ /g&apos; | sed &apos;s/\&quot;//g&apos; | grep -w $responsekey` echo $&#123;temp##*|&#125;&#125;json=`curl -F &quot;file=@YOUR_APK_PATH&quot; -F &quot;uKey=YOUR_USER_KEY&quot; -F &quot;_api_key=YOUR_API_KEY&quot; http://www.pgyer.com/apiv1/app/upload`responsekey=&apos;appQRCodeURL&apos;responsevalue=`jsonval`rm -rf pgyermkdir pgyercd pgyercurrentDate=`date +%Y_%m_%d_%H_%M_%S`wget -O $currentDate.jpg $responsevalue 3.4 构建后存档 4. Android 项目配置创建local.properties放于根目录，并将sdk.dir配置为本地Android sdk目录 5. 构建取包查看图片扫码进入蒲公英下载页]]></content>
-    </entry>
-
-    
-    <entry>
-      <title><![CDATA[背包问题]]></title>
-      <url>%2F2017%2F01%2F08%2FProgramming-Summary%2F%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%2F</url>
-      <content type="text"><![CDATA[0-1背包问题 每件物品或被带走，或被留下，（需要做出0-1选择）。 使用动态规划 动态规划算法： 部分背包问题 可以只带走某个物品的一部分，不必做出0-1选择。 不具有后效性，可使用贪心算法]]></content>
     </entry>
 
     
@@ -94,23 +66,9 @@
 
     
     <entry>
-      <title><![CDATA[常用Android优化工具]]></title>
-      <url>%2F2016%2F12%2F26%2FProgramming-Summary%2F%E5%B8%B8%E7%94%A8Android%E4%BC%98%E5%8C%96%E5%B7%A5%E5%85%B7%2F</url>
-      <content type="text"><![CDATA[TraceView参考http://www.trinea.cn/android/android-traceview/代码的性能优化，CPU占用等信息 Lint代码优化 hierarchyviewer显示布局层级以及每个view花费在各阶段的时间（onMeasure OnLayout onDraw）]]></content>
-    </entry>
-
-    
-    <entry>
-      <title><![CDATA[内存优化]]></title>
-      <url>%2F2016%2F12%2F24%2FProgramming-Summary%2F%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96%2F</url>
-      <content type="text"><![CDATA[参考博文 http://blog.csdn.net/innost/article/details/9008691 http://www.trinea.cn/android/performance/ http://hukai.me/android-performance-patterns/ 主要工具 Eclipse插件 MAT memory analyser tool LeakCanary 常见内存问题 MAT使用教程 http://inter12.iteye.com/blog/1407492http://www.importnew.com/2433.html 其他 Shallow heap &amp; Retained heap 区别list objects – with outgoing references : 查看这个对象持有的外部对象引用。list objects – with incoming references : 查看这个对象被哪些外部对象引用。static对象不会被gc回收]]></content>
-    </entry>
-
-    
-    <entry>
       <title><![CDATA[多渠道打包]]></title>
       <url>%2F2016%2F12%2F22%2FProgramming-Summary%2F%E5%A4%9A%E6%B8%A0%E9%81%93%E6%89%93%E5%8C%85%2F</url>
-      <content type="text"><![CDATA[原理该打包工具参考了美团的打包方案。由于apk压缩文件的META-INF目录下文件不影响签名结果，所以可以在打包签名后在META-INF目录下生成相应的渠道标记，在程序运行时通过程序代码读取打包渠道号即可设置渠道。 使用方法 在marketlist.txt文件中配置渠道列表 运行build.py（需安装python运行环境） Python脚本代码1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465&lt;!--more--&gt;import osimport shutilimport zipfile# 空文件 便于写入此空文件到apk包中作为channel文件src_empty_file = 'temp.txt'# 创建一个空文件（不存在则创建）f = open(src_empty_file, 'w') f.close()# 获取渠道列表channel_file = 'marketlist.txt'f = open(channel_file)lines = f.readlines()f.close()# 获取当前目录中所有的apk源包src_apks = []for file in os.listdir(): if os.path.isfile(file): extension = os.path.splitext(file)[1][1:] if extension in 'apk': src_apks.append(file) # file name (with extension)src_apk = src_apks[0]src_apk_file_name = os.path.basename(src_apk)# 分割文件名与后缀temp_list = os.path.splitext(src_apk_file_name)# name without extensionsrc_apk_name = temp_list[0]# 后缀名，包含. 例如: ".apk "src_apk_extension = temp_list[1]# 创建生成目录,与文件名相关output_dir = src_apk_name +"各渠道包"+ '/'# 目录不存在则创建if not os.path.exists(output_dir): os.mkdir(output_dir)# 遍历渠道号并创建对应渠道号的apk文件linesIndex = 1for line in lines: # 获取当前渠道号，因为从渠道文件中获得带有\n,所有strip一下 target_channel = line.strip() if "#" in line[0:1] : print("渠道"+target_channel[1:]+"跳过") continue # 拼接对应渠道号的apk target_apk = output_dir + src_apk_name + "_" + target_channel + src_apk_extension # 拷贝建立新apk shutil.copy(src_apk, target_apk) # zip获取新建立的apk文件 zipped = zipfile.ZipFile(target_apk, 'a', zipfile.ZIP_DEFLATED) # 初始化渠道信息 empty_channel_file = "META-INF/kdlcchannel_"+target_channel # 写入渠道信息 zipped.write(src_empty_file, empty_channel_file) # 关闭zip流 zipped.close() print(linesIndex,".渠道 "+target_channel+" 打包完成") linesIndex = linesIndex + 1 Android获取渠道号的代码12345678910111213141516171819202122232425262728293031323334public static String getAppChannel(Context context)&#123; ApplicationInfo appinfo = context.getApplicationInfo(); String sourceDir = appinfo.sourceDir; String ret = ""; ZipFile zipfile = null; try &#123; zipfile = new ZipFile(sourceDir); Enumeration&lt;?&gt; entries = zipfile.entries(); while (entries.hasMoreElements()) &#123; ZipEntry entry = ((ZipEntry) entries.nextElement()); String entryName = entry.getName(); if (entryName.startsWith("META-INF/kdlcchannel")) &#123; ret = entryName; break; &#125; &#125; &#125; catch (IOException e) &#123; e.printStackTrace(); &#125; finally &#123; if (zipfile != null) &#123; try &#123; zipfile.close(); &#125; catch (IOException e) &#123; e.printStackTrace(); &#125; &#125; &#125; String[] split = ret.split("_"); if (split != null &amp;&amp; split.length &gt;= 2) &#123; return ret.substring(split[0].length() + 1); &#125; else &#123; return "MarketNotSet"; &#125; &#125;]]></content>
+      <content type="text"><![CDATA[背景Android应用分发因为没有一个统一的APP Store，为了统计各种应用商店的安装和推广效果，需要在包内添加渠道信息。 原理该打包工具参考了美团的打包方案。由于apk压缩文件的META-INF目录下文件不影响签名结果，所以可以在打包签名后在META-INF目录下生成相应的渠道标记，在程序运行时通过程序代码读取打包渠道号即可设置渠道。 使用方法 在marketlist.txt文件中配置渠道列表 运行build.py（需安装python运行环境） Python脚本代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364import osimport shutilimport zipfile# 空文件 便于写入此空文件到apk包中作为channel文件src_empty_file = 'temp.txt'# 创建一个空文件（不存在则创建）f = open(src_empty_file, 'w') f.close()# 获取渠道列表channel_file = 'marketlist.txt'f = open(channel_file)lines = f.readlines()f.close()# 获取当前目录中所有的apk源包src_apks = []for file in os.listdir(): if os.path.isfile(file): extension = os.path.splitext(file)[1][1:] if extension in 'apk': src_apks.append(file) # file name (with extension)src_apk = src_apks[0]src_apk_file_name = os.path.basename(src_apk)# 分割文件名与后缀temp_list = os.path.splitext(src_apk_file_name)# name without extensionsrc_apk_name = temp_list[0]# 后缀名，包含. 例如: ".apk "src_apk_extension = temp_list[1]# 创建生成目录,与文件名相关output_dir = src_apk_name +"各渠道包"+ '/'# 目录不存在则创建if not os.path.exists(output_dir): os.mkdir(output_dir)# 遍历渠道号并创建对应渠道号的apk文件linesIndex = 1for line in lines: # 获取当前渠道号，因为从渠道文件中获得带有\n,所有strip一下 target_channel = line.strip() if "#" in line[0:1] : print("渠道"+target_channel[1:]+"跳过") continue # 拼接对应渠道号的apk target_apk = output_dir + src_apk_name + "_" + target_channel + src_apk_extension # 拷贝建立新apk shutil.copy(src_apk, target_apk) # zip获取新建立的apk文件 zipped = zipfile.ZipFile(target_apk, 'a', zipfile.ZIP_DEFLATED) # 初始化渠道信息 empty_channel_file = "META-INF/kdlcchannel_"+target_channel # 写入渠道信息 zipped.write(src_empty_file, empty_channel_file) # 关闭zip流 zipped.close() print(linesIndex,".渠道 "+target_channel+" 打包完成") linesIndex = linesIndex + 1 Android获取渠道号的代码12345678910111213141516171819202122232425262728293031323334public static String getAppChannel(Context context)&#123; ApplicationInfo appinfo = context.getApplicationInfo(); String sourceDir = appinfo.sourceDir; String ret = ""; ZipFile zipfile = null; try &#123; zipfile = new ZipFile(sourceDir); Enumeration&lt;?&gt; entries = zipfile.entries(); while (entries.hasMoreElements()) &#123; ZipEntry entry = ((ZipEntry) entries.nextElement()); String entryName = entry.getName(); if (entryName.startsWith("META-INF/kdlcchannel")) &#123; ret = entryName; break; &#125; &#125; &#125; catch (IOException e) &#123; e.printStackTrace(); &#125; finally &#123; if (zipfile != null) &#123; try &#123; zipfile.close(); &#125; catch (IOException e) &#123; e.printStackTrace(); &#125; &#125; &#125; String[] split = ret.split("_"); if (split != null &amp;&amp; split.length &gt;= 2) &#123; return ret.substring(split[0].length() + 1); &#125; else &#123; return "MarketNotSet"; &#125; &#125;]]></content>
     </entry>
 
     
@@ -129,20 +87,6 @@
 
     
     <entry>
-      <title><![CDATA[开启前端之路]]></title>
-      <url>%2F2016%2F12%2F17%2FProgramming-Summary%2F%E5%BC%80%E5%90%AF%E5%89%8D%E7%AB%AF%E4%B9%8B%E8%B7%AF%2F</url>
-      <content type="text"><![CDATA[html css javascript 1. HTML1.1 标签 input select form div 2. CSS为控件添加样式 2.1 为控件添加样式的方式2.1.1 指定style1&lt;div style="border:1px solid #F4BF20;padding:5px 0px 5px 0px ;margin-bottom:12px;"&gt;&lt;/div&gt; 2.1.2 指定id+样式表2.1.3 指定class+样式表3. JavaScript bootstrap jquery $ lodash _ mustache parsleyjs]]></content>
-    </entry>
-
-    
-    <entry>
-      <title><![CDATA[密码学简介]]></title>
-      <url>%2F2016%2F12%2F16%2FProgramming-Summary%2F%E5%AF%86%E7%A0%81%E5%AD%A6%E7%AE%80%E4%BB%8B%2F</url>
-      <content type="text"><![CDATA[相关概念 加密方式分类 对称加密：只有一个秘钥，既可以用于加密，也可以用于解密，所以密钥不能对外泄露。如DES 非对称加密(公开密钥加密)：有两个密钥，一个叫公钥，一个叫做私钥，任何一个都可以用于加密同时也可以用于解密，用公钥加密的只能用私钥解密，反之亦然。私钥不能泄漏，公钥提供给需要通信的客户端。如RSA 签名：一般是在加密前，对传递信息内容进行hash后生成hash值（指纹），将hash值（指纹）加密得到签名，然后将签名放入传递信息中一起发送出去。接受方受到以后对签名进行解密，并对信息正文计算hash值（指纹），并比较hash值是否相同判断信息是否被篡改过。实质利用的hash算法的不可逆。 数字证书 数字证书实质是为了解决公钥派发的问题。因为任何人都可以生成公钥和私钥。只有系统中受信任的证书组织的证书才是可用的。 参考： http://www.cnblogs.com/JeffreySun/archive/2010/06/24/1627247.html]]></content>
-    </entry>
-
-    
-    <entry>
       <title><![CDATA[git常用命令]]></title>
       <url>%2F2016%2F12%2F14%2FProgramming-Summary%2Fgit%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%2F</url>
       <content type="text"><![CDATA[主要介绍常用的一些git命令 基础命令 12git add 命令（多功能命令，根据目标文件的状态不同，此命令的效果也不同：可以用它开始跟踪新文件，或者把已跟踪的文件放到暂存区，还能用于合并时把有冲突的文件标记为已解决状态等） git status 命令，用来查看发生变动的文件。 查看提交1234git log 查看commit的历史git show &lt;commit-hash-id&gt; 查看某次commit的修改内容git log -p &lt;filename&gt; 查看某个文件的修改历史git log -p -2 查看最近2次的更新内容 分支管理123456git branch --track experimental origin/experimental 拉取并追踪分支 git branch -d &lt;branch_name&gt; 删除本地分支 git push origin --delete branch_3.0_liaoheng 删除远程分支git branch -vv 查看本地分支和远程分支的跟踪关联关系 git checkout -b myfeature 以当前分支为基础创建新分支git branch --set-upstream-to=origin/branch_3.0_liaoheng branch_3.0_liaoheng 将本地分支与远程分支关联 切换git源：1234git remote remove origingit remote add origin https://xxxx.git 将本地库添加到远程git push -u origin --all # pushes up the repo and its refs for the first time 上传所有文件git push -u origin --tags # pushes up any tags 标签管理123456git tag -a v1.1.4 -m &quot;tagging version 1.1.4&quot; #打标签git tag #列出标签git push --tags 推送所有本地标签到远程仓库git push 仓库名 标签名 eg. git push origin v1.0 推送本地标签到远程仓库git push origin --delete tag &lt;tagname&gt; 删除远程taggit tag -d v1.1.4 删除本地仓库标签 回滚（reset &amp;&amp; revert） git reset 是把HEAD向后移动了一下，而git revert是HEAD继续前进，只是新的commit的内容和要revert的内容正好相反，能够抵消要被revert的内容。 参考：http://samael65535.github.io/git/2013/01/18/git/ http://yijiebuyi.com/blog/8f985d539566d0bf3b804df6be4e0c90.html 12HEAD 最近一个提交HEAD^ = HEAD^1 上一次 reset: 直接回退，将repository的版本进行回退，工作区的状态会根据参数不同有不同的结果 1git reset HEAD^1 将分支的HEAD指针指向倒数第二个提交（默认mixed策略，即保留工作区代码，不保留仓库和暂存区内容，如果要重新提交，需要执行git add .） revert：以新提交覆盖旧的提交达到回退的目的，如果修改已经不是最新的commit，则只能使用git revert。 12git revert HEAD 撤销最近的一次提交git revert HEAD^1 撤销倒数第二条提交（倒数第一条不撤销），通过产生一个commit覆盖倒数第二条commit，但是不会覆盖最新的一条（倒数第一条） 其他git ls-files –stage 显示index文件（.git目录下） 内容，即暂存区信息]]></content>
@@ -157,51 +101,9 @@
 
     
     <entry>
-      <title><![CDATA[网络地址分类]]></title>
-      <url>%2F2016%2F12%2F10%2FProgramming-Summary%2F%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E5%88%86%E7%B1%BB%2F</url>
-      <content type="text"><![CDATA[A类地址：4个8位位组（octets）中第一个octet代表网络号，剩下的3个代表主机位。范围是0xxxxxxx，即0到127。 B类地址：前2个octets代表网络号，剩下的2个代表主机位。范围是10xxxxxx，即128到191。 C类地址：前3个octets代表网络号，剩下的1个代表主机位。范围是110xxxxx，即192到223。 D类地址：多播地址，范围是224到239。 E类地址：保留地址，实验用，范围是240到255。 ###一些特殊的IP地址： IP地址127.0.0.1：本地回环（loopback）测试地址 广播地址：255.255.255.255 IP地址0.0.0.0：代表任何网络 网络号全为0：代表本网络或本网段 网络号全为1：代表所有的网络 主机位全为0：代表某个网段的任何主机地址 主机位全为1：代表该网段的所有主机 专用IP地址： 就是我们在3类地址中常见到内网的IP段。10.0.0.0–10.255.255.255172.16.0.0–172.31.255.255192.168.0.0–192.168.255.255]]></content>
-    </entry>
-
-    
-    <entry>
       <title><![CDATA[LeetCode题解]]></title>
       <url>%2F2016%2F12%2F09%2FProgramming-Summary%2FLeetCode%E9%A2%98%E8%A7%A3%2F</url>
       <content type="text"><![CDATA[[TOC] 1. Intersection of Two Arrays1.1 解题思路使用hash比较是否存在，实现时间复杂度O(n),坏处是空间复杂度也达到O(n). 1.2 代码 1234567891011121314151617181920212223public int[] intersection(int[] nums1, int[] nums2) &#123; HashSet&lt;Integer&gt; resultSet = new HashSet&lt;Integer&gt;(); if(nums1 == null || nums2 == null || nums1.length * nums2.length == 0)&#123; return new int[0]; &#125; HashSet&lt;Integer&gt; temp = new HashSet&lt;Integer&gt;(); for (int i = 0; i &lt; nums1.length; i++) &#123; temp.add(nums1[i]); &#125; for (int i = 0; i &lt; nums2.length; i++) &#123; if(temp.contains(nums2[i]))&#123; resultSet.add(nums2[i]); &#125; &#125; int[] result = new int[resultSet.size()]; Iterator&lt;Integer&gt; iterator = resultSet.iterator(); for (int i = 0; i &lt; result.length; i++) &#123; result[i] = iterator.next(); &#125; return result; &#125; 2. Intersection of Two Arrays II2.1 解题思路本题在题1的基础上要求重复多少次就要在结果中出现多少次，采用了比较直接的解法，使用hashmap记录值和出现的次数 2.2 代码1234567891011121314151617181920212223242526272829303132333435363738394041if(nums1 == null || nums2 == null || nums1.length * nums2.length == 0)&#123; return new int[0]; &#125; HashMap&lt;Integer,Integer&gt; resultMap = new HashMap&lt;Integer, Integer&gt;(); HashMap&lt;Integer,Integer&gt; nums1Map = new HashMap&lt;Integer, Integer&gt;(); for (int i = 0; i &lt; nums1.length; i++) &#123; nums1Map.put(nums1[i],nums1Map.get(nums1[i]) == null ? 1: nums1Map.get(nums1[i]) + 1); &#125; for (int i = 0; i &lt; nums2.length; i++) &#123; if(nums1Map.containsKey(nums2[i]))&#123; if(nums1Map.get(nums2[i]) == 1)&#123; nums1Map.remove(nums2[i]); &#125;else&#123; nums1Map.put(nums2[i],nums1Map.get(nums2[i]) - 1); &#125; resultMap.put(nums2[i],resultMap.get(nums2[i]) == null ? 1: resultMap.get(nums2[i]) + 1); &#125; &#125; ArrayList&lt;Integer&gt; result = new ArrayList&lt;Integer&gt;(); Iterator iter = resultMap.entrySet().iterator(); while (iter.hasNext()) &#123; Map.Entry entry = (Map.Entry) iter.next(); Integer key = (Integer) entry.getKey(); Integer val = (Integer) entry.getValue(); for (int i = 0; i &lt; val; i++) &#123; result.add(key); &#125; &#125; if(result.size() == 0)&#123; return new int[0]; &#125;else&#123; int[] resultArray = new int[result.size()]; for (int i = 0; i &lt; result.size(); i++) &#123; resultArray[i] = result.get(i); &#125; return resultArray; &#125;]]></content>
-    </entry>
-
-    
-    <entry>
-      <title><![CDATA[Quick Response Code]]></title>
-      <url>%2F2016%2F12%2F08%2FProgramming-Summary%2FQuick%20Response%20Code%2F</url>
-      <content type="text"><![CDATA[日本DENSO WAVE公司发明，应用最广泛的二维码之一，可以快速获取信息的内容，采用深色表示1，浅色表示0 参考文档：http://www.qrcode.com/en/about/standards.html &amp; ISO标准 1. 特点 扫描时不用完全对准二维码即可完成识别 支持多种内容类型，字符串，图片，视频等 纠错能力强纠错等级设置： 2. 版本(40种规格) 21x21(四角计算在内) 25x25 29x29 … 177x177生成二维码会根据原始信息的容量选择最优的版本 3. 原理TODO]]></content>
-    </entry>
-
-    
-    <entry>
-      <title><![CDATA[regular expression]]></title>
-      <url>%2F2016%2F12%2F06%2FProgramming-Summary%2Fregular%20expression%2F</url>
-      <content type="text"><![CDATA[简写为regex、regexp或RE，即字符匹配 ###元字符(可以匹配某一类字符) 表示 含义 \d 匹配一个数字 . 元字符，匹配任何除换行符意外的字符 \w 匹配字母或数字或下划线或汉字 ###数量 *表示任意数量{n,m}至少n个，至多m个]]></content>
-    </entry>
-
-    
-    <entry>
-      <title><![CDATA[编程语言分类]]></title>
-      <url>%2F2016%2F12%2F04%2FProgramming-Summary%2F%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%88%86%E7%B1%BB%2F</url>
-      <content type="text"><![CDATA[众所周知，编程语言有很多种，以下是对编程语言的几种常见分类标准 按照应用执行过程进行分类，对于高级语言需要转化成机器语言才能够执行 机器语言 汇编语言 高级语言 按照执行前准备进行分类 编译型语言 在执行前需要经过编译成机器语言，如C、C++ 解释型语言 在运行时才转化为机器语言，所以效率相对于编译型语言比较低，如Java、C#，脚本语言可以理解为解释型语言，在运行时通过解释器执行 按照语言结构特性 函数式编程语言 函数是第一公民 面向过程变成语言 面向对象编程语言]]></content>
-    </entry>
-
-    
-    <entry>
-      <title><![CDATA[Annotation]]></title>
-      <url>%2F2016%2F12%2F02%2FProgramming-Summary%2FAnnotation%2F</url>
-      <content type="text"><![CDATA[参考 http://www.infoq.com/cn/articles/cf-java-annotation http://www.trinea.cn/android/java-annotation-android-open-source-analysis/]]></content>
-    </entry>
-
-    
-    <entry>
-      <title><![CDATA[类加载器]]></title>
-      <url>%2F2016%2F11%2F30%2FProgramming-Summary%2F%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%2F</url>
-      <content type="text"><![CDATA[1. Java的Classloader BootStrapClassloader：加载 jre/lib 目录下的核心 API ExtClassloader：加载jre/lib/ext 目录下jar包 AppClassloader：加载CLASSPATH中的类，我们编写的应用类默认情况下都是通过 AppClassLoader 进行加载的。 Custom Classloader：可以自定义加载路径 每个类加载器都缓存有自己的一份已加载类名字空间。加载类并不会创建类的实例。 整个加载过程如下图： 2. Android的ClassloaderAndroid中的ClassLoader体系 PathClassLoader:加载系统类和已安装的应用类的加载器DexClassLoader:可以用来从.jar和.apk加载类，可以用来执行非安装的程序代码。 相关代码在android源码中的路径：./libcore/dalvik/src/main/java/dalvik 参考 https://www.ibm.com/developerworks/cn/java/j-lo-hotswapcls/]]></content>
     </entry>
 
     
@@ -227,13 +129,6 @@
 
     
     <entry>
-      <title><![CDATA[泛型]]></title>
-      <url>%2F2016%2F11%2F24%2FProgramming-Summary%2F%E6%B3%9B%E5%9E%8B%2F</url>
-      <content type="text"><![CDATA[类型擦除：Java中的泛型基本上都是在编译器这个层次来实现的。在生成的Java字节代码中是不包含泛型中的类型信息的。使用泛型的时候加上的类型参数，会被编译器在编译的时候去掉。这个过程就称为类型擦除。 关于T,K,V…以及通配符?]]></content>
-    </entry>
-
-    
-    <entry>
       <title><![CDATA[IO]]></title>
       <url>%2F2016%2F11%2F22%2FProgramming-Summary%2FIO%2F</url>
       <content type="text"><![CDATA[1. IO首先看一下类继承关系 命名规则其实就是 操作对象 + 读写方式 字节流不需要处理编码，字节流和字符流转换才需要处理编码 1.1 IO的要素 内存（缓冲区） 流（通道） 操作对象 1.2 操作对象 byte[]对象 String对象 File对象 套接字 1.3 方向 Input/Reader:从对象到内存 Output/Writer:从内存到对象 1.4 读写方式 字节(InputStream/OutputStream)：一次读取一个字节 字符(Reader/Writer)：其实字符流可以看做是一种包装流，它的底层还是采用字节流来读取字节 1.5 特性 Streams one byte at a time. Good for binary data.byte oriented stream (8 bit)good for binary data such as a Java .class filegood for “machine-oriented” data Readers/Writers one character at a time. Good for text data.char (utf-16) oriented stream (16 bit)good for text such as a Java sourcegood for “human-oriented” data Buffered many bytes/characters at a time. Good almost all the time. 1.6 编码问题http://wiki.jikexueyuan.com/project/java-chinese-garbled-solution/ http://cenalulu.github.io/linux/character-encoding/ java运行时的默认编码可以通过Charset.defaultCharset()获取，其实质是获取当前系统的编码格式，如果系统没有设置，就是UTF-8，一般都会有设置。 编码发生在字节和字符的转化过程中,见下图 HTTP协议中，在Header里指定字符集，在客户端根据指定字符集将body里的内容（字节数组）解码成相应字符（如字符串） 对于String本身和字符集并无关系，字符集只在编码和解码的过程中发挥作用，他会对编码和解码的结果产生影响。 12字节-&gt;字符: 解码（指定字符集）字符-&gt;字节: 编码（指定字符集） 2. NIO 传统流I/O是基于字节的，所有I/O都被视为单个字节的移动；而NIO是基于块的，大家可能猜到了，NIO的性能肯定优于流I/O 2.1 相关概念 缓冲区 通道 内存映射文件：一次数据拷贝和两次数据拷贝的区别 异步IO 参考：http://www.ibm.com/developerworks/cn/education/java/j-nio/j-nio.html]]></content>
@@ -248,58 +143,9 @@
 
     
     <entry>
-      <title><![CDATA[JAVA 内存模型]]></title>
-      <url>%2F2016%2F11%2F18%2FProgramming-Summary%2FJAVA%20%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%2F</url>
-      <content type="text"><![CDATA[1. 内存模型1.1 内存分类 虚拟机栈：每个线程有一个虚拟机栈，栈的空间有上限，达到上限会报stackoverflow异常。 Java Heap：java堆内存区域所有线程共享，所有对象和数组都在堆上进行分配内存，当申请不到空间时抛出OutOfMemoryError。 Java Heap具体又可以分为以下三个部分： 年轻代 Eden(空间不注意分配新对象就出发GC) Survivor 年老代 永久代 方法区：永久代是一种JVM规范，方法区是虚拟机对永久代的一种实现，一般存储类的信息，常量池，方法代码。 参考： http://www.cnblogs.com/paddix/p/5309550.html 2. GC策略TODO]]></content>
-    </entry>
-
-    
-    <entry>
-      <title><![CDATA[RXJava]]></title>
-      <url>%2F2016%2F11%2F16%2FProgramming-Summary%2FRXJava%2F</url>
-      <content type="text"><![CDATA[RxJava generally consists of Observable (which emits the data which we can observe) and Observer (which observes emitted data and handles it). 1. 观察者模式 Observable：整理并提供数据、事件序列 Observer(Subscriber)：响应数据、事件序列 Subscribe：Observable subscribe (to) Observer 2. 变换3. 线程调度在不指定线程的情况下， RxJava 遵循的是线程不变的原则，即：在哪个线程调用 subscribe()，就在哪个线程生产事件；在哪个线程生产事件，就在哪个线程消费事件 observeOn() 指定的是 Subscriber 的线程，所以指定的是它之后的操作所在的线程 subscribeOn() 指定的是第一个 Observable 的线程,subscribeOn() 的位置放在操作的前后都可以，但它是只能调用一次的。 相关网站 reactiveX官网 reactiveX WIKI ReactiveX/RxJava文档中文版 给Android开发者的RXJava详解]]></content>
-    </entry>
-
-    
-    <entry>
-      <title><![CDATA[关于Linux]]></title>
-      <url>%2F2016%2F11%2F14%2FProgramming-Summary%2F%E5%85%B3%E4%BA%8ELinux%2F</url>
-      <content type="text"><![CDATA[Linux简介Linux 本身只是一个内核，它为程序员定义了操作系统的基本元素，但最终用户无法直接操作它也无法使用它。所以，除了开发者以外的用户，无法知道 Linux 是什么。 Linux 是一个相对自由的世界，所以围绕 Linux 内核你可以搭建出各种各样的上层系统。这样搭建起来的系统，称为「发行版」。普通用户只能接触到发行版，无法接触到 Linux 本身，而发行版中所带的命令行，shell，X Window 系统，都不属于 Linux 的一部分。 王垠曾经说过：Linux 可以是这样，Linux 可以是那样，Linux 可以是任何样子。 包管理工具 yum apt-get（Advanced Package Tool） rpm（Redhat Package Manager）]]></content>
-    </entry>
-
-    
-    <entry>
-      <title><![CDATA[Shell基础]]></title>
-      <url>%2F2016%2F11%2F12%2FProgramming-Summary%2FShell%E5%9F%BA%E7%A1%80%2F</url>
-      <content type="text"><![CDATA[1. Unix常用目录： http://www.ruanyifeng.com/blog/2012/02/a_history_of_unix_directory_structure.html https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard http://cnbin.github.io/blog/2015/06/05/mac-os-x-de-xi-tong-mu-lu-jie-gou/ 2. 关于 - &amp; – 的区别 http://serverfault.com/questions/387935/whats-the-difference-betwen-the-single-dash-and-double-dash-flags-on-shell-comm 3. 命令格式command [options] [arguments]]]></content>
-    </entry>
-
-    
-    <entry>
       <title><![CDATA[Shell常用命令]]></title>
       <url>%2F2016%2F11%2F10%2FProgramming-Summary%2FShell%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%2F</url>
       <content type="text"><![CDATA[http://man.linuxde.net/ 1. 系统常用命令123456789101112131415161718uname -a 查看内核/操作系统/CPU信息head -n 1 /etc/issue 查看操作系统版本cat /proc/cpuinfo 查看CPU信息hostname 查看计算机名&lt;!--more--&gt;lspci -tv 列出所有PCI设备lsusb -tv 列出所有USB设备lsmod 列出加载的内核模块env 查看环境变量ipconfig getifaddR 获取IP地址mv FILE_A FILE_B 重命名FILE_Anohup some-command &amp; 后台运行some-commandwget -O some-file some-url 下载some-url到some-filetar -xvf filename.tar.gz 解压文件ln -s FILE_PATH LINK_PATH 创建软连接df -h 磁盘占用情况du -sh * 或者 du -ah --max-depth=1 当前目录下所有文件夹和文件的大小du -sh * | sort -h 根据大小排序文件/文件夹 2. 查找 grep find locate查找相关命令 find和grep的区别: find查找的文件的属性，grep查找的是文件的内容 find . -name &quot;*Dao*&quot; -exec rm -rf {} \; 查找当前目录所有文件名包含Dao的文件并将他们删除 3. 数据处理 awk sed4. 用户和权限管理4.1 用户和用户组 用户和用户组的关系可以是1.一对一 2.一对多 3.多对多 4.多对一 切换用户 su(switch user) username 4.2 新增1useradd username 添加用户 4.3 修改1passwd username 修改用户密码 4.4 查询 groups username 显示someUser所在组，可能有多个 在/etc/group 中的每条记录分四个字段： 12 _postgres:*:216:_devicemgr,_calendar,_teamsserver,_xserverdocs用户组名称：用户组密码：GID：用户列表 4.5 删除1userdel username 删除用户 权限管理 一个文档的所有者只能有一个用户 chmod&amp;chown命令 chown更改文档的属主，指定 有且只有一个用户。 chomod更改文件的权限，包括user（属主），group（与属主同一个用户组）， other（其他用户）对文件的rwx权限，7表示全部权限开通 123chmod a+x f01 对文件f01的u,g,o都设置可执行属性,a代表所有用户(u,g,o)sudo chown -R athrun:admin mysql/ 修改文件夹mysql和内部所有文件的所有者为用户athrun，用户组为admin（athrun不属于admin也是可以的） 5. 查看进程信息 lsof(list open files) ps ps -ef | grep nginx 查找和nginx有关系的进程列表 | :管道命令，将上个命令的输出作为下个命令的输入 以查看1099端口占用进程为例： 12lsof -i :1099ps -ef | grep 1099 终止相关进程 1sudo kill -9 PID 6. Java监控(jstat,jmap,jstack) 常规监控： 12jstat -gcutil pid //查看gc情况jstat -gcutil 23613 2000 出现瓶颈时监控： 12345jmap -heap pid // 查看堆内存使用情况jmap -histo pid //打印每个class的实例数目,内存占用,类全名jstack pid &gt; pid.txt //jvm 线程分析top -Hp pid //查看那个线程cpu高，将线程id 转成16进制 在 jstack 导出来的文本文件中查看这个线程在干嘛printf “%x”Tid //打印线程号的16进制 7. 远程文件传输方式一： 12scp scp.test root@172.16.10.4:/tmp/scp.test 从本地上传到远程服务器scp username@servername:/path/filename /tmp/local_destination 从远程下载文件到本地 方式二： 安装lrzsz，使用rz上传文件，sz下载文件TIPs:文件较大时使用rz -e 方式三：FTP 方式四： 使用ssh支持的sftp传输文件到服务器 vsftpd can support FTPS if configured, but sftp runs over ssh. 1.连接远程ftp服务器sftp root@202.206.64.33 2.拉取远程文件到本地sftp&gt; get /var/www/fuyatao/index.php /home/fuyatao/这条语句将从远程主机的 /var/www/fuyatao/目录下将 index.php 下载到本地 /home/fuyatao/目录下。 3.上传本地文件到远程sftp&gt; put /home/fuyatao/downloads/Linuxgl.pdf /var/www/fuyatao/这条语句将把本地 /home/fuyatao/downloads/目录下的 linuxgl.pdf文件上传至远程主机。]]></content>
-    </entry>
-
-    
-    <entry>
-      <title><![CDATA[vim操作]]></title>
-      <url>%2F2016%2F11%2F08%2FProgramming-Summary%2Fvim%E6%93%8D%E4%BD%9C%2F</url>
-      <content type="text"><![CDATA[1. 模式简介1. Normal 2. Insert 3. Visual 用v命令进入的字符可视化模式（Characterwise visual mode)。文本选择是以字符为单位的。 用V命令进入的行可视化模式（Linewise visual mode)。文本选择是以行为单位的。 用ctrl-V进入的块可视化模式（Blockwise visual mode）。可以选择一个矩形内的文本。（注意：在Windows中，ctrl-V可能已经被影射为粘贴操作，可以使用ctrl-Q进入块可视化模式。） 2. 复制粘贴操作yy复制游标所在行整行。或大写一个Y。 2yy或y2y复制两行。 y^复制至行首，或y0。不含游标所在处字元。 y$复制至行尾。含游标所在处字元。 yw复制一个word。 y2w复制两个字（单词）。 yG复制至档尾。 y1G复制至档首。 p小写p代表贴至游标后（下）。 P大写P代表贴至游标前（上）。 3. 删除命令ndw或ndW：删除光标处开始及其后的n-1个字 do：删至行首 d$：删至行尾 ndd：删除当前行及其后n-1行 x或X：删除一个字符，x删除光标后的，而X删除光标前的 Ctrl+u：删除输入方式下所输入的文本 4. 光标移动操作TODO]]></content>
-    </entry>
-
-    
-    <entry>
-      <title><![CDATA[机器学习算法]]></title>
-      <url>%2F2016%2F11%2F06%2FProgramming-Summary%2F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%2F</url>
-      <content type="text"><![CDATA[1. 学习方式 监督式学习 非监督式学习 半监督式学习 强化学习 2. 机器学习算法http://blog.jobbole.com/77620/ 2.1 分类算法2.1.1 决策树2.1.2 贝叶斯2.1.3 支持向量机SVM2.1.4 k-临近2.2 聚类算法2.3 降维算法2.4 回归算法2.5 人工神经网络]]></content>
-    </entry>
-
-    
-    <entry>
-      <title><![CDATA[机器学习路线]]></title>
-      <url>%2F2016%2F11%2F06%2FProgramming-Summary%2F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF%2F</url>
-      <content type="text"><![CDATA[1. 数学基础1.1 线性代数 大多数机器学习的算法要应用起来，依赖于高效的计算，这种场景下，多层for循环通常就行不通了，而大多数的循环操作可转化成矩阵之间的乘法运算，这就和线性代数有莫大的关系了 向量的内积运算更是随处可见。 矩阵乘法与分解在机器学习的主成分分析（PCA）和奇异值分解（SVD） 等部分呈现刷屏状地出现。 1.2 微积分 极值问题 与 （条件）最优化问题 偏导数，梯度这两个概念必须深入人心 凸优化和条件最优化问题，这个是理解SVM，或者线性回归等等模型正则化的基础 1.3 概率论 极大似然思想 贝叶斯模型 隐变量混合概率模型，EM思想 基础的典型分布是逃不过的，尤其高斯分布。 推荐阅读机器学习路线图]]></content>
     </entry>
 
     

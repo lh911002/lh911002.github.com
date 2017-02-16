@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Python," />
+  <meta name="keywords" content="LeetCode," />
 
 
 
@@ -84,21 +84,22 @@
 
 
 
-<meta name="description" content="1. 安装步骤1.1 安装环境MAC OS X EI Capitan(自带python2.7)
-1.2 安装python3brew install python3">
+<meta name="description" content="[TOC]
+1. Intersection of Two Arrays1.1 解题思路使用hash比较是否存在，实现时间复杂度O(n),坏处是空间复杂度也达到O(n).
+1.2 代码">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python环境搭建">
-<meta property="og:url" content="http://yoursite.com/2016/10/23/Programming-Summary/Python环境搭建/index.html">
+<meta property="og:title" content="LeetCode题解-数组类">
+<meta property="og:url" content="http://yoursite.com/2016/12/09/Programming-Summary/LeetCode题解-数组类/index.html">
 <meta property="og:site_name" content="Athrun">
-<meta property="og:description" content="1. 安装步骤1.1 安装环境MAC OS X EI Capitan(自带python2.7)
-1.2 安装python3brew install python3">
-<meta property="og:image" content="http://ww3.sinaimg.cn/large/006y8lVagw1fbg11glj6lj30qo03wq3z.jpg">
+<meta property="og:description" content="[TOC]
+1. Intersection of Two Arrays1.1 解题思路使用hash比较是否存在，实现时间复杂度O(n),坏处是空间复杂度也达到O(n).
+1.2 代码">
 <meta property="og:updated_time" content="2017-02-16T02:07:40.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python环境搭建">
-<meta name="twitter:description" content="1. 安装步骤1.1 安装环境MAC OS X EI Capitan(自带python2.7)
-1.2 安装python3brew install python3">
-<meta name="twitter:image" content="http://ww3.sinaimg.cn/large/006y8lVagw1fbg11glj6lj30qo03wq3z.jpg">
+<meta name="twitter:title" content="LeetCode题解-数组类">
+<meta name="twitter:description" content="[TOC]
+1. Intersection of Two Arrays1.1 解题思路使用hash比较是否存在，实现时间复杂度O(n),坏处是空间复杂度也达到O(n).
+1.2 代码">
 
 
 
@@ -126,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/10/23/Programming-Summary/Python环境搭建/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/12/09/Programming-Summary/LeetCode题解-数组类/"/>
 
 
 
 
 
-  <title> Python环境搭建 | Athrun </title>
+  <title> LeetCode题解-数组类 | Athrun </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -288,7 +289,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/10/23/Programming-Summary/Python环境搭建/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/09/Programming-Summary/LeetCode题解-数组类/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Athrun">
@@ -312,7 +313,7 @@
             
             
               
-                Python环境搭建
+                LeetCode题解-数组类
               
             
           </h1>
@@ -327,8 +328,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-23T12:29:31+08:00">
-                2016-10-23
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-09T16:04:46+08:00">
+                2016-12-09
               </time>
             
 
@@ -350,8 +351,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
+                  <a href="/categories/Algrithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Algrithm</span>
                   </a>
                 </span>
 
@@ -368,8 +369,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/10/23/Programming-Summary/Python环境搭建/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/23/Programming-Summary/Python环境搭建/" itemprop="commentCount"></span>
+                <a href="/2016/12/09/Programming-Summary/LeetCode题解-数组类/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/09/Programming-Summary/LeetCode题解-数组类/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -379,7 +380,7 @@
 
           
           
-             <span id="/2016/10/23/Programming-Summary/Python环境搭建/" class="leancloud_visitors" data-flag-title="Python环境搭建">
+             <span id="/2016/12/09/Programming-Summary/LeetCode题解-数组类/" class="leancloud_visitors" data-flag-title="LeetCode题解-数组类">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -406,12 +407,19 @@
       
 
       
-        <h2 id="1-安装步骤"><a href="#1-安装步骤" class="headerlink" title="1. 安装步骤"></a>1. 安装步骤</h2><h3 id="1-1-安装环境"><a href="#1-1-安装环境" class="headerlink" title="1.1 安装环境"></a>1.1 安装环境</h3><p>MAC OS X EI Capitan(自带python2.7)</p>
-<h3 id="1-2-安装python3"><a href="#1-2-安装python3" class="headerlink" title="1.2 安装python3"></a>1.2 安装python3</h3><p><code>brew install python3</code></p>
-<a id="more"></a>
-<h3 id="1-3-安装依赖-使用豆瓣源"><a href="#1-3-安装依赖-使用豆瓣源" class="headerlink" title="1.3 安装依赖(使用豆瓣源)"></a>1.3 安装依赖(使用豆瓣源)</h3><p><code>pip install pythonModuleName -i https://pypi.douban.com/simple</code></p>
-<h3 id="1-4-依赖包路径"><a href="#1-4-依赖包路径" class="headerlink" title="1.4 依赖包路径"></a>1.4 依赖包路径</h3><p><img src="http://ww3.sinaimg.cn/large/006y8lVagw1fbg11glj6lj30qo03wq3z.jpg" alt=""></p>
-<h2 id="2-开发环境"><a href="#2-开发环境" class="headerlink" title="2. 开发环境"></a>2. 开发环境</h2><p>使用Intellij IDEA Python插件开发。对于我平时写一写脚本，执行一些小操作完全够用了。</p>
+        <p>[TOC]</p>
+<h3 id="1-Intersection-of-Two-Arrays"><a href="#1-Intersection-of-Two-Arrays" class="headerlink" title="1. Intersection of Two Arrays"></a>1. <a href="https://leetcode.com/problems/intersection-of-two-arrays/" target="_blank" rel="external">Intersection of Two Arrays</a></h3><h4 id="1-1-解题思路"><a href="#1-1-解题思路" class="headerlink" title="1.1 解题思路"></a>1.1 解题思路</h4><p>使用hash比较是否存在，实现时间复杂度O(n),坏处是空间复杂度也达到O(n).</p>
+<h4 id="1-2-代码"><a href="#1-2-代码" class="headerlink" title="1.2 代码"></a>1.2 代码</h4><a id="more"></a>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] intersection(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2) &#123;</div><div class="line">        HashSet&lt;Integer&gt; resultSet = <span class="keyword">new</span> HashSet&lt;Integer&gt;();</div><div class="line">        <span class="keyword">if</span>(nums1 == <span class="keyword">null</span> || nums2 == <span class="keyword">null</span> || nums1.length * nums2.length == <span class="number">0</span>)&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</div><div class="line">        &#125;</div><div class="line">        HashSet&lt;Integer&gt; temp = <span class="keyword">new</span> HashSet&lt;Integer&gt;();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums1.length; i++) &#123;</div><div class="line">            temp.add(nums1[i]);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums2.length; i++) &#123;</div><div class="line">            <span class="keyword">if</span>(temp.contains(nums2[i]))&#123;</div><div class="line">                resultSet.add(nums2[i]);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span>[] result = <span class="keyword">new</span> <span class="keyword">int</span>[resultSet.size()];</div><div class="line"></div><div class="line">        Iterator&lt;Integer&gt; iterator = resultSet.iterator();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; result.length; i++) &#123;</div><div class="line">            result[i] = iterator.next();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h3 id="2-Intersection-of-Two-Arrays-II"><a href="#2-Intersection-of-Two-Arrays-II" class="headerlink" title="2. Intersection of Two Arrays II"></a>2. <a href="https://leetcode.com/problems/intersection-of-two-arrays-ii/" target="_blank" rel="external">Intersection of Two Arrays II</a></h3><h4 id="2-1-解题思路"><a href="#2-1-解题思路" class="headerlink" title="2.1 解题思路"></a>2.1 解题思路</h4><p>本题在题1的基础上要求重复多少次就要在结果中出现多少次，采用了比较直接的解法，使用hashmap记录值和出现的次数</p>
+<h4 id="2-2-代码"><a href="#2-2-代码" class="headerlink" title="2.2 代码"></a>2.2 代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">if</span>(nums1 == <span class="keyword">null</span> || nums2 == <span class="keyword">null</span> || nums1.length * nums2.length == <span class="number">0</span>)&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        HashMap&lt;Integer,Integer&gt; resultMap = <span class="keyword">new</span> HashMap&lt;Integer, Integer&gt;();</div><div class="line">        HashMap&lt;Integer,Integer&gt; nums1Map = <span class="keyword">new</span> HashMap&lt;Integer, Integer&gt;();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums1.length; i++) &#123;</div><div class="line">            nums1Map.put(nums1[i],nums1Map.get(nums1[i]) == <span class="keyword">null</span> ? <span class="number">1</span>: nums1Map.get(nums1[i]) + <span class="number">1</span>);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums2.length; i++) &#123;</div><div class="line">            <span class="keyword">if</span>(nums1Map.containsKey(nums2[i]))&#123;</div><div class="line">                <span class="keyword">if</span>(nums1Map.get(nums2[i]) == <span class="number">1</span>)&#123;</div><div class="line">                    nums1Map.remove(nums2[i]);</div><div class="line">                &#125;<span class="keyword">else</span>&#123;</div><div class="line">                    nums1Map.put(nums2[i],nums1Map.get(nums2[i]) - <span class="number">1</span>);</div><div class="line">                &#125;</div><div class="line">                resultMap.put(nums2[i],resultMap.get(nums2[i]) == <span class="keyword">null</span> ? <span class="number">1</span>: resultMap.get(nums2[i]) + <span class="number">1</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        ArrayList&lt;Integer&gt; result = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">        Iterator iter = resultMap.entrySet().iterator();</div><div class="line">        <span class="keyword">while</span> (iter.hasNext()) &#123;</div><div class="line">            Map.Entry entry = (Map.Entry) iter.next();</div><div class="line">            Integer key = (Integer) entry.getKey();</div><div class="line">            Integer val = (Integer) entry.getValue();</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; val; i++) &#123;</div><div class="line">                result.add(key);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(result.size() == <span class="number">0</span>)&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            <span class="keyword">int</span>[] resultArray = <span class="keyword">new</span> <span class="keyword">int</span>[result.size()];</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; result.size(); i++) &#123;</div><div class="line">                resultArray[i] = result.get(i);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> resultArray;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+<h3 id="3-First-Missing-Positive"><a href="#3-First-Missing-Positive" class="headerlink" title="3. First Missing Positive"></a>3. <a href="https://leetcode.com/problems/first-missing-positive/" target="_blank" rel="external">First Missing Positive</a></h3><h4 id="3-1-原题"><a href="#3-1-原题" class="headerlink" title="3.1 原题"></a>3.1 原题</h4><blockquote>
+<p>Given an unsorted integer array, find the first missing positive integer.</p>
+<p>For example,<br>Given [1,2,0] return 3,<br>and [3,4,-1,1] return 2.</p>
+<p>Your algorithm should run in O(n) time and uses constant space.</p>
+</blockquote>
+<h4 id="3-2-解题思路"><a href="#3-2-解题思路" class="headerlink" title="3.2 解题思路"></a>3.2 解题思路</h4><p>拿到题目，看到O(n)时间第一反应就是空间换时间，但是看到后面要求空间复杂度O(1)的要求，才发现自己too young了;要在常数空间解决这个问题，首先想到的就是在原数组上都手脚，数组的索引对于解决问题具有很好的效果，可以从如何利用索引这个方向思考（算法题就是如此，思考可能的方向，一个方向想不通就换个方向思考），如果能把数组中值在索引范围内的元素放到对应索引位置，那么剩下的索引位置就是缺的元素；因为值要从1开始，所以索引0位置对应的值应为1，索引1位置对应值1。</p>
+<h4 id="3-3-实现代码"><a href="#3-3-实现代码" class="headerlink" title="3.3 实现代码"></a>3.3 实现代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">firstMissingPositive</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(nums == <span class="keyword">null</span> || nums.length == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">        <span class="keyword">int</span> temp = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</div><div class="line">            <span class="keyword">if</span>(nums[i] &lt;= nums.length &amp;&amp; nums[i] &gt; <span class="number">0</span>)&#123;<span class="comment">//当前值可以找到位置</span></div><div class="line">                <span class="keyword">if</span>(nums[nums[i]-<span class="number">1</span>] != nums[i])&#123;<span class="comment">//要替换的位置是否已经有合适的值,没有才替换</span></div><div class="line">                    temp = nums[nums[i]-<span class="number">1</span>];</div><div class="line">                    nums[nums[i]-<span class="number">1</span>] = nums[i];</div><div class="line">                    nums[i] = temp;</div><div class="line">                    i--;<span class="comment">//执行过一次替换后需要把当前值再做处理</span></div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> result = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</div><div class="line">            <span class="keyword">if</span>(nums[i] != i+<span class="number">1</span>)&#123;</div><div class="line">                result = i+<span class="number">1</span>;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(result == <span class="number">0</span>)&#123;</div><div class="line">            result = nums.length + <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line"></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -435,7 +443,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Python/" rel="tag"># Python</a>
+            <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
           
         </div>
       
@@ -444,8 +452,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/14/Programming-Summary/关于博客的规范/" rel="next" title="关于博客的规范">
-                <i class="fa fa-chevron-left"></i> 关于博客的规范
+              <a href="/2016/11/28/Programming-Summary/Java并发/" rel="next" title="Java并发">
+                <i class="fa fa-chevron-left"></i> Java并发
               </a>
             
           </div>
@@ -454,8 +462,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/10/24/Programming-Summary/Python代码规范/" rel="prev" title="Python代码规范">
-                Python代码规范 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/12/12/Programming-Summary/关于git版本控制协议一些理解/" rel="prev" title="关于git版本控制协议一些理解">
+                关于git版本控制协议一些理解 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -471,10 +479,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/10/23/Programming-Summary/Python环境搭建/"
-     data-title="Python环境搭建"
+        <div class="ds-share flat" data-thread-key="2016/12/09/Programming-Summary/LeetCode题解-数组类/"
+     data-title="LeetCode题解-数组类"
      data-content=""
-     data-url="http://yoursite.com/2016/10/23/Programming-Summary/Python环境搭建/">
+     data-url="http://yoursite.com/2016/12/09/Programming-Summary/LeetCode题解-数组类/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -501,8 +509,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/10/23/Programming-Summary/Python环境搭建/"
-           data-title="Python环境搭建" data-url="http://yoursite.com/2016/10/23/Programming-Summary/Python环境搭建/">
+      <div class="ds-thread" data-thread-key="2016/12/09/Programming-Summary/LeetCode题解-数组类/"
+           data-title="LeetCode题解-数组类" data-url="http://yoursite.com/2016/12/09/Programming-Summary/LeetCode题解-数组类/">
       </div>
     
   </div>
@@ -602,7 +610,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-安装步骤"><span class="nav-text">1. 安装步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-安装环境"><span class="nav-text">1.1 安装环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-安装python3"><span class="nav-text">1.2 安装python3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-安装依赖-使用豆瓣源"><span class="nav-text">1.3 安装依赖(使用豆瓣源)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-依赖包路径"><span class="nav-text">1.4 依赖包路径</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-开发环境"><span class="nav-text">2. 开发环境</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Intersection-of-Two-Arrays"><span class="nav-text">1. Intersection of Two Arrays</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-解题思路"><span class="nav-text">1.1 解题思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-代码"><span class="nav-text">1.2 代码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Intersection-of-Two-Arrays-II"><span class="nav-text">2. Intersection of Two Arrays II</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-解题思路"><span class="nav-text">2.1 解题思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-代码"><span class="nav-text">2.2 代码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-First-Missing-Positive"><span class="nav-text">3. First Missing Positive</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-原题"><span class="nav-text">3.1 原题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-解题思路"><span class="nav-text">3.2 解题思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-实现代码"><span class="nav-text">3.3 实现代码</span></a></li></ol></li></ol></div>
             
 
           </div>

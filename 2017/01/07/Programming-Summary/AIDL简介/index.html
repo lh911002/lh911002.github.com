@@ -96,7 +96,7 @@
 换句话说，AIDL是在Binder基础上进行的一轮封装，实际可以不使用AIDL，可以自定义相关组件进行进程间通信。
 下面通过一个简单的例子对AIDL进行学习，例子包含一个客户端进程，一个服务端进程。
 1. AIDL接口定义在服务">
-<meta property="og:updated_time" content="2017-02-04T06:15:43.000Z">
+<meta property="og:updated_time" content="2017-02-16T02:07:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AIDL简介">
 <meta name="twitter:description" content="AIDL（全称Android Interface Definition Language）是一种Android内部进程间通信的手段，其依赖Binder驱动实现进程间通信。
@@ -432,7 +432,7 @@
 <p>生成的代码：</p>
 <ul>
 <li><code>IMyAidlInterface</code>：接口，继承<code>IInterface</code>接口，并声明AIDL的接口</li>
-<li><code>IMyAidlInterface.Stub</code>：抽象类，继承Binder、IMyAidlInterface（不具体实现IMyAidlInterface，具体实现交给需要自定义Binder的地方，见下面的服务端代码就自己实现了一个Binder）</li>
+<li><code>IMyAidlInterface.Stub</code>：抽象类，继承Binder、IMyAidlInterface，不具体实现IMyAidlInterface，具体实现交给需要自定义Binder的地方，见下面的服务端代码就自己实现了一个Binder。<code>asInterface</code>在进行远程通信时会返回<code>IMyAidlInterface.Stub.Proxy</code>代理对象。</li>
 <li><code>IMyAidlInterface.Stub.Proxy</code>：实现IMyAidlInterface接口，通过调用远程方法<code>mRemote.transact(Stub.TRANSACTION_getRuntimeString, _data, _reply, 0);</code>实现接口。</li>
 </ul>
 <p>如果是远程Binder，那么本地拿到的其实不是那个Binder，而是其代理BinderProxy对象，mRemote其实就是一个远程Binder对象（即BinderProxy）</p>
@@ -578,7 +578,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

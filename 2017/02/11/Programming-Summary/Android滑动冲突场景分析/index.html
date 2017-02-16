@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="LeetCode," />
+  <meta name="keywords" content="Android," />
 
 
 
@@ -84,22 +84,18 @@
 
 
 
-<meta name="description" content="[TOC]
-1. Intersection of Two Arrays1.1 解题思路使用hash比较是否存在，实现时间复杂度O(n),坏处是空间复杂度也达到O(n).
-1.2 代码">
+<meta name="description" content="1. 知识准备要解决滑动冲突的问题，首先需要了解触摸事件的传递。Android触摸事件的传递遵循自顶向下，自底向上的准则。首先，事件从最顶层（最外层）Activity/View通过dispatchTouchEvent(MotionEvent ev)方法向内层View传递，当传递到底层View（非ViewGroup）时候通过onTouchEvent(MotionEvent event)判断是否处理触">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode题解">
-<meta property="og:url" content="http://yoursite.com/2016/12/09/Programming-Summary/LeetCode题解/index.html">
+<meta property="og:title" content="Android滑动冲突场景分析">
+<meta property="og:url" content="http://yoursite.com/2017/02/11/Programming-Summary/Android滑动冲突场景分析/index.html">
 <meta property="og:site_name" content="Athrun">
-<meta property="og:description" content="[TOC]
-1. Intersection of Two Arrays1.1 解题思路使用hash比较是否存在，实现时间复杂度O(n),坏处是空间复杂度也达到O(n).
-1.2 代码">
-<meta property="og:updated_time" content="2017-02-04T06:15:43.000Z">
+<meta property="og:description" content="1. 知识准备要解决滑动冲突的问题，首先需要了解触摸事件的传递。Android触摸事件的传递遵循自顶向下，自底向上的准则。首先，事件从最顶层（最外层）Activity/View通过dispatchTouchEvent(MotionEvent ev)方法向内层View传递，当传递到底层View（非ViewGroup）时候通过onTouchEvent(MotionEvent event)判断是否处理触">
+<meta property="og:image" content="https://ww4.sinaimg.cn/large/006tKfTcgy1fcoxfniv5rj30py0zen32.jpg">
+<meta property="og:updated_time" content="2017-02-16T02:07:40.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode题解">
-<meta name="twitter:description" content="[TOC]
-1. Intersection of Two Arrays1.1 解题思路使用hash比较是否存在，实现时间复杂度O(n),坏处是空间复杂度也达到O(n).
-1.2 代码">
+<meta name="twitter:title" content="Android滑动冲突场景分析">
+<meta name="twitter:description" content="1. 知识准备要解决滑动冲突的问题，首先需要了解触摸事件的传递。Android触摸事件的传递遵循自顶向下，自底向上的准则。首先，事件从最顶层（最外层）Activity/View通过dispatchTouchEvent(MotionEvent ev)方法向内层View传递，当传递到底层View（非ViewGroup）时候通过onTouchEvent(MotionEvent event)判断是否处理触">
+<meta name="twitter:image" content="https://ww4.sinaimg.cn/large/006tKfTcgy1fcoxfniv5rj30py0zen32.jpg">
 
 
 
@@ -127,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/12/09/Programming-Summary/LeetCode题解/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/02/11/Programming-Summary/Android滑动冲突场景分析/"/>
 
 
 
 
 
-  <title> LeetCode题解 | Athrun </title>
+  <title> Android滑动冲突场景分析 | Athrun </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -289,7 +285,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/09/Programming-Summary/LeetCode题解/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/11/Programming-Summary/Android滑动冲突场景分析/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Athrun">
@@ -313,7 +309,7 @@
             
             
               
-                LeetCode题解
+                Android滑动冲突场景分析
               
             
           </h1>
@@ -328,8 +324,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-09T16:04:46+08:00">
-                2016-12-09
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-11T12:29:31+08:00">
+                2017-02-11
               </time>
             
 
@@ -351,8 +347,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algrithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algrithm</span>
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
                   </a>
                 </span>
 
@@ -369,8 +365,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/12/09/Programming-Summary/LeetCode题解/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/09/Programming-Summary/LeetCode题解/" itemprop="commentCount"></span>
+                <a href="/2017/02/11/Programming-Summary/Android滑动冲突场景分析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/11/Programming-Summary/Android滑动冲突场景分析/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -380,7 +376,7 @@
 
           
           
-             <span id="/2016/12/09/Programming-Summary/LeetCode题解/" class="leancloud_visitors" data-flag-title="LeetCode题解">
+             <span id="/2017/02/11/Programming-Summary/Android滑动冲突场景分析/" class="leancloud_visitors" data-flag-title="Android滑动冲突场景分析">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -407,19 +403,31 @@
       
 
       
-        <p>[TOC]</p>
-<h3 id="1-Intersection-of-Two-Arrays"><a href="#1-Intersection-of-Two-Arrays" class="headerlink" title="1. Intersection of Two Arrays"></a>1. <a href="https://leetcode.com/problems/intersection-of-two-arrays/" target="_blank" rel="external">Intersection of Two Arrays</a></h3><h4 id="1-1-解题思路"><a href="#1-1-解题思路" class="headerlink" title="1.1 解题思路"></a>1.1 解题思路</h4><p>使用hash比较是否存在，实现时间复杂度O(n),坏处是空间复杂度也达到O(n).</p>
-<h4 id="1-2-代码"><a href="#1-2-代码" class="headerlink" title="1.2 代码"></a>1.2 代码</h4><a id="more"></a>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] intersection(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2) &#123;</div><div class="line">        HashSet&lt;Integer&gt; resultSet = <span class="keyword">new</span> HashSet&lt;Integer&gt;();</div><div class="line">        <span class="keyword">if</span>(nums1 == <span class="keyword">null</span> || nums2 == <span class="keyword">null</span> || nums1.length * nums2.length == <span class="number">0</span>)&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</div><div class="line">        &#125;</div><div class="line">        HashSet&lt;Integer&gt; temp = <span class="keyword">new</span> HashSet&lt;Integer&gt;();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums1.length; i++) &#123;</div><div class="line">            temp.add(nums1[i]);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums2.length; i++) &#123;</div><div class="line">            <span class="keyword">if</span>(temp.contains(nums2[i]))&#123;</div><div class="line">                resultSet.add(nums2[i]);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span>[] result = <span class="keyword">new</span> <span class="keyword">int</span>[resultSet.size()];</div><div class="line"></div><div class="line">        Iterator&lt;Integer&gt; iterator = resultSet.iterator();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; result.length; i++) &#123;</div><div class="line">            result[i] = iterator.next();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<h3 id="2-Intersection-of-Two-Arrays-II"><a href="#2-Intersection-of-Two-Arrays-II" class="headerlink" title="2. Intersection of Two Arrays II"></a>2. <a href="https://leetcode.com/problems/intersection-of-two-arrays-ii/" target="_blank" rel="external">Intersection of Two Arrays II</a></h3><h4 id="2-1-解题思路"><a href="#2-1-解题思路" class="headerlink" title="2.1 解题思路"></a>2.1 解题思路</h4><p>本题在题1的基础上要求重复多少次就要在结果中出现多少次，采用了比较直接的解法，使用hashmap记录值和出现的次数</p>
-<h4 id="2-2-代码"><a href="#2-2-代码" class="headerlink" title="2.2 代码"></a>2.2 代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">if</span>(nums1 == <span class="keyword">null</span> || nums2 == <span class="keyword">null</span> || nums1.length * nums2.length == <span class="number">0</span>)&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        HashMap&lt;Integer,Integer&gt; resultMap = <span class="keyword">new</span> HashMap&lt;Integer, Integer&gt;();</div><div class="line">        HashMap&lt;Integer,Integer&gt; nums1Map = <span class="keyword">new</span> HashMap&lt;Integer, Integer&gt;();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums1.length; i++) &#123;</div><div class="line">            nums1Map.put(nums1[i],nums1Map.get(nums1[i]) == <span class="keyword">null</span> ? <span class="number">1</span>: nums1Map.get(nums1[i]) + <span class="number">1</span>);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums2.length; i++) &#123;</div><div class="line">            <span class="keyword">if</span>(nums1Map.containsKey(nums2[i]))&#123;</div><div class="line">                <span class="keyword">if</span>(nums1Map.get(nums2[i]) == <span class="number">1</span>)&#123;</div><div class="line">                    nums1Map.remove(nums2[i]);</div><div class="line">                &#125;<span class="keyword">else</span>&#123;</div><div class="line">                    nums1Map.put(nums2[i],nums1Map.get(nums2[i]) - <span class="number">1</span>);</div><div class="line">                &#125;</div><div class="line">                resultMap.put(nums2[i],resultMap.get(nums2[i]) == <span class="keyword">null</span> ? <span class="number">1</span>: resultMap.get(nums2[i]) + <span class="number">1</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        ArrayList&lt;Integer&gt; result = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">        Iterator iter = resultMap.entrySet().iterator();</div><div class="line">        <span class="keyword">while</span> (iter.hasNext()) &#123;</div><div class="line">            Map.Entry entry = (Map.Entry) iter.next();</div><div class="line">            Integer key = (Integer) entry.getKey();</div><div class="line">            Integer val = (Integer) entry.getValue();</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; val; i++) &#123;</div><div class="line">                result.add(key);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(result.size() == <span class="number">0</span>)&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            <span class="keyword">int</span>[] resultArray = <span class="keyword">new</span> <span class="keyword">int</span>[result.size()];</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; result.size(); i++) &#123;</div><div class="line">                resultArray[i] = result.get(i);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> resultArray;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
-<h3 id="3-First-Missing-Positive"><a href="#3-First-Missing-Positive" class="headerlink" title="3. First Missing Positive"></a>3. <a href="https://leetcode.com/problems/first-missing-positive/" target="_blank" rel="external">First Missing Positive</a></h3><h4 id="3-1-原题"><a href="#3-1-原题" class="headerlink" title="3.1 原题"></a>3.1 原题</h4><blockquote>
-<p>Given an unsorted integer array, find the first missing positive integer.</p>
-<p>For example,<br>Given [1,2,0] return 3,<br>and [3,4,-1,1] return 2.</p>
-<p>Your algorithm should run in O(n) time and uses constant space.</p>
+        <h3 id="1-知识准备"><a href="#1-知识准备" class="headerlink" title="1. 知识准备"></a>1. 知识准备</h3><p>要解决滑动冲突的问题，首先需要了解触摸事件的传递。Android触摸事件的传递遵循<code>自顶向下，自底向上</code>的准则。首先，事件从最顶层（最外层）Activity/View通过<code>dispatchTouchEvent(MotionEvent ev)</code>方法向内层View传递，当传递到底层View（非ViewGroup）时候通过<code>onTouchEvent(MotionEvent event)</code>判断是否处理触摸事件，如果不消费，上层View就有机会消费；如果被消费，那么上层View将不再执行<code>onTouchEvent(MotionEvent event)</code>；另外，<code>OnTouchListener.onTouch()</code>优先于当前View的<code>onTouchEvent</code>方法执行。</p>
+<blockquote>
+<p>from <a href="http://stackoverflow.com/questions/9586032/android-difference-between-onintercepttouchevent-and-dispatchtouchevent" target="_blank" rel="external">question on stackoverflow.com</a><br><img src="https://ww4.sinaimg.cn/large/006tKfTcgy1fcoxfniv5rj30py0zen32.jpg" alt=""></p>
 </blockquote>
-<h4 id="3-2-解题思路"><a href="#3-2-解题思路" class="headerlink" title="3.2 解题思路"></a>3.2 解题思路</h4><p>拿到题目，看到O(n)时间第一反应就是空间换时间，但是看到后面要求空间复杂度O(1)的要求，才发现自己too young了;要在常数空间解决这个问题，首先想到的就是在原数组上都手脚，数组的索引对于解决问题具有很好的效果，可以从如何利用索引这个方向思考（算法题就是如此，思考可能的方向，一个方向想不通就换个方向思考），如果能把数组中值在索引范围内的元素放到对应索引位置，那么剩下的索引位置就是缺的元素；因为值要从1开始，所以索引0位置对应的值应为1，索引1位置对应值1。</p>
-<h4 id="3-3-实现代码"><a href="#3-3-实现代码" class="headerlink" title="3.3 实现代码"></a>3.3 实现代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">firstMissingPositive</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(nums == <span class="keyword">null</span> || nums.length == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">        <span class="keyword">int</span> temp = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</div><div class="line">            <span class="keyword">if</span>(nums[i] &lt;= nums.length &amp;&amp; nums[i] &gt; <span class="number">0</span>)&#123;<span class="comment">//当前值可以找到位置</span></div><div class="line">                <span class="keyword">if</span>(nums[nums[i]-<span class="number">1</span>] != nums[i])&#123;<span class="comment">//要替换的位置是否已经有合适的值,没有才替换</span></div><div class="line">                    temp = nums[nums[i]-<span class="number">1</span>];</div><div class="line">                    nums[nums[i]-<span class="number">1</span>] = nums[i];</div><div class="line">                    nums[i] = temp;</div><div class="line">                    i--;<span class="comment">//执行过一次替换后需要把当前值再做处理</span></div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> result = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</div><div class="line">            <span class="keyword">if</span>(nums[i] != i+<span class="number">1</span>)&#123;</div><div class="line">                result = i+<span class="number">1</span>;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(result == <span class="number">0</span>)&#123;</div><div class="line">            result = nums.length + <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line"></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h3 id="2-场景"><a href="#2-场景" class="headerlink" title="2. 场景"></a>2. 场景</h3><h4 id="场景1-ScrollView（垂直滚动）内嵌ViewPager（水平滑动）"><a href="#场景1-ScrollView（垂直滚动）内嵌ViewPager（水平滑动）" class="headerlink" title="场景1. ScrollView（垂直滚动）内嵌ViewPager（水平滑动）"></a>场景1. ScrollView（垂直滚动）内嵌ViewPager（水平滑动）</h4><a id="more"></a>
+<p>解决方法：</p>
+<ol>
+<li>在ScrollView的onInterceptTouchEvent方法中判断滑动的方向和距离，当判断水平滑动时取消拦截事件，返回false</li>
+<li>当无法修改ScrollView的代码时，在ViewPager中通过getParent获取ScrollView对象，并调用requestDisallowInterceptTouchEvent方法禁用拦截事件</li>
+</ol>
+<h4 id="场景2-ViewPager（水平）内嵌套ViewPager（水平）（例如：Tab内嵌入Banner）"><a href="#场景2-ViewPager（水平）内嵌套ViewPager（水平）（例如：Tab内嵌入Banner）" class="headerlink" title="场景2. ViewPager（水平）内嵌套ViewPager（水平）（例如：Tab内嵌入Banner）"></a>场景2. ViewPager（水平）内嵌套ViewPager（水平）（例如：Tab内嵌入Banner）</h4><p>解决方法：</p>
+<ol>
+<li>在内部ViewPager接受到事件时就调用requestDisallowInterceptTouchEvent方法禁用外部ViewPager的拦截事件机制。常见实现如下：</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTouch</span><span class="params">(View v, MotionEvent event)</span> </span>&#123;</div><div class="line">    <span class="keyword">switch</span> (event.getAction()) &#123;</div><div class="line">    <span class="keyword">case</span> MotionEvent.ACTION_MOVE: </div><div class="line">        getParent().requestDisallowInterceptTouchEvent(<span class="keyword">true</span>);</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> MotionEvent.ACTION_UP:</div><div class="line">    <span class="keyword">case</span> MotionEvent.ACTION_CANCEL:</div><div class="line">        getParent().requestDisallowInterceptTouchEvent(<span class="keyword">false</span>);</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>在外部ViewPager中判断触摸区域是否在内部ViewPager内，如果在就在onInterceptTouchEvent返回false，将事件传递给内部ViewPager处理</li>
+</ol>
+<h3 id="3-总结"><a href="#3-总结" class="headerlink" title="3. 总结"></a>3. 总结</h3><p>事件冲突的一般性情况就是事件被错误的View消费掉了，导致这种情况的原因大致可以分为两种：</p>
+<ol>
+<li>被上层View拦截</li>
+<li>被下层View消费</li>
+</ol>
+<p>针对这两种情况以及并灵活使用下面的方法就可以解决大部分事件冲突的问题：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">requestDisallowInterceptTouchEvent(<span class="keyword">boolean</span> disallowIntercept) 禁用或者启用拦截事件的机制</div><div class="line">onInterceptTouchEvent(MotionEvent ev) 定义是否拦截事件的返回值</div><div class="line">onTouchEvent() 当前View事件处理</div><div class="line">OnTouchListener.onTouch() 当前View的触摸监听</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -443,7 +451,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
+            <a href="/tags/Android/" rel="tag"># Android</a>
           
         </div>
       
@@ -452,8 +460,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/28/Programming-Summary/Java并发/" rel="next" title="Java并发">
-                <i class="fa fa-chevron-left"></i> Java并发
+              <a href="/2017/01/15/Programming-Summary/JavaScript正则表达式/" rel="next" title="JavaScript正则表达式">
+                <i class="fa fa-chevron-left"></i> JavaScript正则表达式
               </a>
             
           </div>
@@ -461,10 +469,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/12/Programming-Summary/关于git版本控制协议一些理解/" rel="prev" title="关于git版本控制协议一些理解">
-                关于git版本控制协议一些理解 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -479,10 +483,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/12/09/Programming-Summary/LeetCode题解/"
-     data-title="LeetCode题解"
+        <div class="ds-share flat" data-thread-key="2017/02/11/Programming-Summary/Android滑动冲突场景分析/"
+     data-title="Android滑动冲突场景分析"
      data-content=""
-     data-url="http://yoursite.com/2016/12/09/Programming-Summary/LeetCode题解/">
+     data-url="http://yoursite.com/2017/02/11/Programming-Summary/Android滑动冲突场景分析/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -509,8 +513,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/12/09/Programming-Summary/LeetCode题解/"
-           data-title="LeetCode题解" data-url="http://yoursite.com/2016/12/09/Programming-Summary/LeetCode题解/">
+      <div class="ds-thread" data-thread-key="2017/02/11/Programming-Summary/Android滑动冲突场景分析/"
+           data-title="Android滑动冲突场景分析" data-url="http://yoursite.com/2017/02/11/Programming-Summary/Android滑动冲突场景分析/">
       </div>
     
   </div>
@@ -557,7 +561,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -610,7 +614,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Intersection-of-Two-Arrays"><span class="nav-text">1. Intersection of Two Arrays</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-解题思路"><span class="nav-text">1.1 解题思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-代码"><span class="nav-text">1.2 代码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Intersection-of-Two-Arrays-II"><span class="nav-text">2. Intersection of Two Arrays II</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-解题思路"><span class="nav-text">2.1 解题思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-代码"><span class="nav-text">2.2 代码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-First-Missing-Positive"><span class="nav-text">3. First Missing Positive</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-原题"><span class="nav-text">3.1 原题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-解题思路"><span class="nav-text">3.2 解题思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-实现代码"><span class="nav-text">3.3 实现代码</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-知识准备"><span class="nav-text">1. 知识准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-场景"><span class="nav-text">2. 场景</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#场景1-ScrollView（垂直滚动）内嵌ViewPager（水平滑动）"><span class="nav-text">场景1. ScrollView（垂直滚动）内嵌ViewPager（水平滑动）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#场景2-ViewPager（水平）内嵌套ViewPager（水平）（例如：Tab内嵌入Banner）"><span class="nav-text">场景2. ViewPager（水平）内嵌套ViewPager（水平）（例如：Tab内嵌入Banner）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-总结"><span class="nav-text">3. 总结</span></a></li></ol></div>
             
 
           </div>

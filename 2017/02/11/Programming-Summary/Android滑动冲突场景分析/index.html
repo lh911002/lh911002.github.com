@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="Athrun">
 <meta property="og:description" content="1. 知识准备要解决滑动冲突的问题，首先需要了解触摸事件的传递。Android触摸事件的传递遵循自顶向下，自底向上的准则。首先，事件从最顶层（最外层）Activity/View通过dispatchTouchEvent(MotionEvent ev)方法向内层View传递，当传递到底层View（非ViewGroup）时候通过onTouchEvent(MotionEvent event)判断是否处理触">
 <meta property="og:image" content="https://ww4.sinaimg.cn/large/006tKfTcgy1fcoxfniv5rj30py0zen32.jpg">
-<meta property="og:updated_time" content="2017-02-16T02:07:40.000Z">
+<meta property="og:updated_time" content="2017-02-16T02:15:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android滑动冲突场景分析">
 <meta name="twitter:description" content="1. 知识准备要解决滑动冲突的问题，首先需要了解触摸事件的传递。Android触摸事件的传递遵循自顶向下，自底向上的准则。首先，事件从最顶层（最外层）Activity/View通过dispatchTouchEvent(MotionEvent ev)方法向内层View传递，当传递到底层View（非ViewGroup）时候通过onTouchEvent(MotionEvent event)判断是否处理触">
@@ -409,18 +409,11 @@
 </blockquote>
 <h3 id="2-场景"><a href="#2-场景" class="headerlink" title="2. 场景"></a>2. 场景</h3><h4 id="场景1-ScrollView（垂直滚动）内嵌ViewPager（水平滑动）"><a href="#场景1-ScrollView（垂直滚动）内嵌ViewPager（水平滑动）" class="headerlink" title="场景1. ScrollView（垂直滚动）内嵌ViewPager（水平滑动）"></a>场景1. ScrollView（垂直滚动）内嵌ViewPager（水平滑动）</h4><a id="more"></a>
 <p>解决方法：</p>
-<ol>
-<li>在ScrollView的onInterceptTouchEvent方法中判断滑动的方向和距离，当判断水平滑动时取消拦截事件，返回false</li>
-<li>当无法修改ScrollView的代码时，在ViewPager中通过getParent获取ScrollView对象，并调用requestDisallowInterceptTouchEvent方法禁用拦截事件</li>
-</ol>
+<p>方法一： 在ScrollView的onInterceptTouchEvent方法中判断滑动的方向和距离，当判断水平滑动时取消拦截事件，返回false<br>方法二： 当无法修改ScrollView的代码时，在ViewPager中通过getParent获取ScrollView对象，并调用requestDisallowInterceptTouchEvent方法禁用拦截事件</p>
 <h4 id="场景2-ViewPager（水平）内嵌套ViewPager（水平）（例如：Tab内嵌入Banner）"><a href="#场景2-ViewPager（水平）内嵌套ViewPager（水平）（例如：Tab内嵌入Banner）" class="headerlink" title="场景2. ViewPager（水平）内嵌套ViewPager（水平）（例如：Tab内嵌入Banner）"></a>场景2. ViewPager（水平）内嵌套ViewPager（水平）（例如：Tab内嵌入Banner）</h4><p>解决方法：</p>
-<ol>
-<li>在内部ViewPager接受到事件时就调用requestDisallowInterceptTouchEvent方法禁用外部ViewPager的拦截事件机制。常见实现如下：</li>
-</ol>
+<p>方法一： 在内部ViewPager接受到事件时就调用requestDisallowInterceptTouchEvent方法禁用外部ViewPager的拦截事件机制。常见实现如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTouch</span><span class="params">(View v, MotionEvent event)</span> </span>&#123;</div><div class="line">    <span class="keyword">switch</span> (event.getAction()) &#123;</div><div class="line">    <span class="keyword">case</span> MotionEvent.ACTION_MOVE: </div><div class="line">        getParent().requestDisallowInterceptTouchEvent(<span class="keyword">true</span>);</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> MotionEvent.ACTION_UP:</div><div class="line">    <span class="keyword">case</span> MotionEvent.ACTION_CANCEL:</div><div class="line">        getParent().requestDisallowInterceptTouchEvent(<span class="keyword">false</span>);</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ol>
-<li>在外部ViewPager中判断触摸区域是否在内部ViewPager内，如果在就在onInterceptTouchEvent返回false，将事件传递给内部ViewPager处理</li>
-</ol>
+<p>方法二： 在外部ViewPager中判断触摸区域是否在内部ViewPager内，如果在就在onInterceptTouchEvent返回false，将事件传递给内部ViewPager处理</p>
 <h3 id="3-总结"><a href="#3-总结" class="headerlink" title="3. 总结"></a>3. 总结</h3><p>事件冲突的一般性情况就是事件被错误的View消费掉了，导致这种情况的原因大致可以分为两种：</p>
 <ol>
 <li>被上层View拦截</li>
@@ -460,8 +453,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/15/Programming-Summary/JavaScript正则表达式/" rel="next" title="JavaScript正则表达式">
-                <i class="fa fa-chevron-left"></i> JavaScript正则表达式
+              <a href="/2017/01/09/Programming-Summary/Android自动构建/" rel="next" title="Android自动构建">
+                <i class="fa fa-chevron-left"></i> Android自动构建
               </a>
             
           </div>
@@ -561,7 +554,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -570,7 +563,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -579,7 +572,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

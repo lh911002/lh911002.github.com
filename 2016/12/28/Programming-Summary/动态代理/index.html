@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android," />
+  <meta name="keywords" content="Java," />
 
 
 
@@ -84,21 +84,28 @@
 
 
 
-<meta name="description" content="1.    效果图
-2. 技术细节">
+<meta name="description" content="1. 代理的概念：
+图中A是调用者，B是代理类，C是委托类，也称作被代理类。
+代理类和被代理类一般实现相同的接口。
+2. 动态代理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="自定义UI-书架">
-<meta property="og:url" content="http://yoursite.com/2016/12/20/Programming-Summary/自定义UI-书架/index.html">
+<meta property="og:title" content="动态代理">
+<meta property="og:url" content="http://yoursite.com/2016/12/28/Programming-Summary/动态代理/index.html">
 <meta property="og:site_name" content="Athrun">
-<meta property="og:description" content="1.    效果图
-2. 技术细节">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006y8lVagw1fbg0ordk5mg308w0dc4qp.gif">
-<meta property="og:updated_time" content="2017-02-16T02:15:18.000Z">
+<meta property="og:description" content="1. 代理的概念：
+图中A是调用者，B是代理类，C是委托类，也称作被代理类。
+代理类和被代理类一般实现相同的接口。
+2. 动态代理">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/006y8lVagw1fbg0whuqfgj30tq05w3yp.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/006y8lVagw1fbg0wjh5xuj30rw0k0wgq.jpg">
+<meta property="og:updated_time" content="2017-02-19T07:46:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="自定义UI-书架">
-<meta name="twitter:description" content="1.    效果图
-2. 技术细节">
-<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006y8lVagw1fbg0ordk5mg308w0dc4qp.gif">
+<meta name="twitter:title" content="动态代理">
+<meta name="twitter:description" content="1. 代理的概念：
+图中A是调用者，B是代理类，C是委托类，也称作被代理类。
+代理类和被代理类一般实现相同的接口。
+2. 动态代理">
+<meta name="twitter:image" content="http://ww3.sinaimg.cn/large/006y8lVagw1fbg0whuqfgj30tq05w3yp.jpg">
 
 
 
@@ -126,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/12/20/Programming-Summary/自定义UI-书架/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/12/28/Programming-Summary/动态代理/"/>
 
 
 
 
 
-  <title> 自定义UI-书架 | Athrun </title>
+  <title> 动态代理 | Athrun </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -288,7 +295,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/20/Programming-Summary/自定义UI-书架/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/28/Programming-Summary/动态代理/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Athrun">
@@ -312,7 +319,7 @@
             
             
               
-                自定义UI-书架
+                动态代理
               
             
           </h1>
@@ -327,8 +334,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-20T12:29:31+08:00">
-                2016-12-20
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-28T12:29:31+08:00">
+                2016-12-28
               </time>
             
 
@@ -350,8 +357,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
                   </a>
                 </span>
 
@@ -361,19 +368,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/自定义UI/" itemprop="url" rel="index">
-                    <span itemprop="name">自定义UI</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/自定义UI/Animation-BookShelf/" itemprop="url" rel="index">
-                    <span itemprop="name">Animation-BookShelf</span>
+                  <a href="/categories/Java/DynamicProxy/" itemprop="url" rel="index">
+                    <span itemprop="name">DynamicProxy</span>
                   </a>
                 </span>
 
@@ -390,8 +386,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/12/20/Programming-Summary/自定义UI-书架/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/20/Programming-Summary/自定义UI-书架/" itemprop="commentCount"></span>
+                <a href="/2016/12/28/Programming-Summary/动态代理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/28/Programming-Summary/动态代理/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -401,7 +397,7 @@
 
           
           
-             <span id="/2016/12/20/Programming-Summary/自定义UI-书架/" class="leancloud_visitors" data-flag-title="自定义UI-书架">
+             <span id="/2016/12/28/Programming-Summary/动态代理/" class="leancloud_visitors" data-flag-title="动态代理">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -428,16 +424,23 @@
       
 
       
-        <h4 id="1-效果图"><a href="#1-效果图" class="headerlink" title="1.    效果图"></a>1.    效果图</h4><p><img src="http://ww1.sinaimg.cn/large/006y8lVagw1fbg0ordk5mg308w0dc4qp.gif" alt=""></p>
-<h4 id="2-技术细节"><a href="#2-技术细节" class="headerlink" title="2. 技术细节"></a>2. 技术细节</h4><a id="more"></a>
+        <h4 id="1-代理的概念："><a href="#1-代理的概念：" class="headerlink" title="1. 代理的概念："></a>1. 代理的概念：</h4><p><img src="http://ww3.sinaimg.cn/large/006y8lVagw1fbg0whuqfgj30tq05w3yp.jpg" alt=""></p>
+<pre><code>图中A是调用者，B是代理类，C是委托类，也称作被代理类。
+代理类和被代理类一般实现相同的接口。
+</code></pre><h4 id="2-动态代理"><a href="#2-动态代理" class="headerlink" title="2. 动态代理"></a>2. 动态代理</h4><a id="more"></a>
+<p>动态代理相关组件关系：</p>
+<p><img src="http://ww4.sinaimg.cn/large/006y8lVagw1fbg0wjh5xuj30rw0k0wgq.jpg" alt=""></p>
+<p>动态代理实现步骤:</p>
 <ul>
-<li>事件冲突解决</li>
-<li>坐标传递修正</li>
-<li>拖动书记卡顿问题解决</li>
-<li>拖动避让逻辑设计实现</li>
-<li>…</li>
+<li>创建委托类Operate接口和实现类OperateImpl</li>
+<li>自定义中间类实现InvocationHandler接口方法<code>bject invoke(Object proxy, Method method, Object[] args) throws Throwable;</code>,InvocationHandler是中间类，在自动生成的代理类中会调用invoke方法，把接口的Method和参数传递过来，在invoke中使用OperateImpl的实例调用Method实现调用委托类。invoke的实现和具体委托类的方法无关，通过反射调用相关方法，<code>method.invoke(target, args);</code>。</li>
+<li>调用<code>(Operate)Proxy.newProxyInstance(ClassLoader loader, Class&lt;?&gt;[] interfaces,InvocationHandler invocationHandler)</code>方法生成代理类实例，代理类已经实现委托类Operate接口，直接使用代理类实例的方法就可以调用委托类Operate的方法了。</li>
 </ul>
-<h4 id="3-阅读王下载链接"><a href="#3-阅读王下载链接" class="headerlink" title="3. 阅读王下载链接"></a>3. <a href="http://android.myapp.com/myapp/detail.htm?apkName=com.book2345.reader" target="_blank" rel="external">阅读王下载链接</a></h4>
+<p>调用链：</p>
+<p>调用Proxy类的Operate接口–&gt;调用InvocationHandler的invoke方法，并传递Method实例和参数–&gt;在invoke内通过反射调用委托类实例的Method方法达到代理的目的</p>
+<p>参考：</p>
+<p>1.<a href="http://www.infoq.com/cn/articles/cf-java-reflection-dynamic-proxy" target="_blank" rel="external">http://www.infoq.com/cn/articles/cf-java-reflection-dynamic-proxy</a><br>2.<a href="http://a.codekk.com/detail/Android/Caij/%E5%85%AC%E5%85%B1%E6%8A%80%E6%9C%AF%E7%82%B9%E4%B9%8B%20Java%20%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86" target="_blank" rel="external">http://a.codekk.com/detail/Android/Caij/%E5%85%AC%E5%85%B1%E6%8A%80%E6%9C%AF%E7%82%B9%E4%B9%8B%20Java%20%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86</a></p>
+
       
     </div>
 
@@ -460,7 +463,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Android/" rel="tag"># Android</a>
+            <a href="/tags/Java/" rel="tag"># Java</a>
           
         </div>
       
@@ -469,8 +472,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/18/Programming-Summary/自定义UI-电影在线选座/" rel="next" title="自定义UI-电影在线选座">
-                <i class="fa fa-chevron-left"></i> 自定义UI-电影在线选座
+              <a href="/2016/12/22/Programming-Summary/Android多渠道打包/" rel="next" title="Android多渠道打包">
+                <i class="fa fa-chevron-left"></i> Android多渠道打包
               </a>
             
           </div>
@@ -479,8 +482,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/12/22/Programming-Summary/多渠道打包/" rel="prev" title="多渠道打包">
-                多渠道打包 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/12/30/Programming-Summary/Android分辨率兼容/" rel="prev" title="Android分辨率兼容">
+                Android分辨率兼容 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -496,10 +499,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/12/20/Programming-Summary/自定义UI-书架/"
-     data-title="自定义UI-书架"
+        <div class="ds-share flat" data-thread-key="2016/12/28/Programming-Summary/动态代理/"
+     data-title="动态代理"
      data-content=""
-     data-url="http://yoursite.com/2016/12/20/Programming-Summary/自定义UI-书架/">
+     data-url="http://yoursite.com/2016/12/28/Programming-Summary/动态代理/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -526,8 +529,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/12/20/Programming-Summary/自定义UI-书架/"
-           data-title="自定义UI-书架" data-url="http://yoursite.com/2016/12/20/Programming-Summary/自定义UI-书架/">
+      <div class="ds-thread" data-thread-key="2016/12/28/Programming-Summary/动态代理/"
+           data-title="动态代理" data-url="http://yoursite.com/2016/12/28/Programming-Summary/动态代理/">
       </div>
     
   </div>
@@ -583,7 +586,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -603,6 +606,17 @@
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lh911002" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
           
         </div>
 
@@ -627,7 +641,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-效果图"><span class="nav-text">1.    效果图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-技术细节"><span class="nav-text">2. 技术细节</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-阅读王下载链接"><span class="nav-text">3. 阅读王下载链接</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-代理的概念："><span class="nav-text">1. 代理的概念：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-动态代理"><span class="nav-text">2. 动态代理</span></a></li></ol></div>
             
 
           </div>

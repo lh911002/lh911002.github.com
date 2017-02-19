@@ -26,14 +26,14 @@
     <entry>
       <title><![CDATA[2016年回顾和2017年展望]]></title>
       <url>%2F2017%2F01%2F02%2FProgramming-Summary%2F2016%E5%B9%B4%E5%9B%9E%E9%A1%BE%E5%92%8C2017%E5%B9%B4%E5%B1%95%E6%9C%9B%2F</url>
-      <content type="text"><![CDATA[毕业的时候是2014年7月份，今年已经2017，当把两个年份一比，天哪，工作至今已经差不多两年半的时间。蓦然回首，岁月如梭。纪念一下逝去的一年。 2016年回顾毕业后到2015年底都一直在做Android开发，可能是自己对编程的喜好和公司情况导致，2016年在公司内部转岗多次，先做了五个月后台，然后做了五个月Android开发，再然后就是Web前端开发，目前还在处理公司一些前端开发的工作，差不多两三个月了吧。 每次转岗都意味着需要学习大量的知识，经验的积累也需要一定时间，遇到复杂问题无法解决，这是转岗的痛点。好处也很明显，考虑问题时候往往可以跳出自己所处的位置去思考，也意味着找到更周全的解决方案的可能性更大。 这一年还用python写了一些脚本，为什么选择python，因为人生苦短，我用python。 对于这一年，自己稍显浮躁。势必需要静下心，仔细思考以后的路，重视自己的每个选择，慎重。一门技术学会不难，学透很难，2017年希望自己可以更专注。 2017年展望目标的达成离不开每一天的努力，一切都是身外之物，好的品性才能让自己受益终生。 2017年，做个五讲四美好青年，虽然我快奔三了。。。 更努力，每天都不要浪费。 更严格，当我可以做的更好，我为什么不做的更好？ 更深刻，思考的广度、深度、角度。 更无畏，做个勇敢的人。 更健康，每天都要锻炼。 不急躁，不忙不慌的，因为你知道那样于事无补；很多美好只有你变慢的时候才能展现出来。]]></content>
+      <content type="text"><![CDATA[毕业的时候是2014年7月份，今年已经2017，当把两个年份一比，才发觉工作至今已经差不多两年半的时间，不知不觉已经不再是刚毕业时候初出茅庐的自己了，16年已经过去了，记录一下这一年的成长和教训，也对2017年的自己作一些期许和要求。 2016年回顾毕业后到2015年底都一直在做Android开发，可能是自己对编程的喜好和公司情况导致，2016年在公司内部转岗多次，先做了五个月后台，然后做了五个月Android开发，再然后就是Web前端开发，目前还在处理公司一些前端开发的工作，差不多两三个月了吧。 每次转岗都意味着需要学习大量的知识，经验的积累也需要一定时间，遇到复杂问题无法解决，这是转岗的痛点。好处也很明显，考虑问题时候往往可以跳出自己所处的位置去思考，也意味着找到更周全的解决方案的可能性更大。 这一年还用python写了一些脚本，为什么选择python，因为人生苦短，我用python。 对于这一年，自己稍显浮躁。势必需要静下心，仔细思考以后的路，重视自己的每个选择，慎重。一门技术学会不难，学透很难，2017年希望自己可以更专注。 2017年展望目标的达成离不开每一天的努力，一切都是身外之物，好的品性才能让自己受益终生。 2017年，做个五讲四美好青年，虽然我快奔三了。。。 更努力，每天都不要浪费。 更严格，当我可以做的更好，我为什么不做的更好？ 更深刻，思考的广度、深度、角度。 更无畏，做个勇敢的人。 更健康，每天都要锻炼。 不急躁，不忙不慌的，因为你知道那样于事无补；很多美好只有你变慢的时候才能展现出来。]]></content>
     </entry>
 
     
     <entry>
-      <title><![CDATA[常见问题以及解决]]></title>
-      <url>%2F2017%2F01%2F01%2FProgramming-Summary%2F%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%2F</url>
-      <content type="text"><![CDATA[NO.1 问题描述：home键或者其他方式程序进入后台后，一段时间回到前台界面显示信息出错 原因分析：由于app进入后台时间太久没有唤起，被系统回收 问题解决：在application类的onCreate方法里面对重新启动进行监听并重新启动进入后台时候的Activity NO.2 问题描述：postDelay+Dialog引起的窗体泄露 原因分析：Android中消息队列postDelay+Dialog引起的窗体泄露的主要原因是，当床窗体压入栈或者finish掉后，Activity由于需要处理postDelay而不能及时销毁，因此造成了一个问题，当dialog触发show方法时，由于window和activity已经分开了，因此便会造成窗体泄露。 问题解决：通过对Activity的状态进行监听确定是否显示dialog，见代码12345678910111213141516171819202122232425262728private boolean isActive = true;public void onResume()&#123; super.onResume(); isActive = true;&#125;public void onPause()&#123; super.onPause(); isActive = false;&#125; public boolean activityIsActivity()&#123; return isActive;&#125; public void showAlertDialog()&#123; if(activityIsActive()) //只有窗体处于活动状态时执行此程序 &#123; AlertDialog.Builder builder = new AlertDialog.Builder(activity); builder.setTitle("hello world") .setCancelable(false) .setMessage("Hello"); builder.create().show(); &#125;&#125;]]></content>
+      <title><![CDATA[Android常见问题以及解决]]></title>
+      <url>%2F2017%2F01%2F01%2FProgramming-Summary%2FAndroid%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%2F</url>
+      <content type="text"><![CDATA[Android开发中总会遇到很多问题，其中的一些问题在解决中会发现，这些问题没有准确的报错信息，或者不方便调试，千辛万苦找到问题解决方法，以后再遇到还有可能忘记。所以，在这里对自己遇到的一些问题做一个记录。 NO.1 问题描述：home键或者其他方式程序进入后台后，一段时间回到前台界面显示信息出错 原因分析：由于app进入后台时间太久没有唤起，被系统回收 问题解决：在application类的onCreate方法里面对重新启动进行监听并重新启动进入后台时候的Activity NO.2 问题描述：postDelay+Dialog引起的窗体泄露 原因分析：Android中消息队列postDelay+Dialog引起的窗体泄露的主要原因是，当床窗体压入栈或者finish掉后，Activity由于需要处理postDelay而不能及时销毁，因此造成了一个问题，当dialog触发show方法时，由于window和activity已经分开了，因此便会造成窗体泄露。 问题解决：通过对Activity的状态进行监听确定是否显示dialog，见代码 12345678910111213141516171819202122232425262728private boolean isActive = true;public void onResume()&#123; super.onResume(); isActive = true;&#125;public void onPause()&#123; super.onPause(); isActive = false;&#125; public boolean activityIsActivity()&#123; return isActive;&#125; public void showAlertDialog()&#123; if(activityIsActive()) //只有窗体处于活动状态时执行此程序 &#123; AlertDialog.Builder builder = new AlertDialog.Builder(activity); builder.setTitle("hello world") .setCancelable(false) .setMessage("Hello"); builder.create().show(); &#125;&#125;]]></content>
     </entry>
 
     
@@ -45,30 +45,16 @@
 
     
     <entry>
-      <title><![CDATA[Android Support Library]]></title>
-      <url>%2F2016%2F12%2F28%2FProgramming-Summary%2FAndroid%20Support%20Library%2F</url>
-      <content type="text"><![CDATA[主要分类 包名 用途 API级别 v4 Support Library 最基础的library，包含多方面的代码 4(1.6) v7 Support Library 有多个子包，比如MD的一些UI组件，调色板工具等 7(2.1) v8 Support Library RenderScript 高性能计算 8 v13 Support Library 更多的Fragment支持 13(3.2) v14 Support Library 配置列表支持 14 |v17 Support Library| for TV |17||Multidex Support Library| 解决65536方法数限制 |-||Annotations Support Library| 注解库 |-||Design Support Library| MD组件支持 |-||Custom tabs Support Library| 自定义Tab页面|-||Percent Support Library| 百分比UI |-||App Recommendation Support Library|for TV|-| 详见官方文档]]></content>
+      <title><![CDATA[动态代理]]></title>
+      <url>%2F2016%2F12%2F28%2FProgramming-Summary%2F%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%2F</url>
+      <content type="text"><![CDATA[1. 代理的概念： 图中A是调用者，B是代理类，C是委托类，也称作被代理类。 代理类和被代理类一般实现相同的接口。 2. 动态代理 动态代理相关组件关系： 动态代理实现步骤: 创建委托类Operate接口和实现类OperateImpl 自定义中间类实现InvocationHandler接口方法bject invoke(Object proxy, Method method, Object[] args) throws Throwable;,InvocationHandler是中间类，在自动生成的代理类中会调用invoke方法，把接口的Method和参数传递过来，在invoke中使用OperateImpl的实例调用Method实现调用委托类。invoke的实现和具体委托类的方法无关，通过反射调用相关方法，method.invoke(target, args);。 调用(Operate)Proxy.newProxyInstance(ClassLoader loader, Class&lt;?&gt;[] interfaces,InvocationHandler invocationHandler)方法生成代理类实例，代理类已经实现委托类Operate接口，直接使用代理类实例的方法就可以调用委托类Operate的方法了。 调用链： 调用Proxy类的Operate接口–&gt;调用InvocationHandler的invoke方法，并传递Method实例和参数–&gt;在invoke内通过反射调用委托类实例的Method方法达到代理的目的 参考： 1.http://www.infoq.com/cn/articles/cf-java-reflection-dynamic-proxy2.http://a.codekk.com/detail/Android/Caij/%E5%85%AC%E5%85%B1%E6%8A%80%E6%9C%AF%E7%82%B9%E4%B9%8B%20Java%20%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86]]></content>
     </entry>
 
     
     <entry>
-      <title><![CDATA[多渠道打包]]></title>
-      <url>%2F2016%2F12%2F22%2FProgramming-Summary%2F%E5%A4%9A%E6%B8%A0%E9%81%93%E6%89%93%E5%8C%85%2F</url>
+      <title><![CDATA[Android多渠道打包]]></title>
+      <url>%2F2016%2F12%2F22%2FProgramming-Summary%2FAndroid%E5%A4%9A%E6%B8%A0%E9%81%93%E6%89%93%E5%8C%85%2F</url>
       <content type="text"><![CDATA[背景Android应用分发因为没有一个统一的APP Store，为了统计各种应用商店的安装和推广效果，需要在包内添加渠道信息。 原理该打包工具参考了美团的打包方案。由于apk压缩文件的META-INF目录下文件不影响签名结果，所以可以在打包签名后在META-INF目录下生成相应的渠道标记，在程序运行时通过程序代码读取打包渠道号即可设置渠道。 使用方法 在marketlist.txt文件中配置渠道列表 运行build.py（需安装python运行环境） Python脚本代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364import osimport shutilimport zipfile# 空文件 便于写入此空文件到apk包中作为channel文件src_empty_file = 'temp.txt'# 创建一个空文件（不存在则创建）f = open(src_empty_file, 'w') f.close()# 获取渠道列表channel_file = 'marketlist.txt'f = open(channel_file)lines = f.readlines()f.close()# 获取当前目录中所有的apk源包src_apks = []for file in os.listdir(): if os.path.isfile(file): extension = os.path.splitext(file)[1][1:] if extension in 'apk': src_apks.append(file) # file name (with extension)src_apk = src_apks[0]src_apk_file_name = os.path.basename(src_apk)# 分割文件名与后缀temp_list = os.path.splitext(src_apk_file_name)# name without extensionsrc_apk_name = temp_list[0]# 后缀名，包含. 例如: ".apk "src_apk_extension = temp_list[1]# 创建生成目录,与文件名相关output_dir = src_apk_name +"各渠道包"+ '/'# 目录不存在则创建if not os.path.exists(output_dir): os.mkdir(output_dir)# 遍历渠道号并创建对应渠道号的apk文件linesIndex = 1for line in lines: # 获取当前渠道号，因为从渠道文件中获得带有\n,所有strip一下 target_channel = line.strip() if "#" in line[0:1] : print("渠道"+target_channel[1:]+"跳过") continue # 拼接对应渠道号的apk target_apk = output_dir + src_apk_name + "_" + target_channel + src_apk_extension # 拷贝建立新apk shutil.copy(src_apk, target_apk) # zip获取新建立的apk文件 zipped = zipfile.ZipFile(target_apk, 'a', zipfile.ZIP_DEFLATED) # 初始化渠道信息 empty_channel_file = "META-INF/kdlcchannel_"+target_channel # 写入渠道信息 zipped.write(src_empty_file, empty_channel_file) # 关闭zip流 zipped.close() print(linesIndex,".渠道 "+target_channel+" 打包完成") linesIndex = linesIndex + 1 Android获取渠道号的代码12345678910111213141516171819202122232425262728293031323334public static String getAppChannel(Context context)&#123; ApplicationInfo appinfo = context.getApplicationInfo(); String sourceDir = appinfo.sourceDir; String ret = ""; ZipFile zipfile = null; try &#123; zipfile = new ZipFile(sourceDir); Enumeration&lt;?&gt; entries = zipfile.entries(); while (entries.hasMoreElements()) &#123; ZipEntry entry = ((ZipEntry) entries.nextElement()); String entryName = entry.getName(); if (entryName.startsWith("META-INF/kdlcchannel")) &#123; ret = entryName; break; &#125; &#125; &#125; catch (IOException e) &#123; e.printStackTrace(); &#125; finally &#123; if (zipfile != null) &#123; try &#123; zipfile.close(); &#125; catch (IOException e) &#123; e.printStackTrace(); &#125; &#125; &#125; String[] split = ret.split("_"); if (split != null &amp;&amp; split.length &gt;= 2) &#123; return ret.substring(split[0].length() + 1); &#125; else &#123; return "MarketNotSet"; &#125; &#125;]]></content>
-    </entry>
-
-    
-    <entry>
-      <title><![CDATA[自定义UI-书架]]></title>
-      <url>%2F2016%2F12%2F20%2FProgramming-Summary%2F%E8%87%AA%E5%AE%9A%E4%B9%89UI-%E4%B9%A6%E6%9E%B6%2F</url>
-      <content type="text"><![CDATA[1. 效果图 2. 技术细节 事件冲突解决 坐标传递修正 拖动书记卡顿问题解决 拖动避让逻辑设计实现 … 3. 阅读王下载链接]]></content>
-    </entry>
-
-    
-    <entry>
-      <title><![CDATA[自定义UI-电影在线选座]]></title>
-      <url>%2F2016%2F12%2F18%2FProgramming-Summary%2F%E8%87%AA%E5%AE%9A%E4%B9%89UI-%E7%94%B5%E5%BD%B1%E5%9C%A8%E7%BA%BF%E9%80%89%E5%BA%A7%2F</url>
-      <content type="text"><![CDATA[1. 效果图 2. 技术细节 触摸事件处理 绘制坐标更新 放大缩小中心坐标计算 … 3. 掌上生活下载地址]]></content>
     </entry>
 
     
@@ -87,6 +73,13 @@
 
     
     <entry>
+      <title><![CDATA[自定义UI-座位图]]></title>
+      <url>%2F2016%2F12%2F10%2FProgramming-Summary%2F%E8%87%AA%E5%AE%9A%E4%B9%89UI-%E5%BA%A7%E4%BD%8D%E5%9B%BE%2F</url>
+      <content type="text"><![CDATA[1. 效果图 2. 技术细节 触摸事件处理 绘制坐标更新 放大缩小中心坐标计算 … 3. 代码]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[LeetCode题解-数组类]]></title>
       <url>%2F2016%2F12%2F09%2FProgramming-Summary%2FLeetCode%E9%A2%98%E8%A7%A3-%E6%95%B0%E7%BB%84%E7%B1%BB%2F</url>
       <content type="text"><![CDATA[[TOC] 1. Intersection of Two Arrays1.1 解题思路使用hash比较是否存在，实现时间复杂度O(n),坏处是空间复杂度也达到O(n). 1.2 代码 1234567891011121314151617181920212223public int[] intersection(int[] nums1, int[] nums2) &#123; HashSet&lt;Integer&gt; resultSet = new HashSet&lt;Integer&gt;(); if(nums1 == null || nums2 == null || nums1.length * nums2.length == 0)&#123; return new int[0]; &#125; HashSet&lt;Integer&gt; temp = new HashSet&lt;Integer&gt;(); for (int i = 0; i &lt; nums1.length; i++) &#123; temp.add(nums1[i]); &#125; for (int i = 0; i &lt; nums2.length; i++) &#123; if(temp.contains(nums2[i]))&#123; resultSet.add(nums2[i]); &#125; &#125; int[] result = new int[resultSet.size()]; Iterator&lt;Integer&gt; iterator = resultSet.iterator(); for (int i = 0; i &lt; result.length; i++) &#123; result[i] = iterator.next(); &#125; return result; &#125; 2. Intersection of Two Arrays II2.1 解题思路本题在题1的基础上要求重复多少次就要在结果中出现多少次，采用了比较直接的解法，使用hashmap记录值和出现的次数 2.2 代码1234567891011121314151617181920212223242526272829303132333435363738394041if(nums1 == null || nums2 == null || nums1.length * nums2.length == 0)&#123; return new int[0]; &#125; HashMap&lt;Integer,Integer&gt; resultMap = new HashMap&lt;Integer, Integer&gt;(); HashMap&lt;Integer,Integer&gt; nums1Map = new HashMap&lt;Integer, Integer&gt;(); for (int i = 0; i &lt; nums1.length; i++) &#123; nums1Map.put(nums1[i],nums1Map.get(nums1[i]) == null ? 1: nums1Map.get(nums1[i]) + 1); &#125; for (int i = 0; i &lt; nums2.length; i++) &#123; if(nums1Map.containsKey(nums2[i]))&#123; if(nums1Map.get(nums2[i]) == 1)&#123; nums1Map.remove(nums2[i]); &#125;else&#123; nums1Map.put(nums2[i],nums1Map.get(nums2[i]) - 1); &#125; resultMap.put(nums2[i],resultMap.get(nums2[i]) == null ? 1: resultMap.get(nums2[i]) + 1); &#125; &#125; ArrayList&lt;Integer&gt; result = new ArrayList&lt;Integer&gt;(); Iterator iter = resultMap.entrySet().iterator(); while (iter.hasNext()) &#123; Map.Entry entry = (Map.Entry) iter.next(); Integer key = (Integer) entry.getKey(); Integer val = (Integer) entry.getValue(); for (int i = 0; i &lt; val; i++) &#123; result.add(key); &#125; &#125; if(result.size() == 0)&#123; return new int[0]; &#125;else&#123; int[] resultArray = new int[result.size()]; for (int i = 0; i &lt; result.size(); i++) &#123; resultArray[i] = result.get(i); &#125; return resultArray; &#125; 3. First Missing Positive3.1 原题 Given an unsorted integer array, find the first missing positive integer. For example,Given [1,2,0] return 3,and [3,4,-1,1] return 2. Your algorithm should run in O(n) time and uses constant space. 3.2 解题思路拿到题目，看到O(n)时间第一反应就是空间换时间，但是看到后面要求空间复杂度O(1)的要求，才发现自己too young了;要在常数空间解决这个问题，首先想到的就是在原数组上都手脚，数组的索引对于解决问题具有很好的效果，可以从如何利用索引这个方向思考（算法题就是如此，思考可能的方向，一个方向想不通就换个方向思考），如果能把数组中值在索引范围内的元素放到对应索引位置，那么剩下的索引位置就是缺的元素；因为值要从1开始，所以索引0位置对应的值应为1，索引1位置对应值1。 3.3 实现代码12345678910111213141516171819202122232425262728public static int firstMissingPositive(int[] nums) &#123; if(nums == null || nums.length == 0) return 1; int temp = 0; for (int i = 0; i &lt; nums.length; i++) &#123; if(nums[i] &lt;= nums.length &amp;&amp; nums[i] &gt; 0)&#123;//当前值可以找到位置 if(nums[nums[i]-1] != nums[i])&#123;//要替换的位置是否已经有合适的值,没有才替换 temp = nums[nums[i]-1]; nums[nums[i]-1] = nums[i]; nums[i] = temp; i--;//执行过一次替换后需要把当前值再做处理 &#125; &#125; &#125; int result = 0; for (int i = 0; i &lt; nums.length; i++) &#123; if(nums[i] != i+1)&#123; result = i+1; break; &#125; &#125; if(result == 0)&#123; result = nums.length + 1; &#125; return result; &#125;]]></content>
@@ -101,16 +94,16 @@
 
     
     <entry>
-      <title><![CDATA[动态代理]]></title>
-      <url>%2F2016%2F11%2F26%2FProgramming-Summary%2F%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%2F</url>
-      <content type="text"><![CDATA[1. 代理的概念： 图中A是调用者，B是代理类，C是委托类，也称作被代理类。 代理类和被代理类一般实现相同的接口。 2. 动态代理 动态代理相关组件关系： 动态代理实现步骤: 创建委托类Operate接口和实现类OperateImpl 自定义中间类实现InvocationHandler接口方法bject invoke(Object proxy, Method method, Object[] args) throws Throwable;,InvocationHandler是中间类，在自动生成的代理类中会调用invoke方法，把接口的Method和参数传递过来，在invoke中使用OperateImpl的实例调用Method实现调用委托类。invoke的实现和具体委托类的方法无关，通过反射调用相关方法，method.invoke(target, args);。 调用(Operate)Proxy.newProxyInstance(ClassLoader loader, Class&lt;?&gt;[] interfaces,InvocationHandler invocationHandler)方法生成代理类实例，代理类已经实现委托类Operate接口，直接使用代理类实例的方法就可以调用委托类Operate的方法了。 调用链： 调用Proxy类的Operate接口–&gt;调用InvocationHandler的invoke方法，并传递Method实例和参数–&gt;在invoke内通过反射调用委托类实例的Method方法达到代理的目的 参考： 1.http://www.infoq.com/cn/articles/cf-java-reflection-dynamic-proxy2.http://a.codekk.com/detail/Android/Caij/%E5%85%AC%E5%85%B1%E6%8A%80%E6%9C%AF%E7%82%B9%E4%B9%8B%20Java%20%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86]]></content>
+      <title><![CDATA[Android Support Library]]></title>
+      <url>%2F2016%2F11%2F26%2FProgramming-Summary%2FAndroid%20Support%20Library%2F</url>
+      <content type="text"><![CDATA[主要分类 包名 用途 API级别 v4 Support Library 最基础的library，包含多方面的代码 4(1.6) v7 Support Library 有多个子包，比如MD的一些UI组件，调色板工具等 7(2.1) v8 Support Library RenderScript 高性能计算 8 v13 Support Library 更多的Fragment支持 13(3.2) v14 Support Library 配置列表支持 14 |v17 Support Library| for TV |17||Multidex Support Library| 解决65536方法数限制 |-||Annotations Support Library| 注解库 |-||Design Support Library| MD组件支持 |-||Custom tabs Support Library| 自定义Tab页面|-||Percent Support Library| 百分比UI |-||App Recommendation Support Library|for TV|-| 详见官方文档]]></content>
     </entry>
 
     
     <entry>
       <title><![CDATA[Java引用的分类]]></title>
       <url>%2F2016%2F11%2F25%2FProgramming-Summary%2FJava%E5%BC%95%E7%94%A8%E7%9A%84%E5%88%86%E7%B1%BB%2F</url>
-      <content type="text"><![CDATA[分类java中的引用分为4类，具体区别：(以上讨论的回收时机都是在引用还存在的前提下) 级别 回收时机 创建方式 强引用 只要强引用还存在，就不回收 new 软引用 内存不足才会被回收 SoftReference 弱引用 被GC发现就回收，即使内存还充足 WeakReference 虚引用|任何时候回收|PhantomReference 用途 在Android中使用WeakReference保存Fragment对象实例，内存不足时回收页面，在需要时再创建。]]></content>
+      <content type="text"><![CDATA[分类java中的引用分为4类，具体区别：(以上讨论的回收时机都是在引用还存在的前提下) 级别 回收时机 创建方式 强引用 只要强引用还存在，就不回收 new 软引用 内存不足才会被回收 SoftReference 弱引用 被GC发现就回收，即使内存还充足 WeakReference 虚引用|任何时候回收|PhantomReference 用途 在Android中使用WeakReference保存Fragment对象实例，内存不足时回收页面，在需要时再创建。 …]]></content>
     </entry>
 
     
@@ -122,8 +115,8 @@
 
     
     <entry>
-      <title><![CDATA[Lambda]]></title>
-      <url>%2F2016%2F11%2F20%2FProgramming-Summary%2FLambda%2F</url>
+      <title><![CDATA[Lambda表达式]]></title>
+      <url>%2F2016%2F11%2F20%2FProgramming-Summary%2FLambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%2F</url>
       <content type="text"><![CDATA[Outline Lambda定义和结构 java.util.function（java8功能性接口） java.util.stream（java8流式接口） 一、Lambda定义和结构 Lambda表达式的定义：Java8引入Lambda表达式的目的是简化内部类的使用，其实质仍然是一个函数或者接口的实现。 虽然称作Lambda表达式，但是不同于一般的可计算的表达式，Lambda表达式是一个接口（函数）的实现，也可以理解成匿名类的缩写。 注：对于一个接口如果有多个未实现的方法，则不能使用Lambda表达式，可以有default和static方法方法 基本结构：( 形式参数 ) -&gt; { 方法实现 } 形式参数的参数类型可以省去，编译器可以自动判断e.g.1Collections.sort(list, (x, y) -&gt; y - x) 上面代码中的Lambda表达式：(x, y) -&gt; y - x 实现的就是 java.util.Comparator 接口的compare(T o1, T o2);```方法，虽然代码中没有显式指明，但是编译器会自动根据语法规则判断，并在编译成字节码时应用这些规则。123456789##### 基本概念函数式接口。 如果一个接口定义个唯一一个抽象方法，那么这个接口就成为函数式接口，只有函数式接口才能使用Lambda表达式进行简化。方法引用 ClassName:: MethodName InstanceName:MethodName ClassName::new123456789接口默认方法，在实现接口时就不需要实现Default方法```javapublic interface IDefaultMethod &#123; String getString(); default int getInt()&#123; return 1024; &#125;&#125; 编译器自动推导类型 接口类型 方法参数类型 方法返回值类型 如果不能推导出来那就需要开发者显示指出 二、java.util.function（java8功能性接口） java.util.function是java8中提供便于Lambda编程的接口，包内全部为接口api文档 主要分为 Consumer（泛型输入，无输出） Function（泛型输入，泛型输出） Predicate（泛型输入，Boolean输出） Supplier(无输入，泛型输出) UnaryOperator(一元操作，输入一个T，返回一个T，因为继承Function) BinaryOperator(二元操作，输入两个T，返回一个T，因为继承BiFunction) 三、java.util.stream 流是一种基于集合这种数据源产生的，可以在其上处理一系列操作的对象。 扩展阅读 http://lucida.me/blog/java-8-lambdas-insideout-language-features/ http://www.oschina.net/translate/everything-about-java-8]]></content>
     </entry>
 
@@ -160,6 +153,13 @@
       <title><![CDATA[Python环境搭建]]></title>
       <url>%2F2016%2F10%2F23%2FProgramming-Summary%2FPython%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%2F</url>
       <content type="text"><![CDATA[1. 安装步骤1.1 安装环境MAC OS X EI Capitan(自带python2.7) 1.2 安装python3brew install python3 1.3 安装依赖(使用豆瓣源)pip install pythonModuleName -i https://pypi.douban.com/simple 1.4 依赖包路径 2. 开发环境使用Intellij IDEA Python插件开发。对于我平时写一写脚本，执行一些小操作完全够用了。]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[自定义UI-书架]]></title>
+      <url>%2F2016%2F08%2F02%2FProgramming-Summary%2F%E8%87%AA%E5%AE%9A%E4%B9%89UI-%E4%B9%A6%E6%9E%B6%2F</url>
+      <content type="text"><![CDATA[1. 效果图 2. 技术细节 事件冲突解决 坐标传递修正 拖动书记卡顿问题解决 拖动避让逻辑设计实现 … 3. 阅读王下载链接]]></content>
     </entry>
 
     

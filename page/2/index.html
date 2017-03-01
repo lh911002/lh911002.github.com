@@ -629,7 +629,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/28/Programming-Summary/Java并发/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/28/Programming-Summary/关于Java的锁机制/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Athrun">
@@ -654,8 +654,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/11/28/Programming-Summary/Java并发/" itemprop="url">
-                  Java并发
+                <a class="post-title-link" href="/2016/11/28/Programming-Summary/关于Java的锁机制/" itemprop="url">
+                  关于Java的锁机制
                 </a>
               
             
@@ -701,6 +701,17 @@
 
                 
                 
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/并发/" itemprop="url" rel="index">
+                    <span itemprop="name">并发</span>
+                  </a>
+                </span>
+
+                
+                
               
             </span>
           
@@ -712,8 +723,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/11/28/Programming-Summary/Java并发/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/28/Programming-Summary/Java并发/" itemprop="commentCount"></span>
+                <a href="/2016/11/28/Programming-Summary/关于Java的锁机制/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/28/Programming-Summary/关于Java的锁机制/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -723,7 +734,7 @@
 
           
           
-             <span id="/2016/11/28/Programming-Summary/Java并发/" class="leancloud_visitors" data-flag-title="Java并发">
+             <span id="/2016/11/28/Programming-Summary/关于Java的锁机制/" class="leancloud_visitors" data-flag-title="关于Java的锁机制">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -751,15 +762,12 @@
 
       
         
-          <pre><code>java.util.concurrent
-</code></pre><h3 id="1-锁"><a href="#1-锁" class="headerlink" title="1. 锁"></a>1. 锁</h3><h4 id="1-1-锁的种类"><a href="#1-1-锁的种类" class="headerlink" title="1.1 锁的种类"></a>1.1 锁的种类</h4><ul>
-<li>自旋锁：是将当前线程执行循环CAS</li>
-<li>可重入锁（可中断锁）：ReentrantLock 和synchronized 都是 可重入锁（<a href="http://www.iteedu.com/plang/java/superjava/threadsafe/lockInterruptibly.php）">http://www.iteedu.com/plang/java/superjava/threadsafe/lockInterruptibly.php）</a></li>
-</ul>
-<h4 id="1-2-Java中锁的实现"><a href="#1-2-Java中锁的实现" class="headerlink" title="1.2 Java中锁的实现"></a>1.2 Java中锁的实现</h4>
+          <p>在处理多进程（线程）环境下的临界区访问问题时候需要引入锁机制。</p>
+<h3 id="1-CAS操作"><a href="#1-CAS操作" class="headerlink" title="1. CAS操作"></a>1. CAS操作</h3><p>在介绍锁之前需要介绍一下CAS的概念，CAS是单词compare and set的缩写，意思是指在set之前先比较该值有没有变化（expect的值），只有在没变的情况下才对其赋值（update的值）。</p>
+<p>在java中的实现：</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2016/11/28/Programming-Summary/Java并发/#more" rel="contents">
+            <a class="btn" href="/2016/11/28/Programming-Summary/关于Java的锁机制/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2188,7 +2196,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

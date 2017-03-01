@@ -84,33 +84,22 @@
 
 
 
-<meta name="description" content="java.util.concurrent
-1. 锁1.1 锁的种类
-自旋锁：是将当前线程执行循环CAS
-可重入锁（可中断锁）：ReentrantLock 和synchronized 都是 可重入锁（http://www.iteedu.com/plang/java/superjava/threadsafe/lockInterruptibly.php）
-
-1.2 Java中锁的实现">
+<meta name="description" content="在处理多进程（线程）环境下的临界区访问问题时候需要引入锁机制。
+1. CAS操作在介绍锁之前需要介绍一下CAS的概念，CAS是单词compare and set的缩写，意思是指在set之前先比较该值有没有变化（expect的值），只有在没变的情况下才对其赋值（update的值）。
+在java中的实现：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java并发">
-<meta property="og:url" content="http://yoursite.com/2016/11/28/Programming-Summary/Java并发/index.html">
+<meta property="og:title" content="关于Java的锁机制">
+<meta property="og:url" content="http://yoursite.com/2016/11/28/Programming-Summary/关于Java的锁机制/index.html">
 <meta property="og:site_name" content="Athrun">
-<meta property="og:description" content="java.util.concurrent
-1. 锁1.1 锁的种类
-自旋锁：是将当前线程执行循环CAS
-可重入锁（可中断锁）：ReentrantLock 和synchronized 都是 可重入锁（http://www.iteedu.com/plang/java/superjava/threadsafe/lockInterruptibly.php）
-
-1.2 Java中锁的实现">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006y8lVagw1fbg0vwqfybj30ss0m40wp.jpg">
-<meta property="og:updated_time" content="2017-02-19T07:46:49.000Z">
+<meta property="og:description" content="在处理多进程（线程）环境下的临界区访问问题时候需要引入锁机制。
+1. CAS操作在介绍锁之前需要介绍一下CAS的概念，CAS是单词compare and set的缩写，意思是指在set之前先比较该值有没有变化（expect的值），只有在没变的情况下才对其赋值（update的值）。
+在java中的实现：">
+<meta property="og:updated_time" content="2017-03-01T09:14:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java并发">
-<meta name="twitter:description" content="java.util.concurrent
-1. 锁1.1 锁的种类
-自旋锁：是将当前线程执行循环CAS
-可重入锁（可中断锁）：ReentrantLock 和synchronized 都是 可重入锁（http://www.iteedu.com/plang/java/superjava/threadsafe/lockInterruptibly.php）
-
-1.2 Java中锁的实现">
-<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006y8lVagw1fbg0vwqfybj30ss0m40wp.jpg">
+<meta name="twitter:title" content="关于Java的锁机制">
+<meta name="twitter:description" content="在处理多进程（线程）环境下的临界区访问问题时候需要引入锁机制。
+1. CAS操作在介绍锁之前需要介绍一下CAS的概念，CAS是单词compare and set的缩写，意思是指在set之前先比较该值有没有变化（expect的值），只有在没变的情况下才对其赋值（update的值）。
+在java中的实现：">
 
 
 
@@ -138,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/11/28/Programming-Summary/Java并发/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/28/Programming-Summary/关于Java的锁机制/"/>
 
 
 
 
 
-  <title> Java并发 | Athrun </title>
+  <title> 关于Java的锁机制 | Athrun </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -300,7 +289,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/28/Programming-Summary/Java并发/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/28/Programming-Summary/关于Java的锁机制/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Athrun">
@@ -324,7 +313,7 @@
             
             
               
-                Java并发
+                关于Java的锁机制
               
             
           </h1>
@@ -369,6 +358,17 @@
 
                 
                 
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/并发/" itemprop="url" rel="index">
+                    <span itemprop="name">并发</span>
+                  </a>
+                </span>
+
+                
+                
               
             </span>
           
@@ -380,8 +380,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/11/28/Programming-Summary/Java并发/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/28/Programming-Summary/Java并发/" itemprop="commentCount"></span>
+                <a href="/2016/11/28/Programming-Summary/关于Java的锁机制/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/28/Programming-Summary/关于Java的锁机制/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -391,7 +391,7 @@
 
           
           
-             <span id="/2016/11/28/Programming-Summary/Java并发/" class="leancloud_visitors" data-flag-title="Java并发">
+             <span id="/2016/11/28/Programming-Summary/关于Java的锁机制/" class="leancloud_visitors" data-flag-title="关于Java的锁机制">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -418,47 +418,43 @@
       
 
       
-        <pre><code>java.util.concurrent
-</code></pre><h3 id="1-锁"><a href="#1-锁" class="headerlink" title="1. 锁"></a>1. 锁</h3><h4 id="1-1-锁的种类"><a href="#1-1-锁的种类" class="headerlink" title="1.1 锁的种类"></a>1.1 锁的种类</h4><ul>
-<li>自旋锁：是将当前线程执行循环CAS</li>
-<li>可重入锁（可中断锁）：ReentrantLock 和synchronized 都是 可重入锁（<a href="http://www.iteedu.com/plang/java/superjava/threadsafe/lockInterruptibly.php）" target="_blank" rel="external">http://www.iteedu.com/plang/java/superjava/threadsafe/lockInterruptibly.php）</a></li>
-</ul>
-<h4 id="1-2-Java中锁的实现"><a href="#1-2-Java中锁的实现" class="headerlink" title="1.2 Java中锁的实现"></a>1.2 Java中锁的实现</h4><a id="more"></a>
-<ul>
+        <p>在处理多进程（线程）环境下的临界区访问问题时候需要引入锁机制。</p>
+<h3 id="1-CAS操作"><a href="#1-CAS操作" class="headerlink" title="1. CAS操作"></a>1. CAS操作</h3><p>在介绍锁之前需要介绍一下CAS的概念，CAS是单词compare and set的缩写，意思是指在set之前先比较该值有没有变化（expect的值），只有在没变的情况下才对其赋值（update的值）。</p>
+<p>在java中的实现：</p>
+<a id="more"></a>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">compareAndSet</span><span class="params">(V expect, V update)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> unsafe.compareAndSwapObject(<span class="keyword">this</span>, valueOffset, expect, update);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>unsafe.compareAndSwapObject调用的是native方法</p>
+<p><a href="http://www.infoq.com/cn/articles/atomic-operation" target="_blank" rel="external">关于原子操作</a></p>
+<h3 id="2-锁的种类"><a href="#2-锁的种类" class="headerlink" title="2. 锁的种类"></a>2. 锁的种类</h3><p>锁的种类有很多，常见的分为以下几种：</p>
+<h4 id="2-1-自旋锁"><a href="#2-1-自旋锁" class="headerlink" title="2.1. 自旋锁"></a>2.1. 自旋锁</h4><p>获取锁的时候循环执行CAS(compareAndSet)，直到获取锁。</p>
+<p>由于自旋锁只是将当前线程不停地执行循环体，<strong>不进行线程状态的改变</strong>，所以响应速度更快。但当线程数不停增加时，性能下降明显，因为每个线程都需要执行，占用CPU时间。如果线程竞争不激烈，并且保持锁的时间短。适合使用自旋锁。</p>
+<h4 id="2-2-阻塞锁"><a href="#2-2-阻塞锁" class="headerlink" title="2.2. 阻塞锁"></a>2.2. 阻塞锁</h4><p>顾名思义，在获取锁时使<strong>当前线程进入阻塞状态</strong>，当获得相应的信号（唤醒，时间） 时，才可以进入线程的准备就绪状态，准备就绪状态的所有线程，通过竞争，进入运行状态。</p>
+<p>JAVA中，能够进入\退出、阻塞状态或包含阻塞锁的方法有 ，synchronized 关键字（其中的重量锁），ReentrantLock，Object.wait()\notify(),LockSupport.park()/unpart()。</p>
+<p>在竞争激烈的情况下 阻塞锁的性能要明显高于 自旋锁。</p>
+<h4 id="2-3-可重入锁（递归锁）"><a href="#2-3-可重入锁（递归锁）" class="headerlink" title="2.3. 可重入锁（递归锁）"></a>2.3. 可重入锁（递归锁）</h4><p>指的是同一线程 外层函数获得锁之后 ，内层递归函数仍然有获取该锁的代码，但不受影响。</p>
+<p>如果是自旋锁，在重入时就会进入无限循环，所以自旋锁是不可重入锁。</p>
+<p>ReentrantLock 和synchronized 都是 可重入锁.</p>
+<p>可重入锁最大的作用是避免死锁.</p>
+<h4 id="2-4-悲观锁和乐观锁"><a href="#2-4-悲观锁和乐观锁" class="headerlink" title="2.4 悲观锁和乐观锁"></a>2.4 悲观锁和乐观锁</h4><p>悲观锁(Pessimistic Lock)： 顾名思义，就是很悲观，每次去拿数据的时候都认为别人会修改，所以每次在拿数据的时候都会上锁，这样别人想拿这个数据就会block直到它拿到锁。传统的关系型数据库里边就用到了很多这种锁机制，比如行锁，表锁等，读锁，写锁等，都是在做操作之前先上锁。</p>
+<p>乐观锁(Optimistic Lock)：顾名思义，就是很乐观，每次去拿数据的时候都认为别人不会修改，所以不会上锁，但是在更新的时候会判断一下在此期间别人有没有去更新这个数据，可以使用版本号等机制。</p>
+<h4 id="2-5-公平锁和非公平锁"><a href="#2-5-公平锁和非公平锁" class="headerlink" title="2.5 公平锁和非公平锁"></a>2.5 公平锁和非公平锁</h4><p>公平锁：每个线程抢占锁的顺序为先后调用lock方法的顺序依次获取锁。</p>
+<p>非公平锁：每个线程抢占锁的顺序不定，谁运气好，谁就获取到锁，和调用lock方法的先后顺序无关。</p>
+<h3 id="3-Java中锁的实现"><a href="#3-Java中锁的实现" class="headerlink" title="3 Java中锁的实现"></a>3 Java中锁的实现</h3><ul>
 <li>循环CAS(compareAndSet缩写)实现自旋锁</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">    public class SpinLock &#123;</div><div class="line"></div><div class="line">  private AtomicReference&lt;Thread&gt; sign =new AtomicReference&lt;&gt;();</div><div class="line"></div><div class="line">  public void lock()&#123;</div><div class="line">       Thread current = Thread.currentThread();</div><div class="line">       while(!sign .compareAndSet(null, current))&#123;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  public void unlock ()&#123;</div><div class="line">    Thread current = Thread.currentThread();</div><div class="line">    sign .compareAndSet(current, null);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpinLock</span> </span>&#123;</div><div class="line">  <span class="keyword">private</span> AtomicReference&lt;Thread&gt; sign =<span class="keyword">new</span> AtomicReference&lt;&gt;();</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">lock</span><span class="params">()</span></span>&#123;</div><div class="line">       Thread current = Thread.currentThread();</div><div class="line">       <span class="keyword">while</span>(!sign .compareAndSet(<span class="keyword">null</span>, current))&#123;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">unlock</span> <span class="params">()</span></span>&#123;</div><div class="line">    Thread current = Thread.currentThread();</div><div class="line">    sign .compareAndSet(current, <span class="keyword">null</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
 <li>使用synchronized和wait notify实现锁</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">public class Lock&#123;</div><div class="line">    private boolean isLocked = false;</div><div class="line">    public synchronized void lock() throws InterruptedException&#123;</div><div class="line">        while(isLocked)&#123;    //不用if，而用while，是为了防止假唤醒</div><div class="line">            wait();</div><div class="line">        &#125;</div><div class="line">        isLocked = true;</div><div class="line">    &#125;</div><div class="line">    public synchronized void unlock()&#123;</div><div class="line">        isLocked = false;</div><div class="line">        notify();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Lock</span></span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> isLocked = <span class="keyword">false</span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">lock</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException</span>&#123;</div><div class="line">        <span class="keyword">while</span>(isLocked)&#123;    <span class="comment">//不用if，而用while，是为了防止假唤醒</span></div><div class="line">            wait();</div><div class="line">        &#125;</div><div class="line">        isLocked = <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">unlock</span><span class="params">()</span></span>&#123;</div><div class="line">        isLocked = <span class="keyword">false</span>;</div><div class="line">        notify();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>使用方法</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">public class Counter&#123;</div><div class="line">    private Lock lock = new Lock();</div><div class="line">    private int count = 0;</div><div class="line">    public int inc()&#123;</div><div class="line">        lock.lock();</div><div class="line">        this.count++;</div><div class="line">        lock.unlock();</div><div class="line">        return count;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="2-synchronized"><a href="#2-synchronized" class="headerlink" title="2. synchronized"></a>2. <a href="http://www.jianshu.com/p/29854dc7bd86" target="_blank" rel="external">synchronized</a></h3><h3 id="3-wait-notify-sleep"><a href="#3-wait-notify-sleep" class="headerlink" title="3.wait,notify,sleep"></a>3.wait,notify,sleep</h3><ul>
+<h3 id="4-synchronized"><a href="#4-synchronized" class="headerlink" title="4. synchronized"></a>4. <a href="http://www.jianshu.com/p/29854dc7bd86" target="_blank" rel="external">synchronized</a></h3><h3 id="5-wait-notify-sleep"><a href="#5-wait-notify-sleep" class="headerlink" title="5. wait,notify,sleep"></a>5. wait,notify,sleep</h3><ul>
 <li>wait和notify都是释放锁，sleep不释放</li>
 <li>synchronized()的代码块中运行完就释放锁了</li>
 <li>wait和notify必须先获得唯一控制权，一般用加锁实现</li>
 </ul>
-<h3 id="4-线程池"><a href="#4-线程池" class="headerlink" title="4. 线程池"></a>4. 线程池</h3><h4 id="4-1-线程池分类"><a href="#4-1-线程池分类" class="headerlink" title="4.1 线程池分类"></a>4.1 线程池分类</h4><p>按照线程池是否固定大小，可以将线程池分为一下两类：</p>
-<ul>
-<li><p>固定大小的线程池</p>
-<ul>
-<li>newFixedThreadPool</li>
-<li>newScheduledThreadPool（newFixedThreadPool的扩展，可以指定线程数，同时可以指定任务执行的起始时间和时间间隔）</li>
-<li>newSingleThreadExecutor（也是newFixedThreadPool的特例，固定大小为1）</li>
-</ul>
-</li>
-<li><p>不固定大小的线程池</p>
-<ul>
-<li>newCachedThreadPool</li>
-</ul>
-</li>
-</ul>
-<h4 id="4-2-创建线程池"><a href="#4-2-创建线程池" class="headerlink" title="4.2 创建线程池"></a>4.2 创建线程池</h4><p>通过Executors类创建ExecutorService.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ExecutorService realExecutor = Executors.newSingleThreadExecutor();</div><div class="line">realExecutor.execute(runnable);</div></pre></td></tr></table></figure>
-<p>ExecutorService相关类和接口关系：</p>
-<p><img src="http://ww1.sinaimg.cn/large/006y8lVagw1fbg0vwqfybj30ss0m40wp.jpg" alt=""></p>
-<h3 id="5-阻塞队列"><a href="#5-阻塞队列" class="headerlink" title="5. 阻塞队列"></a>5. 阻塞队列</h3><p>借助Lock实现</p>
+<h3 id="6-锁的应用"><a href="#6-锁的应用" class="headerlink" title="6. 锁的应用"></a>6. 锁的应用</h3><h4 id="6-1-阻塞队列"><a href="#6-1-阻塞队列" class="headerlink" title="6.1. 阻塞队列"></a>6.1. 阻塞队列</h4><p>借助Lock实现</p>
 <h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><ul>
 <li><a href="http://blog.csdn.net/chen77716/article/details/6618779" target="_blank" rel="external">深入JVM锁</a></li>
 </ul>
@@ -521,10 +517,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/11/28/Programming-Summary/Java并发/"
-     data-title="Java并发"
+        <div class="ds-share flat" data-thread-key="2016/11/28/Programming-Summary/关于Java的锁机制/"
+     data-title="关于Java的锁机制"
      data-content=""
-     data-url="http://yoursite.com/2016/11/28/Programming-Summary/Java并发/">
+     data-url="http://yoursite.com/2016/11/28/Programming-Summary/关于Java的锁机制/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -551,8 +547,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/28/Programming-Summary/Java并发/"
-           data-title="Java并发" data-url="http://yoursite.com/2016/11/28/Programming-Summary/Java并发/">
+      <div class="ds-thread" data-thread-key="2016/11/28/Programming-Summary/关于Java的锁机制/"
+           data-title="关于Java的锁机制" data-url="http://yoursite.com/2016/11/28/Programming-Summary/关于Java的锁机制/">
       </div>
     
   </div>
@@ -608,7 +604,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -663,7 +659,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-锁"><span class="nav-text">1. 锁</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-锁的种类"><span class="nav-text">1.1 锁的种类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-Java中锁的实现"><span class="nav-text">1.2 Java中锁的实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-synchronized"><span class="nav-text">2. synchronized</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-wait-notify-sleep"><span class="nav-text">3.wait,notify,sleep</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-线程池"><span class="nav-text">4. 线程池</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-线程池分类"><span class="nav-text">4.1 线程池分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-创建线程池"><span class="nav-text">4.2 创建线程池</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-阻塞队列"><span class="nav-text">5. 阻塞队列</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-CAS操作"><span class="nav-text">1. CAS操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-锁的种类"><span class="nav-text">2. 锁的种类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-自旋锁"><span class="nav-text">2.1. 自旋锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-阻塞锁"><span class="nav-text">2.2. 阻塞锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-可重入锁（递归锁）"><span class="nav-text">2.3. 可重入锁（递归锁）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-悲观锁和乐观锁"><span class="nav-text">2.4 悲观锁和乐观锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-公平锁和非公平锁"><span class="nav-text">2.5 公平锁和非公平锁</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Java中锁的实现"><span class="nav-text">3 Java中锁的实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-synchronized"><span class="nav-text">4. synchronized</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-wait-notify-sleep"><span class="nav-text">5. wait,notify,sleep</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-锁的应用"><span class="nav-text">6. 锁的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-阻塞队列"><span class="nav-text">6.1. 阻塞队列</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

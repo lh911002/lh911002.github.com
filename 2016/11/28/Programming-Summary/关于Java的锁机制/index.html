@@ -94,7 +94,7 @@
 <meta property="og:description" content="在处理多进程（线程）环境下的临界区访问问题时候需要引入锁机制。
 1. CAS操作在介绍锁之前需要介绍一下CAS的概念，CAS是单词compare and set的缩写，意思是指在set之前先比较该值有没有变化（expect的值），只有在没变的情况下才对其赋值（update的值）。
 在java中的实现：">
-<meta property="og:updated_time" content="2017-03-01T09:14:19.000Z">
+<meta property="og:updated_time" content="2017-03-30T14:51:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于Java的锁机制">
 <meta name="twitter:description" content="在处理多进程（线程）环境下的临界区访问问题时候需要引入锁机制。
@@ -430,7 +430,7 @@
 <p>由于自旋锁只是将当前线程不停地执行循环体，<strong>不进行线程状态的改变</strong>，所以响应速度更快。但当线程数不停增加时，性能下降明显，因为每个线程都需要执行，占用CPU时间。如果线程竞争不激烈，并且保持锁的时间短。适合使用自旋锁。</p>
 <h4 id="2-2-阻塞锁"><a href="#2-2-阻塞锁" class="headerlink" title="2.2. 阻塞锁"></a>2.2. 阻塞锁</h4><p>顾名思义，在获取锁时使<strong>当前线程进入阻塞状态</strong>，当获得相应的信号（唤醒，时间） 时，才可以进入线程的准备就绪状态，准备就绪状态的所有线程，通过竞争，进入运行状态。</p>
 <p>JAVA中，能够进入\退出、阻塞状态或包含阻塞锁的方法有 ，synchronized 关键字（其中的重量锁），ReentrantLock，Object.wait()\notify(),LockSupport.park()/unpart()。</p>
-<p>在竞争激烈的情况下 阻塞锁的性能要明显高于 自旋锁。</p>
+<p>在竞争激烈的情况下阻塞锁的性能要明显高于自旋锁。</p>
 <h4 id="2-3-可重入锁（递归锁）"><a href="#2-3-可重入锁（递归锁）" class="headerlink" title="2.3. 可重入锁（递归锁）"></a>2.3. 可重入锁（递归锁）</h4><p>指的是同一线程 外层函数获得锁之后 ，内层递归函数仍然有获取该锁的代码，但不受影响。</p>
 <p>如果是自旋锁，在重入时就会进入无限循环，所以自旋锁是不可重入锁。</p>
 <p>ReentrantLock 和synchronized 都是 可重入锁.</p>

@@ -98,7 +98,7 @@ NO.1
 问题描述：home键或者其他方式程序进入后台后，一段时间回到前台界面显示信息出错
 原因分析：由于app进入后台时间太久没有唤起，被系统回收
 问题解决：在application类的on">
-<meta property="og:updated_time" content="2017-03-30T14:51:53.000Z">
+<meta property="og:updated_time" content="2017-07-23T06:22:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android常见问题以及解决">
 <meta name="twitter:description" content="Android开发中总会遇到很多问题，其中的一些问题在解决中会发现，这些问题没有准确的报错信息，或者不方便调试，千辛万苦找到问题解决方法，以后再遇到还有可能忘记。所以，在这里对自己遇到的一些问题做一个记录。
@@ -426,6 +426,18 @@ NO.1
 <li><strong>问题解决：</strong>通过对Activity的状态进行监听确定是否显示dialog，见代码</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">boolean</span> isActive = <span class="keyword">true</span>;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">super</span>.onResume();</div><div class="line">    isActive = <span class="keyword">true</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPause</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">super</span>.onPause();</div><div class="line">    isActive = <span class="keyword">false</span>;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">activityIsActivity</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">return</span> isActive;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showAlertDialog</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>(activityIsActive())  <span class="comment">//只有窗体处于活动状态时执行此程序</span></div><div class="line">    &#123;</div><div class="line">        AlertDialog.Builder builder = <span class="keyword">new</span> AlertDialog.Builder(activity);</div><div class="line">        builder.setTitle(<span class="string">"hello world"</span>)</div><div class="line">               .setCancelable(<span class="keyword">false</span>)</div><div class="line">               .setMessage(<span class="string">"Hello"</span>);</div><div class="line">    	builder.create().show();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="NO-3-混淆填坑记"><a href="#NO-3-混淆填坑记" class="headerlink" title="NO.3 混淆填坑记"></a>NO.3 混淆填坑记</h4><ul>
+<li><p><strong>问题描述：</strong>集成某第三方SDK后（这也是后来才发现），一堆jar包，生产包打不出来，测试包可以。</p>
+</li>
+<li><p><strong>原因分析：</strong>初步定位为混淆问题，查看jenkins失败日志，确定确实是混淆出错，发现类似如下日志：</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Warning: org.bouncycastle.mail.smime.handlers.PKCS7ContentHandler: can&apos;t find referenced class java.awt.datatransfer.DataFlavor</div><div class="line">Warning: org.bouncycastle.mail.smime.handlers.PKCS7ContentHandler: can&apos;t find referenced class java.awt.datatransfer.DataFlavor</div><div class="line">Warning: org.bouncycastle.mail.smime.handlers.PKCS7ContentHandler: can&apos;t find referenced class java.awt.datatransfer.DataFlavor</div><div class="line">Warning: org.bouncycastle.mail.smime.handlers.PKCS7ContentHandler: can&apos;t find referenced class java.awt.datatransfer.DataFlavor</div></pre></td></tr></table></figure>
+<p>通过<code>PKCS7ContentHandler</code>定位到新集成的SDK，发现新SDK的集成文档中关于混淆的规则出现缺失，确实的就是<code>org.bouncycastle</code>包的内容。</p>
+<ul>
+<li><strong>问题解决：</strong>在<code>proguard-rules.pro</code>文件中添加</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">-keep class org.bouncycastle.** &#123;*;&#125;</div><div class="line">-dontwarn org.bouncycastle.**</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -627,7 +639,7 @@ NO.1
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#NO-1"><span class="nav-text">NO.1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NO-2"><span class="nav-text">NO.2</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#NO-1"><span class="nav-text">NO.1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NO-2"><span class="nav-text">NO.2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NO-3-混淆填坑记"><span class="nav-text">NO.3 混淆填坑记</span></a></li></ol></div>
             
 
           </div>

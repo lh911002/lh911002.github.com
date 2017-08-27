@@ -10,6 +10,13 @@
 
     
     <entry>
+      <title><![CDATA[性能优化系列(一)APK瘦身]]></title>
+      <url>%2F2017%2F06%2F21%2FProgramming-Summary%2F%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%B3%BB%E5%88%97(%E4%B8%80)APK%E7%98%A6%E8%BA%AB%2F</url>
+      <content type="text"><![CDATA[1. 背景APK的大小直接影响用户使用APP的第一体验，是给用户留下的第一个印象。 2. 瘦身的原则 移除没有使用的资源：移除那些从来没有使用的资源； 优化很少使用的资源：对于那些很少使用的资源可以考虑其它的替代和实现方式，比如对于项目中很少使用的一个第三方控件可以考虑使用自己实现的方式替换，最终将很少使用的资源也移除掉。 优化必须使用的资源：对于必须使用的资源，采用压缩等优化方式降低占用空间； 3. 具体实践说到底，要对APK进行瘦身，我们可以从哪些方面入手？ 使用Android studio 的 Build-&gt;Analyze APK功能分析APK的构成如下图： 可以看出影响apk的主要因素： so文件 dex文件 res，主要是图片 3.1 so文件 启用abiFilter 只使用一个CPU架构，推荐armeabi-v7a，覆盖范围广，并且相对于armeabi对性能有优化 3.2 dex优化 减少不必要的依赖，合并功能重叠的依赖 proguard混淆规则优化 redex，redex优化后可能会发生崩溃，需要进行全面回归。 redex优化效果 3.3 res优化主要是图片优化 删除无用资源 只使用一套图，推荐xhdpi tinypng AndResGuard]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[Android滑动冲突场景分析]]></title>
       <url>%2F2017%2F02%2F11%2FProgramming-Summary%2FAndroid%E6%BB%91%E5%8A%A8%E5%86%B2%E7%AA%81%E5%9C%BA%E6%99%AF%E5%88%86%E6%9E%90%2F</url>
       <content type="text"><![CDATA[1. 知识准备要解决滑动冲突的问题，首先需要了解触摸事件的传递。Android触摸事件的传递遵循自顶向下，自底向上的准则。首先，事件从最顶层（最外层）Activity/View通过dispatchTouchEvent(MotionEvent ev)方法向内层View传递，当传递到底层View（非ViewGroup）时候通过onTouchEvent(MotionEvent event)判断是否处理触摸事件，如果不消费，上层View就有机会消费；如果被消费，那么上层View将不再执行onTouchEvent(MotionEvent event)；另外，OnTouchListener.onTouch()优先于当前View的onTouchEvent方法执行。 from question on stackoverflow.com 2. 场景场景1. ScrollView（垂直滚动）内嵌ViewPager（水平滑动） 解决方法： 方法一： 在ScrollView的onInterceptTouchEvent方法中判断滑动的方向和距离，当判断水平滑动时取消拦截事件，返回false方法二： 当无法修改ScrollView的代码时，在ViewPager中通过getParent获取ScrollView对象，并调用requestDisallowInterceptTouchEvent方法禁用拦截事件 场景2. ViewPager（水平）内嵌套ViewPager（水平）（例如：Tab内嵌入Banner）解决方法： 方法一： 在内部ViewPager接受到事件时就调用requestDisallowInterceptTouchEvent方法禁用外部ViewPager的拦截事件机制。常见实现如下： 1234567891011public boolean onTouch(View v, MotionEvent event) &#123; switch (event.getAction()) &#123; case MotionEvent.ACTION_MOVE: getParent().requestDisallowInterceptTouchEvent(true); break; case MotionEvent.ACTION_UP: case MotionEvent.ACTION_CANCEL: getParent().requestDisallowInterceptTouchEvent(false); break; &#125;&#125; 方法二： 在外部ViewPager中判断触摸区域是否在内部ViewPager内，如果在就在onInterceptTouchEvent返回false，将事件传递给内部ViewPager处理 3. 总结事件冲突的一般性情况就是事件被错误的View消费掉了，导致这种情况的原因大致可以分为两种： 被上层View拦截 被下层View消费 针对这两种情况以及并灵活使用下面的方法就可以解决大部分事件冲突的问题： 1234requestDisallowInterceptTouchEvent(boolean disallowIntercept) 禁用或者启用拦截事件的机制onInterceptTouchEvent(MotionEvent ev) 定义是否拦截事件的返回值onTouchEvent() 当前View事件处理OnTouchListener.onTouch() 当前View的触摸监听]]></content>
@@ -145,7 +152,7 @@
     <entry>
       <title><![CDATA[提升开发效率的工具]]></title>
       <url>%2F2016%2F10%2F31%2FProgramming-Summary%2F%E6%8F%90%E5%8D%87%E5%BC%80%E5%8F%91%E6%95%88%E7%8E%87%E7%9A%84%E5%B7%A5%E5%85%B7%2F</url>
-      <content type="text"><![CDATA[1. Chrome 插件 Postman 新浪微博图床 广告终结者 Scroll to top OneTab 一键存储带打开的网页 2. 在线工具 github star管理工具 gist 管理工具 正则 Linux命令大全 3. Mac 鼠标辅助工具 smoothmouse scrollreverser oh-my-zsh 优化命令行显示效果和操作 Instant Translate 即时翻译 Navicat Premium 数据库工具 Beyond Compare 文件对比工具 SourceTree git可视化工具 Cornerstone svn可视化工具 Alfred 3 MWeb markdown写作工具 iPic 图床工具 SiteSucker 整站下载工具，适合技术博客下载 Sip 拾色器 Kap 录屏工具，输出gif Moom 窗口布局管理工具 NewFileMenu Finder扩展，右键新建文件 4. Android Studio 插件 FindViewByMe 自动根据xml文件生成findView代码 GsonFormat 转换JSON格式到Java类 Markdown Navigator 支持markdown预览 Statistic 代码统计插件 CheckStyle-IDEA]]></content>
+      <content type="text"><![CDATA[1. Chrome 插件 Postman SwitchyOmega Chrome代理配置神器，自动代理情景模式配合AutoProxy不能更酸爽（不过首先你需要一个代理服务器） 新浪微博图床 广告终结者 OneTab 一键存储带打开的网页 2. 在线工具 github star管理工具 gist 管理工具 正则 Linux命令大全 3. Mac 鼠标辅助工具 smoothmouse scrollreverser oh-my-zsh 优化命令行显示效果和操作 Instant Translate 即时翻译 Navicat Premium 数据库工具 Beyond Compare 文件对比工具 SourceTree git可视化工具 Cornerstone svn可视化工具 Alfred 3 MWeb markdown写作工具 iPic 图床工具 SiteSucker 整站下载工具，适合技术博客下载 Sip 拾色器 Kap 录屏工具，输出gif Moom 窗口布局管理工具 NewFileMenu Finder扩展，右键新建文件 4. Android Studio 插件 FindViewByMe 自动根据xml文件生成findView代码 GsonFormat 转换JSON格式到Java类 Markdown Navigator 支持markdown预览 Statistic 代码统计插件 CheckStyle-IDEA]]></content>
     </entry>
 
     
